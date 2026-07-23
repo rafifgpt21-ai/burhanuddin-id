@@ -27,12 +27,6 @@ export function HomePage({ locale }: { locale: Locale }) {
     <main id="konten-utama">
       <section className="hero">
         <div className="hero-grid hero-shell shell">
-          <aside className="hero-index" aria-label={copy.indexLabel}>
-            <span>{copy.index}</span>
-            <strong>{copy.indexRange}</strong>
-            <span>{copy.indexTopic}</span>
-          </aside>
-
           <div className="hero-copy">
             <p className="eyebrow hero-eyebrow">{copy.eyebrow}</p>
             <h1>
@@ -73,8 +67,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               />
             </div>
             <figcaption>
-              <span>{copy.portraitLabel}</span>
-              <strong>{copy.portraitTopic}</strong>
+              <span>{copy.portraitTopic}</span>
             </figcaption>
           </figure>
         </div>
@@ -87,7 +80,6 @@ export function HomePage({ locale }: { locale: Locale }) {
             const Icon = collectionIcons[item.icon];
             return (
               <Link href={getRoutePath(locale, item.route)} key={item.route}>
-                <span className="collection-code">{item.code}</span>
                 <span className="collection-icon" aria-hidden="true">
                   <Icon />
                 </span>
