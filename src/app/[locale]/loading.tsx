@@ -4,8 +4,8 @@ export default function Loading() {
       <div className="shell">
         <div className="empty-state">
           <div>
-            <p className="eyebrow">Memuat · Loading</p>
-            <h2>Menyiapkan koleksi… · Preparing the collection…</h2>
+            <p className="eyebrow">Arsip · Archive</p>
+            <h2>Memuat koleksi… · Loading the collection…</h2>
           </div>
         </div>
       </div>

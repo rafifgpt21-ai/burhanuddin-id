@@ -14,13 +14,13 @@ export default function NotFound() {
       ? {
           eyebrow: "404 · Arsip tidak ditemukan",
           title: "Halaman ini tidak ada atau sudah dipindahkan.",
-          description: "Kembali ke beranda atau mulai pencarian dari repositori materi.",
+          description: "Kembali ke beranda atau buka indeks materi perkuliahan.",
           action: "Kembali ke beranda",
         }
       : {
           eyebrow: "404 · Archive not found",
           title: "This page does not exist or has moved.",
-          description: "Return home or start again from the course-material repository.",
+          description: "Return home or open the course-material index.",
           action: "Return home",
         };
 

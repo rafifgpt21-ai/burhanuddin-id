@@ -3,12 +3,12 @@ import type { Locale } from "@/lib/i18n";
 const copy = {
   id: {
     login: {
-      eyebrow: "Ruang kerja privat",
+      eyebrow: "Ruang editorial privat",
       title: "Masuk sebagai editor",
-      intro: "Kelola materi kuliah, agenda, dan rekam publikasi dalam satu meja kerja.",
+      intro: "Pengelolaan materi kuliah, agenda, dan rekam publikasi.",
       email: "Email admin",
       password: "Kata sandi",
-      submit: "Masuk ke ruang kerja",
+      submit: "Masuk ke ruang editorial",
       pending: "Memeriksa akses…",
       back: "Kembali ke situs publik",
       privacy: "Sesi privat berakhir otomatis setelah 8 jam.",
@@ -24,12 +24,12 @@ const copy = {
   },
   en: {
     login: {
-      eyebrow: "Private workspace",
+      eyebrow: "Private editorial area",
       title: "Sign in as editor",
-      intro: "Manage course materials, agenda entries, and publication records from one workspace.",
+      intro: "Editorial management for course materials, agenda entries, and publication records.",
       email: "Admin email",
       password: "Password",
-      submit: "Enter workspace",
+      submit: "Enter editorial area",
       pending: "Checking access…",
       back: "Return to the public site",
       privacy: "Private sessions expire automatically after 8 hours.",
