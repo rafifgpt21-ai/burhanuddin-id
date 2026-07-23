@@ -207,25 +207,56 @@ const id = {
   },
   about: {
     metadataTitle: "Tentang",
-    metadataDescription: "Profil akademik singkat Burhanuddin Muhtadi.",
-    eyebrow: "Profil akademik",
-    title: "Profil Akademik",
+    metadataDescription:
+      "Profil lengkap Prof. Burhanuddin Muhtadi: biografi, pendidikan, karier, penghargaan, karya ilmiah, dan bidang kajian.",
+    eyebrow: "Ilmuwan politik Indonesia",
+    title: "Burhanuddin Muhtadi",
     description:
-      "Latar akademik, peran saat ini, dan bidang kajian Burhanuddin Muhtadi berdasarkan CV Maret 2026.",
-    index: "Profil",
-    indexLabel: "Ditinjau Maret 2026",
+      "Biografi, perjalanan akademik, karier, penghargaan, dan jejak ilmiah—ditelusuri dari Wikipedia dan diperbarui dengan sumber resmi.",
+    index: "Dossier 1977—kini",
+    indexLabel: "Ditinjau 23 Juli 2026",
+    photoAlt: "Potret resmi Prof. Burhanuddin Muhtadi",
     photoCaption:
       "Foto disediakan pemilik situs. Keterangan kredit akhir perlu dikonfirmasi sebelum peluncuran publik.",
-    paragraphs: [
-      "Burhanuddin Muhtadi adalah Profesor Ilmu Politik di FISIP UIN Syarif Hidayatullah Jakarta yang meneliti pemilu, perilaku politik, demokrasi, dan opini publik di Indonesia.",
-      "Pekerjaan akademik dan publiknya menjembatani penelitian ilmiah, pendidikan, dan pembacaan data politik untuk khalayak yang lebih luas. Situs ini disusun sebagai arsip kerja yang mengutamakan materi untuk mahasiswa, tulisan, serta rekam publikasi.",
+    contentsLabel: "Jelajahi profil",
+    contents: [
+      { href: "#biografi", label: "Biografi" },
+      { href: "#peran", label: "Peran saat ini" },
+      { href: "#pendidikan", label: "Pendidikan" },
+      { href: "#karier", label: "Jejak karier" },
+      { href: "#penghargaan", label: "Penghargaan" },
+      { href: "#karya", label: "Karya ilmiah" },
+      { href: "#sumber", label: "Sumber profil" },
     ],
+    biographyTitle: "Biografi",
     rolesTitle: "Peran saat ini",
-    roleDates: ["2010—kini", "2013—kini", "2021—kini"],
     educationTitle: "Pendidikan",
-    education:
-      "Ph.D. dalam Ilmu Politik dan M.A. dalam Asian Studies dari Australian National University, serta pendidikan sarjana di UIN Syarif Hidayatullah Jakarta.",
+    careerTitle: "Jejak karier & organisasi",
+    careerIntro:
+      "Riwayat berikut mempertahankan pengalaman awal yang dicatat Wikipedia sekaligus menempatkan jabatan mutakhir dari CV Maret 2026 dan sumber institusi resmi.",
+    awardsTitle: "Penghargaan & fellowship",
     researchTitle: "Bidang kajian",
+    recentWorksTitle: "Karya mutakhir",
+    recentWorksIntro:
+      "Tambahan penting setelah rentang karya di Wikipedia, berdasarkan CV Maret 2026.",
+    wikipediaWorksTitle: "Karya yang tercatat di Wikipedia",
+    wikipediaWorksIntro:
+      "Daftar ini mempertahankan karya buku, artikel jurnal, dan bab buku yang disebut dalam laman Wikipedia. Rekam bibliografi yang lebih mutakhir tersedia di indeks Publikasi.",
+    bibliographyLabels: {
+      books: "Buku",
+      journals: "Artikel jurnal",
+      chapters: "Bab buku",
+    },
+    publicationAction: "Buka indeks publikasi lengkap",
+    talksTitle: "Forum akademik pilihan",
+    talksIntro:
+      "Beberapa undangan berbicara mutakhir yang membantu menggambarkan jangkauan kerja akademiknya.",
+    sourcesTitle: "Sumber & catatan editorial",
+    sourcesIntro:
+      "Profil ini dirangkum, bukan disalin, dari Wikipedia bahasa Indonesia. Jabatan, pendidikan tinggi, karya mutakhir, dan penghargaan tambahan diperiksa terhadap CV Maret 2026 serta laman institusi resmi.",
+    sourceReview:
+      "Klaim yang bersifat waktu ditinjau 23 Juli 2026. Daftar riwayat lama mengikuti atribusi sumber dan tidak otomatis dianggap sebagai jabatan aktif.",
+    externalLinkLabel: "Buka profil",
   },
   admin: {
     metadataTitle: "Akses editor",
@@ -448,25 +479,56 @@ const en = {
   },
   about: {
     metadataTitle: "About",
-    metadataDescription: "A concise academic profile of Burhanuddin Muhtadi.",
-    eyebrow: "Academic profile",
-    title: "Academic Profile",
+    metadataDescription:
+      "A complete profile of Prof. Burhanuddin Muhtadi: biography, education, career, honours, scholarly work, and research areas.",
+    eyebrow: "Indonesian political scientist",
+    title: "Burhanuddin Muhtadi",
     description:
-      "Burhanuddin Muhtadi’s academic background, current roles, and research areas, based on the March 2026 CV.",
-    index: "Profile",
-    indexLabel: "Reviewed March 2026",
+      "Biography, academic journey, career, honours, and scholarly record—traced from Wikipedia and updated with official sources.",
+    index: "Dossier 1977—present",
+    indexLabel: "Reviewed 23 July 2026",
+    photoAlt: "Official portrait of Prof. Burhanuddin Muhtadi",
     photoCaption:
       "Photo supplied by the site owner. Final credit wording must be confirmed before public launch.",
-    paragraphs: [
-      "Burhanuddin Muhtadi is Professor of Political Science at FISIP UIN Syarif Hidayatullah Jakarta. His research covers elections, political behavior, democracy, and public opinion in Indonesia.",
-      "His academic and public work connects scholarly research, education, and the interpretation of political data for a wider audience. This site is a working archive centered on student materials, writing, and his publication record.",
+    contentsLabel: "Explore the profile",
+    contents: [
+      { href: "#biography", label: "Biography" },
+      { href: "#roles", label: "Current roles" },
+      { href: "#education", label: "Education" },
+      { href: "#career", label: "Career" },
+      { href: "#honours", label: "Honours" },
+      { href: "#work", label: "Scholarly work" },
+      { href: "#sources", label: "Profile sources" },
     ],
+    biographyTitle: "Biography",
     rolesTitle: "Current roles",
-    roleDates: ["2010—present", "2013—present", "2021—present"],
     educationTitle: "Education",
-    education:
-      "Ph.D. in Political Science and M.A. in Asian Studies from the Australian National University, with undergraduate study at UIN Syarif Hidayatullah Jakarta.",
+    careerTitle: "Career & organisations",
+    careerIntro:
+      "This record retains the early experience documented by Wikipedia and places it alongside current appointments from the March 2026 CV and official institutional sources.",
+    awardsTitle: "Honours & fellowships",
     researchTitle: "Research areas",
+    recentWorksTitle: "Recent work",
+    recentWorksIntro:
+      "Important additions beyond Wikipedia’s publication range, based on the March 2026 CV.",
+    wikipediaWorksTitle: "Work listed on Wikipedia",
+    wikipediaWorksIntro:
+      "This list preserves the books, journal articles, and book chapters named on the Wikipedia page. The Publications index carries a more current bibliographic record.",
+    bibliographyLabels: {
+      books: "Books",
+      journals: "Journal articles",
+      chapters: "Book chapters",
+    },
+    publicationAction: "Open the complete publications index",
+    talksTitle: "Selected academic forums",
+    talksIntro:
+      "Recent invited talks that help show the international reach of his academic work.",
+    sourcesTitle: "Sources & editorial note",
+    sourcesIntro:
+      "This profile summarises rather than copies Indonesian Wikipedia. Current appointments, higher education, recent work, and an additional honour were checked against the March 2026 CV and official institutional pages.",
+    sourceReview:
+      "Time-sensitive claims were reviewed on 23 July 2026. Historical roles retain their source attribution and are not automatically presented as active appointments.",
+    externalLinkLabel: "Open profile",
   },
   admin: {
     metadataTitle: "Editor access",

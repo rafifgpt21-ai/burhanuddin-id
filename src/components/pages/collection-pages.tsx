@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { EmptyState } from "@/components/empty-state";
-import { ArrowRightIcon } from "@/components/icons";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { PublicationList } from "@/components/publication-list";
-import { portraitSource, researchAreas, roles } from "@/data/site";
+import { aboutProfile } from "@/data/about";
+import { portraitSource, researchAreas } from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { getPublishedPublications } from "@/lib/content/publications";
 import { getRoutePath, type Locale } from "@/lib/i18n";
@@ -235,58 +236,289 @@ export async function PublicationsPage({
 
 export function AboutPage({ locale }: { locale: Locale }) {
   const copy = getDictionary(locale).about;
+  const profile = aboutProfile[locale];
+  const ids =
+    locale === "id"
+      ? {
+          biography: "biografi",
+          roles: "peran",
+          education: "pendidikan",
+          career: "karier",
+          honours: "penghargaan",
+          work: "karya",
+          sources: "sumber",
+        }
+      : {
+          biography: "biography",
+          roles: "roles",
+          education: "education",
+          career: "career",
+          honours: "honours",
+          work: "work",
+          sources: "sources",
+        };
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Burhanuddin Muhtadi",
+    honorificPrefix: "Prof.",
+    honorificSuffix: "M.A., Ph.D.",
+    birthDate: "1977-12-15",
+    birthPlace: {
+      "@type": "Place",
+      name: "Rembang, Jawa Tengah, Indonesia",
+    },
+    image: portraitSource,
+    jobTitle: [
+      "Professor of Political Science",
+      "Founder and Executive Director of Indikator Politik Indonesia",
+      "Visiting Senior Research Fellow",
+    ],
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Australian National University",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "UIN Syarif Hidayatullah Jakarta",
+      },
+    ],
+    knowsAbout: researchAreas.en,
+    sameAs: profile.links.map((link) => link.href),
+  };
 
   return (
     <main id="konten-utama">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <PageHero {...copy} />
-      <section className="page-content">
+
+      <section className="page-content about-dossier">
         <div className="shell about-grid">
-          <aside className="about-aside">
-            <div className="about-photo">
-              <Image
-                src={portraitSource}
-                alt="Prof. Burhanuddin Muhtadi"
-                fill
-                sizes="(max-width: 840px) 90vw, 36vw"
-              />
-            </div>
-            <p className="about-caption">{copy.photoCaption}</p>
+          <aside className="about-aside" aria-label={copy.contentsLabel}>
+            <figure className="about-portrait">
+              <div className="about-photo">
+                <Image
+                  src={portraitSource}
+                  alt={copy.photoAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 840px) 92vw, 420px"
+                />
+                <span className="about-monogram" aria-hidden="true">
+                  BM
+                </span>
+              </div>
+              <figcaption className="about-caption">{copy.photoCaption}</figcaption>
+            </figure>
+
+            <dl className="about-facts">
+              {profile.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <nav className="about-contents">
+              <p>{copy.contentsLabel}</p>
+              {copy.contents.map((item) => (
+                <a href={item.href} key={item.href}>
+                  <span>{item.label}</span>
+                  <ArrowRightIcon />
+                </a>
+              ))}
+            </nav>
           </aside>
 
-          <div className="about-copy">
-            {copy.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-
-            <section className="about-section" aria-labelledby="roles-title">
-              <h2 id="roles-title">{copy.rolesTitle}</h2>
-              <dl className="timeline">
-                {roles[locale].map((role, index) => (
-                  <div key={role}>
-                    <dt>{copy.roleDates[index]}</dt>
-                    <dd>{role}</dd>
-                  </div>
+          <article className="about-copy">
+            <section className="about-introduction" id={ids.biography}>
+              <p className="eyebrow">{copy.biographyTitle}</p>
+              <h2>{profile.lead}</h2>
+              <div className="about-prose">
+                {profile.biography.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
                 ))}
-              </dl>
+              </div>
             </section>
 
-            <section className="about-section" aria-labelledby="education-title">
-              <h2 id="education-title">{copy.educationTitle}</h2>
-              <p>{copy.education}</p>
+            <section className="about-section" id={ids.roles} aria-labelledby="roles-title">
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.rolesTitle}</p>
+                <h2 id="roles-title">{copy.rolesTitle}</h2>
+              </div>
+              <div className="about-role-grid">
+                {profile.currentRoles.map((role) => (
+                  <article key={`${role.year}-${role.title}`}>
+                    <span>{role.year}</span>
+                    <h3>{role.title}</h3>
+                    {role.institution ? <p>{role.institution}</p> : null}
+                    {role.detail ? <small>{role.detail}</small> : null}
+                  </article>
+                ))}
+              </div>
             </section>
 
             <section className="about-section" aria-labelledby="research-title">
-              <h2 id="research-title">{copy.researchTitle}</h2>
-              <ul className="topic-list">
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.researchTitle}</p>
+                <h2 id="research-title">{copy.researchTitle}</h2>
+              </div>
+              <ul className="about-topic-list">
                 {researchAreas[locale].map((area) => (
                   <li key={area}>{area}</li>
                 ))}
               </ul>
             </section>
-          </div>
+
+            <section
+              className="about-section"
+              id={ids.education}
+              aria-labelledby="education-title"
+            >
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.educationTitle}</p>
+                <h2 id="education-title">{copy.educationTitle}</h2>
+              </div>
+              <AboutTimeline entries={profile.education} />
+            </section>
+
+            <section className="about-section" id={ids.career} aria-labelledby="career-title">
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.careerTitle}</p>
+                <h2 id="career-title">{copy.careerTitle}</h2>
+                <p>{copy.careerIntro}</p>
+              </div>
+              <AboutTimeline entries={profile.career} />
+            </section>
+
+            <section
+              className="about-section"
+              id={ids.honours}
+              aria-labelledby="awards-title"
+            >
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.awardsTitle}</p>
+                <h2 id="awards-title">{copy.awardsTitle}</h2>
+              </div>
+              <AboutTimeline entries={profile.awards} />
+            </section>
+
+            <section className="about-section" id={ids.work} aria-labelledby="works-title">
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.recentWorksTitle}</p>
+                <h2 id="works-title">{copy.recentWorksTitle}</h2>
+                <p>{copy.recentWorksIntro}</p>
+              </div>
+              <AboutTimeline entries={profile.recentWorks} />
+
+              <div className="about-bibliography">
+                <div className="about-section-heading">
+                  <p className="eyebrow">Wikipedia · 2002—2020</p>
+                  <h3>{copy.wikipediaWorksTitle}</h3>
+                  <p>{copy.wikipediaWorksIntro}</p>
+                </div>
+                {profile.bibliography.map((group) => (
+                  <section
+                    className="about-bibliography-group"
+                    aria-labelledby={`bibliography-${group.key}`}
+                    key={group.key}
+                  >
+                    <header>
+                      <h4 id={`bibliography-${group.key}`}>
+                        {copy.bibliographyLabels[group.key]}
+                      </h4>
+                      <span>{String(group.entries.length).padStart(2, "0")}</span>
+                    </header>
+                    <ol>
+                      {group.entries.map((entry) => (
+                        <li key={`${entry.year}-${entry.citation}`}>
+                          <span>{entry.year}</span>
+                          <p>{entry.citation}</p>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                ))}
+                <Link
+                  className="text-link about-publication-link"
+                  href={getRoutePath(locale, "publications")}
+                >
+                  {copy.publicationAction} <ArrowRightIcon />
+                </Link>
+              </div>
+            </section>
+
+            <section className="about-section" aria-labelledby="talks-title">
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.talksTitle}</p>
+                <h2 id="talks-title">{copy.talksTitle}</h2>
+                <p>{copy.talksIntro}</p>
+              </div>
+              <AboutTimeline entries={profile.talks} />
+            </section>
+
+            <section
+              className="about-section about-sources"
+              id={ids.sources}
+              aria-labelledby="sources-title"
+            >
+              <div className="about-section-heading">
+                <p className="eyebrow">{copy.sourcesTitle}</p>
+                <h2 id="sources-title">{copy.sourcesTitle}</h2>
+                <p>{copy.sourcesIntro}</p>
+              </div>
+              <p className="about-review-note">{copy.sourceReview}</p>
+              <ul>
+                {profile.links.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href} target="_blank" rel="noreferrer">
+                      <span>
+                        <strong>{link.label}</strong>
+                        <small>{copy.externalLinkLabel}</small>
+                      </span>
+                      <ArrowUpRightIcon />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </article>
         </div>
       </section>
     </main>
+  );
+}
+
+function AboutTimeline({
+  entries,
+}: {
+  entries: readonly {
+    year: string;
+    title: string;
+    institution?: string;
+    detail?: string;
+  }[];
+}) {
+  return (
+    <ol className="about-timeline">
+      {entries.map((entry) => (
+        <li key={`${entry.year}-${entry.title}`}>
+          <div className="about-timeline-year">{entry.year}</div>
+          <div>
+            <h3>{entry.title}</h3>
+            {entry.institution ? <p>{entry.institution}</p> : null}
+            {entry.detail ? <small>{entry.detail}</small> : null}
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }
 

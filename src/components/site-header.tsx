@@ -1,12 +1,15 @@
 import Link from "next/link";
 
-import { LoginIcon, MenuIcon, SearchIcon } from "@/components/icons";
+import { LoginIcon, MenuIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
+  const navigation = dictionary.navigation.filter(
+    (item) => item.route !== "materials" && item.route !== "posts",
+  );
 
   return (
     <header className="site-header">
@@ -25,7 +28,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         </Link>
 
         <nav className="desktop-nav" aria-label={dictionary.header.navigationLabel}>
-          {dictionary.navigation.map((item) => (
+          {navigation.map((item) => (
             <Link href={getRoutePath(locale, item.route)} key={item.route}>
               {item.label}
             </Link>
@@ -38,14 +41,6 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             label={dictionary.header.language}
             switchLabel={dictionary.header.switchTo}
           />
-
-          <Link
-            className="search-link"
-            href={`${getRoutePath(locale, "materials")}#pencarian`}
-          >
-            <SearchIcon />
-            <span className="sr-only">{dictionary.header.search}</span>
-          </Link>
 
           <Link
             aria-label={dictionary.header.login}
@@ -62,7 +57,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <span>{dictionary.header.menu}</span>
             </summary>
             <nav aria-label={dictionary.header.mobileNavigationLabel}>
-              {dictionary.navigation.map((item) => (
+              {navigation.map((item) => (
                 <Link href={getRoutePath(locale, item.route)} key={item.route}>
                   {item.label}
                 </Link>

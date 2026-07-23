@@ -7,6 +7,9 @@ import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
+  const navigation = dictionary.navigation.filter(
+    (item) => item.route !== "home" && item.route !== "posts",
+  );
 
   return (
     <footer className="site-footer">
@@ -22,7 +25,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div>
           <p className="footer-label">{dictionary.footer.explore}</p>
           <nav className="footer-links" aria-label={dictionary.footer.navigationLabel}>
-            {dictionary.navigation.slice(1).map((item) => (
+            {navigation.map((item) => (
               <Link href={getRoutePath(locale, item.route)} key={item.route}>
                 {item.label}
               </Link>

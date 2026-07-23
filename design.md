@@ -9,6 +9,7 @@
 - On 20 July 2026, the owner authorized the initial private admin workspace and review-seed pipeline. Login, server authorization, and editor forms may be implemented now, but database writes and uploads remain locked behind `DATABASE_READY` until the exposed MongoDB credential is rotated.
 - On 20 July 2026, the owner selected database-backed admin credentials and sessions. Credential hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
 - On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
+- On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -117,12 +118,17 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 
 ### Public navigation
 
+The top bar is intentionally limited to four destinations:
+
 1. **Beranda / Home** (`/id`, `/en`)
-2. **Materi Kuliah / Course Materials** (`/id/materi`, `/en/materials`)
-3. **Tulisan / Writing** (`/id/tulisan`, `/en/writing`)
-4. **Agenda** (`/id/agenda`, `/en/agenda`)
-5. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
-6. **Tentang / About** (`/id/tentang`, `/en/about`)
+2. **Agenda** (`/id/agenda`, `/en/agenda`)
+3. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
+4. **Tentang / About** (`/id/tentang`, `/en/about`)
+
+**Materi Kuliah / Course Materials** (`/id/materi`, `/en/materials`) is linked from the
+footer instead of the top bar. **Tulisan / Writing** is not shown in either public
+navigation area; its existing route and editorial records remain intact until the owner
+decides whether the collection should be retired completely.
 
 Unprefixed routes, including `/`, select a locale before redirecting. A valid manual preference cookie wins; otherwise country-level hosting headers select Indonesian for Indonesia and English elsewhere, then the browser language is used as fallback. Do not request precise device location or retain country data. Admin access is localized at `/id/admin/login` and `/en/admin/login`, but should not compete with public navigation. Put a discreet link in the footer.
 
@@ -154,7 +160,8 @@ Do not add a separate global search page initially. A header search action may o
 ### Header
 
 - Wordmark: `Burhanuddin Muhtadi` or an owner-approved short form such as `BM`.
-- Five public links, a compact search control, a visible `ID / EN` language switcher, and a mobile menu.
+- Four public links, a visible `ID / EN` language switcher, and a mobile menu.
+- Keep course-material access in the footer and do not place a material search control in the top bar.
 - The language switcher changes to the equivalent localized route, preserves active filters, and stores a manual preference for one year. It must remain keyboard operable and understandable without flags or color alone.
 - Sticky only if it remains visually quiet and does not obscure anchors or reading content.
 - No visible `Sign in` call to action in the primary header.
@@ -227,8 +234,10 @@ Avoid the mostly empty full-screen hero seen in one reference verification image
 
 ### About
 
-- Lead with a concise approved biography rather than pasting the full CV.
-- Sections: current roles, research interests, education, selected honours, selected invited talks, and external profiles.
+- Lead with an editorial biography and a compact fact index rather than pasting the full CV.
+- Present a comprehensive academic dossier: current roles, research interests, education from primary school through doctorate, early organisational and professional history, honours, selected invited talks, the works recorded by Indonesian Wikipedia, post-2020 CV additions, and external profiles.
+- Attribute Wikipedia-derived facts and distinguish historical roles from current appointments. Reconcile time-sensitive claims against the March 2026 CV and official UIN/ISEAS sources; do not silently present old roles as current.
+- Keep the long scholarly record scannable through a chronological spine, clear category counts, and a direct route to the canonical Publications index.
 - Offer the public CV only after checking it for private contact details and owner approval.
 - State the CV/profile review date near time-sensitive appointments.
 
@@ -513,7 +522,7 @@ Pin exact package versions only during implementation after checking the locally
 ## MVP acceptance checklist
 
 - [ ] The homepage shows useful material/post content in the first viewport.
-- [ ] Materi Kuliah is the most prominent navigation/action.
+- [ ] Materi Kuliah is available from the footer and remains easy to reach from relevant page content without appearing in the top bar.
 - [ ] Students can search and filter materials and share the resulting URL.
 - [ ] Every material action accurately reflects open/download/external availability.
 - [ ] Posts are readable and keyboard accessible on mobile and desktop.
