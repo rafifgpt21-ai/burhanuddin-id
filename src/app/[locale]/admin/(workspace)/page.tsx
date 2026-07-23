@@ -28,6 +28,9 @@ export default async function AdminDashboard({
       </header>
 
       <section className="admin-metrics" aria-label="Ringkasan koleksi">
+        <Link href={`${base}/tulisan#editor`}>
+          <span>Tulisan</span><strong>0</strong><small>Buat draft baru</small>
+        </Link>
         <Link href={`${base}/materi`}>
           <span>Materi kuliah</span><strong>0</strong><small>Disengaja kosong</small>
         </Link>
@@ -37,6 +40,20 @@ export default async function AdminDashboard({
         <Link href={`${base}/publikasi`}>
           <span>Kandidat publikasi</span><strong>{data.candidates.length}</strong><small>Menunggu review</small>
         </Link>
+      </section>
+
+      <section className="admin-create-hub" aria-labelledby="create-content-title">
+        <div>
+          <p className="eyebrow">Mulai dari sini</p>
+          <h2 id="create-content-title">Apa yang ingin diterbitkan?</h2>
+          <p>Pilih jenis konten. Setiap editor hanya meminta informasi inti terlebih dahulu.</p>
+        </div>
+        <nav aria-label="Buat konten baru">
+          <Link href={`${base}/tulisan#editor`}><span>01</span><strong>Tulisan</strong><small>Esai, catatan, atau opini</small></Link>
+          <Link href={`${base}/materi#editor`}><span>02</span><strong>Materi</strong><small>Berkas atau tautan kelas</small></Link>
+          <Link href={`${base}/agenda#editor`}><span>03</span><strong>Agenda</strong><small>Acara dan forum publik</small></Link>
+          <Link href={`${base}/publikasi#editor`}><span>04</span><strong>Publikasi</strong><small>Rekam bibliografis</small></Link>
+        </nav>
       </section>
 
       {!databaseReady ? (

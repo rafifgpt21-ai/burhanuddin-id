@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { MenuIcon, SearchIcon } from "@/components/icons";
+import { LoginIcon, MenuIcon, SearchIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
@@ -45,6 +45,15 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           >
             <SearchIcon />
             <span className="sr-only">{dictionary.header.search}</span>
+          </Link>
+
+          <Link
+            aria-label={dictionary.header.login}
+            className="login-link"
+            href={`/${locale}/admin/login`}
+            title={dictionary.header.login}
+          >
+            <LoginIcon />
           </Link>
 
           <details className="mobile-menu">

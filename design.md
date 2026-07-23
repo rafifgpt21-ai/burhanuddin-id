@@ -155,6 +155,7 @@ Do not add a separate global search page initially. A header search action may o
 - The language switcher changes to the equivalent localized route, preserves active filters, and stores a manual preference for one year. It must remain keyboard operable and understandable without flags or color alone.
 - Sticky only if it remains visually quiet and does not obscure anchors or reading content.
 - No visible `Sign in` call to action in the primary header.
+- Admin access uses a discreet icon-only control in the top bar with an accessible text label; it does not compete with public navigation.
 
 ### Homepage
 
@@ -231,7 +232,8 @@ Avoid the mostly empty full-screen hero seen in one reference verification image
 ### Admin
 
 - One dashboard with counts and recent drafts.
-- Separate `Materi`, `Tulisan`, and `Publikasi` collections.
+- Separate `Materi`, `Tulisan`, `Agenda`, and `Publikasi` collections, with a shared quick-start chooser on the dashboard.
+- Draft creation asks only for the minimum viable content first. Slugs are generated automatically; translations and secondary metadata remain optional while drafting and must pass publication-readiness validation before going public.
 - Explicit Draft, Published, and Archived states.
 - Preview before publish; confirmation before destructive deletion.
 - Slugs generated from titles but editable with collision validation.

@@ -6,6 +6,7 @@ import { buildPublicationSeed } from "../prisma/seed-data/build-publications";
 import {
   agendaInputSchema,
   materialInputSchema,
+  postInputSchema,
   publicationInputSchema,
 } from "../src/lib/validation/content";
 import {
@@ -36,6 +37,25 @@ test("material requires exactly one delivery target", () => {
   assert.equal(materialInputSchema.safeParse({ ...base, assetId: "asset", externalUrl: "" }).success, true);
   assert.equal(materialInputSchema.safeParse({ ...base, assetId: "asset", externalUrl: "https://example.com" }).success, false);
   assert.equal(materialInputSchema.safeParse({ ...base, assetId: "", externalUrl: "" }).success, false);
+});
+
+test("post draft only requires Indonesian title and content", () => {
+  const result = postInputSchema.safeParse({
+    titleId: "Catatan tentang demokrasi",
+    titleEn: "",
+    slugId: "catatan-tentang-demokrasi",
+    slugEn: "",
+    excerptId: "",
+    excerptEn: "",
+    contentId: [{ type: "paragraph", text: "Isi naskah utama." }],
+    contentEn: [],
+    topics: [],
+    coverImage: "",
+    canonicalExternal: "",
+    status: "DRAFT",
+  });
+
+  assert.equal(result.success, true);
 });
 
 test("agenda rejects an end time before its start time", () => {

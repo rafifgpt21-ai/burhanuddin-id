@@ -51,7 +51,7 @@ export default async function AdminPublications({
       <div><span>CV</span><strong>{data.sourceCounts.cv}</strong></div><div><span>ResearchGate</span><strong>{data.sourceCounts.researchGate}</strong></div><div><span>Academia</span><strong>{data.sourceCounts.academia}</strong></div><div><span>Pidato</span><strong>{data.sourceCounts.professorialAddress}</strong></div>
     </section>
 
-    <details className="editor-disclosure"><summary>Tambah publikasi manual</summary>{!ready ? <p className="locked-help">Form dapat ditinjau, tetapi baru aktif setelah rotasi kredensial database.</p> : null}<PublicationEditorForm ready={ready} returnPath={path} /></details>
+    <section className="admin-editor-panel" id="editor" aria-labelledby="publication-editor-title"><div className="admin-editor-intro"><p className="eyebrow">Draft baru</p><h2 id="publication-editor-title">Tambah publikasi manual</h2>{!ready ? <p className="locked-help">Form dapat dicoba, tetapi penyimpanan aktif setelah rotasi kredensial database.</p> : null}</div><PublicationEditorForm ready={ready} returnPath={path} /></section>
 
     <section className="review-queue" aria-labelledby="review-queue-title">
       <div className="review-queue-heading"><div><p className="eyebrow">Needs review</p><h2 id="review-queue-title">Antrean kandidat</h2></div><p>{filtered.length} hasil · halaman {currentPage} dari {pageCount}</p></div>

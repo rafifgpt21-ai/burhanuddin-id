@@ -12,19 +12,41 @@ const httpsUrl = z
   });
 
 const optionalHttpsUrl = z.union([z.literal(""), httpsUrl]).optional();
+const optionalShortText = (maximum: number) =>
+  z.string().trim().max(maximum).optional().or(z.literal(""));
+
+const postBlockSchema = z.object({
+  type: z.literal("paragraph"),
+  text: z.string().trim().min(1).max(12_000),
+});
+
+export const postInputSchema = z.object({
+  titleId: z.string().trim().min(3).max(180),
+  titleEn: optionalShortText(180),
+  slugId: z.string().trim().regex(slugPattern).max(180),
+  slugEn: optionalShortText(180),
+  excerptId: optionalShortText(600),
+  excerptEn: optionalShortText(600),
+  contentId: z.array(postBlockSchema).min(1).max(120),
+  contentEn: z.array(postBlockSchema).max(120).optional(),
+  topics: z.array(z.string().trim().min(1).max(48)).max(12),
+  coverImage: optionalHttpsUrl,
+  canonicalExternal: optionalHttpsUrl,
+  status: z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]),
+});
 
 export const materialInputSchema = z
   .object({
     titleId: z.string().trim().min(3).max(180),
-    titleEn: z.string().trim().min(3).max(180),
+    titleEn: optionalShortText(180),
     slugId: z.string().trim().regex(slugPattern).max(180),
-    slugEn: z.string().trim().regex(slugPattern).max(180),
+    slugEn: optionalShortText(180),
     descriptionId: z.string().trim().min(20).max(600),
-    descriptionEn: z.string().trim().min(20).max(600),
+    descriptionEn: optionalShortText(600),
     courseId: z.string().trim().min(2).max(120),
-    courseEn: z.string().trim().min(2).max(120),
-    topicId: z.string().trim().min(2).max(120),
-    topicEn: z.string().trim().min(2).max(120),
+    courseEn: optionalShortText(120),
+    topicId: optionalShortText(120),
+    topicEn: optionalShortText(120),
     resourceType: z.enum([
       "SLIDE",
       "READING",
@@ -35,8 +57,8 @@ export const materialInputSchema = z
       "LINK",
       "OTHER",
     ]),
-    semester: z.string().trim().min(2).max(40),
-    academicYear: z.string().trim().regex(academicYearPattern),
+    semester: optionalShortText(40),
+    academicYear: z.union([z.literal(""), z.string().trim().regex(academicYearPattern)]).optional(),
     tagsId: z.array(z.string().trim().min(1).max(48)).max(12),
     tagsEn: z.array(z.string().trim().min(1).max(48)).max(12),
     assetId: z.string().trim().min(1).optional().or(z.literal("")),
@@ -60,11 +82,11 @@ export const materialInputSchema = z
 export const agendaInputSchema = z
   .object({
     titleId: z.string().trim().min(3).max(180),
-    titleEn: z.string().trim().min(3).max(180),
+    titleEn: optionalShortText(180),
     slugId: z.string().trim().regex(slugPattern).max(180),
-    slugEn: z.string().trim().regex(slugPattern).max(180),
+    slugEn: optionalShortText(180),
     descriptionId: z.string().trim().min(20).max(600),
-    descriptionEn: z.string().trim().min(20).max(600),
+    descriptionEn: optionalShortText(600),
     startsAt: z.coerce.date(),
     endsAt: z.coerce.date().optional(),
     locationLabelId: z.string().trim().max(220).optional().or(z.literal("")),
@@ -93,9 +115,10 @@ export const publicationInputSchema = z.object({
   status: z.enum(["PUBLISHED", "FORTHCOMING", "PREPRINT", "ERRATUM", "REVIEW"]),
   sourceName: z.string().trim().min(2).max(180),
   sourceUrl: optionalHttpsUrl,
-  sourceNote: z.string().trim().min(10).max(600),
+  sourceNote: optionalShortText(600),
 });
 
+export type PostInput = z.infer<typeof postInputSchema>;
 export type MaterialInput = z.infer<typeof materialInputSchema>;
 export type AgendaInput = z.infer<typeof agendaInputSchema>;
 export type PublicationInput = z.infer<typeof publicationInputSchema>;

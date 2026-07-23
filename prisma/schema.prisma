@@ -83,14 +83,14 @@ model AdminSession {
 model Post {
   id                String        @id @default(auto()) @map("_id") @db.ObjectId
   titleId           String
-  titleEn           String
+  titleEn           String?
   slugId            String        @unique
-  slugEn            String        @unique
-  excerptId         String
-  excerptEn         String
+  slugEn            String?       @unique
+  excerptId         String?
+  excerptEn         String?
   coverImage        String?
   contentId         Json
-  contentEn         Json
+  contentEn         Json?
   topics            String[]
   status            ContentStatus @default(DRAFT)
   canonicalExternal String?
@@ -105,11 +105,11 @@ model Post {
 model AgendaItem {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   titleId         String
-  titleEn         String
+  titleEn         String?
   slugId          String        @unique
-  slugEn          String        @unique
+  slugEn          String?       @unique
   descriptionId   String
-  descriptionEn   String
+  descriptionEn   String?
   startsAt        DateTime
   endsAt          DateTime?
   locationLabelId String?
@@ -126,18 +126,18 @@ model AgendaItem {
 model StudyMaterial {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   titleId         String
-  titleEn         String
+  titleEn         String?
   slugId          String        @unique
-  slugEn          String        @unique
+  slugEn          String?       @unique
   descriptionId   String
-  descriptionEn   String
+  descriptionEn   String?
   courseId        String
-  courseEn        String
-  topicId         String
-  topicEn         String
+  courseEn        String?
+  topicId         String?
+  topicEn         String?
   resourceType    ResourceType
-  semester        String
-  academicYear    String
+  semester        String?
+  academicYear    String?
   tagsId          String[]
   tagsEn          String[]
   assetId         String?       @db.ObjectId

@@ -18,6 +18,7 @@ export function AdminShell({
   const base = `/${locale}/admin`;
   const links = [
     { href: base, label: copy.dashboard },
+    { href: `${base}/tulisan`, label: copy.posts },
     { href: `${base}/materi`, label: copy.materials },
     { href: `${base}/agenda`, label: copy.agenda },
     { href: `${base}/publikasi`, label: copy.publications },
@@ -54,7 +55,9 @@ export function AdminShell({
             <span>Terbit</span>
           </div>
         </aside>
-        <main id="konten-utama" className="admin-main">{children}</main>
+        <main id="konten-utama" className="admin-main">
+          {children}
+        </main>
       </div>
     </div>
   );

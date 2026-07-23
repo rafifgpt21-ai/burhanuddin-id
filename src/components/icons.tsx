@@ -41,6 +41,15 @@ export function SearchIcon(props: IconProps) {
   );
 }
 
+export function LoginIcon(props: IconProps) {
+  return (
+    <svg {...shared} {...props}>
+      <path d="M10 5H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4" />
+      <path d="M13 8l4 4-4 4M8 12h9" />
+    </svg>
+  );
+}
+
 export function FileIcon(props: IconProps) {
   return (
     <svg {...shared} {...props}>

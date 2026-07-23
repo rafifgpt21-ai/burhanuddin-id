@@ -5,7 +5,7 @@ const copy = {
     login: {
       eyebrow: "Ruang editorial privat",
       title: "Masuk sebagai editor",
-      intro: "Pengelolaan materi kuliah, agenda, dan rekam publikasi.",
+      intro: "Pengelolaan tulisan, materi kuliah, agenda, dan rekam publikasi.",
       email: "Email admin",
       password: "Kata sandi",
       submit: "Masuk ke ruang editorial",
@@ -16,6 +16,7 @@ const copy = {
     workspace: {
       name: "Meja redaksi",
       dashboard: "Ringkasan",
+      posts: "Tulisan",
       materials: "Materi",
       agenda: "Agenda",
       publications: "Publikasi",
@@ -26,7 +27,7 @@ const copy = {
     login: {
       eyebrow: "Private editorial area",
       title: "Sign in as editor",
-      intro: "Editorial management for course materials, agenda entries, and publication records.",
+      intro: "Editorial management for writing, course materials, agenda entries, and publication records.",
       email: "Admin email",
       password: "Password",
       submit: "Enter editorial area",
@@ -37,6 +38,7 @@ const copy = {
     workspace: {
       name: "Editorial desk",
       dashboard: "Overview",
+      posts: "Writing",
       materials: "Materials",
       agenda: "Agenda",
       publications: "Publications",
