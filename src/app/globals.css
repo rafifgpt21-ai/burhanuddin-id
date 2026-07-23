@@ -1135,9 +1135,7 @@ textarea {
 }
 
 .about-aside {
-  position: sticky;
-  top: 96px;
-  align-self: start;
+  align-self: stretch;
   margin-top: clamp(3.5rem, 7vw, 6rem);
 }
 
@@ -1228,10 +1226,13 @@ textarea {
 }
 
 .about-contents {
+  position: sticky;
+  top: 96px;
   display: grid;
   max-width: 460px;
   margin-top: 1.7rem;
   border-top: 1px solid var(--line);
+  background: #fff;
 }
 
 .about-contents > p {
@@ -3238,6 +3239,10 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .about-aside {
+    position: static;
+  }
+
+  .about-contents {
     position: static;
   }
 
