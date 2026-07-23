@@ -55,13 +55,6 @@ const id = {
     collectionsLabel: "Koleksi utama",
     collections: [
       {
-        route: "materials" as RouteKey,
-        code: "R–01",
-        label: "Materi kuliah",
-        description: "Slide, bacaan, silabus, dan tautan kelas.",
-        icon: "file" as const,
-      },
-      {
         route: "posts" as RouteKey,
         code: "R–02",
         label: "Tulisan",
@@ -76,22 +69,6 @@ const id = {
         icon: "calendar" as const,
       },
     ],
-    materials: {
-      eyebrow: "Arsip pengajaran",
-      title: "Materi & Bahan Ajar",
-      description:
-        "Daftar pustaka, silabus, slide, dan materi perkuliahan yang diampu.",
-      action: "Indeks materi",
-      kicker: "Status arsip",
-      noteTitle: "Arsip dalam Proses Peninjauan",
-      note:
-        "Publikasi materi menunggu kelengkapan metadata, persetujuan hak distribusi, dan penetapan akses dokumen.",
-      anatomy: [
-        ["Kategori", "Mata kuliah, topik, jenis, dan semester"],
-        ["Akses dokumen", "Baca daring, unduh, tautan luar, atau belum tersedia"],
-        ["Format dokumen", "PDF, slide, bacaan, silabus, data, dan video"],
-      ],
-    },
     publications: {
       eyebrow: "Rekam akademik pilihan",
       title: "Publikasi & Karya Ilmiah",
@@ -104,18 +81,6 @@ const id = {
       title: "Data Politik & Perilaku Pemilih",
       description:
         "Bidang kajian yang tercermin dalam publikasi dan pekerjaan akademik pada CV Maret 2026.",
-    },
-    updates: {
-      eyebrow: "Tulisan & agenda",
-      title: "Tulisan & Agenda Publik",
-      description:
-        "Esai dan catatan mengenai politik Indonesia, disertai agenda diskusi, kuliah umum, dan forum publik.",
-      postLabel: "Tulisan terbaru",
-      postTitle: "Arsip tulisan dalam proses kurasi.",
-      postNote: "Naskah pertama masih dalam peninjauan editorial.",
-      agendaLabel: "Agenda terdekat",
-      agendaTitle: "Arsip agenda belum memuat kegiatan.",
-      agendaNote: "Tanggal dan lokasi dicantumkan setelah informasi kegiatan terverifikasi.",
     },
   },
   materials: {
@@ -252,10 +217,6 @@ const id = {
     talksIntro:
       "Beberapa undangan berbicara mutakhir yang membantu menggambarkan jangkauan kerja akademiknya.",
     sourcesTitle: "Sumber & catatan editorial",
-    sourcesIntro:
-      "Profil ini dirangkum, bukan disalin, dari Wikipedia bahasa Indonesia. Jabatan, pendidikan tinggi, karya mutakhir, dan penghargaan tambahan diperiksa terhadap CV Maret 2026 serta laman institusi resmi.",
-    sourceReview:
-      "Klaim yang bersifat waktu ditinjau 23 Juli 2026. Daftar riwayat lama mengikuti atribusi sumber dan tidak otomatis dianggap sebagai jabatan aktif.",
     externalLinkLabel: "Buka profil",
   },
   admin: {
@@ -328,13 +289,6 @@ const en = {
     collectionsLabel: "Main collections",
     collections: [
       {
-        route: "materials",
-        code: "R–01",
-        label: "Course materials",
-        description: "Slides, readings, syllabi, and class links.",
-        icon: "file",
-      },
-      {
         route: "posts",
         code: "R–02",
         label: "Writing",
@@ -349,22 +303,6 @@ const en = {
         icon: "calendar",
       },
     ],
-    materials: {
-      eyebrow: "Teaching archive",
-      title: "Teaching Materials & Resources",
-      description:
-        "Bibliographies, syllabi, slides, and materials from courses taught.",
-      action: "Materials index",
-      kicker: "Archive status",
-      noteTitle: "Archive Under Review",
-      note:
-        "Publication awaits complete metadata, distribution approval, and a documented access designation.",
-      anatomy: [
-        ["Categories", "Course, topic, type, and semester"],
-        ["Document access", "Read online, download, external link, or unavailable"],
-        ["Document formats", "PDF, slides, readings, syllabi, data, and video"],
-      ],
-    },
     publications: {
       eyebrow: "Selected academic record",
       title: "Publications & Scholarly Work",
@@ -377,18 +315,6 @@ const en = {
       title: "Political Data & Voting Behavior",
       description:
         "Research areas reflected in the publications and academic work documented in the March 2026 CV.",
-    },
-    updates: {
-      eyebrow: "Writing & agenda",
-      title: "Writing & Public Agenda",
-      description:
-        "Essays and notes on Indonesian politics, alongside discussions, public lectures, and public forums.",
-      postLabel: "Latest writing",
-      postTitle: "The writing archive is under curation.",
-      postNote: "The first manuscript remains under editorial review.",
-      agendaLabel: "Next event",
-      agendaTitle: "The agenda archive contains no events yet.",
-      agendaNote: "Dates and locations are listed after the event information is verified.",
     },
   },
   materials: {
@@ -524,10 +450,6 @@ const en = {
     talksIntro:
       "Recent invited talks that help show the international reach of his academic work.",
     sourcesTitle: "Sources & editorial note",
-    sourcesIntro:
-      "This profile summarises rather than copies Indonesian Wikipedia. Current appointments, higher education, recent work, and an additional honour were checked against the March 2026 CV and official institutional pages.",
-    sourceReview:
-      "Time-sensitive claims were reviewed on 23 July 2026. Historical roles retain their source attribution and are not automatically presented as active appointments.",
     externalLinkLabel: "Open profile",
   },
   admin: {

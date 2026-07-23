@@ -472,9 +472,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <div className="about-section-heading">
                 <p className="eyebrow">{copy.sourcesTitle}</p>
                 <h2 id="sources-title">{copy.sourcesTitle}</h2>
-                <p>{copy.sourcesIntro}</p>
               </div>
-              <p className="about-review-note">{copy.sourceReview}</p>
               <ul>
                 {profile.links.map((link) => (
                   <li key={link.href}>

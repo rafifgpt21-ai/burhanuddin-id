@@ -5,7 +5,6 @@ import {
   ArrowRightIcon,
   BookIcon,
   CalendarIcon,
-  FileIcon,
 } from "@/components/icons";
 import { PublicationList } from "@/components/publication-list";
 import { SectionHeading } from "@/components/section-heading";
@@ -19,7 +18,6 @@ import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 const collectionIcons = {
-  file: FileIcon,
   book: BookIcon,
   calendar: CalendarIcon,
 };
@@ -99,41 +97,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section section-materials">
-        <div className="shell materials-layout">
-          <SectionHeading
-            eyebrow={copy.materials.eyebrow}
-            title={copy.materials.title}
-            description={copy.materials.description}
-            action={
-              <Link className="text-link" href={getRoutePath(locale, "materials")}>
-                {copy.materials.action} <ArrowRightIcon />
-              </Link>
-            }
-          />
-          <div className="repository-preview">
-            <div className="repository-note">
-              <span className="empty-icon" aria-hidden="true">
-                <FileIcon />
-              </span>
-              <div>
-                <p className="repository-kicker">{copy.materials.kicker}</p>
-                <h3>{copy.materials.noteTitle}</h3>
-                <p>{copy.materials.note}</p>
-              </div>
-            </div>
-            <dl className="repository-anatomy">
-              {copy.materials.anatomy.map(([term, description]) => (
-                <div key={term}>
-                  <dt>{term}</dt>
-                  <dd>{description}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
-
       <section className="section section-publications">
         <div className="shell publications-layout">
           <SectionHeading
@@ -168,30 +131,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section section-updates">
-        <div className="shell updates-grid">
-          <div className="updates-intro">
-            <p className="eyebrow">{copy.updates.eyebrow}</p>
-            <h2>{copy.updates.title}</h2>
-            <p>{copy.updates.description}</p>
-          </div>
-          <Link className="update-card" href={getRoutePath(locale, "posts")}>
-            <span className="update-label">{copy.updates.postLabel}</span>
-            <strong>{copy.updates.postTitle}</strong>
-            <small>{copy.updates.postNote}</small>
-            <ArrowRightIcon />
-          </Link>
-          <Link
-            className="update-card update-card-agenda"
-            href={getRoutePath(locale, "agenda")}
-          >
-            <span className="update-label">{copy.updates.agendaLabel}</span>
-            <strong>{copy.updates.agendaTitle}</strong>
-            <small>{copy.updates.agendaNote}</small>
-            <CalendarIcon />
-          </Link>
-        </div>
-      </section>
     </main>
   );
 }

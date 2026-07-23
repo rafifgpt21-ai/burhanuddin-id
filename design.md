@@ -10,6 +10,7 @@
 - On 20 July 2026, the owner selected database-backed admin credentials and sessions. Credential hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
 - On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
 - On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
+- On 23 July 2026, the owner simplified the homepage by removing the course-material collection card, the teaching-archive preview, and the writing/agenda empty-state section. Course materials remain available through the hero action and footer.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -177,18 +178,11 @@ Avoid the mostly empty full-screen hero seen in one reference verification image
    - Primary action: `Lihat Materi Kuliah`.
    - Secondary action: `Baca Tulisan Terbaru`.
    - Use an approved portrait only when supplied. Until then, use a restrained typographic composition; do not use a generated or unrelated portrait.
-2. **Materi terbaru**
-   - Three to six recent or pinned resources.
-   - Each card shows course, title, resource type, update date, and file/link status.
-3. **Tulisan terbaru**
-   - Three recent posts with clear excerpts and reading time.
-4. **Agenda terdekat**
-   - Show the next approved event when available; otherwise show an honest compact empty state.
-5. **Bidang kajian**
-   - A concise topic list derived from the CV, not a large decorative grid.
-5. **Publikasi pilihan**
+2. **Publikasi pilihan**
    - Three to five selected publications, including a book and recent journal work.
-6. **Profile strip and footer**
+3. **Bidang kajian**
+   - A concise topic list derived from the CV, not a large decorative grid.
+4. **Profile strip and footer**
    - Current roles, institutional links, source links from `more-material.md`, copyright, and discreet admin access.
 
 ### Study-material library
@@ -521,7 +515,7 @@ Pin exact package versions only during implementation after checking the locally
 
 ## MVP acceptance checklist
 
-- [ ] The homepage shows useful material/post content in the first viewport.
+- [ ] The homepage keeps direct hero actions to course materials and writing in the first viewport.
 - [ ] Materi Kuliah is available from the footer and remains easy to reach from relevant page content without appearing in the top bar.
 - [ ] Students can search and filter materials and share the resulting URL.
 - [ ] Every material action accurately reflects open/download/external availability.
