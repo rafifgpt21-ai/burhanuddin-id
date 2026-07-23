@@ -1,0 +1,2830 @@
+{
+  "generatedAt": "2026-07-20T06:02:56.245Z",
+  "reviewRequired": true,
+  "sourceCounts": {
+    "cv": 81,
+    "researchGate": 82,
+    "academia": 12,
+    "professorialAddress": 1,
+    "studyMaterials": 0,
+    "agenda": 0
+  },
+  "candidates": [
+    {
+      "fingerprint": "fd2966657852b8386d3922b772a2925e4fdb0f7429ae60674f3d351122b5037e",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Hui Yew-Foong, The 2024 Indonesian Elections and the Future of Indonesian Politics, (Singapore: ISEAS – Yusof Ishak Institute), forthcoming.",
+      "rawPayload": {
+        "year": 2026,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "FORTHCOMING",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "8c5b06208f55f3268b3965c24364abe17f3492a13e41b351e8658f1eb772caa3",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Maria Monica Wihardja, Burhanuddin Muhtadi, Lee Sue-Ann, Disinformation and Election Propaganda: Impact on Voter Perceptions and Behaviours in Indonesia’s 2024 Presidential Election (Singapore: ISEAS – Yusof Ishak Institute)",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "f66a2a4dec6e2b346781b6ad4870b7e057eea69a8ff8e2ad9a72f810734c6767",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, Hui Yew-Foong and Siwage Dharma Negara, The Indonesia National Survey Project 2022: Engaging with Developments in the Political, Economic and Social Spheres (Singapore: ISEAS – Yusof Ishak Institute)",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "0fef24315f97f6745ff40a2923029ec737c707854494670fda8741e22f88d61d",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, The Indonesian Military Enjoys Strong Public Trust and Support: Reasons and Implications (Singapore: ISEAS – Yusof Ishak Institute)",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "896144badd5b73dcdeb52ddaeeb838b63846660e38ace0de027dfee9a09bfce0",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Kuasa Uang: Politik Uang dalam Pemilu Pasca-Orde Baru (The Power of Money: Vote Buying in Post-Suharto Elections) (Jakarta, Penerbit Gramedia)",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "070eb96f4a875430279cf81e0654ba461a54a984a9e8f71d683af98710846012",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Vote Buying in Indonesia: The Mechanics of Vote Buying in Indonesia (Singapore: Palgrave Macmillan)",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "95e7f3d16b4eae1906ba686874c665af3279a997ef041f7288c161e32649159c",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Populisme, Politik Identitas dan Dinamika Elektoral (Populism, Identity Politics and Electoral Dynamics) (Malang: Intrans Publishing)",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "3e99a3dc231eed4d3461db270c665d4385eefd1eff8978f6807fa9d0f320cd8c",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Perang Bintang 2014: Konstelasi dan Prediksi Pemilu dan Pilpres (“Star Wars:” Constellation and Prediction of the 2014 Election and Presidential Elections) (Jakarta: Noura Books)",
+      "rawPayload": {
+        "year": 2013,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "bd8536bf765a672e6ec6666499a767e64c511c8a1a53ef5b98584d29aa84081a",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Dilema PKS: Suara dan Syariah (The PKS Dilemma: Between Elections and Sharia) (Jakarta: Penerbit Gramedia)",
+      "rawPayload": {
+        "year": 2012,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "043b2c132f53f7e7a7084d9da2712d72054f041191a46cefe14e659797ee7d28",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Defisit Pelayanan Publik: Survei Persepsi Masyarakat terhadap Pelayanan Publik (The Deficit of Public Services: A Survey on Public Perception on Public Services) (Jakarta: INCIS-Partnership Kemitraan)",
+      "rawPayload": {
+        "year": 2005,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "6a7f7e7d62b44d8ebd71e37e9062ca3ad59179dfe535e83e11df02d2b495c8bf",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Mencari Akar Kultural Civil Society di Indonesia (In Search of Cultural Roots of Civil Society in Indonesia) (Jakarta: INCIS-CSSP USAID)",
+      "rawPayload": {
+        "year": 2004,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "55d80a234e2f9031f88fb86fab43f53b22ee4a87c26f38cc4539142229504475",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Civil Society dan Demokrasi: Survey tentang Partisipasi Sosial-Politik Warga Jakarta (Civil Society and Democracy: A Survey on Social-Political Participation of Jakarta Residents) (Jakarta: INCIS-CSSP USAID)",
+      "rawPayload": {
+        "year": 2003,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "6092abf4842071364320f8268767e590e426af01b5cb63b37eae44b7669a327f",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Syariat Islam: Pandangan Muslim Liberal (Shari’a: A Liberal Muslim Perspective) (Jakarta: JIL-The Asia Foundation)",
+      "rawPayload": {
+        "year": 2003,
+        "suggestedType": "BOOK",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "3f5ba240a6480f1c4f0def2ee123739207f358cf5893eee7700b4dc4116852d4",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Harry Dienes and Burhanuddin Muhtadi, “Indonesian Public Support for Free and Nutritious Meals Stays Broad but Shallow,” ISEAS Perspective, 21, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2026-21-indonesian-public-support-for-free-and-nutritious-meals-stays-broad-but-shallow-by-harry-j-dienes-and-burhanuddin-muhtadi",
+      "rawPayload": {
+        "year": 2026,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "33749e60b93ba9f37437539199464fd0aa19504ef0a60c145badd79ed97830b2",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Akhmad Rizal Shidiq, Burhanuddin Muhtadi, and Arief Anshory Yusuf, ‘Social Media and Religious Intolerance in Indonesia,’ Studia Islamika Vol. 33 No. 1 https://doi.org/10.36712/sdi.v33i1.45489",
+      "rawPayload": {
+        "year": 2026,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "6899b521c8b6110d8194c47bc1ec437f4919da108dae7f973e280f424fb70aed",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, Eve Warburton, and Liam Gammon, ‘Complacent Democrats? The Political Preferences of Gen Z in Indonesia,’ Journal of East Asian Studies, Cambridge University Press, Published online 2025:1-28. doi:10.1017/jea.2025.10011",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9f4f68b36f8f42e49f60496523ebc5e9eaa665fed33e35ebaee6baeef4050e34",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘2024 Presidential Elections: Reviewing Jokowi's Influence on Prabowo's Landslide Victory,’ Southeast Asian Affairs, 2025, pp. 127-141.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "447b3bda60cc5427062f203d796927e077cc078230b4a5596821279ab40b8a8e",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Collective Memory, Democratic Ambivalence, and Authoritarian Notions of Democracy: Explaining the Rise of Prabowo Subianto,’ Journal of Current Southeast Asian Affairs, February.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "25bab47b2737a0205cdef550c0609cbed974edbd424eeb528a135247d0113581",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Wu Ling Chong, Burhanuddin Muhtadi, and Kennedy Muslim, ‘Indonesian Public Perceptions of Chinese Indonesians Holding Different Public Offices,’ Asian Ethnicity, https://doi.org/10.1080/14631369.2025.2579612.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "0dceb9dd01ad230d1c97a0f5b1f03cc0dba19907dc27ad0ce930bd8162da84a0",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Dirk Tomsa, Burhanuddin Muhtadi and Charlotte Setijadi, ‘Politics Over Prejudice? Explaining the Surprising Decline of Anti-Chinese Sentiment in Indonesia during the COVID-19 Pandemic,’ Contemporary Southeast Asia Vol. 47, No. 2, pp. 224-249.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "e57f61dd872582b128490c2b39e54a99f0d784c294f26994c9d163ca484814a6",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Seth Soderborg and Burhanuddin Muhtadi, ‘Resentment and Polarization in Indonesia,’ Journal of East Asian Studies (2023), 1–29 doi:10.1017/jea.2023.1",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "39084c8922a557afbfea86dac992d1bf55d3c7e231cdb8996d042a0817a9e439",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Seth Soderborg, ‘Partisanship, Religion, and Social Class: Attitudes and Behaviors in the Early Stages of the Covid-19 Pandemic,’ Studia Islamika, Vol 30, No 1: 1-38 DOI: 10.36712/sdi.v30i1.31997",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "5c37fe68925c521836fccc770b56d4a9813d208c3066447cdf384ffd15607027",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Nathanael Sumaktoyo and Burhanuddin Muhtadi, ‘China’s Foreign Policies and Attitudes toward Chinese Diaspora: A Direct Link?’ International Journal of Public Opinion Research, Volume 34, Issue 4, Winter, DOI: 10.1093/ijpor/edac038",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "60b67a1488b64c145cff0a281c73a27e0d69b23bd1713240a84403f901c4350e",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Taberez Neyazi, Burhanuddin Muhtadi, Aaron Yi Kai Ng and Ozan Kuru, ‘Who Gets Exposed to Political Misinformation in a Hybrid Media Environment? The 2019 Indonesian Presidential Election,’ Social Media & Society.",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9d741b3622ca9742e20f753eb77f24c0622d2e55f7d2878adf3066ce9196d872",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Religious Pluralism in Indonesia: Threats and Opportunities for Democracy,’ Book review edited by Chiara Formichi, Cornell University Press, published by Contemporary Southeast Asia 44(1):157-159",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9800ca0132a0ac7a5a35cdc3a2567647ba80313c614d0139b944abaf8da2b48f",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, “The candidate’s dilemma: anti-corruptionism and money politics in Indonesian election campaigns,” Book Review, Asian Studies Review, Volume 47, Issue 4.",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "0a5116fae64cbc10e2efe5ca46758b6cc352d1e876949a20d04ed19d22259073",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Taberez Neyazi, Burhanuddin Muhtadi and Sourabh B Paul, ‘Political Trust, Economic Hardship and Partisanship: Explaining Leadership Approval in Indonesia during the COVID-19 Crisis,’ Asian Survey, July DOI: 10.1525/as.2022.1651118",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "fa3e1aea373918bcb7d192aa969810665cd8404b6a1a029336b6ffe412208858",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Allen Hicken, Edward Aspinall, Meredith Weiss and Burhanuddin Muhtadi, ‘Buying Brokers: Electoral Handouts beyond Clientelism in a Weak-party State,’ World Politics, Cambridge University Press, No 1 (74)",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "4cbe9365a617108a86965c3e50679cbabba5fd34c530f3f0fa048dd9cbd6bcec",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Nathanael Sumaktoyo and Burhanuddin Muhtadi, ‘Can Religion Save Corrupt Politicians? Evidence from Indonesia’, International Journal of Public Opinion Research/IJPOR, February, DOI: 10.1093/ijpor/edab029",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "7b567ba0ef561375ea5f4721f8e6604777f3cadc8d8af2faf7d27629a15e4643",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘INDONESIA: State and Society in Transition,’ Pacific Affairs, Available at https://pacificaffairs.ubc.ca/book-reviews/indonesia-state-and-society-in-transition-by-jemma-purdey-antje-missbach-and-dave-mcrae/",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "735b75fcf3d884b943d092a4f1416243e60060bf850ec54c5e9833669569e980",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Diego Fossati, Burhanuddin Muhtadi and Eve Warburton, “Why democrats abandon democracy: Evidence from four survey experiments,” Party Politics, February, 1-13,  https://doi.org/10.1177/1354068821992488",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "0758521a7b79ccc42ebb3b1e344c5c7c28c99d5900ffa1ced85e47ae61589e32",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Eve Warburton, Burhanuddin Muhtadi, Edward Aspinall, and Diego Fossati, “When does class matter? Unequal representation in Indonesian legislatures,” Third World Quarterly, March, pp. 1-25, DOI: 10.1080/01436597.2021.1882297",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "be7505ecc53260c55dec324c6fdead7d369ccc5f19367220b1890eb614497e5e",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Taberez Neyazi and Burhanuddin Muhtadi, ‘Selective Belief: How Partisanship Drives Belief in Fake News,” International Journal of Communication, 15, pp. 1286–1308. DOI: 1932–8036/20210005",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "d69d9381b4dca54f517bf266d19a80bb7c191353a483c900060aabfb6f715346",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Marcus Mietzner and Burhanuddin Muhtadi, ‘The Myth of Pluralism: Nahdlatul Ulama and the Politics of Religious Tolerance in Indonesia’ Contemporary Southeast Asia: A Journal of International and Strategic Affairs, Volume 42, Number 1, April 2020, pp. 58-84,",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "487dafb7a14ce82a18e2950e44679d243597faa8981a0abfc29cb2b1cacffc72",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Eve Warburton, ‘Inequality and Democratic Support in Indonesia’ Pacific Affairs 93(1): 31-58, doi: https://doi.org/10.5509/202093131",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "3b584e246345786f81c0bb5c7576d90d16f29859eddf5abb4c16a12d103818e8",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Diego Fossati, Edward Aspinall, Burhanuddin Muhtadi and Eve Warburton, ‘Ideological representation in clientelistic democracies: The Indonesian case,’ Electoral Studies, Vol 63, February, doi: https://doi.org/10.1016/j.electstud.2019.102111",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "34305e28b31bee9e5b057c950886d4d68a4e7aa141e43139f4d09b2a516fe19d",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Seth Soderborg and Burhanuddin Muhtadi, ‘Policy, Partisanship, and Pay: Diverging COVID-19 Responses in Indonesia.’ Available at SSRN: https://ssrn.com/abstract=3636486 or http://dx.doi.org/10.2139/ssrn.3636486",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "571df3e2cc1bbecc96f845968a31e65b612fffbda956c54b97fef675618aba6c",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Politik Uang dan New Normal dalam Pemilu Paska-Orde Baru’ (Vote Buying and New Normal in Post-Authoritarian Elections) Jurnal Antikorupsi INTEGRITAS, 5 (1), 55-74, DOI: https://doi.org/10.32697/integritas.v5i1.413",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "888b145df628b66f4a0c20aefe80a63d39ef45affad03626976b0e49cbc0f63d",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Edward Aspinall, Diego Fossati, Burhanuddin Muhtadi and Eve Warburton, ‘Elites, Masses and Democratic Decline in Indonesia,’ Democratization, doi: 10.1080/13510347.2019.1680971",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "60cae121ca41d7ace325c5597058ac150fc634df425a8cbe8337fe23d7e731e6",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Marcus Mietzner and Burhanuddin Muhtadi, ‘Explaining the 2016 Islamist mobilisation in Indonesia: Religious intolerance, militant groups and the politics of accommodation,’ Asian Studies Review 42 (3), 479-497, doi: https://doi.org/10.1080/10357823.2018.1473335",
+      "rawPayload": {
+        "year": 2018,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "b68530092cdb14aaaff7235fd324f05b6ce2e262522aeef4f92489a7e985797a",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Politik Identitas dan Mitos Pemilih Rasional’ (Identity Politics and the Myth of Rational Voters)’ Jurnal MAARIF Vol. 13, No. 2 Desember, pp. 68-86.",
+      "rawPayload": {
+        "year": 2018,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "773bb662ee9680a10047703675cf860100b051937c34aa431f9f58be02e99948",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Marcus Mietzner, Burhanuddin Muhtadi and Rizka Halida, ‘Entrepreneurs of Grievance: Drivers and effects of Indonesia’s Islamist mobilization’ Bijdragen tot de taal-, land- en volkenkunde/Journal of the Humanities and Social Sciences of Southeast Asia, Volume 174: Issue 2-3, doi: https://doi.org/10.1163/22134379-17402026",
+      "rawPayload": {
+        "year": 2018,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "72b5df47016f87bb3b565ef03965cd9fa50f0a5d9e45aff6afd49177a9ba894c",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Jokowi’s First Year: A Weak President Caught between Reform and Oligarchic Politics’ Bulletin of Indonesian Economic Studies, Vol. 51, Issue 3. Dec., pp. 349-368, doi: https://doi.org/10.1080/00074918.2015.1110684",
+      "rawPayload": {
+        "year": 2015,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "c03f2451722cf7ab4b1e82b282e169d0756259fe5f1f28d008010d25fe6b83b8",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Politik Uang dan Dinamika Elektoral di Indonesia: Sebuah Kajian Awal Interaksi antara Party ID dan Patron Klien (Vote Buying and Electoral Dynamics in Indonesia: A Preliminary Study of the Interaction between Party ID and Patron-Client)’ Jurnal Penelitian Politik Vol 10, No 1, pp. 41-57 https://doi.org/10.14203/jpp.v10i1.217",
+      "rawPayload": {
+        "year": 2013,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "e25c07b725877d319da1204fa5bb9ee85c1bbeb8ea82f36f431b42d13e438a6e",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘The Quest for Hizbut Tahrir Indonesia’ Asian Journal of Social Science 37(4), pp. 623-645, doi: https://doi.org/10.1163/156853109X460219",
+      "rawPayload": {
+        "year": 2009,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "8e33127db71c9638b98c163928dfc2203443ab7721f1b4a84087b1f978dc2df9",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Islamism and Women in Politics: Analysing Female Political Participation and Representation of Indonesia’s Prosperous Justice Party (PKS)’ Jurnal Substansia, vol. 1, No. 1.",
+      "rawPayload": {
+        "year": 2009,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "7ad8cb75823f299143e60241be34065369f72b226b43ab0b319b0b95920ab2a3",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘The Conspiracy of Jews: The Quest for anti-Semitism in Media Dakwah’ Graduate Journal of Asia-Pacific Studies, 5(2), 53-76. http://www.asia-studies.com/GJAPS5.2.html",
+      "rawPayload": {
+        "year": 2007,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "1ff8120f1acfb42037826b5d56d7e63f4058df7e92c213d35bc6e3cd25c48a5c",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Yudhoyono and Kalla: Two Distinctive Styles of Policy-Making in the Case of Fuel Subsidy Reduction in Indonesia’ Asian Journal of Social Policy Vol.3, No. 2, 2007, pp. 1-10.",
+      "rawPayload": {
+        "year": 2007,
+        "suggestedType": "JOURNAL_ARTICLE",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "04c29014c7963eafda4791e1220c0e47fadbe53b8231fd0231859287b8446673",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Hui Yew-Foong, “Voting Patterns of the 2024 Indonesian Elections: An Overview’, in Burhanuddin Muhtadi and Hui Yew-Foong (eds), The 2024 Indonesian Elections and the Future of Indonesian Politics, (Singapore: ISEAS – Yusof Ishak Institute), forthcoming.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "FORTHCOMING",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "95e6facc3dc0e3c6cf791df1222e859ed3b03fbdeae8c74a3b77641a5884e742",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Vote-Buying Pattern in Concurrent Elections Era: Clientelism in Competitive Electoral Environments,’ In Elena Burgos Martinez, Rizal Shidiq, and Irene Hadiprayitno (eds), Indonesia 2014-2024 (forthcoming).",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "FORTHCOMING",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "db75933b0d77fe9257d200a702964234f562809e1419feaf436048dc8eca6c51",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Maria Monica Wihardja and Burhanuddin Muhtadi, “Selective Exposure, Selective Belief and Self-Reporting Bias in Indonesia’s 2024 Presidential Election, in Burhanuddin Muhtadi and Hui Yew-Foong (eds), The 2024 Indonesian Elections and the Future of Indonesian Politics, (Singapore: ISEAS – Yusof Ishak Institute), forthcoming.",
+      "rawPayload": {
+        "year": 2025,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "FORTHCOMING",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "550201da53e92ecad9459753e553350c09eefd50080472cad862c634902fa125",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, Taberez A. Neyazi & Sourabh B. Paul, ‘Kepercayaan Politik, Tekanan Ekonomi dan Sikap Partisan: Mendiskusikan Approval Presiden Pada Masa Krisis COVID-19, dalam Agung Firman Sampurna (Ed), Scenario Planning, Dampak, dan Proyeksi di Bertbagai Bidang pada Masa dan Pasca Pandemi COVID-19 (Jakarta: BPK RI).",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "a5c149d8db5068b4e506b4ceea4ca02ca8df628a5559a1e112d5a1d36ccca190",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, Diego Fossati, Edward Aspinall and Eve Warburton, ‘Representasi Ideologis dalam Demokrasi Klientelistik: Studi Kasus Indonesia,’ dalam Amelia Fauzia dan Sukron Kamil, Agama dan Negara di Indonesia Kontemporer: Persepktif Teoretis, Sosial, Politik dan Ekonomi, (Jakarta: Social Trust Fund UIN Jakarta dan Fakultas Adab dan Humaniora UIN Jakarta).",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "5467ed9baad80c6b2ecb754ee6509263a75809acc92505edfde67f302baff165",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Pecundang elektoral, dukungan terhadap demokrasi, dan nostalgia otoriter,’ dalam Thomas Power and Eve Warburton (eds), Demokrasi di Indonesia: Dari Stagnasi ke Regresi (Jakarta: KPG (Kepustakaan Populer Gramedia), Public Virtue, & Kurawal Foundation).",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "573ad0010a81f1dd34f42fa136c6691919fdbb02fcab308d9a3984d252115a05",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Electoral Losers, Democratic Support and Authoritarian Nostalgia’ in Democracy in Indonesia: From Stagnation to Regression by Thomas Power and Eve Warburton (eds) (Singapore: ISEAS-Yusof Ishak Institute), pp. 141- 165.",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "1b79f4b206ebd264587e2ee58bcd16680e6b5004ff99cfcc6bde917c25259ab7",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Rizka Halida, ‘Muslim Identity and Deprivation: Socio-Psychological Sources of Support for Islamist Radical Groups in Indonesia’ in Islamic Conservatism in Indonesia: Islamic Groups and Identity Politics by Alexander R. Arifianto, Leornard Sebastian and Syafiq Hasyim (eds) (London: Routledge).",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9bc5134ce326f5285e4cc83780a1437676bb8e01567b641f2616933301e0bb77",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Populisme, Polarisasi, dan Normalitas Baru dalam Politik Elektoral Kita’ (Populism, Polarization, and New Normal in Our Electoral Politics) in Bergerak Bergerak Berdampak by Najwa Shihab et al (Jakarta: Narasi TV)",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "3ef9b5f9db0f1af9a116589a8b7a37f1239160f03de6b4923ef969e2882707f7",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Marcus Mietzner and Burhanuddin Muhtadi, ‘The Mobilization of Intolerance and its Trajectories: Indonesian Muslims’ Views of Religious Minorities and Ethnic Chinese,’ in Contentious Belonging: The Place of Minorities in Indonesia by Greg Fealy and Ronit Ricci (eds) (Singapore: ISEAS Yusof Ishak Institute) pp. 155-174.",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "1e23497ddc489c4003e1d9127795489a8d609a12d3fa36ad9ed3dab77a2bf4fc",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Violent Extremism dalam Sudut Pandang Studi Agama’ (Violent Extremism from the Perspective of Religious Studies) in Asking Sensitive Questions: Panduan Pelaksanaan Survei dengan Tema Tindakan Ekstrem Berbasis Agama dan Non-Agama (Guidelines for Conducting Surveys on Extremism Based on Religion and Non-Religion) by Philips J. Vermonte and Arya Fernandes (eds) (Jakarta: CSIS), pp. 21-30.",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "41ea62510031d213a40e2c11154a4a294a408a3e202491b050f4165f2a65d2fb",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Komoditas Demokrasi: Efek Sistem Pemilu terhadap Maraknya Jual Beli Suara’ (Democratic Commodities: The Effects of Electoral System on the Prevalence of Vote Buying Practices) in Pembiayaan Pemilu di Indonesia by Mada Sukmajati dan Aditya Perdana (eds) (Jakarta: Bawaslu), pp. 95-118.",
+      "rawPayload": {
+        "year": 2018,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "1838eec7b01f91c2d1b1d2f23b6214833ead880ab10f3f747335881582f1dbcc",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Adam Kamil, ‘Divided Government: Tantangan Pemerintahan Jokowi- (Divided Government: The Challenges for Jokowi Government) in Proyeksi Ekonomi Indonesia 2015: Tantangan Kabinet Kerja Memenuhi Ekspektasi by Enny Sri Hartati et al (Jakarta: INDEF).",
+      "rawPayload": {
+        "year": 2015,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "542ecc60c4e8b7dc12142c56599b8dfb4978dde098a3de2d3b96139e63c65ff2",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Resep Machiavelli dan Defisit Kepemimpinan Transformatif’ (The Machiavelli Recipe and the Deficit of Transformative Leadership) in Memperbaiki Mutu Demokrasi di Indonesia: Sebuah Perdebatan by Samsu Rizal Panggabean and Ihsan Ali-Fauzi (Jakarta: Paramadina) pp. 141-150.",
+      "rawPayload": {
+        "year": 2012,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9ac9cf87b31518aa1f4208e432980616d6fad6aa894c3cbe28dfc3bc06abbfb9",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Ke Cak Nur, Saya Mengaji’ (To Cak Nur, I Recite) in All You Need is Love: Cak Nur di Mata Kaum Muda by Ihsan Ali-Fauzi and Ade Armando (Jakarta, Penerbit Paramadina)",
+      "rawPayload": {
+        "year": 2008,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "43a7ea9361f160e6ea274ba7227861da9a2a2a89296621b3c1a7149ce42b4d1b",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘The 1998 Student Uprising in Indonesia: A Social Movement Theory Approach’ in Enlightenment from Within by Faried Saenong and Eko Nugroho (eds), (Canberra: Minaret)",
+      "rawPayload": {
+        "year": 2007,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "74af43e08c23f4a4ec34c4524ef58618ff18e7f58709719f4341025aa1cfd851",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Tantangan Pluralisme  Keagamaan  dan  Sistem  Pendidikan Agama’ (The Challenges of Religious Pluralism and the Religious Educational System) in Pendidikan  Memang  Multikultural:  Beberapa  Gagasan by Aryo Danusiri and Wasmi Alhaziri (eds) (Jakarta: Yayasan Sains Estetika dan Teknologi (SET)",
+      "rawPayload": {
+        "year": 2002,
+        "suggestedType": "BOOK_CHAPTER",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "7818137dbf715540b60dbf5b3dff95a023ea75eeb4302412561f5f4ecc3a1858",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Indonesia’s Regional Elections: Electoral Competition Limited by Cartel Politics,’ ISEAS Perspective 2024/104, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2024-104-indonesias-regional-elections-electoral-competition-limited-by-cartel-politics-by-burhanuddin-muhtadi/",
+      "rawPayload": {
+        "year": 2024,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "45c1969f3530c565d6766350c4fb54dde9c74962fe142c40e51d1694cda7aba2",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Maria Monica Wihardja, ‘Deepfakes and Selective Belief: How Partisanship Affects Voters’ Exposure and Susceptibility to Deepfake Content’, ISEAS Perspective, 2024/58, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2024-58-deepfakes-and-selective-belief-how-partisanship-affects-voters-exposure-and-susceptibility-to-deepfake-content-by-burhanuddin-muhtadi-and-maria-monica-wihardja/",
+      "rawPayload": {
+        "year": 2024,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "d6547ce0d361d1cfd6e9d1fc1f3d6086ff64925ca8eb549d341ef11196a331f7",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Kennedy Muslim, ‘Assessing Prabowo-Gibran’s Victory: An Exit-Poll Aftermath Analysis of the 2024 Presidential Election,’ ISEAS Perspective, 2024/32, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2024-32-assessing-prabowo-gibrans-victory-an-exit-poll-aftermath-analysis-of-the-2024-presidential-election-by-burhanuddin-muhtadi-and-kennedy-muslim/",
+      "rawPayload": {
+        "year": 2024,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "5cff10283dee5eb2677c22199b0f8f474b7e266687bc7cd7171b398680207826",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Kennedy Muslim, ‘The Prabowo-Gibran Pairing: Wise or Foolish?’ ISEAS Perspective, 2023/95, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2023-95-the-prabowo-gibran-pairing-wise-or-foolish-by-burhanuddin-muhtadi-and-kennedy-muslim/",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "285751d6f79e40ad9a001b3fc24da5bb0cc7b8178bc17a4fb09369cfd74abdf1",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, ‘Jokowi’s High Approval Ratings Make Him Potential Kingmaker,’ ISEAS Perspective, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2023-38-jokowis-high-approval-ratings-make-him-potential-kingmaker-by-burhanuddin-muhtadi/",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "d74136ba94f7693c66ebf12927adcbb4508ea69a37fa80ba8c08134b14bac621",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, “Analyzing Public Opinion on Moving Indonesia’s Capital: Demographic and Attitudinal Trends,” ISEAS Perspective, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2022-54-analyzing-public-opinion-on-moving-indonesias-capital-demographic-and-attitudinal-trends-by-burhanuddin-muhtadi/",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "989112849d033faebd3865586a2877cbc147a74a62d1ef11e90594c53d58cc41",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Greg Fealy, Sally White, and Burhanuddin Muhtadi, “Counter-polarisation and political expediency,” New Mandala, 1 July 2022, https://www.newmandala.org/counter-polarisation-and-political-expediency/",
+      "rawPayload": {
+        "year": 2022,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "0cc2ca464fee959bac42959e7899812cb093360888ab343e8e3a28088234d932",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi and Kennedy Muslim, ‘Islamic Populism and Voting Trends in Indonesia’, ISEAS Perspective, https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2021-159-islamic-populism-and-voting-trends-in-indonesia-by-burhanuddin-muhtadi-and-kennedy-muslim/",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "b0b275f7e6347e5529eb21cedf342edd19d6072e8431f531d8cc06fa02c8ab8b",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Seth Soderborg and Burhanuddin Muhtadi, ‘When is Staying Home Partisan? Policy Conflict and Precaution-Taking during a Pandemic’ https://scholar.harvard.edu/soderborg/publications/when-staying-home-partisan-policy-conflict-and-precaution-taking-during",
+      "rawPayload": {
+        "year": 2021,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "44c4f88da998309da1e1df79d992bb16ce89b75c63b2e402dde27ca71cf237bb",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi ‘Populism, Islamism, and Democratic Decline in Indonesia,’ The Middle East Institute, 4 August 2020 https://www.mei.edu/publications/populism-islamism-and-democratic-decline-indonesia",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "4f8db02c140f15746dea7a905fbdab09793dd0e365254ae6b405c5c8b9e06590",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Nathanael Sumaktoyo and Burhanuddin Muhtadi, ‘How China’s foreign policy shapes prejudice against Chinese Indonesians,’ New Mandala, 5 October 2020 available at: https://www.newmandala.org/how-chinas-foreign-policy-shapes-prejudice-against-chinese-indonesians/",
+      "rawPayload": {
+        "year": 2020,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "63a133c7167ec25f6d0fcf4a2309a9104070c2ab29b3b7e44213e5b48ebd86b1",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Eve Warburton and Burhanuddin Muhtadi, ‘Politicising inequality in Indonesian elections’ Brookings (blog) 8 April 2019 at: https://www.brookings.edu/blog/order-from-chaos/2019/04/08/politicizing-inequality-in-indonesian-elections/m",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "2a6e21ccdcc0671c323f36dda543a29157d501462c2bbe373fe6616a4f8cc58d",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi, Eve Warburton, and Aninda Dewayanti 2019, ‘Perceptions of Inequality in Indonesia: A Matter of Partisan Politics?’, ISEAS Perspective https://www.iseas.edu.sg/images/pdf/ISEAS_Perspective_2019_10.pdf",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "2de8b724a9f49054fcd619a3b49938938174e0ce26e465dbd7b1157e222e90b5",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Diego Fossati, Burhanuddin Muhtadi and Eve Warburton, ‘Follow the leader: personalities, policy and partisanship in Indonesia’ New Mandala, 15 Jul, 2019, at: https://www.newmandala.org/follow-the-leader-personalities-policy-and-partisanship-in-indonesia/",
+      "rawPayload": {
+        "year": 2019,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "9be4cb9edf5008adecc99d945e56b1ac09ab06168774a9d9545118c41c37b1a7",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Edward Aspinall, Diego Fossati, Burhanuddin Muhtadi and Eve Warburton, ‘Mapping the Indonesian political spectrum,’ New Mandala http://www.newmandala.org/mapping-indonesian-political-spectrum/",
+      "rawPayload": {
+        "year": 2018,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "aa50c70d2d16cbbbb3ca7263ccd03bc3d036d4d870de464e209a8b1501f4c0f3",
+      "kind": "PUBLICATION",
+      "sourceName": "CV March 2026",
+      "sourcePath": ".material/Burhanuddin Muhtadi CV_March_2026.md",
+      "sourceUrl": null,
+      "sourceCheckedAt": null,
+      "rawText": "Burhanuddin Muhtadi,‘Money Politics and the Prisoner’s Dilemma,’ New Mandala, 16 November 2015, at: https://www.newmandala.org/money-politics-and-the-prisoners-dilemma/",
+      "rawPayload": {
+        "year": 2015,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "PUBLISHED",
+        "platformIndex": null
+      },
+      "note": "Kandidat kanonis dari CV; pertahankan susunan penulis dan redaksi sumber saat direview."
+    },
+    {
+      "fingerprint": "d75837a7e91987b2c0a84ff58ee24a234e94ccccffff11da387d8fd0ef6939bb",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/408451472_Beyond_the_Party_Campaign_Visit_Effects_in_Indonesia's_2024_Election",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Beyond the Party: Campaign Visit Effects in Indonesia's 2024 Election",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 1
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "37bff4498de0b6024afd6ba8cdbc14eb92f01049e5e4e34f6f3eb390c902ba3b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/408451671_The_Constituency_for_Personal_Politicians_Social_Embeddedness_and_Voter_Behavior_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Constituency for Personal Politicians: Social Embeddedness and Voter Behavior in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 2
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "12939773d5716b0ce2f1c226030a03809a359b2707b928c066572c252d675497",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/405246022_Warga_Nahdliyin_Partai_Politik_dan_Pilihan_Presiden_2024_Antara_Identitas_Keagamaan_Jaringan_Organisasi_dan_Preferensi_Elektoral",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Warga Nahdliyin, Partai Politik, dan Pilihan Presiden 2024: Antara Identitas Keagamaan, Jaringan Organisasi, dan Preferensi Elektoral",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 3
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "66a1a821eb326b3d3fc2ae3f59a5d48c851bba20b872c2837be7b033f6817afe",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/406806872_Social_Media_and_Religious_Intolerance_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Social Media and Religious Intolerance in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 4
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "1422ccdefabb22c379ea5c029c0885539e37f9f8f5186da5450a53dce5c3cea5",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/407144639_Indonesia_State_and_Society_in_Transition_By_Jemma_Purdey_Antje_Missbach_and_Dave_McRae_Boulder_CO_Lynne_Rienner_Publishers_2019_vii_261_pp_US2995_paper_ISBN_978-1-62637-852-0",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Indonesia: State and Society in Transition - book review record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 5
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "9143ff48bb0a274bb228e12c3e276081a4cec301b0a3a2ba0fb5399b6091e205",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/398497186_Complacent_Democrats_The_Political_Preferences_of_Gen_Z_Indonesians_-_ERRATUM",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Complacent Democrats: The Political Preferences of Gen Z Indonesians - Erratum",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 6
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "0fc620b6fe76a3686dead714b878b76cbe7dfd9fc711723463a0c9b4c22e12a8",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/397046162_Indonesian_public_perceptions_of_Chinese_Indonesians_holding_different_public_offices",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Indonesian Public Perceptions of Chinese Indonesians Holding Different Public Offices",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 7
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "fed193a648b6647e4e3a5e5c82d6cd42ae1638215af00253991a93c368876bc2",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/396240428_Complacent_Democrats_The_Political_Preferences_of_Gen_Z_Indonesians",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Complacent Democrats: The Political Preferences of Gen Z Indonesians",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 8
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "3a12b1588c5365435ba2b5f86e95fb7d88f788fcb0ceab16460e9480806b8772",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/395303598_Politics_Over_Prejudice_Explaining_the_Surprising_Decline_of_Anti-Chinese_Sentiment_in_Indonesia_During_the_COVID-19_Pandemic",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politics Over Prejudice? Explaining the Surprising Decline of Anti-Chinese Sentiment in Indonesia During the COVID-19 Pandemic",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 9
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "aec5e9a051c92a5585978b3625e7f717dbfb0e6c7334bcde6ece4378470fa99b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/392262281_2024_Presidential_Elections_Reviewing_Jokowi's_Influence_on_Prabowo's_Landslide_Victory",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "2024 Presidential Elections: Reviewing Jokowi's Influence on Prabowo's Landslide Victory",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 10
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "c53dc06faaeaa37f5fc38a40c6202a52802173410bdb75883eda09fdbb174448",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/391804036_Disinformation_and_Election_Propaganda_Impact_on_Voter_Perceptions_and_Behaviours_in_Indonesia's_2024_Presidential_Election",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Disinformation and Election Propaganda: Impact on Voter Perceptions and Behaviours in Indonesia's 2024 Presidential Election",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 11
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "feb30802a557f8782b02c60e44ae255ac7f1d4f8348af8458372b21e9e19527b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/391300170_Collective_Memory_Democratic_Ambivalence_and_Authoritarian_Notions_of_Democracy_Explaining_the_Rise_of_Prabowo_Subianto",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Collective Memory, Democratic Ambivalence, and Authoritarian Notions of Democracy: Explaining the Rise of Prabowo Subianto",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 12
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "646d1f902928c55fa1946448147ce8fc0305599a8f0833a5096e8d05e5b94641",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/397288432_Politics_Over_Prejudice_Explaining_the_Surprising_Decline_of_Anti-Chinese_Sentiment_in_Indonesia_During_the_COVID-19_Pandemic",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politics Over Prejudice? Explaining the Surprising Decline of Anti-Chinese Sentiment in Indonesia During the COVID-19 Pandemic - second platform record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 13
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "98fc5b7a6e0ef3836d6858de9970122ad745c4cbf24d0331967a2310f8c73ef4",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/391331226_Indonesia's_Regional_Elections_Electoral_Competition_Limited_By_Cartel_Politics",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Indonesia's Regional Elections: Electoral Competition Limited by Cartel Politics",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 14
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "5f6d63f5db8d389288c77f7df27614dfb9beea5e2f870d2ba0c49192dd22041b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383181853_Deepfakes_and_Selective_Belief_How_Partisanship_Affects_Voters'_Exposure_and_Susceptibility_to_Deepfake_Content",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Deepfakes and Selective Belief: How Partisanship Affects Voters' Exposure and Susceptibility to Deepfake Content",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 15
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "92df5409f512d1d612968481254d1dcc945e553551812f3820acf325c82fe975",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383181944_Assessing_Prabowo-Gibran's_Victory_An_Exit-Poll_Aftermath_Analysis_of_the_2024_Presidential_Election",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Assessing Prabowo-Gibran's Victory: An Exit-Poll Aftermath Analysis of the 2024 Presidential Election",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 16
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "4c06cb13742c80eb6408b69ecff9fc6f977943fdc47eae59ee6b5714b8ecd354",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383201833_Hidden_Costs_of_Academic_Dishonesty_The_Case_of_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Hidden Costs of Academic Dishonesty: The Case of Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 17
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "dd81f1e49832f4430203a75c02c649ce863806369f2cd17fc2894730dad1cced",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383182018_The_Prabowo-Gibran_Pairing_Wise_or_Foolish",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Prabowo-Gibran Pairing: Wise or Foolish?",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 18
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "0558230592388295913bea1c644ac6c3fec69383a3e599f02242e5cb6434a524",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/374890370_Resentment_and_Polarization_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Resentment and Polarization in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 19
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "88efbe7109e2aaf74377cd97b11527fa9063f3b5d05ad16afabe8f33bef0e5f0",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383181678_Jokowi's_High_Approval_Ratings_Make_Him_Potential_Kingmaker",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Jokowi's High Approval Ratings Make Him Potential Kingmaker",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 20
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "363b85b9d6aeb7f83b0d42c9c868618f5c27e414afcb37dce2da2b1e7c1f1f10",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/372007000_Partisanship_Religion_and_Social_Class_Attitudes_and_Behaviors_in_the_Early_Stages_of_the_Covid-19_Pandemic",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Partisanship, Religion, and Social Class: Attitudes and Behaviors in the Early Stages of the COVID-19 Pandemic",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 21
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "8b5d44ddb3c71e2c13be1876df621795e7673a99b4bdd2fc4cfdf16f7a3d0e18",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/368987986_THE_INDONESIA_NATIONAL_SURVEY_PROJECT_2022_Engaging_with_Developments_in_the_Political_Economic_and_Social_Spheres",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Indonesia National Survey Project 2022: Engaging with Developments in the Political, Economic and Social Spheres",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 22
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "326155473a11d2d0530721434996144fd48a6d1a017d616fd0527826de2817d7",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/368245651_The_Indonesian_Military_Enjoys_Strong_Public_Trust_and_Support_Reasons_and_Implications",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Indonesian Military Enjoys Strong Public Trust and Support: Reasons and Implications",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 23
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "31371906a3a9ccd131485b86c47a4b03c2ad03bb879d7eaef7056d7fc7176fae",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/366963114_China's_Foreign_Policies_and_Attitudes_toward_Chinese_Diaspora_A_Direct_Link",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "China's Foreign Policies and Attitudes toward Chinese Diaspora: A Direct Link?",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 24
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "45e4f2da416f490c97dd858abfdc1f0da45bf81f4cbffb36f7fb32fca13cb2db",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/365504962_The_candidate's_dilemma_anti-corruptionism_and_money_politics_in_Indonesian_election_campaigns_The_candidate's_dilemma_anti-corruptionism_and_money_politics_in_Indonesian_election_campaigns_by_Elisabe",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Candidate's Dilemma: Anti-corruptionism and Money Politics in Indonesian Election Campaigns - book review record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 25
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "e0c966a6b2f7a9f447ecbc030349a3aa103df49956d0b11201fcff92853072fa",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/359536078_Political_Trust_Democratic_Satisfaction_and_Partisanship_Explaining_Leadership_Approval_in_Indonesia_in_Times_of_Economic_Hardship_during_the_COVID-19_Crisis_in_press",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Political Trust, Democratic Satisfaction and Partisanship: Explaining Leadership Approval in Indonesia in Times of Economic Hardship during the COVID-19 Crisis",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 26
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "5e3f6b90c3153f825f534003b24d2866d6dadffe2d7df84b49c6af28923d9dc3",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362413036_Analyzing_Public_Opinion_on_Moving_Indonesia's_Capital_Demographic_and_Attitudinal_Trends",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Analyzing Public Opinion on Moving Indonesia's Capital: Demographic and Attitudinal Trends",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 27
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "d79d96ab1f8c9b634aa4a7275644f82aa955de03df8355ee67ad44372186ba87",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362412099_Book_Review_Religious_Pluralism_in_Indonesia_Threats_and_Opportunities_for_Democracy_Edited_by_Chiara_Formichi",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Religious Pluralism in Indonesia: Threats and Opportunities for Democracy - book review record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 28
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "196ae12872da3d0b635c6a8662319eeb2246746edf130bd55b3cf623eb932edd",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362412160_BUYING_BROKERS_Electoral_Handouts_beyond_Clientelism_in_a_Weak-Party_State",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Buying Brokers: Electoral Handouts beyond Clientelism in a Weak-Party State",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 29
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "f0816eddc955e4042d014f79e33c93a8f0962ad70b9ca5f69d2a19253ba2dba8",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362467796_Islamic_Populism_and_Voting_Trends_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Islamic Populism and Voting Trends in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 30
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "64688b78aa5d609262300ea2ccf44f8cd760301d8df1c4c709b10e3e549876b1",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362412765_Can_Religion_Save_Corrupt_Politicians_Evidence_from_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Can Religion Save Corrupt Politicians? Evidence from Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 31
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "7456ac67c1c42fc20e49bd1d449630f0a1426acc3dca7f227a05ad79398b2180",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/353124821_Resentment_and_Polarization_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Resentment and Polarization in Indonesia - second platform record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 32
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "03881e94ae99a0ba2531f353feb37f29dc66bdfb8f30c60f49dca34c22db858c",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/353210163_Book_Review_INDONESIA_State_and_Society_in_Transition_By_Jemma_Purdey_Antje_Missbach_and_Dave_McRae",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Indonesia: State and Society in Transition - alternate book review record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 33
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "303b078dbb65c73fc75a624b2d406ddae95eb147c6bd1f87c1b28edcfa138877",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/349958089_When_does_class_matter_Unequal_representation_in_Indonesian_legislatures",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "When Does Class Matter? Unequal Representation in Indonesian Legislatures",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 34
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "6fb3b34d9ea30c768220d1a23ca6eacfc200c706b09d457c35524b1864e175db",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/349393860_Selective_Belief_How_Partisanship_Drives_Belief_in_Misinformation",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Selective Belief: How Partisanship Drives Belief in Misinformation",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 35
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "30cf0d37827e8837ee13b56d5b3b778ac83dd210bc5e466320532c90323173d4",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/349246843_Why_democrats_abandon_democracy_Evidence_from_four_survey_experiments",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Why Democrats Abandon Democracy: Evidence from Four Survey Experiments",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 36
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "fa9d8eaecd2335d9f86d1734afdacc63e268978f5bb786505f24702ba3c7090b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/402390271_Comparative_Approaches_to_MisDisinformation_Selective_Belief_How_Partisanship_Drives_Belief_in_Misinformation",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Comparative Approaches to Mis/Disinformation - Selective Belief",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 37
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "5c38c89dab7b0cfc57e80835e4b6861c98cd0e8affa2b7a19f2cb104a6748b25",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362415815_Electoral_Losers_Democratic_Support_and_Authoritarian_Nostalgia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Electoral Losers, Democratic Support and Authoritarian Nostalgia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 38
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "36a1e257ba42fb42130cb7a8b218616a77f11c0512eec38bfb29dbb56a61c5b5",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/383182028_When_is_Staying_Home_Partisan_Policy_Conflict_and_Precaution-Taking_during_a_Pandemic",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "When Is Staying Home Partisan? Policy Conflict and Precaution-Taking during a Pandemic",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 39
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "3920475d43b9815d6d8e76fa97096c8d1fd38c6c79c5be8c47591e9f695fec75",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/344034808_Muslim_Identity_and_Deprivation_Socio-Psychological_Sources_of_Support_for_Islamist_Radical_Groups_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Muslim Identity and Deprivation: Socio-Psychological Sources of Support for Islamist Radical Groups in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 40
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "8bbca3e68dcfafe152ea66bd7fcf9bd7ff228d30451350a2a1f22dd49bd015ef",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/362412443_Populism_Islamism_and_Democratic_Decline_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Populism, Islamism, and Democratic Decline in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 41
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "d4efb2136614f43bffdf6a1944fc3b0b2190467ffce585b272e92e4000ec4464",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/343304679_Policy_Partisanship_and_Pay_Diverging_COVID-19_Responses_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Policy, Partisanship, and Pay: Diverging COVID-19 Responses in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 42
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "1f84d7a111d51c9e42ef87c910e294bb3e3ef9d125ed6c74d16c1d2516274e7b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/342015009_Electoral_losers_democratic_support_and_authoritarian_nostalgia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Electoral Losers, Democratic Support and Authoritarian Nostalgia - second platform record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 43
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "0e66e0ccc14001acda335b19fafcc01379f5c3c3f1c727adcaa532841ae29779",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341899613_Muslim_Identity_and_Deprivation_Socio-Psychological_Sources_of_Support_for_Islamist_Radical_Groups_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Muslim Identity and Deprivation - second platform record",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 44
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "2ab18286e80c81b4835d1945f319b63f28e1fb735a1b86d2749136bbb643068a",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/339611115_Inequality_and_Democratic_Support_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Inequality and Democratic Support in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 45
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "91496e5d52a720ea76314f1d7179ebc368ecb19fde84d0ccbf67cbe99532f5ef",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/338973262_Ideological_representation_in_clientelistic_democracies_The_Indonesian_case",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Ideological Representation in Clientelistic Democracies: The Indonesian Case",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 46
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "b813927121b3fa4085f6b1e87ff1baa4d4229991e2cef67e77fbd380e4a26a57",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/340611748_The_Myth_of_Pluralism_Nahdlatul_Ulama_and_the_Politics_of_Religious_Tolerance_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Myth of Pluralism: Nahdlatul Ulama and the Politics of Religious Tolerance in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 47
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "217b7b5ca19d5dcd618bdd922f561a59c208e3bbe48a8953cfafaed67624fd64",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/338271569_9_The_mobilisation_of_intolerance_and_its_trajectories_Indonesian_Muslims'_views_of_religious_minorities_and_ethnic_Chinese",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Mobilisation of Intolerance and Its Trajectories: Indonesian Muslims' Views of Religious Minorities and Ethnic Chinese",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 48
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "66b2f554ba6968bb3d3636410634bc1733766a0031c54b7bf6e2fe7c692c4728",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341670415_Panduan_Pelaksanaan_Survei_dengan_Tema_Tindakan_Ekstrem_Berbasis_Agama_dan_Non-Agama",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Panduan Pelaksanaan Survei dengan Tema Tindakan Ekstrem Berbasis Agama dan Non-Agama",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 49
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "ffe05196002f9c8834fe0d262c1ef1af7c0f6e04d78ff2a56b6a8210a267ce6a",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/336854492_Elites_masses_and_democratic_decline_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Elites, Masses, and Democratic Decline in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 50
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "7bdc9839d1d76560d66834b4058fc7b9b662658dd8f3f22566000cfeaab02b03",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341671544_Jokowi's_Choice_Caught_between_Political_Cartels_and_Public_Interest",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Jokowi's Choice: Caught between Political Cartels and Public Interest",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 51
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "1e182876532ee25b77e6f176248f2e43e9f843dab65259c1c3426f11d56cbf33",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341775099_Follow_the_leader_personalities_policy_and_partisanship_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Follow the Leader: Personalities, Policy and Partisanship in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 52
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "4975bbb9792af527566b546d22a4af4b08657593e7662898ab95021d93d64a7f",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341640866_Politik_Uang_dan_New_Normal_dalam_Pemilu_Paska-Orde_Baru",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politik Uang dan New Normal dalam Pemilu Paska-Orde Baru",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 53
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "0577d967846226ac107b446ee7e06f07fa120476810dc3ee00ec5941fa1d754d",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332915015_The_Determinants_of_Vote_Buying_The_Profile_of_Typical_Vote_'Sellers'",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Determinants of Vote Buying: The Profile of Typical Vote Sellers",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 54
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "6f6dd3f9103d49db0033e95bb46af19e065f7aeeab931cc17ce21f2972702519",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332918331_Do_Candidates_Target_Loyalists_or_Swing_Voters_Beyond_the_Core-_Versus_Swing-Voter_Debate",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Do Candidates Target Loyalists or Swing Voters? Beyond the Core- Versus Swing-Voter Debate",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 55
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "05b349283d4f559cc909f4c5d236a388daca2e33f408f87bb55ac03bcc8f44ff",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332921058_Conclusion",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Conclusion",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 56
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "8e86f6a00293b22ab2a758604f7f5ad59a71b3c52e7c952ee433e12b3d6139ab",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332922909_How_Targeting_Goes_Astray_Explaining_the_Gap_Between_Intentions_and_Outcomes",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "How Targeting Goes Astray: Explaining the Gap Between Intentions and Outcomes",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 57
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "eff62448d912fa186b8b7499d5e4a8dd361a072174ac4d6e753d02e5bc8c2878",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332923199_Vote_Brokerage_Personal_Networks_and_Agency_Loss",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Vote Brokerage, Personal Networks, and Agency Loss",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 58
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "b04865928aec46fa454b64ae6ea67316d0a3bcbcccc926fb1445ff78d15f136b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332927077_The_Prevalence_of_Vote_Buying_in_Indonesia_Building_an_Index",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Prevalence of Vote Buying in Indonesia: Building an Index",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 59
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "b221167897d7d38220c3aae3492afb60ea7bf09961abcf2008935096eb249a1b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332932770_Does_Vote_Buying_Affect_Voting_Behaviour_Chasing_Winning_Margins_and_the_Prisoner's_Dilemma",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Does Vote Buying Affect Voting Behaviour? Chasing Winning Margins and the Prisoner's Dilemma",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 60
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "14b6629f4353a8ae527c67d3759c7eb3960fdbe8da74a46813bfd7fbf29d1cf5",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341852505_Politicizing_inequality_in_Indonesian_elections",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politicizing Inequality in Indonesian Elections",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 61
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "1f6502591308270155cc63639b7eda0768c460d91dba4d377fe95cdcc9dec2b1",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341640654_Perceptions_of_Inequality_in_Indonesia_A_Matter_of_Partisan_Politics",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Perceptions of Inequality in Indonesia: A Matter of Partisan Politics?",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 62
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "913e04d84c3e17a5b6d08b423348f49fd63b86b718c5cb70c0c59f4739b0a2cc",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/332927322_Vote_Buying_in_Indonesia_The_Mechanics_of_Electoral_Bribery",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Vote Buying in Indonesia: The Mechanics of Electoral Bribery",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 63
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "4255f16de40dcb9dd06793abea923808652111ae0bebedf4c4fefbd0a83aed71",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/329980643_Pembiayaan_Pemilu_di_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Pembiayaan Pemilu di Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 64
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "c10d2d88549b9a1580485f612250267ea5618ecd0b4ae3881eded1ba0ffb3e84",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341775188_Politik_Identitas_dan_Mitos_Pemilih_Rasional",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politik Identitas dan Mitos Pemilih Rasional",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 65
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "72868fe90d57f633ac572b4649dc08c8866b8d0d8610bd18ecb088f0e1e4e123",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341775298_Indonesia's_open-list_voting_system_opens_the_door_to_vote_buying",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Indonesia's Open-List Voting System Opens the Door to Vote Buying",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 66
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "cfb9718fe5b0a9bf68e46ab5525801e0a814403b396ada629f46ae09f897aa01",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341670089_A_third_of_Indonesian_voters_bribed_during_election_-how_and_why",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "A Third of Indonesian Voters Bribed during Election - How and Why",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 67
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "5059a2bc2bb930dfab737bacad1c356a5bf3c3020c6202cb7409534af1aebefb",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341670521_Riset_tunjukkan_sepertiga_pemilih_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Riset Tunjukkan Sepertiga Pemilih Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 68
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "03cacca9fd975bce84b75e96022c1d4f4fd34359f9df36a9acbb438bb6694b02",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/326286879_Explaining_the_2016_Islamist_Mobilisation_in_Indonesia_Religious_Intolerance_Militant_Groups_and_the_Politics_of_Accommodation",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Explaining the 2016 Islamist Mobilisation in Indonesia: Religious Intolerance, Militant Groups and the Politics of Accommodation",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 69
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "7fd14bd925953bffab658bc28fbca59ae765eef329e2b0c6ff9df488014bf0b6",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341670253_Mapping_the_Indonesian_political_spectrum",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Mapping the Indonesian Political Spectrum",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 70
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "750baea1f3cb3fd839674a6185549b6170a287689a2c8cf4141ccf5ba1a4da73",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341641433_Buying_Votes_in_Indonesia_Partisans_Personal_Networks_and_Winning_Margins",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Buying Votes in Indonesia: Partisans, Personal Networks, and Winning Margins",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 71
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "d340a4a9ca2a69d7dd8abdb86af03eccbc9750cb8455a262d982b9448c8c801c",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/326385868_Entrepreneurs_of_Grievance_Drivers_and_Effects_of_Indonesia's_Islamist_Mobilization",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Entrepreneurs of Grievance: Drivers and Effects of Indonesia's Islamist Mobilization",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 72
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "3738c9485a3745b7a13d764829d462521f19aaa51191e4b27f8370d3a0075b71",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341670346_Ahok's_satisfied_non-voters_an_anatomy",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Ahok's Satisfied Non-voters: An Anatomy",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 73
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "c0842bb110195cdee785c7d1773e2afd05469047d79e0a7f2f3affaf918124b1",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341671746_Jokowi's_Reshuffle_Playing_It_Safe_Again",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Jokowi's Reshuffle: Playing It Safe Again",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 74
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "b44045c7257a7df92094a0e4ce4c51357fbcfc4cdf9e66a9256b9c9b925ba928",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341678716_Jokowi_not_the_reformer_he_promised_to_be",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Jokowi Not the Reformer He Promised to Be",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 75
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "8ae30e013b65e89e3ec56b39de1dd95c7a6aa99604e8dff5cd527350f1f9699b",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341775416_Money_politics_and_the_prisoner's_dilemma",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Money Politics and the Prisoner's Dilemma",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 76
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "c27c30d0ac28e01e0428dee92ef00f355d86cf9370593d38f556027118385174",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/285215640_Jokowi's_First_Year_A_Weak_President_Caught_between_Reform_and_Oligarchic_Politics",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Jokowi's First Year: A Weak President Caught between Reform and Oligarchic Politics",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 77
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "70ac41058cbd8ba3c56387124fccdcb948d5a7efcf830989034561930c1252eb",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341640940_Politik_Uang_dan_Dinamika_Elektoral_di_Indonesia_Sebuah_Kajian_Awal_Interaksi_antara_Party-ID_dan_Patron-Klien",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Politik Uang dan Dinamika Elektoral di Indonesia: Sebuah Kajian Awal Interaksi antara Party-ID dan Patron-Klien",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 78
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "c8cdbf50481629a35b224cbdaff1a7961135a5e436747fa467844038473ed6d7",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/233572848_The_Quest_for_Hizbut_Tahrir_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Quest for Hizbut Tahrir in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 79
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "0d5dd213457385a056b4196d9c44635a956ab7d34e73f9125c6fa27aa0df3e14",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/326145957_Thinking_Globally_Acting_Locally_A_Social_Movement_Theory_Approach_of_The_Prosperous_Justice_Party_PKS_and_Its_Islamist_Transnational_Framing",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Thinking Globally, Acting Locally: A Social Movement Theory Approach of the Prosperous Justice Party and Its Islamist Transnational Framing",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 80
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "6597bbf83aaceeb61ea8808350f47820a469c2111fc729628eca0f53368b35bc",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/341640303_The_Conspiracy_of_Jews_The_Quest_for_Anti-Semitism_in_Media_Dakwah",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Conspiracy of Jews: The Quest for Anti-Semitism in Media Dakwah",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 81
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "1b9c486c99689d6f00c7161bf960ae22345cce01d3ef7a16a4ab856daaba43d4",
+      "kind": "PUBLICATION",
+      "sourceName": "ResearchGate audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.researchgate.net/publication/237684670_Yudhoyono_and_Kalla_Two_Distinctive_Styles_of_Policymaking_in_the_Case_of_Fuel_Subsidy_Reduction_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Yudhoyono and Kalla: Two Distinctive Styles of Policymaking in the Case of Fuel Subsidy Reduction in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 82
+      },
+      "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
+    },
+    {
+      "fingerprint": "18d8d18d6f1a1b22ee4eb6d52c4ed883ed43efd6f559d3b23c6fe26832e3c5c8",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/46570778/Muslim_Identity_and_Deprivation_Socio_Psychological_Sources_of_Support_for_Islamist_Radical_Groups_in_Indonesia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Muslim Identity and Deprivation: Socio-Psychological Sources of Support for Islamist Radical Groups in Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 1
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "b241d70ca4a4255d1cf829ae2d0069b80e62db49309223b95db5fdfa35ca9432",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/46560781/8_Electoral_losers_democratic_support_and_authoritarian_nostalgia",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Electoral Losers, Democratic Support and Authoritarian Nostalgia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 2
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "bc3f07100b47f3102e516e2332ad1ae6601baeb56f991197577fa7844faf832d",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/43208397/Asking_Sensitive_Questions_Panduan_Pelaksanaan_Survei_dengan_Tema_Tindakan_Ekstrem_Berbasis_Agama_dan_Non_Agama",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Asking Sensitive Questions: Panduan Pelaksanaan Survei dengan Tema Tindakan Ekstrem Berbasis Agama dan Non-Agama",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 3
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "1ccddaac498c11fb22b29cf1b140ba4378d6d390843d89f575e4ff524b80688a",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/43208371/The_Mobilization_of_Intolerance_and_its_Trajectories_Indonesian_Muslims_Views_of_Religious_and_Ethnic_Minorities",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Mobilization of Intolerance and its Trajectories: Indonesian Muslims' Views of Religious and Ethnic Minorities",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 4
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "a621e32d45b7a478641eff155f1dfca835bf68d23fd6244dd815229739a9a61a",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/42638890/The_mobilisation_of_intolerance_and_its_trajectories_Indonesian_Muslims_views_of_religious_minorities_and_ethnic_Chinese",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "The Mobilisation of Intolerance and its Trajectories: Indonesian Muslims' Views of Religious Minorities and Ethnic Chinese",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 5
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "58ed50e6da55bfd212e61db0754c91e70092f6cde35c230cd2a06157762e1e90",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/41729872/PEMBIAYAAN_PEMILU_DI_INDONESIA",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Pembiayaan Pemilu di Indonesia",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 6
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "5a7243e6879a720c34d4984e7cc765432757b075c1aaf1847c3a21dd0adfdd6c",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/39767598/Vote_Buying_in_Indonesia_The_Mechanics_of_Electoral_Bribery",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Vote Buying in Indonesia: The Mechanics of Electoral Bribery",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 7
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "05b4f22e3b14783c6b4b1fd633834b4bf319d6aaacdcfac84ae4c3651696e807",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/37166579/Defisit_Pelayanan_Publik_Survei_Persepsi_Masyarakat_terhadap_Pelayanan_Publik",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Defisit Pelayanan Publik: Survei Persepsi Masyarakat terhadap Pelayanan Publik",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 8
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "de3b26373adb72f4b346a1d2607a2445b5aebe68f162d16da5cb55f0ced2890f",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/37166528/Syariat_Islam_Pandangan_Muslim_Liberal",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Syariat Islam: Pandangan Muslim Liberal",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 9
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "59be7d2f6d97ee1478de693cba539ff6ced7acdf09b3e4d18e44ccfeeb8e0949",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/37165773/Quo_Vadis_Pemilu_20_04",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Quo Vadis Pemilu 20-04?",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 10
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "89b33480189647f78d1e2405a2b80151e1e198e78de486488f9b3a9eb2e869d7",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/26553404/Ke_Cak_Nur_Aku_Mengaji_",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Ke Cak Nur Aku Mengaji",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 11
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "259af1f1d1f896b6bd0d05e27aef5fb91e8b6c434c9275fc748d1a7254403d9f",
+      "kind": "PUBLICATION",
+      "sourceName": "Academia Books-tab audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://www.academia.edu/26553142/Resep_Machiavelli_dan_Defisit_Kepemimpinan_Transformatif",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Resep Machiavelli dan Defisit Kepemimpinan Transformatif",
+      "rawPayload": {
+        "year": null,
+        "suggestedType": "UNRESOLVED",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": 12
+      },
+      "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
+    },
+    {
+      "fingerprint": "99bfb72e91837f47e328b20d2db36b0457749eee1a4d9f0ca854915e4fa8456a",
+      "kind": "PUBLICATION",
+      "sourceName": "Professorial-address audit 19 July 2026",
+      "sourcePath": "source-research.md",
+      "sourceUrl": "https://indikator.co.id/wp-content/uploads/2023/11/Pidato-Pengukuhan-Gubes-Prof-Burhanuddin-Muhtadi-Votes-for-Sale.pdf",
+      "sourceCheckedAt": "2026-07-19T00:00:00.000Z",
+      "rawText": "Votes for Sale: Klientelisme, Defisit Demokrasi, dan Institusi",
+      "rawPayload": {
+        "year": 2023,
+        "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
+        "suggestedStatus": "NEEDS_REVIEW",
+        "platformIndex": null
+      },
+      "note": "Tautan eksternal dan status hak pakai/sematan harus disetujui pemilik sebelum publikasi."
+    }
+  ]
+}
