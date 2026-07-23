@@ -4,6 +4,10 @@ import { createHash, randomBytes } from "node:crypto";
 
 import { cookies } from "next/headers";
 
+import {
+  canAccessAdmin,
+  type AdminRoleName,
+} from "@/lib/auth/access";
 import { prisma } from "@/lib/prisma";
 
 export const adminSessionCookie = "bm_admin_session";
@@ -11,10 +15,13 @@ const sessionDurationSeconds = 8 * 60 * 60;
 
 export type AdminSession = {
   id: string;
-  email: string;
+  sessionId: string;
+  username: string;
   name: string;
-  role: "ADMIN";
+  role: AdminRoleName;
 };
+
+export type NewAdminSession = Omit<AdminSession, "sessionId">;
 
 function hashToken(token: string) {
   return createHash("sha256").update(token).digest("hex");
@@ -24,7 +31,7 @@ export function getAuthReadiness() {
   return { ready: process.env.DATABASE_READY === "true" };
 }
 
-export async function createAdminSession(session: AdminSession) {
+export async function createAdminSession(session: NewAdminSession) {
   if (process.env.DATABASE_READY !== "true") {
     throw new Error("DATABASE_NOT_READY");
   }
@@ -66,7 +73,11 @@ export async function readAdminSession(): Promise<AdminSession | null> {
     include: { adminUser: true },
   });
 
-  if (!session || session.expiresAt <= new Date() || session.adminUser.role !== "ADMIN") {
+  if (
+    !session ||
+    session.expiresAt <= new Date() ||
+    !canAccessAdmin(session.adminUser.role)
+  ) {
     if (session) {
       await prisma.adminSession.delete({ where: { id: session.id } });
     }
@@ -75,9 +86,10 @@ export async function readAdminSession(): Promise<AdminSession | null> {
 
   return {
     id: session.adminUser.id,
-    email: session.adminUser.email,
+    sessionId: session.id,
+    username: session.adminUser.username,
     name: session.adminUser.name,
-    role: "ADMIN",
+    role: session.adminUser.role,
   };
 }
 

@@ -14,6 +14,11 @@ import {
   extractFirstHttpsUrl,
   extractFirstPublicationUrl,
 } from "../src/lib/content/publication-url";
+import { canAccessAdmin, canManageUsers } from "../src/lib/auth/access";
+import {
+  createAdminUserSchema,
+  updateOwnAccountSchema,
+} from "../src/lib/validation/admin-users";
 
 test("review seed is complete, unique, and leaves materials and agenda empty", () => {
   assert.equal(reviewData.sourceCounts.cv, 81);
@@ -110,4 +115,56 @@ test("canonical publication seed resets to linked records only", () => {
     new Set(publications.map((publication) => publication.sourceFingerprint)).size,
     publications.length,
   );
+});
+
+test("only super admin can manage users while every editorial role can sign in", () => {
+  assert.equal(canAccessAdmin("SUPER_ADMIN"), true);
+  assert.equal(canAccessAdmin("ADMIN"), true);
+  assert.equal(canAccessAdmin("EDITOR"), true);
+  assert.equal(canManageUsers("SUPER_ADMIN"), true);
+  assert.equal(canManageUsers("ADMIN"), false);
+  assert.equal(canManageUsers("EDITOR"), false);
+});
+
+test("new users require a normalized username and a confirmed strong password", () => {
+  const valid = createAdminUserSchema.parse({
+    name: "Editor Satu",
+    username: "Editor.Satu",
+    password: "password-panjang-2026",
+    passwordConfirmation: "password-panjang-2026",
+    role: "EDITOR",
+  });
+  assert.equal(valid.username, "editor.satu");
+  assert.equal(
+    createAdminUserSchema.safeParse({
+      ...valid,
+      password: "pendek",
+      passwordConfirmation: "pendek",
+    }).success,
+    false,
+  );
+  assert.equal(
+    createAdminUserSchema.safeParse({
+      ...valid,
+      passwordConfirmation: "password-yang-berbeda",
+    }).success,
+    false,
+  );
+});
+
+test("self-service account changes cannot carry a role or another user id", () => {
+  const parsed = updateOwnAccountSchema.parse({
+    username: "akun.sendiri",
+    currentPassword: "password-lama",
+    newPassword: "",
+    passwordConfirmation: "",
+    role: "SUPER_ADMIN",
+    userId: "pengguna-lain",
+  });
+  assert.deepEqual(Object.keys(parsed).sort(), [
+    "currentPassword",
+    "newPassword",
+    "passwordConfirmation",
+    "username",
+  ]);
 });

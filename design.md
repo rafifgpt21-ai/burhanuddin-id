@@ -7,7 +7,8 @@
 - On 20 July 2026, the owner expanded the site to Indonesian and English, with country-level automatic language selection and a persistent manual language switcher.
 - On 20 July 2026, the owner asked that the study-material collection remain empty until real course files and metadata are supplied. The initial review seed therefore covers publication sources only.
 - On 20 July 2026, the owner authorized the initial private admin workspace and review-seed pipeline. Login, server authorization, and editor forms may be implemented now, but database writes and uploads remain locked behind `DATABASE_READY` until the exposed MongoDB credential is rotated.
-- On 20 July 2026, the owner selected database-backed admin credentials and sessions. Admin email/password hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
+- On 20 July 2026, the owner selected database-backed admin credentials and sessions. Credential hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
+- On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -98,14 +99,14 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 - Provide a simple post publishing workflow.
 - Publish a concise, CV-derived profile.
 - Publish a searchable/filterable publication index.
-- Support one private administrator account; optionally allow a second editor later.
+- Support private, named editorial accounts with server-enforced role boundaries.
 - Deliver strong mobile usability, accessibility, search discoverability, and safe file handling.
 
 ## Explicit non-goals for the MVP
 
 - No chatbot, AI assistant, vector search, embeddings, indexing pipeline, or RAG system.
 - No student accounts, comments, likes, messaging, or social feed.
-- No public registration or multi-role user-management screen.
+- No public registration or public account directory. User management remains private and restricted to `SUPER_ADMIN`.
 - No event registration, ticketing, attendance tracking, calendar synchronization, or venue-discovery system. The MVP agenda is a lightweight editor-managed public listing only; no agenda entry may be published until real event data is supplied and reviewed.
 - No machine-generated translation at request time and no automatic translation publishing. Indonesian and English UI/content variants are editor-reviewed. Bibliographic titles remain in their original published language unless the publication itself supplies an official translated title.
 - No heavy animation library or custom smooth-scrolling behavior.
@@ -139,6 +140,8 @@ Unprefixed routes, including `/`, select a locale before redirecting. A valid ma
 | `/id/tentang`, `/en/about` | Biography, current roles, education, selected awards, expertise, and approved CV download. |
 | `/id/admin/login`, `/en/admin/login` | Private editor sign-in. |
 | `/[locale]/admin` | Content overview and draft/published status. |
+| `/[locale]/admin/account` | Self-service username and password settings for the signed-in user. |
+| `/[locale]/admin/users` | Private user management, available only to `SUPER_ADMIN`. |
 | `/[locale]/admin/materi/...` | Create and edit study materials. |
 | `/[locale]/admin/tulisan/...` | Create and edit posts. |
 | `/[locale]/admin/agenda/...` | Create and edit lightweight agenda entries. |
@@ -238,7 +241,9 @@ Avoid the mostly empty full-screen hero seen in one reference verification image
 - Preview before publish; confirmation before destructive deletion.
 - Slugs generated from titles but editable with collision validation.
 - File upload progress, type/size validation, friendly error messages, and the ability to replace a file without breaking the public URL when practical.
-- No public user management in the MVP.
+- `SUPER_ADMIN` can create `ADMIN` or `EDITOR` accounts and reset another user's username, role, or password. These mutations re-check authorization on the server.
+- Every signed-in user can change only their own username and password after confirming the current password; self-service never accepts a role or target-user ID.
+- User management is never public and does not expose password values or hashes.
 
 ## Content model
 
@@ -246,8 +251,9 @@ The exact database syntax should be decided during implementation. The conceptua
 
 ### AdminUser
 
-- `id`, `name`, `email`, `passwordHash`, `role`, `createdAt`, `updatedAt`
-- Roles initially limited to `ADMIN`; add `EDITOR` only if ownership requires it.
+- `id`, `name`, unique `username`, `passwordHash`, `role`, `createdAt`, `updatedAt`
+- Roles are `SUPER_ADMIN`, `ADMIN`, and `EDITOR`. All three can enter the editorial workspace; only `SUPER_ADMIN` can manage other accounts.
+- The initial `SUPER_ADMIN` is created by an explicit server-side seed command using process-only environment values. Seed passwords are never committed.
 
 ### Post
 
@@ -531,7 +537,7 @@ Use these planning defaults until the owner decides otherwise:
 | Primary audience | Current students |
 | Language | Indonesian and English; country-level automatic selection plus persistent `ID / EN` switcher; locale-prefixed canonical routes |
 | Public content | Materials, posts, publications, profile |
-| Authentication | Admin only |
+| Authentication | Private named users; `SUPER_ADMIN` manages accounts, while `ADMIN` and `EDITOR` manage content |
 | Material access | Public unless explicitly restricted |
 | Publication files | External links unless redistribution rights are confirmed |
 | Portrait | Owner-supplied UploadThing portrait URL approved for implementation; final credit wording remains pending |

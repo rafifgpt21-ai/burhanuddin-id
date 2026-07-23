@@ -24,20 +24,20 @@ export function LoginForm({ locale }: { locale: Locale }) {
       ) : null}
 
       <div className="admin-field">
-        <label htmlFor="admin-email">{copy.email}</label>
+        <label htmlFor="admin-username">{copy.username}</label>
         <input
-          aria-describedby={state.errors?.email ? "admin-email-error" : undefined}
-          aria-invalid={Boolean(state.errors?.email)}
+          aria-describedby={state.errors?.username ? "admin-username-error" : undefined}
+          aria-invalid={Boolean(state.errors?.username)}
           autoComplete="username"
-          id="admin-email"
-          name="email"
-          placeholder="admin@domain.id"
+          id="admin-username"
+          name="username"
+          placeholder="nama.pengguna"
           required
-          type="email"
+          type="text"
         />
-        {state.errors?.email ? (
-          <p className="field-error" id="admin-email-error">
-            {state.errors.email[0]}
+        {state.errors?.username ? (
+          <p className="field-error" id="admin-username-error">
+            {state.errors.username[0]}
           </p>
         ) : null}
       </div>

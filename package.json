@@ -16,7 +16,8 @@
     "db:push": "prisma db push",
     "seed:review": "tsx scripts/build-review-seed.ts",
     "db:seed:check": "tsx prisma/seed.ts --check",
-    "db:seed": "tsx prisma/seed.ts --write"
+    "db:seed": "tsx prisma/seed.ts --write",
+    "db:seed:super-admin": "tsx prisma/seed-super-admin.ts"
   },
   "dependencies": {
     "@prisma/client": "6.19.3",

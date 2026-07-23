@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { logoutAction } from "@/app/[locale]/admin/actions";
 import { getAdminCopy } from "@/data/admin";
+import { canManageUsers } from "@/lib/auth/access";
 import type { AdminSession } from "@/lib/auth/session";
 import type { Locale } from "@/lib/i18n";
 
@@ -16,13 +17,17 @@ export function AdminShell({
 }) {
   const copy = getAdminCopy(locale).workspace;
   const base = `/${locale}/admin`;
-  const links = [
+  const links: Array<{ href: string; label: string }> = [
     { href: base, label: copy.dashboard },
     { href: `${base}/tulisan`, label: copy.posts },
     { href: `${base}/materi`, label: copy.materials },
     { href: `${base}/agenda`, label: copy.agenda },
     { href: `${base}/publikasi`, label: copy.publications },
+    { href: `${base}/account`, label: copy.account },
   ];
+  if (canManageUsers(session.role)) {
+    links.push({ href: `${base}/users`, label: copy.users });
+  }
 
   return (
     <div className="admin-workspace">
@@ -31,7 +36,7 @@ export function AdminShell({
           <span className="admin-monogram" aria-hidden="true">BM</span>
           <div>
             <p>{copy.name}</p>
-            <small>{session.email}</small>
+            <small>@{session.username} · {session.role.replace("_", " ")}</small>
           </div>
         </div>
         <form action={logoutAction}>

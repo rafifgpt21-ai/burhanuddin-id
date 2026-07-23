@@ -9,11 +9,11 @@ import { hasLocale } from "@/lib/i18n";
 
 export type LoginState = {
   message?: string;
-  errors?: { email?: string[]; password?: string[] };
+  errors?: { username?: string[]; password?: string[] };
 };
 
 const loginSchema = z.object({
-  email: z.email("Masukkan alamat email yang valid.").trim(),
+  username: z.string().trim().min(1, "Username wajib diisi."),
   password: z.string().min(1, "Kata sandi wajib diisi."),
   locale: z.string(),
 });
@@ -23,7 +23,7 @@ export async function loginAction(
   formData: FormData,
 ): Promise<LoginState> {
   const parsed = loginSchema.safeParse({
-    email: formData.get("email"),
+    username: formData.get("username"),
     password: formData.get("password"),
     locale: formData.get("locale"),
   });
@@ -33,7 +33,7 @@ export async function loginAction(
   }
 
   const locale = hasLocale(parsed.data.locale) ? parsed.data.locale : "id";
-  const result = await verifyAdminCredentials(parsed.data.email, parsed.data.password);
+  const result = await verifyAdminCredentials(parsed.data.username, parsed.data.password);
 
   if (!result.ok) {
     if (result.reason === "NOT_CONFIGURED") {
@@ -48,14 +48,14 @@ export async function loginAction(
     if (result.reason === "LIMITED") {
       return { message: "Terlalu banyak percobaan. Coba kembali dalam 15 menit." };
     }
-    return { message: "Email atau kata sandi tidak cocok." };
+    return { message: "Username atau kata sandi tidak cocok." };
   }
 
   await createAdminSession({
     id: result.id,
-    email: result.email,
+    username: result.username,
     name: result.name,
-    role: "ADMIN",
+    role: result.role,
   });
   redirect(`/${locale}/admin`);
 }

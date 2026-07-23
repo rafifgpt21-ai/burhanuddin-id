@@ -2,9 +2,12 @@ import {
   ImportCandidateKind,
   PrismaClient,
 } from "@prisma/client";
-import bcrypt from "bcryptjs";
 
 import { buildPublicationSeed } from "./seed-data/build-publications";
+import {
+  readSuperAdminSeed,
+  upsertSuperAdmin,
+} from "./seed-data/super-admin";
 import reviewData from "./review-data/import-candidates.json";
 
 const shouldCheck = process.argv.includes("--check");
@@ -31,32 +34,12 @@ if (process.env.DATABASE_READY !== "true") {
   process.exit(1);
 }
 
-const adminEmail = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
-const adminPassword = process.env.SEED_ADMIN_PASSWORD;
-
-if (Boolean(adminEmail) !== Boolean(adminPassword)) {
-  console.error(
-    "Seed dibatalkan. SEED_ADMIN_EMAIL dan SEED_ADMIN_PASSWORD harus diberikan bersama-sama.",
-  );
-  process.exit(1);
-}
-
 const prisma = new PrismaClient();
 
-async function seedAdmin() {
-  if (!adminEmail || !adminPassword) return false;
-
-  const passwordHash = await bcrypt.hash(adminPassword!, 12);
-  await prisma.adminUser.upsert({
-    where: { email: adminEmail! },
-    update: { name: "Administrator", passwordHash, role: "ADMIN" },
-    create: {
-      name: "Administrator",
-      email: adminEmail!,
-      passwordHash,
-      role: "ADMIN",
-    },
-  });
+async function seedSuperAdmin() {
+  const input = readSuperAdminSeed({ required: false });
+  if (!input) return false;
+  await upsertSuperAdmin(prisma, input);
   return true;
 }
 
@@ -102,12 +85,12 @@ async function resetPublishedPublications() {
 
 async function main() {
   try {
-    const adminSeeded = await seedAdmin();
+    const adminSeeded = await seedSuperAdmin();
     await seedReviewCandidates();
     const publicationCount = await resetPublishedPublications();
     await prisma.adminSession.deleteMany({ where: { expiresAt: { lte: new Date() } } });
     console.log(
-      `Seed reset selesai: ${adminSeeded ? "1 admin diperbarui" : "admin dipertahankan"}, ${reviewData.candidates.length} kandidat review, dan ${publicationCount} publikasi publik bertautan.`,
+      `Seed reset selesai: ${adminSeeded ? "1 super admin diperbarui" : "akun pengguna dipertahankan"}, ${reviewData.candidates.length} kandidat review, dan ${publicationCount} publikasi publik bertautan.`,
     );
   } finally {
     await prisma.$disconnect();

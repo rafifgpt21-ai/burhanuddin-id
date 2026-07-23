@@ -2222,6 +2222,261 @@ body:has(.admin-workspace) .admin-workspace {
   justify-content: space-between;
 }
 
+.access-badge,
+.role-stamp {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  border: 1px solid var(--blue);
+  background: var(--blue-pale);
+  padding: 0.35rem 0.65rem;
+  color: var(--navy);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.access-badge {
+  border-color: var(--gold);
+  background: #fff8e9;
+}
+
+.user-create-panel,
+.user-ledger,
+.account-security-panel {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.user-create-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1.52fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  border-top: 4px solid var(--blue);
+  padding: clamp(1.3rem, 3vw, 2.3rem);
+}
+
+.user-panel-intro h2,
+.user-ledger h2,
+.account-security-panel h2 {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.user-panel-intro > p:last-child {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.user-create-form,
+.managed-user-form,
+.account-security-form {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.user-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.user-create-form label,
+.managed-user-form label,
+.account-security-form label {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.user-create-form label small,
+.managed-user-form label small,
+.account-security-form label small {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.user-create-form input,
+.user-create-form select,
+.managed-user-form input,
+.managed-user-form select,
+.account-security-form input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  padding: 0.7rem 0.8rem;
+  color: var(--ink);
+}
+
+.user-create-form input:focus,
+.user-create-form select:focus,
+.managed-user-form input:focus,
+.managed-user-form select:focus,
+.account-security-form input:focus {
+  border-color: var(--blue);
+  outline: 3px solid rgba(231, 185, 94, 0.72);
+  outline-offset: 2px;
+}
+
+.user-create-form button,
+.managed-user-form button,
+.account-security-form button {
+  justify-self: start;
+}
+
+.user-create-form button:disabled,
+.managed-user-form button:disabled,
+.account-security-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.user-form-message {
+  margin: 0;
+  border-left: 4px solid #a33a3a;
+  background: #fff2f1;
+  padding: 0.75rem 0.9rem;
+  color: #742525;
+  font-size: 0.76rem;
+}
+
+.user-form-message.is-success {
+  border-color: #257251;
+  background: #edf8f2;
+  color: #19553b;
+}
+
+.user-ledger {
+  margin-top: 1.5rem;
+  padding: clamp(1.3rem, 3vw, 2.3rem);
+}
+
+.user-ledger-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+}
+
+.user-ledger-heading > span {
+  color: var(--blue);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.managed-user-list {
+  border-top: 1px solid var(--line);
+}
+
+.managed-user-form {
+  position: relative;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  padding-block: 1.5rem;
+}
+
+.managed-user-form > .user-form-message {
+  grid-column: 2 / -1;
+}
+
+.managed-user-form > .user-form-grid {
+  grid-column: 2;
+}
+
+.managed-user-form > button {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+}
+
+.managed-user-meta {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.managed-user-meta small {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.role-editor {
+  border-color: #70987c;
+  background: #edf8f2;
+  color: #19553b;
+}
+
+.role-current {
+  align-self: end;
+}
+
+.account-security-panel {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  border-top: 4px solid var(--blue);
+  padding: clamp(1.3rem, 4vw, 3rem);
+}
+
+.account-identity {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 1rem;
+  align-content: start;
+}
+
+.account-identity > span {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+}
+
+.account-identity h2 {
+  font-size: 1.8rem;
+}
+
+.account-identity p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.security-note {
+  margin: 0 0 1.2rem;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.9rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.security-note strong {
+  color: var(--navy);
+}
+
 @media (max-width: 900px) {
   .admin-workspace-grid {
     grid-template-columns: 1fr;
@@ -2233,7 +2488,7 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .admin-sidebar nav {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
   .admin-sidebar nav a {
@@ -2259,8 +2514,19 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .admin-editor-panel,
-  .admin-create-hub {
+  .admin-create-hub,
+  .user-create-panel,
+  .account-security-panel {
     grid-template-columns: 1fr;
+  }
+
+  .managed-user-form {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+
+  .managed-user-form > button {
+    grid-column: 2;
+    grid-row: auto;
   }
 }
 
@@ -2294,9 +2560,11 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .admin-sidebar nav {
-    width: 100%;
-    min-width: 430px;
-    grid-template-columns: repeat(5, minmax(82px, 1fr));
+    width: max-content;
+    min-width: 100%;
+    grid-auto-columns: minmax(92px, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
   }
 
   .admin-main {
@@ -2305,7 +2573,8 @@ body:has(.admin-workspace) .admin-workspace {
 
   .admin-page-heading,
   .seed-ledger-heading,
-  .review-queue-heading {
+  .review-queue-heading,
+  .user-ledger-heading {
     align-items: start;
     flex-direction: column;
   }
@@ -2331,6 +2600,24 @@ body:has(.admin-workspace) .admin-workspace {
   .editor-span-2,
   .editor-check {
     grid-column: span 1;
+  }
+
+  .user-form-grid,
+  .managed-user-form,
+  .account-security-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .managed-user-form > .user-form-message,
+  .managed-user-form > .user-form-grid,
+  .managed-user-form > button {
+    grid-column: 1;
+  }
+
+  .managed-user-form > button,
+  .user-create-form button,
+  .account-security-form button {
+    width: 100%;
   }
 
   .admin-empty,

@@ -8,6 +8,7 @@ datasource db {
 }
 
 enum AdminRole {
+  SUPER_ADMIN
   ADMIN
   EDITOR
 }
@@ -60,7 +61,7 @@ enum ImportCandidateState {
 model AdminUser {
   id           String         @id @default(auto()) @map("_id") @db.ObjectId
   name         String
-  email        String         @unique
+  username     String         @unique
   passwordHash String
   role         AdminRole      @default(ADMIN)
   createdAt    DateTime       @default(now())

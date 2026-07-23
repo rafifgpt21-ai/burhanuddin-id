@@ -21,10 +21,15 @@ tersebut harus dirotasi sebelum aplikasi tersambung ke basis data.
 4. Setelah rotasi dan pemeriksaan target selesai, set `DATABASE_READY=true`.
 5. Jalankan `npm install`, lalu `npm run dev`.
 
-Email dan hash password admin disimpan di `AdminUser`; sesi acak yang dapat dicabut
+Username dan hash password pengguna editorial disimpan di `AdminUser`; sesi acak yang dapat dicabut
 disimpan di `AdminSession`. Browser hanya menerima cookie token HTTP-only, same-site,
 berumur delapan jam. Semua halaman admin memeriksa sesi pada server. UploadThing
 menolak unggahan tanpa sesi admin atau selama `DATABASE_READY` belum aktif.
+
+Role yang tersedia adalah `SUPER_ADMIN`, `ADMIN`, dan `EDITOR`. Semua role dapat
+masuk ke ruang editorial dan mengubah username/password miliknya sendiri. Hanya
+`SUPER_ADMIN` yang dapat membuka menu **Pengguna**, membuat akun `ADMIN`/`EDITOR`,
+mengubah username/role akun lain, atau mereset password akun lain.
 
 ## Dataset review dan seeding
 
@@ -33,8 +38,11 @@ menolak unggahan tanpa sesi admin atau selama `DATABASE_READY` belum aktif.
 - Dataset berada di `prisma/review-data/import-candidates.json`; semua record
   berstatus review dan tidak menjadi konten publik secara otomatis.
 - Sesuai keputusan pemilik, materi kuliah dan agenda awal tetap kosong.
-- `npm run db:seed` meng-upsert admin, kandidat review, dan sitasi publikasi CV.
-  Berikan `SEED_ADMIN_EMAIL` dan `SEED_ADMIN_PASSWORD` hanya pada proses seed;
+- `npm run db:seed` meng-upsert super admin (bila variabel seed diberikan),
+  kandidat review, dan sitasi publikasi CV.
+- `npm run db:seed:super-admin` hanya membuat atau memperbarui akun super admin.
+  Berikan `SEED_SUPER_ADMIN_USERNAME`, `SEED_SUPER_ADMIN_PASSWORD`, dan opsional
+  `SEED_SUPER_ADMIN_NAME` hanya pada proses seed;
   jangan menyimpannya di file `.env` atau source control.
 
 ## Bahasa dan routing
