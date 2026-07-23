@@ -9,7 +9,12 @@ import {
 } from "@/components/icons";
 import { PublicationList } from "@/components/publication-list";
 import { SectionHeading } from "@/components/section-heading";
-import { researchAreas, roles, selectedPublications } from "@/data/site";
+import {
+  portraitSource,
+  researchAreas,
+  roles,
+  selectedPublications,
+} from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
@@ -59,10 +64,10 @@ export function HomePage({ locale }: { locale: Locale }) {
           <figure className="portrait-block">
             <div className="portrait-frame">
               <Image
-                src="/burhanuddin-muhtadi.webp"
+                src={portraitSource}
                 alt="Prof. Burhanuddin Muhtadi"
                 fill
-                priority
+                loading="eager"
                 sizes="(max-width: 720px) 86vw, (max-width: 1100px) 42vw, (max-width: 1199px) 420px, 560px"
               />
             </div>

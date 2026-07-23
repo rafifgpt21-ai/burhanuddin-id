@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { faviconSource } from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { hasLocale, locales } from "@/lib/i18n";
 
@@ -40,6 +41,23 @@ export async function generateMetadata({
       template: "%s · Burhanuddin Muhtadi",
     },
     description: dictionary.metadata.description,
+    icons: {
+      icon: [
+        {
+          url: faviconSource,
+          type: "image/png",
+          sizes: "1000x1000",
+        },
+      ],
+      shortcut: faviconSource,
+      apple: [
+        {
+          url: faviconSource,
+          type: "image/png",
+          sizes: "1000x1000",
+        },
+      ],
+    },
     openGraph: {
       title: "Burhanuddin Muhtadi",
       description: dictionary.metadata.openGraphDescription,

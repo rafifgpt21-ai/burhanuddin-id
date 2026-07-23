@@ -1,7 +1,10 @@
 import type { Locale } from "@/lib/i18n";
 
+export const faviconSource =
+  "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2SWNdXKJXDvaNs9yjUSuRdpiQLmxr4zAKH5oW";
+
 export const portraitSource =
-  "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2V45zUJQKTkbtMayRc9nfFA8JvOHYsBi174EX";
+  "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2NQUVII7E0AjYnxm7VuMtCHo41fBdPclwyOs9";
 
 export const roles: Record<Locale, readonly string[]> = {
   id: [

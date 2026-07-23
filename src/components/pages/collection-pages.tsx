@@ -5,7 +5,7 @@ import { EmptyState } from "@/components/empty-state";
 import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { PublicationList } from "@/components/publication-list";
-import { researchAreas, roles } from "@/data/site";
+import { portraitSource, researchAreas, roles } from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { getPublishedPublications } from "@/lib/content/publications";
 import { getRoutePath, type Locale } from "@/lib/i18n";
@@ -244,7 +244,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           <aside className="about-aside">
             <div className="about-photo">
               <Image
-                src="/burhanuddin-muhtadi.webp"
+                src={portraitSource}
                 alt="Prof. Burhanuddin Muhtadi"
                 fill
                 sizes="(max-width: 840px) 90vw, 36vw"
