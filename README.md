@@ -31,15 +31,15 @@ masuk ke ruang editorial dan mengubah username/password miliknya sendiri. Hanya
 `SUPER_ADMIN` yang dapat membuka menu **Pengguna**, membuat akun `ADMIN`/`EDITOR`,
 mengubah username/role akun lain, atau mereset password akun lain.
 
-## Dataset review dan seeding
+## Dataset sumber dan seeding
 
-- `npm run seed:review` membangun ulang dataset staging dari bagian publikasi CV
+- `npm run seed:sources` membangun ulang dataset sumber dari bagian publikasi CV
   Maret 2026 dan indeks audit di `source-research.md`.
-- Dataset berada di `prisma/review-data/import-candidates.json`; semua record
-  berstatus review dan tidak menjadi konten publik secara otomatis.
+- Dataset berada di `prisma/seed-data/publication-sources.json`. Hanya record
+  kanonis dari sumber yang disetujui yang digunakan oleh seed publikasi.
 - Sesuai keputusan pemilik, materi kuliah dan agenda awal tetap kosong.
 - `npm run db:seed` meng-upsert super admin (bila variabel seed diberikan),
-  kandidat review, dan sitasi publikasi CV.
+  sitasi publikasi CV, metadata aset, dan cover buku yang telah disetujui.
 - `npm run db:seed:super-admin` hanya membuat atau memperbarui akun super admin.
   Berikan `SEED_SUPER_ADMIN_USERNAME`, `SEED_SUPER_ADMIN_PASSWORD`, dan opsional
   `SEED_SUPER_ADMIN_NAME` hanya pada proses seed;

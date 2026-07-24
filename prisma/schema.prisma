@@ -45,19 +45,6 @@ enum PublicationStatus {
   REVIEW
 }
 
-enum ImportCandidateKind {
-  PUBLICATION
-  AGENDA
-  STUDY_MATERIAL
-}
-
-enum ImportCandidateState {
-  NEEDS_REVIEW
-  APPROVED
-  REJECTED
-  IMPORTED
-}
-
 model AdminUser {
   id           String         @id @default(auto()) @map("_id") @db.ObjectId
   name         String
@@ -176,6 +163,7 @@ model Publication {
   contentStatus     ContentStatus     @default(DRAFT)
   abstract          String?
   featured          Boolean           @default(false)
+  coverImage        String?
   sourceName        String
   sourceUrl         String?
   sourceCheckedAt   DateTime?
@@ -190,25 +178,6 @@ model Publication {
   @@index([status])
   @@index([contentStatus])
   @@index([featured])
-}
-
-model ImportCandidate {
-  id              String               @id @default(auto()) @map("_id") @db.ObjectId
-  fingerprint     String               @unique
-  kind            ImportCandidateKind
-  state           ImportCandidateState @default(NEEDS_REVIEW)
-  sourceName      String
-  sourcePath      String?
-  sourceUrl       String?
-  sourceCheckedAt DateTime?
-  rawText         String
-  rawPayload      Json?
-  note            String?
-  createdAt       DateTime             @default(now())
-  updatedAt       DateTime             @updatedAt
-
-  @@index([kind, state])
-  @@index([sourceName])
 }
 
 model MediaAsset {

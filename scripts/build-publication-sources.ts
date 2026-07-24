@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-type Candidate = {
+type PublicationSourceRecord = {
   fingerprint: string;
   kind: "PUBLICATION";
   sourceName: string;
@@ -22,8 +22,8 @@ type Candidate = {
 const workspace = process.cwd();
 const cvPath = path.join(workspace, ".material", "Burhanuddin Muhtadi CV_March_2026.md");
 const researchPath = path.join(workspace, "source-research.md");
-const outputDirectory = path.join(workspace, "prisma", "review-data");
-const outputPath = path.join(outputDirectory, "import-candidates.json");
+const outputDirectory = path.join(workspace, "prisma", "seed-data");
+const outputPath = path.join(outputDirectory, "publication-sources.json");
 
 function fingerprint(parts: string[]) {
   return createHash("sha256").update(parts.join("\u0000")).digest("hex");
@@ -37,7 +37,7 @@ function sliceBetween(source: string, start: string, end?: string) {
   return source.slice(from, endIndex < 0 ? source.length : endIndex);
 }
 
-function cvCandidates(cv: string): Candidate[] {
+function cvRecords(cv: string): PublicationSourceRecord[] {
   const sections = [
     ["### Books", "### Refereed journal articles", "BOOK"],
     ["### Refereed journal articles", "### Book chapters", "JOURNAL_ARTICLE"],
@@ -74,13 +74,13 @@ function cvCandidates(cv: string): Candidate[] {
   );
 }
 
-function linkedCandidates(
+function linkedRecords(
   source: string,
   start: string,
   end: string,
   sourceName: string,
   note: string,
-): Candidate[] {
+): PublicationSourceRecord[] {
   return sliceBetween(source, start, end)
     .split(/\r?\n/)
     .map((line) => line.trim())
@@ -100,7 +100,7 @@ function linkedCandidates(
           rawPayload: {
             year: null,
             suggestedType: "UNRESOLVED",
-            suggestedStatus: "NEEDS_REVIEW",
+            suggestedStatus: "PUBLISHED",
             platformIndex: Number(index),
           },
           note,
@@ -109,15 +109,15 @@ function linkedCandidates(
     });
 }
 
-function researchCandidates(source: string): Candidate[] {
-  const researchGate = linkedCandidates(
+function researchRecords(source: string): PublicationSourceRecord[] {
+  const researchGate = linkedRecords(
     source,
     "### Publication index observed (82 records)",
     "### Reconciliation notes",
     "ResearchGate audit 19 July 2026",
     "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV.",
   );
-  const academia = linkedCandidates(
+  const academia = linkedRecords(
     source,
     "### Books-tab records observed (12)",
     "### Reconciliation notes",
@@ -128,7 +128,7 @@ function researchCandidates(source: string): Candidate[] {
   const addressTitle = "Votes for Sale: Klientelisme, Defisit Demokrasi, dan Institusi";
   const addressUrl =
     "https://indikator.co.id/wp-content/uploads/2023/11/Pidato-Pengukuhan-Gubes-Prof-Burhanuddin-Muhtadi-Votes-for-Sale.pdf";
-  const address: Candidate = {
+  const address: PublicationSourceRecord = {
     fingerprint: fingerprint(["professorial-address", addressTitle, addressUrl]),
     kind: "PUBLICATION",
     sourceName: "Professorial-address audit 19 July 2026",
@@ -139,7 +139,7 @@ function researchCandidates(source: string): Candidate[] {
     rawPayload: {
       year: 2023,
       suggestedType: "ADDITIONAL_RESEARCH_OUTPUT",
-      suggestedStatus: "NEEDS_REVIEW",
+      suggestedStatus: "PUBLISHED",
       platformIndex: null,
     },
     note: "Tautan eksternal dan status hak pakai/sematan harus disetujui pemilik sebelum publikasi.",
@@ -153,25 +153,26 @@ async function main() {
     readFile(cvPath, "utf8"),
     readFile(researchPath, "utf8"),
   ]);
-  const cvRecords = cvCandidates(cv);
-  const researchRecords = researchCandidates(research);
+  const cvSourceRecords = cvRecords(cv);
+  const discoveredRecords = researchRecords(research);
   const payload = {
     generatedAt: new Date().toISOString(),
-    reviewRequired: true,
     sourceCounts: {
-      cv: cvRecords.length,
-      researchGate: researchRecords.filter((item) => item.sourceName.startsWith("ResearchGate")).length,
-      academia: researchRecords.filter((item) => item.sourceName.startsWith("Academia")).length,
+      cv: cvSourceRecords.length,
+      researchGate: discoveredRecords.filter((item) => item.sourceName.startsWith("ResearchGate")).length,
+      academia: discoveredRecords.filter((item) => item.sourceName.startsWith("Academia")).length,
       professorialAddress: 1,
       studyMaterials: 0,
       agenda: 0,
     },
-    candidates: [...cvRecords, ...researchRecords],
+    records: [...cvSourceRecords, ...discoveredRecords],
   };
 
   await mkdir(outputDirectory, { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-  console.log(`Dataset review dibuat: ${payload.candidates.length} kandidat di prisma/review-data/import-candidates.json`);
+  console.log(
+    `Dataset sumber dibuat: ${payload.records.length} record di prisma/seed-data/publication-sources.json`,
+  );
 }
 
 main().catch((error) => {

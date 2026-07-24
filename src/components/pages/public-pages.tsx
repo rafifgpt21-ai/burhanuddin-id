@@ -99,11 +99,6 @@ export function ContactPage({ locale }: { locale: Locale }) {
       <PageHero {...copy} />
       <section className="page-content contact-page">
         <div className="shell contact-page-grid">
-          <div className="contact-intro">
-            <p className="eyebrow">{copy.channelsEyebrow}</p>
-            <h2>{copy.channelsTitle}</h2>
-            <p>{copy.channelsDescription}</p>
-          </div>
           <ContactChannelList locale={locale} />
         </div>
       </section>

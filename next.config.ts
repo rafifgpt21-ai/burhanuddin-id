@@ -22,9 +22,16 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
-      new URL(
-        "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2NQUVII7E0AjYnxm7VuMtCHo41fBdPclwyOs9",
-      ),
+      {
+        protocol: "https",
+        hostname: "m0xcz6d4a4.ufs.sh",
+        pathname: "/f/**",
+      },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+        pathname: "/f/**",
+      },
     ],
   },
 };

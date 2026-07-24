@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 import { PostEditorForm } from "@/components/admin/editor-forms";
-import { getDatabaseReadiness } from "@/lib/content/review-data";
-import { hasLocale } from "@/lib/i18n";
+import { getAdminCollectionCounts } from "@/lib/content/admin-counts";
+import { getDatabaseReadiness } from "@/lib/content/database-readiness";
+import { getRoutePath, hasLocale } from "@/lib/i18n";
 
 export default async function AdminPosts({
   params,
@@ -11,6 +14,7 @@ export default async function AdminPosts({
   const locale = hasLocale(value) ? value : "id";
   const path = `/${locale}/admin/tulisan`;
   const ready = getDatabaseReadiness();
+  const counts = await getAdminCollectionCounts();
 
   return (
     <>
@@ -20,7 +24,12 @@ export default async function AdminPosts({
           <h1>Tulisan</h1>
           <p>Mulai dari judul dan naskah. Ringkasan, topik, gambar, dan versi Inggris dapat ditambahkan kemudian.</p>
         </div>
-        <span className="collection-count">0 record</span>
+        <div className="admin-page-actions">
+          <span className="collection-count">{counts?.posts ?? "—"} record</span>
+          <Link className="text-link" href={getRoutePath(locale, "posts")}>
+            {locale === "id" ? "Lihat arsip tulisan" : "View writing archive"}
+          </Link>
+        </div>
       </header>
 
       <section className="admin-editor-panel" id="editor" aria-labelledby="post-editor-title">
@@ -35,10 +44,14 @@ export default async function AdminPosts({
       </section>
 
       <section className="admin-empty compact">
-        <span aria-hidden="true">00</span>
+        <span aria-hidden="true">{counts?.posts ?? "—"}</span>
         <div>
-          <h2>Belum ada tulisan</h2>
-          <p>Tulisan yang disimpan akan muncul di sini sebagai draft privat.</p>
+          <h2>{counts?.posts ? "Tulisan tersimpan" : "Belum ada tulisan"}</h2>
+          <p>
+            {counts?.posts
+              ? "Record tersedia di database. Daftar edit dan perubahan status menyusul pada tahap workflow editorial berikutnya."
+              : "Tulisan yang disimpan akan muncul di sini sebagai draft privat."}
+          </p>
         </div>
       </section>
     </>

@@ -7,16 +7,26 @@ import { PublicAgendaList } from "@/components/public-agenda-list";
 import { ResearchLedger } from "@/components/research-ledger";
 import { SectionHeading } from "@/components/section-heading";
 import { aboutProfile } from "@/data/about";
-import { portraitSource, roles, selectedPublications } from "@/data/site";
+import {
+  getHomepagePublicationSelection,
+  portraitSource,
+  roles,
+} from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { getPublishedAgenda } from "@/lib/content/agenda";
+import { getPublishedPublications } from "@/lib/content/publications";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export async function HomePage({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
   const copy = dictionary.home;
-  const agenda = await getPublishedAgenda(locale);
+  const [agenda, publishedPublications] = await Promise.all([
+    getPublishedAgenda(locale),
+    getPublishedPublications(),
+  ]);
   const talks = aboutProfile[locale].talks.slice(0, 2);
+  const { books: latestBooks, nonBooks: selectedNonBooks } =
+    getHomepagePublicationSelection(publishedPublications);
 
   return (
     <main id="konten-utama">
@@ -92,10 +102,37 @@ export async function HomePage({ locale }: { locale: Locale }) {
               </Link>
             }
           />
-          <FeaturedPublicationGrid
-            publications={selectedPublications.slice(0, 3)}
-            locale={locale}
-          />
+          <div className="featured-publication-groups">
+            <section
+              className="featured-publication-group"
+              aria-labelledby="featured-books-title"
+            >
+              <div className="featured-publication-group-heading">
+                <h3 id="featured-books-title">
+                  {copy.publications.booksLabel}
+                </h3>
+                <span aria-hidden="true">03</span>
+              </div>
+              <FeaturedPublicationGrid
+                publications={latestBooks}
+                locale={locale}
+                variant="books"
+              />
+            </section>
+
+            <section
+              className="featured-publication-group"
+              aria-labelledby="featured-non-books-title"
+            >
+              <h3 className="sr-only" id="featured-non-books-title">
+                {locale === "id" ? "Karya non-buku" : "Non-book work"}
+              </h3>
+              <FeaturedPublicationGrid
+                publications={selectedNonBooks}
+                locale={locale}
+              />
+            </section>
+          </div>
         </div>
       </section>
 

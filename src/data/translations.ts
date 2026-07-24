@@ -16,7 +16,7 @@ const id = {
     { route: "about" as RouteKey, label: "Profil" },
     { route: "research" as RouteKey, label: "Riset" },
     { route: "publications" as RouteKey, label: "Publikasi" },
-    { route: "outreach" as RouteKey, label: "Outreach dan Kiprah" },
+    { route: "outreach" as RouteKey, label: "Kiprah" },
     { route: "contact" as RouteKey, label: "Kontak" },
   ],
   header: {
@@ -78,10 +78,11 @@ const id = {
     ],
     publications: {
       eyebrow: "Karya pilihan",
-      title: "Argumen yang Bertumbuh dari Data",
+      title: "Publikasi",
       description:
-        "Tiga karya yang mewakili lintasan riset mengenai politik uang, perilaku elite, dan kemunduran demokrasi.",
+        "Buku terbaru dan karya non-buku pilihan dari rekam publikasi.",
       action: "Lihat seluruh publikasi",
+      booksLabel: "Buku terbaru",
     },
     focus: {
       eyebrow: "Bidang kajian",
@@ -91,18 +92,17 @@ const id = {
     },
     outreach: {
       eyebrow: "Di luar halaman jurnal",
-      title: "Outreach dan Kiprah",
+      title: "Kiprah",
       description:
         "Riset bergerak melalui forum akademik, diskusi publik, agenda, dan ruang pengajaran.",
-      action: "Jelajahi outreach dan kiprah",
+      action: "Jelajahi kiprah",
       agendaLabel: "Agenda publik",
       forumLabel: "Forum akademik pilihan",
       materialsAction: "Akses materi kuliah",
     },
     closing: {
       eyebrow: "Profil akademik dan kanal resmi",
-      title:
-        "Telusuri rekam ilmiah atau lanjutkan melalui kanal yang terverifikasi.",
+      title: "Profil dan Kontak",
       contactAction: "Buka kontak",
       profileAction: "Baca profil lengkap",
     },
@@ -118,7 +118,7 @@ const id = {
     index: "Riset · 04 tema",
     indexLabel: "Berdasarkan CV Maret 2026",
     ledgerEyebrow: "Peta riset",
-    ledgerTitle: "Empat Jalur, Satu Pertanyaan Demokrasi",
+    ledgerTitle: "Riset",
     ledgerDescription:
       "Setiap tema dibaca bersama karya yang membantu menunjukkan perkembangan argumen dan bukti empirisnya.",
     ledgerAction: "Buka halaman riset",
@@ -128,11 +128,11 @@ const id = {
     publicationsAction: "Telusuri publikasi",
   },
   outreachPage: {
-    metadataTitle: "Outreach dan Kiprah",
+    metadataTitle: "Kiprah",
     metadataDescription:
       "Agenda publik, forum akademik, dan akses pengajaran Burhanuddin Muhtadi.",
     eyebrow: "Riset di ruang publik",
-    title: "Outreach dan Kiprah",
+    title: "Kiprah",
     description:
       "Ruang temu antara penelitian, forum akademik, percakapan publik, dan pengajaran.",
     index: "Agenda · forum · pengajaran",
@@ -161,10 +161,6 @@ const id = {
       "Gunakan profil institusional dan akademik berikut untuk memperoleh informasi resmi dan mutakhir.",
     index: "Tanpa formulir publik",
     indexLabel: "Tautan terverifikasi",
-    channelsEyebrow: "Direktori",
-    channelsTitle: "Pilih Kanal yang Tepat",
-    channelsDescription:
-      "Situs ini tidak menampilkan email, nomor telepon, atau alamat yang belum mendapat persetujuan publikasi.",
   },
   materials: {
     metadataTitle: "Materi kuliah",
@@ -333,7 +329,7 @@ const en = {
     { route: "about", label: "About" },
     { route: "research", label: "Research" },
     { route: "publications", label: "Publications" },
-    { route: "outreach", label: "Outreach & Engagement" },
+    { route: "outreach", label: "Outreach" },
     { route: "contact", label: "Contact" },
   ],
   header: {
@@ -395,10 +391,11 @@ const en = {
     ],
     publications: {
       eyebrow: "Selected work",
-      title: "Arguments Built from Evidence",
+      title: "Publications",
       description:
-        "Three works representing a research trajectory across vote buying, elite behaviour, and democratic decline.",
+        "Recent books and selected non-book work from the publication record.",
       action: "View all publications",
+      booksLabel: "Latest books",
     },
     focus: {
       eyebrow: "Research areas",
@@ -408,18 +405,17 @@ const en = {
     },
     outreach: {
       eyebrow: "Beyond the journal page",
-      title: "Outreach & Engagement",
+      title: "Outreach",
       description:
         "Research moves through academic forums, public discussion, events, and teaching.",
-      action: "Explore outreach and engagement",
+      action: "Explore outreach",
       agendaLabel: "Public agenda",
       forumLabel: "Selected academic forums",
       materialsAction: "Access course materials",
     },
     closing: {
       eyebrow: "Academic profile and official channels",
-      title:
-        "Trace the scholarly record or continue through a verified channel.",
+      title: "Profile and Contact",
       contactAction: "Open contact",
       profileAction: "Read the full profile",
     },
@@ -435,7 +431,7 @@ const en = {
     index: "Research · 04 themes",
     indexLabel: "Based on the March 2026 CV",
     ledgerEyebrow: "Research map",
-    ledgerTitle: "Four Lines, One Democratic Question",
+    ledgerTitle: "Research",
     ledgerDescription:
       "Each theme is read alongside a work that shows the development of its argument and empirical evidence.",
     ledgerAction: "Open the research page",
@@ -445,11 +441,11 @@ const en = {
     publicationsAction: "Browse publications",
   },
   outreachPage: {
-    metadataTitle: "Outreach & Engagement",
+    metadataTitle: "Outreach",
     metadataDescription:
       "Burhanuddin Muhtadi’s public agenda, academic forums, and teaching access.",
     eyebrow: "Research in public",
-    title: "Outreach & Engagement",
+    title: "Outreach",
     description:
       "A meeting point for research, academic forums, public conversation, and teaching.",
     index: "Agenda · forums · teaching",
@@ -478,10 +474,6 @@ const en = {
       "Use the institutional and academic profiles below for current, official information.",
     index: "No public form",
     indexLabel: "Verified links",
-    channelsEyebrow: "Directory",
-    channelsTitle: "Choose the Right Channel",
-    channelsDescription:
-      "This site does not display an email address, phone number, or location without publication approval.",
   },
   materials: {
     metadataTitle: "Course materials",

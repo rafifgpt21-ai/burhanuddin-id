@@ -14,7 +14,7 @@
     "prisma:format": "prisma format",
     "prisma:generate": "prisma generate",
     "db:push": "prisma db push",
-    "seed:review": "tsx scripts/build-review-seed.ts",
+    "seed:sources": "tsx scripts/build-publication-sources.ts",
     "db:seed:check": "tsx prisma/seed.ts --check",
     "db:seed": "tsx prisma/seed.ts --write",
     "db:seed:super-admin": "tsx prisma/seed-super-admin.ts"

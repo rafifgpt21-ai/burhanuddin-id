@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ArrowUpRightIcon } from "@/components/icons";
 import type { Publication } from "@/data/site";
 import { getDictionary } from "@/data/translations";
@@ -18,10 +20,21 @@ export function PublicationList({
     <div className="publication-list">
       {publications.map((publication) => (
         <article
-          className={`publication-row${showFullLink ? " publication-row-no-index" : ""}`}
+          className={`publication-row${showFullLink ? " publication-row-no-index" : ""}${
+            publication.image ? " publication-row-has-image" : ""
+          }`}
           key={publication.id || `${publication.year}-${publication.title}`}
         >
-          {showFullLink ? null : (
+          {publication.image ? (
+            <div className="publication-cover">
+              <Image
+                alt=""
+                fill
+                sizes="(max-width: 720px) calc(100vw - 40px), 180px"
+                src={publication.image}
+              />
+            </div>
+          ) : showFullLink ? null : (
             <div className="publication-index" aria-hidden="true">
               {publication.year.slice(-2)}
             </div>

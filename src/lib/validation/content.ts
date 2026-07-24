@@ -12,6 +12,21 @@ const httpsUrl = z
   });
 
 const optionalHttpsUrl = z.union([z.literal(""), httpsUrl]).optional();
+const optionalPublicationImageUrl = z
+  .union([
+    z.literal(""),
+    httpsUrl.refine(
+      (value) => {
+        const url = new URL(value);
+        return (
+          url.hostname === "m0xcz6d4a4.ufs.sh" &&
+          url.pathname.startsWith("/f/")
+        );
+      },
+      { message: "Gambar publikasi harus berasal dari unggahan situs." },
+    ),
+  ])
+  .optional();
 const optionalShortText = (maximum: number) =>
   z.string().trim().max(maximum).optional().or(z.literal(""));
 
@@ -104,19 +119,31 @@ export const agendaInputSchema = z
     }
   });
 
-export const publicationInputSchema = z.object({
-  type: z.enum(["BOOK", "JOURNAL_ARTICLE", "BOOK_CHAPTER", "ADDITIONAL_RESEARCH_OUTPUT"]),
-  title: z.string().trim().min(3).max(500),
-  authors: z.array(z.string().trim().min(1).max(180)).min(1).max(40),
-  year: z.coerce.number().int().min(1900).max(2100),
-  venue: z.string().trim().max(300).optional().or(z.literal("")),
-  doi: z.string().trim().max(180).optional().or(z.literal("")),
-  externalUrl: optionalHttpsUrl,
-  status: z.enum(["PUBLISHED", "FORTHCOMING", "PREPRINT", "ERRATUM", "REVIEW"]),
-  sourceName: z.string().trim().min(2).max(180),
-  sourceUrl: optionalHttpsUrl,
-  sourceNote: optionalShortText(600),
-});
+export const publicationInputSchema = z
+  .object({
+    type: z.enum(["BOOK", "JOURNAL_ARTICLE", "BOOK_CHAPTER", "ADDITIONAL_RESEARCH_OUTPUT"]),
+    title: z.string().trim().min(3).max(500),
+    authors: z.array(z.string().trim().min(1).max(180)).min(1).max(40),
+    year: z.coerce.number().int().min(1900).max(2100),
+    venue: z.string().trim().max(300).optional().or(z.literal("")),
+    doi: z.string().trim().max(180).optional().or(z.literal("")),
+    externalUrl: optionalHttpsUrl,
+    status: z.enum(["PUBLISHED", "FORTHCOMING", "PREPRINT", "ERRATUM", "REVIEW"]),
+    coverImage: optionalPublicationImageUrl,
+    coverRightsNote: optionalShortText(300),
+    sourceName: z.string().trim().min(2).max(180),
+    sourceUrl: optionalHttpsUrl,
+    sourceNote: optionalShortText(600),
+  })
+  .superRefine((value, context) => {
+    if (value.coverImage && !value.coverRightsNote?.trim()) {
+      context.addIssue({
+        code: "custom",
+        path: ["coverRightsNote"],
+        message: "Catatan hak penggunaan gambar wajib diisi.",
+      });
+    }
+  });
 
 export type PostInput = z.infer<typeof postInputSchema>;
 export type MaterialInput = z.infer<typeof materialInputSchema>;

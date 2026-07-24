@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import reviewData from "../prisma/review-data/import-candidates.json";
+import sourceData from "../prisma/seed-data/publication-sources.json";
 import { buildPublicationSeed } from "../prisma/seed-data/build-publications";
+import { publicationCoverSources } from "../prisma/seed-data/publication-covers";
 import {
   agendaInputSchema,
   materialInputSchema,
@@ -27,16 +28,22 @@ import {
   getRoutePath,
   switchLocalePath,
 } from "../src/lib/i18n";
+import { getAdminCopy } from "../src/data/admin";
+import {
+  featuredBooks,
+  getHomepagePublicationSelection,
+} from "../src/data/site";
+import { getDictionary } from "../src/data/translations";
 
-test("review seed is complete, unique, and leaves materials and agenda empty", () => {
-  assert.equal(reviewData.sourceCounts.cv, 81);
-  assert.equal(reviewData.sourceCounts.researchGate, 82);
-  assert.equal(reviewData.sourceCounts.academia, 12);
-  assert.equal(reviewData.sourceCounts.professorialAddress, 1);
-  assert.equal(reviewData.sourceCounts.studyMaterials, 0);
-  assert.equal(reviewData.sourceCounts.agenda, 0);
-  assert.equal(reviewData.candidates.length, 176);
-  assert.equal(new Set(reviewData.candidates.map((item) => item.fingerprint)).size, 176);
+test("publication source dataset is complete and unique", () => {
+  assert.equal(sourceData.sourceCounts.cv, 81);
+  assert.equal(sourceData.sourceCounts.researchGate, 82);
+  assert.equal(sourceData.sourceCounts.academia, 12);
+  assert.equal(sourceData.sourceCounts.professorialAddress, 1);
+  assert.equal(sourceData.sourceCounts.studyMaterials, 0);
+  assert.equal(sourceData.sourceCounts.agenda, 0);
+  assert.equal(sourceData.records.length, 176);
+  assert.equal(new Set(sourceData.records.map((item) => item.fingerprint)).size, 176);
 });
 
 test("material requires exactly one delivery target", () => {
@@ -90,6 +97,30 @@ test("publication preserves author array order and requires HTTPS URLs", () => {
   const valid = publicationInputSchema.parse(input);
   assert.deepEqual(valid.authors, ["First Author", "Second Author"]);
   assert.equal(publicationInputSchema.safeParse({ ...input, externalUrl: "http://example.com" }).success, false);
+  assert.equal(
+    publicationInputSchema.safeParse({
+      ...input,
+      coverImage: "https://m0xcz6d4a4.ufs.sh/f/cover-image",
+      coverRightsNote: "",
+    }).success,
+    false,
+  );
+  assert.equal(
+    publicationInputSchema.safeParse({
+      ...input,
+      coverImage: "https://m0xcz6d4a4.ufs.sh/f/cover-image",
+      coverRightsNote: "Official cover approved for the publication card.",
+    }).success,
+    true,
+  );
+  assert.equal(
+    publicationInputSchema.safeParse({
+      ...input,
+      coverImage: "https://example.com/unapproved-cover.jpg",
+      coverRightsNote: "Unknown external image.",
+    }).success,
+    false,
+  );
 });
 
 test("publication URL extraction keeps the full HTTPS target and trims citation punctuation", () => {
@@ -114,14 +145,93 @@ test("publication link normalization recognizes bare DOI and upgrades legacy HTT
   );
 });
 
-test("canonical publication seed resets to linked records only", () => {
-  const publications = buildPublicationSeed(reviewData.candidates);
+test("canonical publication seed produces linked records only", () => {
+  const publications = buildPublicationSeed(sourceData.records);
 
   assert.equal(publications.length, 82);
   assert.equal(publications.every((publication) => publication.externalUrl.startsWith("https://")), true);
   assert.equal(
     new Set(publications.map((publication) => publication.sourceFingerprint)).size,
     publications.length,
+  );
+});
+
+test("approved book covers map once to canonical CV book records", () => {
+  const fingerprints = publicationCoverSources.map(
+    (cover) => cover.fingerprint,
+  );
+  const canonicalBooks = sourceData.records.filter(
+    (candidate) =>
+      candidate.sourceName === "CV March 2026" &&
+      candidate.rawPayload.suggestedType === "BOOK",
+  );
+
+  assert.equal(publicationCoverSources.length, 12);
+  assert.equal(new Set(fingerprints).size, publicationCoverSources.length);
+  assert.equal(
+    publicationCoverSources.every((cover) =>
+      canonicalBooks.some(
+        (candidate) => candidate.fingerprint === cover.fingerprint,
+      ),
+    ),
+    true,
+  );
+
+  const coverUrls = Object.fromEntries(
+    publicationCoverSources.map((cover) => [
+      cover.fingerprint,
+      `https://m0xcz6d4a4.ufs.sh/f/${cover.fingerprint}`,
+    ]),
+  );
+  const publications = buildPublicationSeed(sourceData.records, coverUrls);
+
+  assert.equal(
+    publications.filter((publication) => publication.coverImage).length,
+    publicationCoverSources.length,
+  );
+  assert.equal(
+    publications.every(
+      (publication) =>
+        publication.coverImage ===
+        (coverUrls[publication.sourceFingerprint] ?? null),
+    ),
+    true,
+  );
+});
+
+test("homepage mixes three latest covered books with three non-book works", () => {
+  const selection = getHomepagePublicationSelection();
+
+  assert.deepEqual(
+    selection.books.map((publication) => publication.year),
+    ["2025", "2023", "2022"],
+  );
+  assert.equal(selection.books.length, 3);
+  assert.equal(
+    selection.books.every(
+      (publication) =>
+        publication.typeKey === "book" &&
+        publication.image?.startsWith("https://m0xcz6d4a4.ufs.sh/f/"),
+    ),
+    true,
+  );
+  assert.equal(selection.nonBooks.length, 3);
+  assert.equal(
+    selection.nonBooks.every(
+      (publication) => publication.typeKey !== "book",
+    ),
+    true,
+  );
+
+  const databaseBooks = featuredBooks.map((publication, index) => ({
+    ...publication,
+    id: `database-book-${index}`,
+  }));
+  assert.deepEqual(
+    getHomepagePublicationSelection(databaseBooks).books.map(
+      (publication) => publication.id,
+    ),
+    ["database-book-0", "database-book-1", "database-book-2"],
   );
 });
 
@@ -192,6 +302,36 @@ test("public route map exposes the redesigned bilingual information architecture
   );
   assert.equal(getRoutePath("id", "contact"), "/id/kontak");
   assert.equal(getRoutePath("en", "contact"), "/en/contact");
+});
+
+test("public engagement labels use Kiprah in Indonesian and Outreach in English", () => {
+  const id = getDictionary("id");
+  const en = getDictionary("en");
+
+  assert.equal(id.navigation.find((item) => item.route === "outreach")?.label, "Kiprah");
+  assert.equal(id.home.outreach.title, "Kiprah");
+  assert.equal(id.outreachPage.title, "Kiprah");
+
+  assert.equal(en.navigation.find((item) => item.route === "outreach")?.label, "Outreach");
+  assert.equal(en.home.outreach.title, "Outreach");
+  assert.equal(en.outreachPage.title, "Outreach");
+});
+
+test("admin navigation places agenda inside Kiprah and Outreach", () => {
+  assert.equal(getAdminCopy("id").workspace.agenda, "Kiprah · Agenda");
+  assert.equal(getAdminCopy("en").workspace.agenda, "Outreach · Agenda");
+});
+
+test("homepage section titles stay direct and descriptive", () => {
+  const id = getDictionary("id");
+  const en = getDictionary("en");
+
+  assert.equal(id.researchPage.ledgerTitle, "Riset");
+  assert.equal(en.researchPage.ledgerTitle, "Research");
+  assert.equal(id.home.publications.title, "Publikasi");
+  assert.equal(en.home.publications.title, "Publications");
+  assert.equal(id.home.closing.title, "Profil dan Kontak");
+  assert.equal(en.home.closing.title, "Profile and Contact");
 });
 
 test("locale switching maps canonical and legacy profile paths", () => {

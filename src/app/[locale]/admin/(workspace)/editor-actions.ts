@@ -153,22 +153,59 @@ export async function createPublicationAction(
     authors: text(formData, "authors").split("\n").map((item) => item.trim()).filter(Boolean),
     year: text(formData, "year"), venue: text(formData, "venue"), doi: text(formData, "doi"),
     externalUrl: text(formData, "externalUrl"), status: text(formData, "status"),
+    coverImage: text(formData, "coverImage"),
+    coverRightsNote: text(formData, "coverRightsNote"),
     sourceName: text(formData, "sourceName") || "Input manual", sourceUrl: text(formData, "sourceUrl"),
     sourceNote: text(formData, "sourceNote"),
   });
   if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa kembali metadata publikasi." };
-  await prisma.publication.create({
-    data: {
-      ...parsed.data,
-      venue: parsed.data.venue || null,
-      doi: parsed.data.doi || null,
-      externalUrl: parsed.data.externalUrl || null,
-      sourceUrl: parsed.data.sourceUrl || null,
-      sourceNote: parsed.data.sourceNote || "",
-      sourceCheckedAt: new Date(),
-      alternateUrls: [],
-      contentStatus: "DRAFT",
-    },
+  const coverStorageKey = text(formData, "coverStorageKey");
+  const coverMimeType = text(formData, "coverMimeType");
+  const coverFileName = text(formData, "coverFileName");
+  const coverFileSize = Number(text(formData, "coverFileSize"));
+  if (
+    parsed.data.coverImage &&
+    (
+      !coverStorageKey ||
+      !coverFileName ||
+      !coverMimeType.startsWith("image/") ||
+      !Number.isFinite(coverFileSize) ||
+      coverFileSize <= 0 ||
+      coverFileSize > 4 * 1024 * 1024
+    )
+  ) {
+    return { message: "Metadata unggahan gambar publikasi tidak valid." };
+  }
+  await prisma.$transaction(async (database) => {
+    if (coverStorageKey && parsed.data.coverImage) {
+      await database.mediaAsset.create({
+        data: {
+          storageKey: coverStorageKey,
+          url: parsed.data.coverImage,
+          fileName: coverFileName,
+          mimeType: coverMimeType,
+          size: coverFileSize,
+          rightsNote: parsed.data.coverRightsNote || "",
+        },
+      });
+    }
+
+    const publication = { ...parsed.data };
+    delete publication.coverRightsNote;
+    await database.publication.create({
+      data: {
+        ...publication,
+        venue: publication.venue || null,
+        doi: publication.doi || null,
+        externalUrl: publication.externalUrl || null,
+        coverImage: publication.coverImage || null,
+        sourceUrl: publication.sourceUrl || null,
+        sourceNote: publication.sourceNote || "",
+        sourceCheckedAt: new Date(),
+        alternateUrls: [],
+        contentStatus: "DRAFT",
+      },
+    });
   });
   revalidatePath(text(formData, "returnPath"));
   return { ok: true, message: "Draft publikasi tersimpan." };

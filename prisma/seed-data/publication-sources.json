@@ -1,6 +1,5 @@
 {
-  "generatedAt": "2026-07-20T06:02:56.245Z",
-  "reviewRequired": true,
+  "generatedAt": "2026-07-24T09:36:41.549Z",
   "sourceCounts": {
     "cv": 81,
     "researchGate": 82,
@@ -9,7 +8,7 @@
     "studyMaterials": 0,
     "agenda": 0
   },
-  "candidates": [
+  "records": [
     {
       "fingerprint": "fd2966657852b8386d3922b772a2925e4fdb0f7429ae60674f3d351122b5037e",
       "kind": "PUBLICATION",
@@ -1317,7 +1316,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 1
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1333,7 +1332,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 2
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1349,7 +1348,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 3
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1365,7 +1364,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 4
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1381,7 +1380,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 5
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1397,7 +1396,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 6
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1413,7 +1412,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 7
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1429,7 +1428,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 8
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1445,7 +1444,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 9
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1461,7 +1460,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 10
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1477,7 +1476,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 11
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1493,7 +1492,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 12
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1509,7 +1508,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 13
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1525,7 +1524,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 14
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1541,7 +1540,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 15
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1557,7 +1556,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 16
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1573,7 +1572,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 17
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1589,7 +1588,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 18
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1605,7 +1604,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 19
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1621,7 +1620,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 20
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1637,7 +1636,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 21
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1653,7 +1652,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 22
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1669,7 +1668,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 23
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1685,7 +1684,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 24
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1701,7 +1700,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 25
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1717,7 +1716,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 26
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1733,7 +1732,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 27
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1749,7 +1748,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 28
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1765,7 +1764,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 29
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1781,7 +1780,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 30
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1797,7 +1796,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 31
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1813,7 +1812,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 32
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1829,7 +1828,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 33
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1845,7 +1844,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 34
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1861,7 +1860,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 35
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1877,7 +1876,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 36
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1893,7 +1892,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 37
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1909,7 +1908,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 38
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1925,7 +1924,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 39
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1941,7 +1940,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 40
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1957,7 +1956,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 41
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1973,7 +1972,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 42
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -1989,7 +1988,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 43
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2005,7 +2004,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 44
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2021,7 +2020,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 45
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2037,7 +2036,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 46
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2053,7 +2052,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 47
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2069,7 +2068,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 48
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2085,7 +2084,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 49
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2101,7 +2100,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 50
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2117,7 +2116,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 51
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2133,7 +2132,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 52
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2149,7 +2148,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 53
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2165,7 +2164,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 54
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2181,7 +2180,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 55
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2197,7 +2196,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 56
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2213,7 +2212,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 57
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2229,7 +2228,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 58
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2245,7 +2244,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 59
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2261,7 +2260,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 60
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2277,7 +2276,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 61
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2293,7 +2292,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 62
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2309,7 +2308,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 63
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2325,7 +2324,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 64
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2341,7 +2340,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 65
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2357,7 +2356,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 66
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2373,7 +2372,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 67
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2389,7 +2388,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 68
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2405,7 +2404,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 69
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2421,7 +2420,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 70
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2437,7 +2436,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 71
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2453,7 +2452,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 72
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2469,7 +2468,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 73
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2485,7 +2484,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 74
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2501,7 +2500,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 75
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2517,7 +2516,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 76
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2533,7 +2532,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 77
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2549,7 +2548,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 78
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2565,7 +2564,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 79
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2581,7 +2580,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 80
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2597,7 +2596,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 81
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2613,7 +2612,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 82
       },
       "note": "Temuan platform; dapat berupa duplikat, erratum, ulasan, bab, atau versi alternatif. Jangan terbitkan sebelum rekonsiliasi CV."
@@ -2629,7 +2628,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 1
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2645,7 +2644,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 2
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2661,7 +2660,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 3
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2677,7 +2676,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 4
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2693,7 +2692,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 5
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2709,7 +2708,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 6
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2725,7 +2724,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 7
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2741,7 +2740,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 8
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2757,7 +2756,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 9
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2773,7 +2772,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 10
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2789,7 +2788,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 11
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2805,7 +2804,7 @@
       "rawPayload": {
         "year": null,
         "suggestedType": "UNRESOLVED",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": 12
       },
       "note": "Kategori Books dari platform bukan tipe bibliografis kanonis; tipe dan hak distribusi wajib direview."
@@ -2821,7 +2820,7 @@
       "rawPayload": {
         "year": 2023,
         "suggestedType": "ADDITIONAL_RESEARCH_OUTPUT",
-        "suggestedStatus": "NEEDS_REVIEW",
+        "suggestedStatus": "PUBLISHED",
         "platformIndex": null
       },
       "note": "Tautan eksternal dan status hak pakai/sematan harus disetujui pemilik sebelum publikasi."

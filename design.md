@@ -5,15 +5,21 @@
 - Implementation began on 20 July 2026 with the Phase 1 technical foundation.
 - On 20 July 2026, the owner approved a blue-first visual identity, supplied an approved portrait URL for the site, and added a lightweight agenda publishing feature modeled on the reference project's agenda posts.
 - On 20 July 2026, the owner expanded the site to Indonesian and English, with country-level automatic language selection and a persistent manual language switcher.
-- On 20 July 2026, the owner asked that the study-material collection remain empty until real course files and metadata are supplied. The initial review seed therefore covers publication sources only.
-- On 20 July 2026, the owner authorized the initial private admin workspace and review-seed pipeline. Login, server authorization, and editor forms may be implemented now, but database writes and uploads remain locked behind `DATABASE_READY` until the exposed MongoDB credential is rotated.
+- On 20 July 2026, the owner asked that the study-material collection remain empty until real course files and metadata are supplied. The initial seed therefore covers canonical publication sources only.
+- On 20 July 2026, the owner authorized the initial private admin workspace and publication seed pipeline. Login, server authorization, and editor forms may be implemented now, but database writes and uploads remain locked behind `DATABASE_READY` until the exposed MongoDB credential is rotated.
 - On 20 July 2026, the owner selected database-backed admin credentials and sessions. Credential hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
 - On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
 - On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
 - On 23 July 2026, the owner simplified the homepage by removing the course-material collection card, the teaching-archive preview, and the writing/agenda empty-state section. Course materials remain available through the hero action and footer.
-- On 24 July 2026, the owner approved a total public-layout redesign that makes the academic and public-intellectual profile the homepage priority. The canonical public navigation now contains Home, About, Research, Publications, Outreach and Engagement, and Contact. Course materials and writing remain available as secondary routes, while Agenda is presented inside Outreach and Engagement.
+- On 24 July 2026, the owner approved a total public-layout redesign that makes the academic and public-intellectual profile the homepage priority. The canonical public navigation now contains Home, About, Research, Publications, Outreach, and Contact. Course materials and writing remain available as secondary routes, while Agenda is presented inside Outreach.
+- On 24 July 2026, the owner simplified the public label for the engagement area to **Kiprah** in Indonesian and **Outreach** in English. Existing localized route segments remain unchanged for compatibility.
 - On 24 July 2026, the owner approved a mobile-wide public-layout pass. At 840px and below the header uses the `BM` mark, language switcher, and Menu only; editor access moves into the mobile menu. At 720px and below all public page templates use a dedicated compact type and spacing scale rather than inheriting the desktop composition.
-- On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
+- On 24 July 2026, the owner aligned the private editorial workspace with the redesigned public information architecture. Publications lead the managed collections, Agenda is identified as content for Kiprah / Outreach, Writing and Materials remain secondary, and About, Research, and Contact are identified as curated application content outside the current editor forms.
+- On 24 July 2026, the owner approved an optional UploadThing-hosted image for publication cards. A publication remains typographic when no image is supplied, and every uploaded image requires a source/rights note before its draft can be saved.
+- On 24 July 2026, the owner supplied twelve approved book-cover files and authorized their UploadThing upload and association with the matching canonical book records. The forthcoming 2026 book remains without a cover until an approved asset is supplied.
+- On 24 July 2026, the owner redesigned the homepage publication section to show the three most recent books with approved covers followed directly by three selected non-book works. Only the book group retains a visible label; the non-book group is identified by its card metadata without an extra heading or item count. Database records are preferred when three eligible covered books are available; the approved featured-book dataset is the fallback while database access is unavailable.
+- On 24 July 2026, the owner removed the `Needs Review` status and source-candidate queue from the product. The private editor works directly with canonical publication records; the static source extraction remains an internal, reproducible seed input and is never exposed as an application workflow.
+- On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
 - UploadThing routes remain closed until private admin authentication and server authorization are implemented.
@@ -30,7 +36,7 @@ The homepage's two primary actions are:
 1. Explore the research agenda.
 2. Browse the publication record.
 
-Student materials remain available through Outreach and Engagement and the footer, but do not compete with the public profile in the homepage hero. The product should feel like a working academic dossier, not a corporate brochure, news portal, or complex social network.
+Student materials remain available through Kiprah / Outreach and the footer, but do not compete with the public profile in the homepage hero. The product should feel like a working academic dossier, not a corporate brochure, news portal, or complex social network.
 
 ## Source inventory and authority
 
@@ -103,7 +109,7 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 ## MVP goals
 
 - Make the research agenda, public profile, and publication record the most prominent public paths.
-- Keep study materials easy to reach from Outreach and Engagement and the footer without placing them in the primary navigation.
+- Keep study materials easy to reach from Kiprah / Outreach and the footer without placing them in the primary navigation.
 - Provide a simple post publishing workflow.
 - Publish a concise, CV-derived profile.
 - Publish a searchable/filterable publication index.
@@ -131,17 +137,17 @@ The top bar contains six public destinations:
 2. **Profil / About** (`/id/profil`, `/en/about`)
 3. **Riset / Research** (`/id/riset`, `/en/research`)
 4. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
-5. **Outreach dan Kiprah / Outreach & Engagement** (`/id/outreach-dan-kiprah`, `/en/outreach-and-engagement`)
+5. **Kiprah / Outreach** (`/id/outreach-dan-kiprah`, `/en/outreach-and-engagement`)
 6. **Kontak / Contact** (`/id/kontak`, `/en/contact`)
 
 **Materi Kuliah / Course Materials** (`/id/materi`, `/en/materials`) is linked from the
-Outreach and Engagement page and the footer instead of the top bar. **Tulisan / Writing**
+Kiprah / Outreach page and the footer instead of the top bar. **Tulisan / Writing**
 is linked from the footer but not the primary navigation; its existing route and editorial
 records remain intact.
 
 Legacy `/id/tentang` permanently redirects to `/id/profil`. Legacy `/id/agenda` and
-`/en/agenda` permanently redirect to the `#agenda` section of the localized Outreach and
-Engagement page.
+`/en/agenda` permanently redirect to the `#agenda` section of the localized Kiprah /
+Outreach page.
 
 Unprefixed routes, including `/`, select a locale before redirecting. A valid manual preference cookie wins; otherwise country-level hosting headers select Indonesian for Indonesia and English elsewhere, then the browser language is used as fallback. Do not request precise device location or retain country data. Admin access is localized at `/id/admin/login` and `/en/admin/login`, but should not compete with public navigation. Put a discreet link in the footer.
 
@@ -195,13 +201,15 @@ Avoid a full-screen portrait splash or generic credibility metrics. The first vi
    - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
    - A blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
 3. **Selected publications**
-   - Three typographic publication cards in a static responsive grid; no carousel.
+   - Two static groups with no carousel: the three most recent books that have approved covers, followed directly by three selected non-book works. Do not show a visible `Karya non-buku / Non-book work` heading or `03` count above the second group.
+   - Book covers lead the first group; non-book records remain typographic so the difference in publication format is explicit.
    - Cover art is omitted unless an approved, rights-cleared asset exists.
-4. **Outreach and Engagement preview**
+4. **Kiprah / Outreach preview**
    - Verified agenda state and selected academic forums in a two-column layout.
    - Course materials appear as a quiet secondary link.
 5. **Closing action**
    - Direct paths to Contact and the full About profile.
+   - Section headings use direct content labels—`Riset / Research`, `Publikasi / Publications`, `Kiprah / Outreach`, and `Profil dan Kontak / Profile and Contact`—while supporting descriptions carry the editorial context.
 
 ### Study-material library
 
@@ -256,7 +264,9 @@ Avoid a full-screen portrait splash or generic credibility metrics. The first vi
 ### Admin
 
 - One dashboard with counts and recent drafts.
-- Separate `Materi`, `Tulisan`, `Agenda`, and `Publikasi` collections, with a shared quick-start chooser on the dashboard.
+- Separate `Publikasi`, `Agenda`, `Tulisan`, and `Materi` collections, with a shared quick-start chooser on the dashboard. The workspace labels Agenda as part of Kiprah / Outreach and explains that About, Research, and Contact remain outside the current form-based editor.
+- Dashboard counts come from the database only when it is explicitly ready; a locked or unavailable database is shown as unavailable rather than as a false zero count.
+- Workspace navigation exposes the current page with `aria-current` and includes a direct return to the localized public site.
 - Draft creation asks only for the minimum viable content first. Slugs are generated automatically; translations and secondary metadata remain optional while drafting and must pass publication-readiness validation before going public.
 - Explicit Draft, Published, and Archived states.
 - Preview before publish; confirmation before destructive deletion.
@@ -298,13 +308,8 @@ The exact database syntax should be decided during implementation. The conceptua
 - `id`, `type`, `title`, `authors[]`, `year`, `venue`, `publisher`
 - `volume`, `issue`, `pages`, `doi`, `externalUrl`, `status`
 - `abstract` only when supplied or approved; do not invent one.
+- Optional `coverImage` uploaded through the private UploadThing route. Its asset metadata retains a mandatory rights/source note, and public cards use a typographic fallback when the field is absent.
 - `featured`, editorial `contentStatus`, `sourceName`, `sourceUrl`, `sourceCheckedAt`, `alternateUrls[]`, `sourceNote`, `createdAt`, `updatedAt`
-
-### ImportCandidate
-
-- Review-only staging record for CV and live-source discoveries; never public by default.
-- `fingerprint`, `kind`, `state`, `sourceName`, `sourcePath`, `sourceUrl`, `sourceCheckedAt`, `rawText`, `rawPayload`, `note`, `createdAt`, `updatedAt`
-- Candidates are promoted into canonical content only after owner/editor review; duplicate platform records remain separate until resolved.
 
 ### AgendaItem
 

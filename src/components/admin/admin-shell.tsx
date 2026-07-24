@@ -1,10 +1,14 @@
 import Link from "next/link";
 
 import { logoutAction } from "@/app/[locale]/admin/actions";
+import {
+  AdminNavigation,
+  type AdminNavigationItem,
+} from "@/components/admin/admin-navigation";
 import { getAdminCopy } from "@/data/admin";
 import { canManageUsers } from "@/lib/auth/access";
 import type { AdminSession } from "@/lib/auth/session";
-import type { Locale } from "@/lib/i18n";
+import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function AdminShell({
   children,
@@ -17,16 +21,20 @@ export function AdminShell({
 }) {
   const copy = getAdminCopy(locale).workspace;
   const base = `/${locale}/admin`;
-  const links: Array<{ href: string; label: string }> = [
-    { href: base, label: copy.dashboard },
-    { href: `${base}/tulisan`, label: copy.posts },
-    { href: `${base}/materi`, label: copy.materials },
-    { href: `${base}/agenda`, label: copy.agenda },
-    { href: `${base}/publikasi`, label: copy.publications },
-    { href: `${base}/account`, label: copy.account },
+  const links: AdminNavigationItem[] = [
+    { href: base, label: copy.dashboard, meta: copy.dashboardMeta },
+    {
+      href: `${base}/publikasi`,
+      label: copy.publications,
+      meta: copy.publicationsMeta,
+    },
+    { href: `${base}/agenda`, label: copy.agenda, meta: copy.agendaMeta },
+    { href: `${base}/tulisan`, label: copy.posts, meta: copy.postsMeta },
+    { href: `${base}/materi`, label: copy.materials, meta: copy.materialsMeta },
+    { href: `${base}/account`, label: copy.account, meta: copy.accountMeta },
   ];
   if (canManageUsers(session.role)) {
-    links.push({ href: `${base}/users`, label: copy.users });
+    links.push({ href: `${base}/users`, label: copy.users, meta: copy.usersMeta });
   }
 
   return (
@@ -39,25 +47,24 @@ export function AdminShell({
             <small>@{session.username} · {session.role.replace("_", " ")}</small>
           </div>
         </div>
-        <form action={logoutAction}>
-          <input name="locale" type="hidden" value={locale} />
-          <button className="admin-logout" type="submit">{copy.logout}</button>
-        </form>
+        <div className="admin-header-actions">
+          <Link className="admin-public-link" href={getRoutePath(locale, "home")}>
+            {copy.publicSite}
+          </Link>
+          <form action={logoutAction}>
+            <input name="locale" type="hidden" value={locale} />
+            <button className="admin-logout" type="submit">{copy.logout}</button>
+          </form>
+        </div>
       </header>
       <div className="admin-workspace-grid">
         <aside className="admin-sidebar">
-          <nav aria-label={copy.name}>
-            {links.map((item, index) => (
-              <Link href={item.href} key={item.href}>
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="admin-status-rail" aria-label="Alur editorial">
-            <span>Draft</span>
-            <span>Review</span>
-            <span>Terbit</span>
+          <AdminNavigation items={links} label={copy.navigationLabel} />
+          <div className="admin-status-rail" aria-label={copy.workflowLabel}>
+            <small>{copy.workflowLabel}</small>
+            <span>{copy.draft}</span>
+            <span>{copy.review}</span>
+            <span>{copy.published}</span>
           </div>
         </aside>
         <main id="konten-utama" className="admin-main">

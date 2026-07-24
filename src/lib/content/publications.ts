@@ -53,5 +53,6 @@ export async function getPublishedPublications(): Promise<Publication[]> {
       extractFirstHttpsUrl(record.rawCitation) ||
       record.sourceUrl ||
       undefined,
+    image: record.coverImage || undefined,
   }));
 }

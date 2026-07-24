@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState, useState } from "react";
 
 import {
@@ -12,6 +13,14 @@ import {
 import { UploadDropzone } from "@/lib/uploadthing";
 
 const initialState: EditorActionState = {};
+
+type UploadedAsset = {
+  storageKey: string;
+  url: string;
+  fileName: string;
+  mimeType: string;
+  size: number;
+};
 
 function FormStatus({ state }: { state: EditorActionState }) {
   if (!state.message) return null;
@@ -233,10 +242,20 @@ export function PublicationEditorForm({
   returnPath: string;
 }) {
   const [state, action, pending] = useActionState(createPublicationAction, initialState);
+  const [coverAsset, setCoverAsset] = useState<UploadedAsset | null>(null);
 
   return (
     <form action={action} className="editor-form">
       <input name="returnPath" type="hidden" value={returnPath} />
+      {coverAsset ? (
+        <>
+          <input name="coverImage" type="hidden" value={coverAsset.url} />
+          <input name="coverStorageKey" type="hidden" value={coverAsset.storageKey} />
+          <input name="coverFileName" type="hidden" value={coverAsset.fileName} />
+          <input name="coverMimeType" type="hidden" value={coverAsset.mimeType} />
+          <input name="coverFileSize" type="hidden" value={coverAsset.size} />
+        </>
+      ) : null}
       <FormStatus state={state} />
       <fieldset disabled={pending}>
         <legend className="sr-only">Publikasi baru</legend>
@@ -309,6 +328,70 @@ export function PublicationEditorForm({
         </details>
 
         <details className="editor-options">
+          <summary>Gambar kartu <Optional /></summary>
+          <div className="publication-cover-editor">
+            <div className="admin-upload-zone">
+              {ready ? (
+                <UploadDropzone
+                  endpoint="publicationImage"
+                  onClientUploadComplete={(files) => {
+                    const file = files[0];
+                    if (!file) return;
+                    setCoverAsset({
+                      storageKey: file.key,
+                      url: file.ufsUrl,
+                      fileName: file.name,
+                      mimeType: file.type,
+                      size: file.size,
+                    });
+                  }}
+                  onUploadError={() => setCoverAsset(null)}
+                />
+              ) : (
+                <div className="admin-upload-disabled">
+                  Upload aktif setelah database siap.
+                </div>
+              )}
+              <p role="status">
+                {coverAsset
+                  ? `Gambar siap disimpan: ${coverAsset.fileName}`
+                  : "JPG, PNG, atau WebP maks. 4 MB. Kartu tetap tipografis jika dikosongkan."}
+              </p>
+            </div>
+            {coverAsset ? (
+              <div className="publication-cover-rights">
+                <div className="publication-cover-upload-preview">
+                  <Image
+                    alt=""
+                    fill
+                    sizes="160px"
+                    src={coverAsset.url}
+                  />
+                </div>
+                <label>
+                  Catatan hak penggunaan
+                  <input
+                    name="coverRightsNote"
+                    placeholder="Contoh: sampul resmi, disetujui untuk tampilan situs"
+                    required
+                  />
+                  <small>
+                    Jelaskan sumber dan izin penggunaan gambar sebelum draft disimpan.
+                  </small>
+                </label>
+                <button
+                  className="button button-secondary"
+                  onClick={() => setCoverAsset(null)}
+                  type="button"
+                >
+                  Hapus dari draft
+                </button>
+              </div>
+            ) : null}
+          </div>
+        </details>
+
+        <details className="editor-options">
           <summary>Jejak sumber <Optional /></summary>
           <div className="editor-form-grid">
             <label>
@@ -331,14 +414,6 @@ export function PublicationEditorForm({
     </form>
   );
 }
-
-type UploadedAsset = {
-  storageKey: string;
-  url: string;
-  fileName: string;
-  mimeType: string;
-  size: number;
-};
 
 export function MaterialEditorForm({
   ready,
