@@ -56,11 +56,20 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <MenuIcon />
               <span>{dictionary.header.menu}</span>
             </summary>
-            <PublicNavigation
-              className="mobile-public-nav"
-              items={navigation}
-              label={dictionary.header.mobileNavigationLabel}
-            />
+            <div className="mobile-menu-panel">
+              <PublicNavigation
+                className="mobile-public-nav"
+                items={navigation}
+                label={dictionary.header.mobileNavigationLabel}
+              />
+              <Link
+                className="mobile-editor-link"
+                href={getRoutePath(locale, "admin")}
+              >
+                <LoginIcon />
+                <span>{dictionary.footer.editor}</span>
+              </Link>
+            </div>
           </details>
         </div>
       </div>

@@ -12,6 +12,7 @@
 - On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
 - On 23 July 2026, the owner simplified the homepage by removing the course-material collection card, the teaching-archive preview, and the writing/agenda empty-state section. Course materials remain available through the hero action and footer.
 - On 24 July 2026, the owner approved a total public-layout redesign that makes the academic and public-intellectual profile the homepage priority. The canonical public navigation now contains Home, About, Research, Publications, Outreach and Engagement, and Contact. Course materials and writing remain available as secondary routes, while Agenda is presented inside Outreach and Engagement.
+- On 24 July 2026, the owner approved a mobile-wide public-layout pass. At 840px and below the header uses the `BM` mark, language switcher, and Menu only; editor access moves into the mobile menu. At 720px and below all public page templates use a dedicated compact type and spacing scale rather than inheriting the desktop composition.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -179,7 +180,7 @@ Do not add a separate global search page initially. A header search action may o
 - The language switcher changes to the equivalent localized route, preserves active filters, and stores a manual preference for one year. It must remain keyboard operable and understandable without flags or color alone.
 - Sticky only if it remains visually quiet and does not obscure anchors or reading content.
 - No visible `Sign in` call to action in the primary header.
-- Admin access uses a discreet icon-only control in the top bar with an accessible text label; it does not compete with public navigation.
+- Above 840px, admin access uses a discreet icon-only control in the top bar with an accessible text label. At 840px and below, the top bar contains only the `BM` mark, `ID / EN`, and Menu; a labeled editor-access link appears as the secondary final item inside the menu.
 
 ### Homepage
 
@@ -352,6 +353,7 @@ The plan may proceed with placeholders in a development environment, but placeho
 - A blue-first contemporary academic dossier with the clarity of a research notebook, not a generic magazine or institutional brochure.
 - Content density should be moderate: easy to scan, but never waste the first viewport.
 - Desktop layouts use a wide editorial grid up to roughly 1520px for general content. The homepage hero and its primary collection rail expand nearly edge-to-edge with bounded gutters so the introduction and portrait make full use of wide screens. Tablet and mobile layouts collapse in reading order without losing actions or metadata.
+- At 720px and below, use 20-24px side gutters, approximately 56px public-section spacing, 40-50px page-hero titles, and stacked primary actions. The homepage thesis retains its approved wording at 44-52px, followed by a horizontal portrait crop. Profile, research ledger, collection filters, outreach, contact channels, and footer navigation must recompose for mobile instead of merely shrinking desktop columns.
 
 ### Design tokens to validate during implementation
 
@@ -525,7 +527,7 @@ Pin exact package versions only during implementation after checking the locally
 
 ### Manual
 
-- Verify at 320px, 375px, 768px, 1024px, and wide desktop layouts.
+- Verify at 320px, 375px, 390px, 430px, 477px, 720px, 768px, 1024px, and wide desktop layouts.
 - Test slow mobile networking and large-but-valid files.
 - Check long Indonesian titles, many co-authors, DOI wrapping, missing thumbnails, external-only materials, and zero-result filters.
 - Confirm no Budi Rahman Hakim content or BRH-specific imagery/branding appears in the new site.
@@ -533,7 +535,8 @@ Pin exact package versions only during implementation after checking the locally
 
 ## MVP acceptance checklist
 
-- [ ] The homepage keeps direct hero actions to course materials and writing in the first viewport.
+- [ ] The homepage keeps direct hero actions to Research and Publications, with the thesis, lead, both actions, and the beginning of the portrait visible at 390x844 without horizontal scrolling.
+- [ ] At 840px and below, the public header presents only `BM`, `ID / EN`, and Menu; editor access remains available as a secondary menu item.
 - [ ] Materi Kuliah is available from the footer and remains easy to reach from relevant page content without appearing in the top bar.
 - [ ] Students can search and filter materials and share the resulting URL.
 - [ ] Every material action accurately reflects open/download/external availability.

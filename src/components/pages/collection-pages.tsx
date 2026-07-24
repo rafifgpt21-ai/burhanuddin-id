@@ -326,7 +326,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               ))}
             </dl>
 
-            <nav className="about-contents">
+            <nav className="about-contents about-contents-desktop">
               <p>{copy.contentsLabel}</p>
               {copy.contents.map((item) => (
                 <a href={item.href} key={item.href}>
@@ -335,6 +335,21 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 </a>
               ))}
             </nav>
+
+            <details className="about-contents-mobile">
+              <summary>
+                <span>{copy.contentsLabel}</span>
+                <ArrowRightIcon />
+              </summary>
+              <nav aria-label={copy.contentsLabel}>
+                {copy.contents.map((item) => (
+                  <a href={item.href} key={item.href}>
+                    <span>{item.label}</span>
+                    <ArrowRightIcon />
+                  </a>
+                ))}
+              </nav>
+            </details>
           </aside>
 
           <article className="about-copy">
