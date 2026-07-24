@@ -8,6 +8,9 @@ export type RouteKey =
   | "agenda"
   | "publications"
   | "about"
+  | "research"
+  | "outreach"
+  | "contact"
   | "admin";
 
 export const localeCookieName = "bm_locale";
@@ -18,8 +21,15 @@ const routeSegments: Record<RouteKey, Record<Locale, string>> = {
   posts: { id: "tulisan", en: "writing" },
   agenda: { id: "agenda", en: "agenda" },
   publications: { id: "publikasi", en: "publications" },
-  about: { id: "tentang", en: "about" },
+  about: { id: "profil", en: "about" },
+  research: { id: "riset", en: "research" },
+  outreach: { id: "outreach-dan-kiprah", en: "outreach-and-engagement" },
+  contact: { id: "kontak", en: "contact" },
   admin: { id: "admin/login", en: "admin/login" },
+};
+
+const legacyRouteSegments: Partial<Record<string, RouteKey>> = {
+  tentang: "about",
 };
 
 export function hasLocale(value: string | undefined | null): value is Locale {
@@ -32,8 +42,11 @@ export function getRoutePath(locale: Locale, route: RouteKey): string {
 }
 
 function routeKeyFromSegment(segment: string): RouteKey | undefined {
-  return (Object.keys(routeSegments) as RouteKey[]).find((route) =>
-    locales.some((locale) => routeSegments[route][locale].split("/")[0] === segment),
+  return (
+    legacyRouteSegments[segment] ??
+    (Object.keys(routeSegments) as RouteKey[]).find((route) =>
+      locales.some((locale) => routeSegments[route][locale].split("/")[0] === segment),
+    )
   );
 }
 

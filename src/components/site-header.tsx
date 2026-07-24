@@ -2,14 +2,16 @@ import Link from "next/link";
 
 import { LoginIcon, MenuIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { PublicNavigation } from "@/components/public-navigation";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
-  const navigation = dictionary.navigation.filter(
-    (item) => item.route !== "materials" && item.route !== "posts",
-  );
+  const navigation = dictionary.navigation.map((item) => ({
+    href: getRoutePath(locale, item.route),
+    label: item.label,
+  }));
 
   return (
     <header className="site-header">
@@ -27,13 +29,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label={dictionary.header.navigationLabel}>
-          {navigation.map((item) => (
-            <Link href={getRoutePath(locale, item.route)} key={item.route}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <PublicNavigation
+          className="desktop-nav"
+          items={navigation}
+          label={dictionary.header.navigationLabel}
+        />
 
         <div className="header-actions">
           <LanguageSwitcher
@@ -56,13 +56,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <MenuIcon />
               <span>{dictionary.header.menu}</span>
             </summary>
-            <nav aria-label={dictionary.header.mobileNavigationLabel}>
-              {navigation.map((item) => (
-                <Link href={getRoutePath(locale, item.route)} key={item.route}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <PublicNavigation
+              className="mobile-public-nav"
+              items={navigation}
+              label={dictionary.header.mobileNavigationLabel}
+            />
           </details>
         </div>
       </div>

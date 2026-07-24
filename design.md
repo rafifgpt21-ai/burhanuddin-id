@@ -11,6 +11,7 @@
 - On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
 - On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
 - On 23 July 2026, the owner simplified the homepage by removing the course-material collection card, the teaching-archive preview, and the writing/agenda empty-state section. Course materials remain available through the hero action and footer.
+- On 24 July 2026, the owner approved a total public-layout redesign that makes the academic and public-intellectual profile the homepage priority. The canonical public navigation now contains Home, About, Research, Publications, Outreach and Engagement, and Contact. Course materials and writing remain available as secondary routes, while Agenda is presented inside Outreach and Engagement.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed now resets the publication collection from the canonical CV set, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -21,12 +22,14 @@
 
 ## Product summary
 
-Build a calm, fast, mobile-friendly academic website that lets Prof. Burhanuddin Muhtadi publish short or long posts and distribute study material to his students. The public profile and publication record establish academic context, but the two primary actions should always be easy to find:
+Build a calm, fast, mobile-friendly academic website that presents Prof. Burhanuddin Muhtadi's research, publication record, and verified public engagement as its primary public experience. The site also lets editors publish posts, agendas, and study materials without developer help.
 
-1. Find study material.
-2. Read the latest post.
+The homepage's two primary actions are:
 
-The product should feel like a lecturer's working library, not a corporate brochure or a complex social network.
+1. Explore the research agenda.
+2. Browse the publication record.
+
+Student materials remain available through Outreach and Engagement and the footer, but do not compete with the public profile in the homepage hero. The product should feel like a working academic dossier, not a corporate brochure, news portal, or complex social network.
 
 ## Source inventory and authority
 
@@ -58,7 +61,7 @@ The product should feel like a lecturer's working library, not a corporate broch
 - Draft/published content, admin authentication, block-based posts, media upload, search, SEO, and selected localized-routing patterns. Subject-specific copy and locale behavior must still be implemented independently.
 - A warm editorial palette, compact fixed navigation, publication cards, and mobile layouts.
 
-Use those patterns selectively. Do not copy the project wholesale. The new site needs fewer dependencies, fewer content types, less motion, no public account system, and a more direct student workflow.
+Use those patterns selectively. Do not copy the project wholesale. The new site needs fewer dependencies, fewer content types, less motion, no public account system, a direct public research path, and a clear secondary student workflow.
 
 ## Facts the initial site can safely derive from the CV
 
@@ -73,7 +76,15 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 
 ## Audience and primary jobs
 
-### Primary: students
+### Primary: researchers, journalists, institutional peers, and the public
+
+- Understand the subject's research agenda and current academic roles.
+- Browse or search the publication record.
+- Follow DOI, publisher, institutional, ResearchGate, or Academia.edu links.
+- Find verified institutional and academic-profile channels.
+- Distinguish current appointments from historical roles and external organisations.
+
+### Secondary: students
 
 - Find a file by course, topic, type, or semester.
 - Understand what a resource is before opening it.
@@ -81,23 +92,17 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 - Read related posts or references from the lecturer.
 - Use the site comfortably on a phone and on limited bandwidth.
 
-### Secondary: lecturer/editor
+### Tertiary: lecturer/editor
 
 - Create, edit, preview, publish, unpublish, and archive posts.
 - Upload study files and maintain their course metadata.
 - Add an external resource without uploading a file.
 - Correct publication metadata without editing code.
 
-### Tertiary: researchers, journalists, and the public
-
-- Read a concise biography.
-- Browse or search the publication record.
-- Follow DOI, publisher, institutional, ResearchGate, or Academia.edu links.
-- Find an official, current profile without confusing this site with Indikator Politik Indonesia.
-
 ## MVP goals
 
-- Make study materials the most prominent collection.
+- Make the research agenda, public profile, and publication record the most prominent public paths.
+- Keep study materials easy to reach from Outreach and Engagement and the footer without placing them in the primary navigation.
 - Provide a simple post publishing workflow.
 - Publish a concise, CV-derived profile.
 - Publish a searchable/filterable publication index.
@@ -119,17 +124,23 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 
 ### Public navigation
 
-The top bar is intentionally limited to four destinations:
+The top bar contains six public destinations:
 
 1. **Beranda / Home** (`/id`, `/en`)
-2. **Agenda** (`/id/agenda`, `/en/agenda`)
-3. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
-4. **Tentang / About** (`/id/tentang`, `/en/about`)
+2. **Profil / About** (`/id/profil`, `/en/about`)
+3. **Riset / Research** (`/id/riset`, `/en/research`)
+4. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
+5. **Outreach dan Kiprah / Outreach & Engagement** (`/id/outreach-dan-kiprah`, `/en/outreach-and-engagement`)
+6. **Kontak / Contact** (`/id/kontak`, `/en/contact`)
 
 **Materi Kuliah / Course Materials** (`/id/materi`, `/en/materials`) is linked from the
-footer instead of the top bar. **Tulisan / Writing** is not shown in either public
-navigation area; its existing route and editorial records remain intact until the owner
-decides whether the collection should be retired completely.
+Outreach and Engagement page and the footer instead of the top bar. **Tulisan / Writing**
+is linked from the footer but not the primary navigation; its existing route and editorial
+records remain intact.
+
+Legacy `/id/tentang` permanently redirects to `/id/profil`. Legacy `/id/agenda` and
+`/en/agenda` permanently redirect to the `#agenda` section of the localized Outreach and
+Engagement page.
 
 Unprefixed routes, including `/`, select a locale before redirecting. A valid manual preference cookie wins; otherwise country-level hosting headers select Indonesian for Indonesia and English elsewhere, then the browser language is used as fallback. Do not request precise device location or retain country data. Admin access is localized at `/id/admin/login` and `/en/admin/login`, but should not compete with public navigation. Put a discreet link in the footer.
 
@@ -137,14 +148,16 @@ Unprefixed routes, including `/`, select a locale before redirecting. A valid ma
 
 | Route | Purpose |
 | --- | --- |
-| `/id`, `/en` | Compact overview with direct paths to materials and latest posts. |
+| `/id`, `/en` | Public-intellectual overview with direct paths to research and publications. |
+| `/id/profil`, `/en/about` | Biography, current roles, education, selected awards, expertise, and approved CV download. |
+| `/id/riset`, `/en/research` | Four CV-derived research clusters with related scholarly work. |
 | `/id/materi`, `/en/materials` | Searchable and filterable teaching-material library. |
 | `/id/materi/[slug]`, `/en/materials/[slug]` | Material summary, course metadata, file/link action, and related resources. |
 | `/id/tulisan`, `/en/writing` | Reverse-chronological post index with topic filters. |
 | `/id/tulisan/[slug]`, `/en/writing/[slug]` | Accessible long-form reading page. |
-| `/id/agenda`, `/en/agenda` | Upcoming agenda first, followed by a concise archive of completed events. |
+| `/id/outreach-dan-kiprah`, `/en/outreach-and-engagement` | Verified public agenda, selected academic forums, and secondary teaching access. |
 | `/id/publikasi`, `/en/publications` | CV-derived bibliography grouped by type and year. |
-| `/id/tentang`, `/en/about` | Biography, current roles, education, selected awards, expertise, and approved CV download. |
+| `/id/kontak`, `/en/contact` | Verified institutional and academic-profile channels without a public contact form. |
 | `/id/admin/login`, `/en/admin/login` | Private editor sign-in. |
 | `/[locale]/admin` | Content overview and draft/published status. |
 | `/[locale]/admin/account` | Self-service username and password settings for the signed-in user. |
@@ -161,7 +174,7 @@ Do not add a separate global search page initially. A header search action may o
 ### Header
 
 - Wordmark: `Burhanuddin Muhtadi` or an owner-approved short form such as `BM`.
-- Four public links, a visible `ID / EN` language switcher, and a mobile menu.
+- Six public links, a visible `ID / EN` language switcher, and a mobile menu that takes over before the links become crowded.
 - Keep course-material access in the footer and do not place a material search control in the top bar.
 - The language switcher changes to the equivalent localized route, preserves active filters, and stores a manual preference for one year. It must remain keyboard operable and understandable without flags or color alone.
 - Sticky only if it remains visually quiet and does not obscure anchors or reading content.
@@ -170,20 +183,24 @@ Do not add a separate global search page initially. A header search action may o
 
 ### Homepage
 
-Avoid the mostly empty full-screen hero seen in one reference verification image. The first viewport should contain useful content.
+Avoid a full-screen portrait splash or generic credibility metrics. The first viewport should establish a clear academic thesis and current roles.
 
-1. **Compact introduction**
-   - Name and approved title.
-   - One-sentence positioning around political science, elections, democracy, and public opinion.
-   - Primary action: `Lihat Materi Kuliah`.
-   - Secondary action: `Baca Tulisan Terbaru`.
-   - Use an approved portrait only when supplied. Until then, use a restrained typographic composition; do not use a generated or unrelated portrait.
-2. **Publikasi pilihan**
-   - Three to five selected publications, including a book and recent journal work.
-3. **Bidang kajian**
-   - A concise topic list derived from the CV, not a large decorative grid.
-4. **Profile strip and footer**
-   - Current roles, institutional links, source links from `more-material.md`, copyright, and discreet admin access.
+1. **Editorial hero**
+   - Approved portrait on the left and a research thesis on the right at desktop widths; copy precedes the portrait on mobile.
+   - Primary action: `Jelajahi Riset / Explore the research`.
+   - Secondary action: `Lihat Publikasi / View publications`.
+   - Three current roles appear as source-backed text without affiliation logos.
+2. **Research ledger**
+   - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
+   - A blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
+3. **Selected publications**
+   - Three typographic publication cards in a static responsive grid; no carousel.
+   - Cover art is omitted unless an approved, rights-cleared asset exists.
+4. **Outreach and Engagement preview**
+   - Verified agenda state and selected academic forums in a two-column layout.
+   - Course materials appear as a quiet secondary link.
+5. **Closing action**
+   - Direct paths to Contact and the full About profile.
 
 ### Study-material library
 
@@ -332,7 +349,7 @@ The plan may proceed with placeholders in a development environment, but placeho
 ### Character
 
 - Editorial, academic, trustworthy, and contemporary.
-- More like a well-kept reading room than a news portal.
+- A blue-first contemporary academic dossier with the clarity of a research notebook, not a generic magazine or institutional brochure.
 - Content density should be moderate: easy to scan, but never waste the first viewport.
 - Desktop layouts use a wide editorial grid up to roughly 1520px for general content. The homepage hero and its primary collection rail expand nearly edge-to-edge with bounded gutters so the introduction and portrait make full use of wide screens. Tablet and mobile layouts collapse in reading order without losing actions or metadata.
 
@@ -346,6 +363,7 @@ The plan may proceed with placeholders in a development environment, but placeho
 - Body/UI: a highly legible sans serif, self-hosted.
 - Body reading size: at least 16px, with generous line height.
 - Corners and shadows: restrained; use borders and whitespace before elevation.
+- Signature pattern: a research ledger with a blue spine, bibliographic annotations, and evidence-linked themes.
 
 Final colors are not approved until WCAG contrast checks pass in real components.
 

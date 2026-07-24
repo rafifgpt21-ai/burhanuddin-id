@@ -19,6 +19,14 @@ import {
   createAdminUserSchema,
   updateOwnAccountSchema,
 } from "../src/lib/validation/admin-users";
+import {
+  formatAgendaDate,
+  partitionAgenda,
+} from "../src/lib/content/agenda-utils";
+import {
+  getRoutePath,
+  switchLocalePath,
+} from "../src/lib/i18n";
 
 test("review seed is complete, unique, and leaves materials and agenda empty", () => {
   assert.equal(reviewData.sourceCounts.cv, 81);
@@ -167,4 +175,61 @@ test("self-service account changes cannot carry a role or another user id", () =
     "passwordConfirmation",
     "username",
   ]);
+});
+
+test("public route map exposes the redesigned bilingual information architecture", () => {
+  assert.equal(getRoutePath("id", "about"), "/id/profil");
+  assert.equal(getRoutePath("en", "about"), "/en/about");
+  assert.equal(getRoutePath("id", "research"), "/id/riset");
+  assert.equal(getRoutePath("en", "research"), "/en/research");
+  assert.equal(
+    getRoutePath("id", "outreach"),
+    "/id/outreach-dan-kiprah",
+  );
+  assert.equal(
+    getRoutePath("en", "outreach"),
+    "/en/outreach-and-engagement",
+  );
+  assert.equal(getRoutePath("id", "contact"), "/id/kontak");
+  assert.equal(getRoutePath("en", "contact"), "/en/contact");
+});
+
+test("locale switching maps canonical and legacy profile paths", () => {
+  assert.equal(switchLocalePath("/id/riset", "en"), "/en/research");
+  assert.equal(
+    switchLocalePath("/en/outreach-and-engagement", "id"),
+    "/id/outreach-dan-kiprah",
+  );
+  assert.equal(switchLocalePath("/id/tentang", "en"), "/en/about");
+});
+
+test("agenda partitions upcoming and completed records and formats WIB", () => {
+  const items = [
+    {
+      id: "future",
+      title: "Future",
+      description: "Future agenda",
+      startsAt: new Date("2026-08-01T03:00:00.000Z"),
+    },
+    {
+      id: "past-later",
+      title: "Past later",
+      description: "Past agenda",
+      startsAt: new Date("2026-07-10T03:00:00.000Z"),
+    },
+    {
+      id: "past-earlier",
+      title: "Past earlier",
+      description: "Past agenda",
+      startsAt: new Date("2026-07-01T03:00:00.000Z"),
+    },
+  ];
+  const result = partitionAgenda(items, new Date("2026-07-24T00:00:00.000Z"));
+
+  assert.deepEqual(result.upcoming.map((item) => item.id), ["future"]);
+  assert.deepEqual(result.completed.map((item) => item.id), [
+    "past-later",
+    "past-earlier",
+  ]);
+  assert.match(formatAgendaDate(items[0].startsAt, "id"), /10\.00/);
 });

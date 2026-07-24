@@ -1,15 +1,14 @@
 import Link from "next/link";
 
 import { ArrowUpRightIcon } from "@/components/icons";
+import { publicCv } from "@/data/public";
 import { externalProfiles } from "@/data/site";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
-  const navigation = dictionary.navigation.filter(
-    (item) => item.route !== "home" && item.route !== "posts",
-  );
+  const navigation = dictionary.navigation.filter((item) => item.route !== "home");
 
   return (
     <footer className="site-footer">
@@ -22,7 +21,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <p>{dictionary.footer.intro}</p>
         </div>
 
-        <div>
+        <div className="footer-navigation">
           <p className="footer-label">{dictionary.footer.explore}</p>
           <nav className="footer-links" aria-label={dictionary.footer.navigationLabel}>
             {navigation.map((item) => (
@@ -30,6 +29,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 {item.label}
               </Link>
             ))}
+            <Link href={getRoutePath(locale, "materials")}>
+              {dictionary.footer.materials}
+            </Link>
+            <Link href={getRoutePath(locale, "posts")}>
+              {dictionary.footer.writing}
+            </Link>
           </nav>
         </div>
 
@@ -42,6 +47,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <ArrowUpRightIcon />
               </a>
             ))}
+            {publicCv ? (
+              <a href={publicCv.href} target="_blank" rel="noreferrer">
+                {publicCv.label[locale]}
+                <ArrowUpRightIcon />
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

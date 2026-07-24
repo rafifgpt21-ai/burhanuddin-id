@@ -13,11 +13,11 @@ const id = {
   },
   navigation: [
     { route: "home" as RouteKey, label: "Beranda" },
-    { route: "materials" as RouteKey, label: "Materi kuliah" },
-    { route: "posts" as RouteKey, label: "Tulisan" },
-    { route: "agenda" as RouteKey, label: "Agenda" },
+    { route: "about" as RouteKey, label: "Profil" },
+    { route: "research" as RouteKey, label: "Riset" },
     { route: "publications" as RouteKey, label: "Publikasi" },
-    { route: "about" as RouteKey, label: "Tentang" },
+    { route: "outreach" as RouteKey, label: "Outreach dan Kiprah" },
+    { route: "contact" as RouteKey, label: "Kontak" },
   ],
   header: {
     homeLabel: "Burhanuddin Muhtadi, beranda",
@@ -37,6 +37,8 @@ const id = {
     navigationLabel: "Navigasi footer",
     profiles: "Profil akademik",
     editor: "Akses editor",
+    materials: "Materi kuliah",
+    writing: "Tulisan",
   },
   home: {
     metadataTitle: "Beranda",
@@ -45,8 +47,13 @@ const id = {
     indexRange: "01—04",
     indexTopic: "Politik Indonesia",
     eyebrow: "Ilmuwan politik · pendidik · penulis",
+    thesis:
+      "Membaca demokrasi Indonesia melalui data, pemilih, dan kekuasaan.",
     lead:
-      "Profesor Ilmu Politik yang meneliti pemilu, demokrasi, perilaku memilih, dan opini publik di Indonesia.",
+      "Burhanuddin Muhtadi adalah Profesor Ilmu Politik yang menghubungkan riset empiris tentang pemilu, politik uang, dan opini publik dengan perdebatan demokrasi Indonesia.",
+    researchAction: "Jelajahi riset",
+    publicationsAction: "Lihat publikasi",
+    portraitCaption: "Ilmu politik · demokrasi · opini publik",
     materialsAction: "Lihat materi kuliah",
     postsAction: "Baca tulisan",
     rolesLabel: "Peran saat ini",
@@ -70,11 +77,11 @@ const id = {
       },
     ],
     publications: {
-      eyebrow: "Rekam akademik pilihan",
-      title: "Publikasi & Karya Ilmiah",
+      eyebrow: "Karya pilihan",
+      title: "Argumen yang Bertumbuh dari Data",
       description:
-        "Bibliografi pilihan dengan judul, urutan penulis, tahun, dan sumber sebagaimana tercatat dalam dokumen rujukan.",
-      action: "Arsip publikasi",
+        "Tiga karya yang mewakili lintasan riset mengenai politik uang, perilaku elite, dan kemunduran demokrasi.",
+      action: "Lihat seluruh publikasi",
     },
     focus: {
       eyebrow: "Bidang kajian",
@@ -82,6 +89,82 @@ const id = {
       description:
         "Bidang kajian yang tercermin dalam publikasi dan pekerjaan akademik pada CV Maret 2026.",
     },
+    outreach: {
+      eyebrow: "Di luar halaman jurnal",
+      title: "Outreach dan Kiprah",
+      description:
+        "Riset bergerak melalui forum akademik, diskusi publik, agenda, dan ruang pengajaran.",
+      action: "Jelajahi outreach dan kiprah",
+      agendaLabel: "Agenda publik",
+      forumLabel: "Forum akademik pilihan",
+      materialsAction: "Akses materi kuliah",
+    },
+    closing: {
+      eyebrow: "Profil akademik dan kanal resmi",
+      title:
+        "Telusuri rekam ilmiah atau lanjutkan melalui kanal yang terverifikasi.",
+      contactAction: "Buka kontak",
+      profileAction: "Baca profil lengkap",
+    },
+  },
+  researchPage: {
+    metadataTitle: "Riset",
+    metadataDescription:
+      "Fokus riset Burhanuddin Muhtadi mengenai perilaku pemilih, politik uang, demokrasi, politik Islam, dan opini publik.",
+    eyebrow: "Agenda intelektual",
+    title: "Riset",
+    description:
+      "Empat jalur kajian yang menjelaskan bagaimana warga, elite, institusi, dan identitas membentuk politik Indonesia.",
+    index: "Riset · 04 tema",
+    indexLabel: "Berdasarkan CV Maret 2026",
+    ledgerEyebrow: "Peta riset",
+    ledgerTitle: "Empat Jalur, Satu Pertanyaan Demokrasi",
+    ledgerDescription:
+      "Setiap tema dibaca bersama karya yang membantu menunjukkan perkembangan argumen dan bukti empirisnya.",
+    ledgerAction: "Buka halaman riset",
+    relatedWork: "Karya terkait",
+    closingText:
+      "Indeks publikasi mempertahankan judul, urutan penulis, tahun, venue, dan sumber dari rekam yang telah ditinjau.",
+    publicationsAction: "Telusuri publikasi",
+  },
+  outreachPage: {
+    metadataTitle: "Outreach dan Kiprah",
+    metadataDescription:
+      "Agenda publik, forum akademik, dan akses pengajaran Burhanuddin Muhtadi.",
+    eyebrow: "Riset di ruang publik",
+    title: "Outreach dan Kiprah",
+    description:
+      "Ruang temu antara penelitian, forum akademik, percakapan publik, dan pengajaran.",
+    index: "Agenda · forum · pengajaran",
+    indexLabel: "Informasi terverifikasi",
+    agendaEyebrow: "Agenda publik",
+    agendaTitle: "Pertemuan dan Forum",
+    agendaDescription:
+      "Waktu ditampilkan dalam WIB. Agenda hanya muncul setelah rincian kegiatannya diverifikasi.",
+    forumEyebrow: "Jejak forum",
+    forumTitle: "Forum Akademik Pilihan",
+    forumDescription:
+      "Pilihan undangan berbicara yang tercatat dalam sumber profil dan CV.",
+    teachingEyebrow: "Untuk mahasiswa",
+    teachingTitle: "Materi Kuliah",
+    teachingDescription:
+      "Silabus, bacaan, slide, dan sumber perkuliahan tersedia melalui arsip pengajaran ketika hak distribusinya telah disetujui.",
+    teachingAction: "Buka arsip materi",
+  },
+  contactPage: {
+    metadataTitle: "Kontak",
+    metadataDescription:
+      "Kanal institusional dan profil akademik terverifikasi Burhanuddin Muhtadi.",
+    eyebrow: "Kanal resmi",
+    title: "Kontak",
+    description:
+      "Gunakan profil institusional dan akademik berikut untuk memperoleh informasi resmi dan mutakhir.",
+    index: "Tanpa formulir publik",
+    indexLabel: "Tautan terverifikasi",
+    channelsEyebrow: "Direktori",
+    channelsTitle: "Pilih Kanal yang Tepat",
+    channelsDescription:
+      "Situs ini tidak menampilkan email, nomor telepon, atau alamat yang belum mendapat persetujuan publikasi.",
   },
   materials: {
     metadataTitle: "Materi kuliah",
@@ -171,7 +254,7 @@ const id = {
     noResultsDescription: "Periksa kata kunci, jenis publikasi, atau tahun yang dipilih.",
   },
   about: {
-    metadataTitle: "Tentang",
+    metadataTitle: "Profil",
     metadataDescription:
       "Profil lengkap Prof. Burhanuddin Muhtadi: biografi, pendidikan, karier, penghargaan, karya ilmiah, dan bidang kajian.",
     eyebrow: "Ilmuwan politik Indonesia",
@@ -247,11 +330,11 @@ const en = {
   },
   navigation: [
     { route: "home", label: "Home" },
-    { route: "materials", label: "Course materials" },
-    { route: "posts", label: "Writing" },
-    { route: "agenda", label: "Agenda" },
-    { route: "publications", label: "Publications" },
     { route: "about", label: "About" },
+    { route: "research", label: "Research" },
+    { route: "publications", label: "Publications" },
+    { route: "outreach", label: "Outreach & Engagement" },
+    { route: "contact", label: "Contact" },
   ],
   header: {
     homeLabel: "Burhanuddin Muhtadi, home",
@@ -271,6 +354,8 @@ const en = {
     navigationLabel: "Footer navigation",
     profiles: "Academic profiles",
     editor: "Editor access",
+    materials: "Course materials",
+    writing: "Writing",
   },
   home: {
     metadataTitle: "Home",
@@ -279,8 +364,13 @@ const en = {
     indexRange: "01—04",
     indexTopic: "Indonesian politics",
     eyebrow: "Political scientist · educator · author",
+    thesis:
+      "Reading Indonesian democracy through data, voters, and power.",
     lead:
-      "Professor of Political Science studying elections, democracy, voting behavior, and public opinion in Indonesia.",
+      "Burhanuddin Muhtadi is a Professor of Political Science connecting empirical research on elections, vote buying, and public opinion with debates on Indonesian democracy.",
+    researchAction: "Explore the research",
+    publicationsAction: "View publications",
+    portraitCaption: "Political science · democracy · public opinion",
     materialsAction: "View course materials",
     postsAction: "Read the writing",
     rolesLabel: "Current roles",
@@ -304,11 +394,11 @@ const en = {
       },
     ],
     publications: {
-      eyebrow: "Selected academic record",
-      title: "Publications & Scholarly Work",
+      eyebrow: "Selected work",
+      title: "Arguments Built from Evidence",
       description:
-        "A selected bibliography retaining the titles, author order, years, and sources of the approved records.",
-      action: "Publication archive",
+        "Three works representing a research trajectory across vote buying, elite behaviour, and democratic decline.",
+      action: "View all publications",
     },
     focus: {
       eyebrow: "Research areas",
@@ -316,6 +406,82 @@ const en = {
       description:
         "Research areas reflected in the publications and academic work documented in the March 2026 CV.",
     },
+    outreach: {
+      eyebrow: "Beyond the journal page",
+      title: "Outreach & Engagement",
+      description:
+        "Research moves through academic forums, public discussion, events, and teaching.",
+      action: "Explore outreach and engagement",
+      agendaLabel: "Public agenda",
+      forumLabel: "Selected academic forums",
+      materialsAction: "Access course materials",
+    },
+    closing: {
+      eyebrow: "Academic profile and official channels",
+      title:
+        "Trace the scholarly record or continue through a verified channel.",
+      contactAction: "Open contact",
+      profileAction: "Read the full profile",
+    },
+  },
+  researchPage: {
+    metadataTitle: "Research",
+    metadataDescription:
+      "Burhanuddin Muhtadi’s research on voting behaviour, vote buying, democracy, political Islam, and public opinion.",
+    eyebrow: "Intellectual agenda",
+    title: "Research",
+    description:
+      "Four lines of inquiry into how citizens, elites, institutions, and identity shape Indonesian politics.",
+    index: "Research · 04 themes",
+    indexLabel: "Based on the March 2026 CV",
+    ledgerEyebrow: "Research map",
+    ledgerTitle: "Four Lines, One Democratic Question",
+    ledgerDescription:
+      "Each theme is read alongside a work that shows the development of its argument and empirical evidence.",
+    ledgerAction: "Open the research page",
+    relatedWork: "Related work",
+    closingText:
+      "The publication index preserves titles, author order, years, venues, and sources from the reviewed record.",
+    publicationsAction: "Browse publications",
+  },
+  outreachPage: {
+    metadataTitle: "Outreach & Engagement",
+    metadataDescription:
+      "Burhanuddin Muhtadi’s public agenda, academic forums, and teaching access.",
+    eyebrow: "Research in public",
+    title: "Outreach & Engagement",
+    description:
+      "A meeting point for research, academic forums, public conversation, and teaching.",
+    index: "Agenda · forums · teaching",
+    indexLabel: "Verified information",
+    agendaEyebrow: "Public agenda",
+    agendaTitle: "Meetings and Forums",
+    agendaDescription:
+      "Times are shown in Western Indonesia Time (WIB). Events appear only after their details are verified.",
+    forumEyebrow: "Forum record",
+    forumTitle: "Selected Academic Forums",
+    forumDescription:
+      "A selection of invited talks recorded in the profile sources and CV.",
+    teachingEyebrow: "For students",
+    teachingTitle: "Course Materials",
+    teachingDescription:
+      "Syllabi, readings, slides, and course resources are available through the teaching archive once distribution rights are approved.",
+    teachingAction: "Open the materials archive",
+  },
+  contactPage: {
+    metadataTitle: "Contact",
+    metadataDescription:
+      "Burhanuddin Muhtadi’s verified institutional channels and academic profiles.",
+    eyebrow: "Official channels",
+    title: "Contact",
+    description:
+      "Use the institutional and academic profiles below for current, official information.",
+    index: "No public form",
+    indexLabel: "Verified links",
+    channelsEyebrow: "Directory",
+    channelsTitle: "Choose the Right Channel",
+    channelsDescription:
+      "This site does not display an email address, phone number, or location without publication approval.",
   },
   materials: {
     metadataTitle: "Course materials",

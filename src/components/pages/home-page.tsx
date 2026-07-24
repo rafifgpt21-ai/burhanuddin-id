@@ -1,136 +1,169 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  ArrowRightIcon,
-  BookIcon,
-  CalendarIcon,
-} from "@/components/icons";
-import { PublicationList } from "@/components/publication-list";
+import { FeaturedPublicationGrid } from "@/components/featured-publication-grid";
+import { ArrowRightIcon } from "@/components/icons";
+import { PublicAgendaList } from "@/components/public-agenda-list";
+import { ResearchLedger } from "@/components/research-ledger";
 import { SectionHeading } from "@/components/section-heading";
-import {
-  portraitSource,
-  researchAreas,
-  roles,
-  selectedPublications,
-} from "@/data/site";
+import { aboutProfile } from "@/data/about";
+import { portraitSource, roles, selectedPublications } from "@/data/site";
 import { getDictionary } from "@/data/translations";
+import { getPublishedAgenda } from "@/lib/content/agenda";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
-const collectionIcons = {
-  book: BookIcon,
-  calendar: CalendarIcon,
-};
-
-export function HomePage({ locale }: { locale: Locale }) {
+export async function HomePage({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
   const copy = dictionary.home;
+  const agenda = await getPublishedAgenda(locale);
+  const talks = aboutProfile[locale].talks.slice(0, 2);
 
   return (
     <main id="konten-utama">
-      <section className="hero">
-        <div className="hero-grid hero-shell shell">
-          <div className="hero-copy">
-            <p className="eyebrow hero-eyebrow">{copy.eyebrow}</p>
-            <h1>
-              Burhanuddin
-              <span>Muhtadi</span>
-            </h1>
-            <p className="hero-lead">{copy.lead}</p>
-            <div className="hero-actions">
+      <section className="editorial-hero">
+        <div className="shell editorial-hero-grid">
+          <div className="editorial-hero-copy">
+            <p className="eyebrow">{copy.eyebrow}</p>
+            <h1>{copy.thesis}</h1>
+            <p className="editorial-hero-lead">{copy.lead}</p>
+            <div className="editorial-hero-actions">
               <Link
                 className="button button-primary"
-                href={getRoutePath(locale, "materials")}
+                href={getRoutePath(locale, "research")}
               >
-                {copy.materialsAction}
+                {copy.researchAction}
                 <ArrowRightIcon />
               </Link>
               <Link
                 className="button button-secondary"
-                href={getRoutePath(locale, "posts")}
+                href={getRoutePath(locale, "publications")}
               >
-                {copy.postsAction}
+                {copy.publicationsAction}
               </Link>
             </div>
-            <ul className="role-list" aria-label={copy.rolesLabel}>
-              {roles[locale].map((role) => (
-                <li key={role}>{role}</li>
-              ))}
-            </ul>
           </div>
 
-          <figure className="portrait-block">
-            <div className="portrait-frame">
+          <figure className="editorial-portrait">
+            <div className="editorial-portrait-frame">
               <Image
                 src={portraitSource}
                 alt="Prof. Burhanuddin Muhtadi"
                 fill
-                loading="eager"
-                sizes="(max-width: 720px) 86vw, (max-width: 1100px) 42vw, (max-width: 1199px) 420px, 560px"
+                priority
+                sizes="(max-width: 840px) 92vw, 42vw"
               />
             </div>
             <figcaption>
-              <span>{copy.portraitTopic}</span>
+              <strong>Burhanuddin Muhtadi</strong>
+              <span>{copy.portraitCaption}</span>
             </figcaption>
           </figure>
-        </div>
 
-        <div
-          className="collection-rail hero-shell shell"
-          aria-label={copy.collectionsLabel}
-        >
-          {copy.collections.map((item) => {
-            const Icon = collectionIcons[item.icon];
-            return (
-              <Link href={getRoutePath(locale, item.route)} key={item.route}>
-                <span className="collection-icon" aria-hidden="true">
-                  <Icon />
-                </span>
-                <span>
-                  <strong>{item.label}</strong>
-                  <small>{item.description}</small>
-                </span>
-                <ArrowRightIcon className="collection-arrow" />
-              </Link>
-            );
-          })}
+          <div className="editorial-role-rail" aria-label={copy.rolesLabel}>
+            {roles[locale].map((role, index) => (
+              <div key={role}>
+                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <p>{role}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section section-publications">
-        <div className="shell publications-layout">
+      <section className="section research-ledger-section">
+        <div className="shell">
+          <ResearchLedger locale={locale} />
+        </div>
+      </section>
+
+      <section className="section featured-publications-section">
+        <div className="shell">
           <SectionHeading
             eyebrow={copy.publications.eyebrow}
             title={copy.publications.title}
             description={copy.publications.description}
             action={
               <Link
-                className="text-link text-link-light"
+                className="text-link"
                 href={getRoutePath(locale, "publications")}
               >
-                {copy.publications.action} <ArrowRightIcon />
+                {copy.publications.action}
+                <ArrowRightIcon />
               </Link>
             }
           />
-          <PublicationList publications={selectedPublications.slice(0, 3)} locale={locale} />
-        </div>
-      </section>
-
-      <section className="section section-focus">
-        <div className="shell focus-grid">
-          <SectionHeading
-            eyebrow={copy.focus.eyebrow}
-            title={copy.focus.title}
-            description={copy.focus.description}
+          <FeaturedPublicationGrid
+            publications={selectedPublications.slice(0, 3)}
+            locale={locale}
           />
-          <ul className="topic-list">
-            {researchAreas[locale].map((area) => (
-              <li key={area}>{area}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
+      <section className="section outreach-home-section">
+        <div className="shell">
+          <SectionHeading
+            eyebrow={copy.outreach.eyebrow}
+            title={copy.outreach.title}
+            description={copy.outreach.description}
+            action={
+              <Link
+                className="text-link"
+                href={getRoutePath(locale, "outreach")}
+              >
+                {copy.outreach.action}
+                <ArrowRightIcon />
+              </Link>
+            }
+          />
+          <div className="outreach-home-grid">
+            <div className="outreach-agenda-preview">
+              <p className="outreach-column-label">{copy.outreach.agendaLabel}</p>
+              <PublicAgendaList items={agenda} locale={locale} compact />
+            </div>
+            <div className="outreach-forum-preview">
+              <p className="outreach-column-label">{copy.outreach.forumLabel}</p>
+              <div className="forum-preview-list">
+                {talks.map((talk) => (
+                  <article key={`${talk.year}-${talk.title}`}>
+                    <span>{talk.year}</span>
+                    <h3>{talk.title}</h3>
+                    {talk.institution ? <p>{talk.institution}</p> : null}
+                  </article>
+                ))}
+              </div>
+              <Link
+                className="quiet-material-link"
+                href={getRoutePath(locale, "materials")}
+              >
+                {copy.outreach.materialsAction}
+                <ArrowRightIcon />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-closing">
+        <div className="shell home-closing-grid">
+          <p>{copy.closing.eyebrow}</p>
+          <h2>{copy.closing.title}</h2>
+          <div>
+            <Link
+              className="button button-on-dark"
+              href={getRoutePath(locale, "contact")}
+            >
+              {copy.closing.contactAction}
+              <ArrowRightIcon />
+            </Link>
+            <Link
+              className="text-link text-link-on-dark"
+              href={getRoutePath(locale, "about")}
+            >
+              {copy.closing.profileAction}
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

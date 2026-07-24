@@ -13,13 +13,25 @@ const typeKeys: Record<PublicationType, Publication["typeKey"]> = {
   ADDITIONAL_RESEARCH_OUTPUT: "research",
 };
 
-export async function getPublishedPublications(): Promise<Publication[]> {
-  if (process.env.DATABASE_READY !== "true") return [];
+let publicationDatabaseUnavailable = false;
 
-  const records = await prisma.publication.findMany({
-    where: { contentStatus: "PUBLISHED" },
-    orderBy: [{ year: "desc" }, { createdAt: "asc" }],
-  });
+export async function getPublishedPublications(): Promise<Publication[]> {
+  if (
+    process.env.DATABASE_READY !== "true" ||
+    publicationDatabaseUnavailable
+  ) {
+    return [];
+  }
+
+  const records = await prisma.publication
+    .findMany({
+      where: { contentStatus: "PUBLISHED" },
+      orderBy: [{ year: "desc" }, { createdAt: "asc" }],
+    })
+    .catch(() => {
+      publicationDatabaseUnavailable = true;
+      return [];
+    });
 
   return records.map((record) => ({
     id: record.id,

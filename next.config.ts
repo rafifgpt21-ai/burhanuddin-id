@@ -1,6 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/id/tentang",
+        destination: "/id/profil",
+        permanent: true,
+      },
+      {
+        source: "/id/agenda",
+        destination: "/id/outreach-dan-kiprah#agenda",
+        permanent: true,
+      },
+      {
+        source: "/en/agenda",
+        destination: "/en/outreach-and-engagement#agenda",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       new URL(

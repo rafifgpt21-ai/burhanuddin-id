@@ -24,7 +24,9 @@ export function LanguageSwitcher({
     event.preventDefault();
     const query = new URLSearchParams(window.location.search);
     query.set("setLocale", targetLocale);
-    window.location.assign(`${targetPath}?${query.toString()}`);
+    window.location.assign(
+      `${targetPath}?${query.toString()}${window.location.hash}`,
+    );
   }
 
   return (
