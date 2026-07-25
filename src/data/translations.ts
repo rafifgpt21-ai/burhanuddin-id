@@ -42,6 +42,12 @@ const id = {
   },
   home: {
     metadataTitle: "Beranda",
+    brandIntro: {
+      label: "Situs resmi Burhanuddin Muhtadi",
+      tagline: "Mengawal Kekuasaan. Menjaga Kewarasan.",
+      fields: "Ilmu politik · demokrasi · opini publik",
+      continueAction: "Lanjut ke profil akademik",
+    },
     indexLabel: "Indeks koleksi",
     index: "Indeks",
     indexRange: "01—04",
@@ -355,6 +361,12 @@ const en = {
   },
   home: {
     metadataTitle: "Home",
+    brandIntro: {
+      label: "The official website of Burhanuddin Muhtadi",
+      tagline: "Watching Power. Safeguarding Sanity",
+      fields: "Political science · democracy · public opinion",
+      continueAction: "Continue to the academic profile",
+    },
     indexLabel: "Collection index",
     index: "Index",
     indexRange: "01—04",

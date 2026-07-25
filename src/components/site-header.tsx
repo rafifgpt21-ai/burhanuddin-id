@@ -16,19 +16,6 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <Link
-          className="wordmark"
-          href={getRoutePath(locale, "home")}
-          aria-label={dictionary.header.homeLabel}
-        >
-          <span className="wordmark-mark" aria-hidden="true">
-            BM
-          </span>
-          <span className="wordmark-name">
-            Burhanuddin <strong>Muhtadi</strong>
-          </span>
-        </Link>
-
         <PublicNavigation
           className="desktop-nav"
           items={navigation}

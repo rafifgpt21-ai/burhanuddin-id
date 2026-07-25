@@ -3,6 +3,9 @@ import type { Locale } from "@/lib/i18n";
 export const faviconSource =
   "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2SWNdXKJXDvaNs9yjUSuRdpiQLmxr4zAKH5oW";
 
+export const brandLogoSource =
+  "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2PcqPrVKzwJBOZHKsm5tXYFbI17p24W60x9lV";
+
 export const portraitSource =
   "https://m0xcz6d4a4.ufs.sh/f/HbK7H1AIAYm2NQUVII7E0AjYnxm7VuMtCHo41fBdPclwyOs9";
 

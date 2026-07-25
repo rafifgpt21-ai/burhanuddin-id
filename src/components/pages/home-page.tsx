@@ -2,12 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FeaturedPublicationGrid } from "@/components/featured-publication-grid";
-import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/icons";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+} from "@/components/icons";
 import { PublicAgendaList } from "@/components/public-agenda-list";
 import { ResearchLedger } from "@/components/research-ledger";
 import { SectionHeading } from "@/components/section-heading";
 import { aboutProfile } from "@/data/about";
 import {
+  brandLogoSource,
   getHomepagePublicationSelection,
   googleScholarProfile,
   portraitSource,
@@ -31,7 +36,31 @@ export async function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <main id="konten-utama">
-      <section className="editorial-hero">
+      <div className="brand-intro">
+        <div className="brand-intro-inner">
+          <p className="brand-intro-label">{copy.brandIntro.label}</p>
+          <div className="brand-intro-logo">
+            <Image
+              src={brandLogoSource}
+              alt=""
+              width={2000}
+              height={1000}
+              preload
+              sizes="(max-width: 720px) calc(100vw - 40px), 52vw"
+            />
+          </div>
+          <p className="brand-intro-tagline">{copy.brandIntro.tagline}</p>
+        </div>
+        <div className="brand-intro-folio shell">
+          <p>{copy.brandIntro.fields}</p>
+          <a href="#profil-akademik">
+            <span>{copy.brandIntro.continueAction}</span>
+            <ArrowDownIcon />
+          </a>
+        </div>
+      </div>
+
+      <section className="editorial-hero" id="profil-akademik">
         <div className="shell editorial-hero-grid">
           <div className="editorial-hero-copy">
             <p className="eyebrow">{copy.eyebrow}</p>
@@ -60,7 +89,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
                 src={portraitSource}
                 alt="Prof. Burhanuddin Muhtadi"
                 fill
-                priority
                 sizes="(max-width: 840px) 92vw, 42vw"
               />
             </div>

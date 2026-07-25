@@ -22,6 +22,9 @@
 - On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the thesis, lead, both actions, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
 - On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action, the Contact channel directory, and the shared footer profile list.
 - On 25 July 2026, the owner approved a complete publication-system redesign. All 81 CV records use reviewed structured bibliographic fields; raw citations remain internal audit evidence and never become public titles. The public index uses grouped horizontal dossier cards with a permanent 4:5 image or bibliographic-placeholder column, while publication media references `MediaAsset`.
+- On 25 July 2026, the owner approved a nearly full-viewport homepage identity section before the editorial hero. It uses the owner-supplied UploadThing `BM` logo, localized official-site copy, and the tagline `Mengawal Kekuasaan. Menjaga Kewarasan.` without search, quotation, or action controls.
+- On 25 July 2026, the owner added a restrained folio rail to the identity section. Desktop shows the approved research-field summary and a localized anchor to the academic hero; mobile retains only the anchor so the logo remains dominant.
+- On 25 July 2026, the owner removed the logo and `Burhanuddin Muhtadi` wordmark from the public header and centered the six-link desktop navigation. Language and editor controls remain separate on the right; mobile retains the language switcher and menu without a brand mark.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -183,34 +186,39 @@ Do not add a separate global search page initially. A header search action may o
 
 ### Header
 
-- Wordmark: `Burhanuddin Muhtadi` or an owner-approved short form such as `BM`.
-- Six public links, a visible `ID / EN` language switcher, and a mobile menu that takes over before the links become crowded.
+- Do not show a logo or `Burhanuddin Muhtadi` wordmark in the public header.
+- Center the six public links as one navigation group. Keep the visible `ID / EN` language switcher and editor access separate on the right, and let the mobile menu take over before the links become crowded.
 - Keep course-material access in the footer and do not place a material search control in the top bar.
 - The language switcher changes to the equivalent localized route, preserves active filters, and stores a manual preference for one year. It must remain keyboard operable and understandable without flags or color alone.
 - Sticky only if it remains visually quiet and does not obscure anchors or reading content.
 - No visible `Sign in` call to action in the primary header.
-- Above 840px, admin access uses a discreet icon-only control in the top bar with an accessible text label. At 840px and below, the top bar contains only the `BM` mark, `ID / EN`, and Menu; a labeled editor-access link appears as the secondary final item inside the menu.
+- Above 840px, admin access uses a discreet icon-only control in the top bar with an accessible text label. At 840px and below, the top bar contains only `ID / EN` and Menu; a labeled editor-access link appears as the secondary final item inside the menu.
 
 ### Homepage
 
-Avoid a full-screen portrait splash or generic credibility metrics. The first viewport should establish a clear academic thesis and current roles.
+The first viewport is a quiet identity title page rather than a portrait splash or generic credibility block. It leads directly into the existing academic thesis and current roles.
 
-1. **Editorial hero**
+1. **Identity title page**
+   - Nearly fills the viewport below the sticky header and centers three elements: a localized official-site label, the approved UploadThing `BM` logo, and a localized tagline.
+   - Indonesian tagline: `Mengawal Kekuasaan. Menjaga Kewarasan.` English tagline: `Watching Power. Safeguarding Sanity`.
+   - A bottom folio rail shows `Ilmu politik · demokrasi · opini publik / Political science · democracy · public opinion` and a localized anchor to the academic hero. At 720px and below, omit the field summary and center the anchor.
+   - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, quotations, portraiture, or decorative motion.
+2. **Editorial hero**
    - Approved portrait on the left and a research thesis on the right at desktop widths; copy precedes the portrait on mobile.
    - Primary action: `Jelajahi Riset / Explore the research`.
    - Secondary action: `Lihat Publikasi / View publications`.
    - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
-2. **Research ledger**
+3. **Research ledger**
    - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
    - A blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
-3. **Selected publications**
+4. **Selected publications**
    - Two static groups with no carousel: the three most recent books that have approved covers, followed directly by three selected non-book works. Do not show a visible `Karya non-buku / Non-book work` heading or `03` count above the second group.
    - Book covers lead the first group; non-book records remain typographic so the difference in publication format is explicit.
    - Cover art is omitted unless an approved, rights-cleared asset exists.
-4. **Kiprah / Outreach preview**
+5. **Kiprah / Outreach preview**
    - Verified agenda state and selected academic forums in a two-column layout.
    - Course materials appear as a quiet secondary link.
-5. **Closing action**
+6. **Closing action**
    - Direct paths to Contact and the full About profile.
    - Section headings use direct content labels—`Riset / Research`, `Publikasi / Publications`, `Kiprah / Outreach`, and `Profil dan Kontak / Profile and Contact`—while supporting descriptions carry the editorial context.
 
@@ -550,10 +558,13 @@ Pin exact package versions only during implementation after checking the locally
 
 ## MVP acceptance checklist
 
-- [ ] The homepage keeps direct hero actions to Research and Publications; at 375x812 and 390x844 the thesis, lead, both actions, and complete 4:3 portrait fit below the 64px header within one viewport without horizontal scrolling.
+- [ ] At 375x812 and 390x844, the localized identity title page fills the viewport below the 64px header without clipping, distortion, or horizontal scrolling; the editorial hero follows immediately after it.
+- [ ] The identity folio anchor scrolls to the academic hero without placing its heading beneath the sticky header; its field summary is hidden at 720px and below.
+- [ ] The homepage keeps direct hero actions to Research and Publications; once reached, the thesis, lead, both actions, and complete 4:3 portrait fit within one mobile viewport without horizontal scrolling.
 - [ ] At 720px and below, the homepage role strip is not rendered; current roles remain available on the Profile page and at wider breakpoints.
-- [ ] At 320x568 and 200% zoom, the homepage hero expands naturally without clipping copy, actions, or portrait content.
-- [ ] At 840px and below, the public header presents only `BM`, `ID / EN`, and Menu; editor access remains available as a secondary menu item.
+- [ ] At 320x568 and 200% zoom, both the identity title page and homepage hero expand naturally without clipping copy, logo, actions, or portrait content.
+- [ ] The public header has no logo or name wordmark, and its six-link desktop navigation is centered independently of the right-side controls.
+- [ ] At 840px and below, the public header presents only `ID / EN` and Menu; editor access remains available as a secondary menu item.
 - [ ] Materi Kuliah is available from the footer and remains easy to reach from relevant page content without appearing in the top bar.
 - [ ] Students can search and filter materials and share the resulting URL.
 - [ ] Every material action accurately reflects open/download/external availability.
