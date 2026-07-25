@@ -69,21 +69,25 @@ export async function HomePage({ locale }: { locale: Locale }) {
         <div className="shell editorial-hero-grid">
           <div className="editorial-hero-copy">
             <p className="eyebrow">{copy.eyebrow}</p>
-            <h1>{copy.thesis}</h1>
+            <h1 className="editorial-academic-name">
+              <span className="editorial-academic-prefix">
+                {copy.academicName.prefix}
+              </span>{" "}
+              <span className="editorial-academic-primary">
+                {copy.academicName.name}
+              </span>{" "}
+              <span className="editorial-academic-suffix">
+                {copy.academicName.suffix}
+              </span>
+            </h1>
             <p className="editorial-hero-lead">{copy.lead}</p>
-            <div className="editorial-hero-actions">
+            <div className="editorial-hero-actions editorial-hero-profile-action">
               <Link
                 className="button button-primary"
-                href={getRoutePath(locale, "research")}
+                href={getRoutePath(locale, "about")}
               >
-                {copy.researchAction}
+                {copy.profileAction}
                 <ArrowRightIcon />
-              </Link>
-              <Link
-                className="button button-secondary"
-                href={getRoutePath(locale, "publications")}
-              >
-                {copy.publicationsAction}
               </Link>
             </div>
           </div>

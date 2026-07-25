@@ -43,7 +43,7 @@ const id = {
   home: {
     metadataTitle: "Beranda",
     brandIntro: {
-      label: "Situs resmi Burhanuddin Muhtadi",
+      label: "Situs resmi · Profesor Burhanuddin Muhtadi, M.A., Ph.D.",
       tagline: "Mengawal Kekuasaan. Menjaga Kewarasan.",
       quote:
         "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
@@ -55,12 +55,14 @@ const id = {
     indexRange: "01—04",
     indexTopic: "Politik Indonesia",
     eyebrow: "Ilmuwan politik · pendidik · penulis",
-    thesis:
-      "Membaca demokrasi Indonesia melalui data, pemilih, dan kekuasaan.",
+    academicName: {
+      prefix: "Profesor",
+      name: "Burhanuddin Muhtadi",
+      suffix: "M.A., Ph.D.",
+    },
     lead:
-      "Burhanuddin Muhtadi adalah Profesor Ilmu Politik yang menghubungkan riset empiris tentang pemilu, politik uang, dan opini publik dengan perdebatan demokrasi Indonesia.",
-    researchAction: "Jelajahi riset",
-    publicationsAction: "Lihat publikasi",
+      "Sebagai Profesor Ilmu Politik, ia menghubungkan riset empiris tentang pemilu, politik uang, dan opini publik dengan perdebatan demokrasi Indonesia.",
+    profileAction: "Lihat profil lengkap",
     portraitCaption: "Ilmu politik · demokrasi · opini publik",
     materialsAction: "Lihat materi kuliah",
     postsAction: "Baca tulisan",
@@ -348,7 +350,7 @@ const en = {
   home: {
     metadataTitle: "Home",
     brandIntro: {
-      label: "The official website of Burhanuddin Muhtadi",
+      label: "Official website · Professor Burhanuddin Muhtadi, M.A., Ph.D.",
       tagline: "Watching Power. Safeguarding Sanity",
       quote:
         "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
@@ -360,12 +362,14 @@ const en = {
     indexRange: "01—04",
     indexTopic: "Indonesian politics",
     eyebrow: "Political scientist · educator · author",
-    thesis:
-      "Reading Indonesian democracy through data, voters, and power.",
+    academicName: {
+      prefix: "Professor",
+      name: "Burhanuddin Muhtadi",
+      suffix: "M.A., Ph.D.",
+    },
     lead:
-      "Burhanuddin Muhtadi is a Professor of Political Science connecting empirical research on elections, vote buying, and public opinion with debates on Indonesian democracy.",
-    researchAction: "Explore the research",
-    publicationsAction: "View publications",
+      "As a Professor of Political Science, he connects empirical research on elections, vote buying, and public opinion with debates on Indonesian democracy.",
+    profileAction: "View full profile",
     portraitCaption: "Political science · democracy · public opinion",
     materialsAction: "View course materials",
     postsAction: "Read the writing",

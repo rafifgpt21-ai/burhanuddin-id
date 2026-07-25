@@ -1543,6 +1543,18 @@ textarea {
   line-height: 1.08;
 }
 
+.about-introduction h2.about-biography-heading {
+  max-width: none;
+  margin: 0 0 0.8rem;
+  color: var(--blue);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .about-prose {
   max-width: 70ch;
 }
@@ -3779,15 +3791,15 @@ body:has(.admin-workspace) .admin-workspace {
 }
 
 .brand-intro-label {
-  max-width: 42ch;
+  max-width: none;
   margin: 0;
-  color: var(--muted);
-  font-family: var(--font-utility);
-  font-size: clamp(0.64rem, 0.75vw, 0.76rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1.6;
-  text-transform: uppercase;
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  font-weight: 750;
+  letter-spacing: 0.025em;
+  line-height: 1.35;
+  white-space: nowrap;
 }
 
 .brand-intro-logo {
@@ -3947,6 +3959,37 @@ body:has(.admin-workspace) .admin-workspace {
   text-wrap: balance;
 }
 
+.editorial-academic-name {
+  display: grid;
+  justify-items: start;
+}
+
+.editorial-academic-prefix,
+.editorial-academic-suffix {
+  color: var(--blue);
+  font-family: var(--font-utility);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.editorial-academic-prefix {
+  margin-bottom: clamp(0.65rem, 1.2vw, 1rem);
+  font-size: clamp(0.9rem, 1.05vw, 1.08rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.editorial-academic-primary {
+  display: block;
+}
+
+.editorial-academic-suffix {
+  margin-top: clamp(0.75rem, 1.3vw, 1.15rem);
+  color: #506077;
+  font-size: clamp(0.95rem, 1.15vw, 1.14rem);
+  letter-spacing: 0.12em;
+}
+
 .editorial-hero-copy h1::after {
   display: block;
   width: 96px;
@@ -3969,6 +4012,10 @@ body:has(.admin-workspace) .admin-workspace {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.8rem;
+}
+
+.editorial-hero-profile-action {
+  justify-content: flex-start;
 }
 
 .editorial-portrait {
@@ -4606,6 +4653,10 @@ body:has(.admin-workspace) .admin-workspace {
   z-index: 1;
 }
 
+.page-hero-inner.page-hero-inner-single {
+  grid-template-columns: minmax(0, 820px);
+}
+
 .page-hero .eyebrow {
   color: #8fc2f6;
 }
@@ -5051,9 +5102,12 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .brand-intro-label {
-    max-width: 30ch;
-    font-size: clamp(0.56rem, 2.5vw, 0.66rem);
-    letter-spacing: 0.14em;
+    font-size: clamp(0.7rem, 3.05vw, 0.82rem);
+    letter-spacing: 0.015em;
+  }
+
+  .brand-intro-label:lang(en) {
+    font-size: clamp(0.62rem, 2.8vw, 0.78rem);
   }
 
   .brand-intro-logo {
@@ -5132,9 +5186,19 @@ body:has(.admin-workspace) .admin-workspace {
 
   .editorial-hero-copy h1 {
     max-width: none;
-    font-size: clamp(2.25rem, 9.5vw, 2.55rem);
+    font-size: clamp(2.35rem, 10vw, 2.7rem);
     letter-spacing: -0.045em;
     line-height: 0.94;
+  }
+
+  .editorial-academic-prefix {
+    margin-bottom: 0.45rem;
+    font-size: 0.78rem;
+  }
+
+  .editorial-academic-suffix {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
   }
 
   .editorial-hero-copy h1::after {
@@ -5155,6 +5219,10 @@ body:has(.admin-workspace) .admin-workspace {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
     gap: 0.5rem;
     margin-top: 0.9rem;
+  }
+
+  .editorial-hero-profile-action {
+    grid-template-columns: 1fr;
   }
 
   .editorial-hero-actions .button {
@@ -5957,6 +6025,11 @@ body:has(.admin-workspace) .admin-workspace {
 }
 
 @media (max-width: 359px) {
+  .brand-intro-label {
+    font-size: clamp(0.58rem, 2.9vw, 0.7rem);
+    letter-spacing: 0.005em;
+  }
+
   .editorial-hero-actions {
     grid-template-columns: 1fr;
   }

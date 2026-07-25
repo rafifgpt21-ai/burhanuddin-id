@@ -301,7 +301,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <PageHero {...copy} />
+      <PageHero {...copy} showIndex={false} />
 
       <section className="page-content about-dossier">
         <div className="shell about-grid">
@@ -359,10 +359,14 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
           <article className="about-copy">
             <section className="about-introduction" id={ids.biography}>
-              <p className="eyebrow">{copy.biographyTitle}</p>
-              <h2>{profile.lead}</h2>
+              <h2 className="eyebrow about-biography-heading">
+                {copy.biographyTitle}
+              </h2>
               <div className="about-prose">
-                {profile.biography.map((paragraph) => (
+                <p>
+                  {profile.lead} {profile.biography[0]}
+                </p>
+                {profile.biography.slice(1).map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>

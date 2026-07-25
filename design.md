@@ -19,7 +19,7 @@
 - On 24 July 2026, the owner supplied twelve approved book-cover files and authorized their UploadThing upload and association with the matching canonical book records. The forthcoming 2026 book remains without a cover until an approved asset is supplied.
 - On 24 July 2026, the owner redesigned the homepage publication section to show the three most recent books with approved covers followed directly by three selected non-book works. Only the book group retains a visible label; the non-book group is identified by its card metadata without an extra heading or item count. Database records are preferred when three eligible covered books are available; the approved featured-book dataset is the fallback while database access is unavailable.
 - On 24 July 2026, the owner removed the `Needs Review` status and source-candidate queue from the product. The private editor works directly with canonical publication records; the static source extraction remains an internal, reproducible seed input and is never exposed as an application workflow.
-- On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the thesis, lead, both actions, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
+- On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the academic name, lead, profile action, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
 - On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action, the Contact channel directory, and the shared footer profile list.
 - On 25 July 2026, the owner approved a complete publication-system redesign. All 81 CV records use reviewed structured bibliographic fields; raw citations remain internal audit evidence and never become public titles. The public index uses grouped horizontal dossier cards with a permanent 4:5 image or bibliographic-placeholder column, while publication media references `MediaAsset`.
 - On 25 July 2026, the owner approved a nearly full-viewport homepage identity section before the editorial hero. It uses the owner-supplied UploadThing `BM` logo, localized official-site copy, and the tagline `Mengawal Kekuasaan. Menjaga Kewarasan.` without search or action controls.
@@ -27,6 +27,11 @@
 - On 25 July 2026, the owner removed the logo and `Burhanuddin Muhtadi` wordmark from the public header and centered the six-link desktop navigation. Language and editor controls remain separate on the right; mobile retains the language switcher and menu without a brand mark.
 - On 25 July 2026, the owner removed publication and source-list sections from the About page because the canonical record belongs on Publications. The public navigation now places Publications before Research, and the 2023 career title begins directly with `Guru Besar bidang Ilmu Politik`.
 - On 25 July 2026, the owner left-aligned the homepage identity composition and added the approved Indonesian public-opinion quotation to the right of the logo and tagline. The quote moves below the identity block on narrow screens and remains in Indonesian on both locale variants until an English translation receives editorial approval.
+- On 25 July 2026, the owner replaced the homepage editorial-hero thesis with an academic name lockup: `Profesor / Professor` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below.
+- On 25 July 2026, the owner changed the About biography opening from oversized display copy into the first paragraph of the regular biography reading flow.
+- On 25 July 2026, the owner removed the dated dossier/review folio from the About page hero.
+- On 25 July 2026, the owner removed the Research and Publications buttons from the homepage editorial hero and replaced them with a single shortcut to the full Profile/About page.
+- On 25 July 2026, the owner required both the homepage official-site label and editorial-hero name lockup to spell out `Profesor / Professor` rather than abbreviating it as `Prof.`.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -39,10 +44,7 @@
 
 Build a calm, fast, mobile-friendly academic website that presents Prof. Burhanuddin Muhtadi's research, publication record, and verified public engagement as its primary public experience. The site also lets editors publish posts, agendas, and study materials without developer help.
 
-The homepage's two primary actions are:
-
-1. Explore the research agenda.
-2. Browse the publication record.
+The homepage editorial hero has one direct action: open the full Profile/About page. Research and Publications remain prominent through the global navigation and their dedicated homepage sections.
 
 Student materials remain available through Kiprah / Outreach and the footer, but do not compete with the public profile in the homepage hero. The product should feel like a working academic dossier, not a corporate brochure, news portal, or complex social network.
 
@@ -198,18 +200,18 @@ Do not add a separate global search page initially. A header search action may o
 
 ### Homepage
 
-The first viewport is a quiet identity title page rather than a portrait splash or generic credibility block. It leads directly into the existing academic thesis and current roles.
+The first viewport is a quiet identity title page rather than a portrait splash or generic credibility block. It leads directly into the academic name lockup, profile summary, and current roles.
 
 1. **Identity title page**
-   - Nearly fills the viewport below the sticky header. The localized official-site label, approved UploadThing `BM` logo, and tagline form a left-aligned identity block; the quotation occupies a quieter column to its right.
+   - Nearly fills the viewport below the sticky header. The localized official-site label names `Profesor Burhanuddin Muhtadi, M.A., Ph.D.` / `Professor Burhanuddin Muhtadi, M.A., Ph.D.` in one clear line; it, the approved UploadThing `BM` logo, and tagline form a left-aligned identity block while the quotation occupies a quieter column to its right.
    - Indonesian tagline: `Mengawal Kekuasaan. Menjaga Kewarasan.` English tagline: `Watching Power. Safeguarding Sanity`.
    - The approved quotation appears in Indonesian on both locale variants until its English translation is editorially reviewed. At 720px and below it moves beneath the identity block.
    - A bottom folio rail shows `Ilmu politik · demokrasi · opini publik / Political science · democracy · public opinion` and a localized anchor to the academic hero. At 720px and below, omit the field summary and center the anchor.
    - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, portraiture, or decorative motion.
 2. **Editorial hero**
-   - Approved portrait on the left and a research thesis on the right at desktop widths; copy precedes the portrait on mobile.
-   - Primary action: `Jelajahi Riset / Explore the research`.
-   - Secondary action: `Lihat Publikasi / View publications`.
+   - Approved portrait on the left and an academic name lockup on the right at desktop widths; copy precedes the portrait on mobile.
+   - The name lockup uses `Profesor / Professor` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below in smaller type.
+   - Sole action: `Lihat profil lengkap / View full profile`.
    - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
 3. **Research ledger**
    - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
@@ -271,7 +273,8 @@ The first viewport is a quiet identity title page rather than a portrait splash 
 
 ### About
 
-- Lead with an editorial biography and a compact fact index rather than pasting the full CV.
+- Lead with a compact fact index and a regular-width biography reading flow rather than oversized biography display copy or a pasted full CV.
+- Keep the About hero free of a dated dossier/review folio; review dates remain internal editorial context until the owner requests a public freshness marker.
 - Present a comprehensive academic dossier: current roles, research interests, education from primary school through doctorate, early organisational and professional history, honours, and selected invited talks.
 - Attribute Wikipedia-derived facts and distinguish historical roles from current appointments. Reconcile time-sensitive claims against the March 2026 CV and official UIN/ISEAS sources; do not silently present old roles as current.
 - Keep publication records and publication-source links out of About; the canonical Publications index is their sole public collection.
@@ -377,7 +380,7 @@ The plan may proceed with placeholders in a development environment, but placeho
 - A blue-first contemporary academic dossier with the clarity of a research notebook, not a generic magazine or institutional brochure.
 - Content density should be moderate: easy to scan, but never waste the first viewport.
 - Desktop layouts use a wide editorial grid up to roughly 1520px for general content. The homepage hero and its primary collection rail expand nearly edge-to-edge with bounded gutters so the introduction and portrait make full use of wide screens. Tablet and mobile layouts collapse in reading order without losing actions or metadata.
-- At 720px and below, use 20-24px side gutters, approximately 44px homepage-section spacing, 40-50px dedicated page-hero titles, and compact accessible actions. The homepage thesis retains its approved wording at approximately 36-41px, followed by a larger 4:3 portrait field with its caption overlaid inside the image. From 360px upward its two 48px actions share one row; below 360px they stack. Profile, research ledger, collection filters, outreach, contact channels, and footer navigation must recompose for mobile instead of merely shrinking desktop columns.
+- At 720px and below, use 20-24px side gutters, approximately 44px homepage-section spacing, 40-50px dedicated page-hero titles, and compact accessible actions. The homepage academic name remains the primary display element at approximately 38-43px, followed by a single 48px profile action and a larger 4:3 portrait field with its caption overlaid inside the image. Profile, research ledger, collection filters, outreach, contact channels, and footer navigation must recompose for mobile instead of merely shrinking desktop columns.
 - From 375x812 upward, the 64px header and complete homepage hero fit within one viewport. The hero may expand naturally on shorter devices and at 200% zoom; content must never be clipped or made artificially small to satisfy the one-screen target.
 
 ### Design tokens to validate during implementation
@@ -562,8 +565,9 @@ Pin exact package versions only during implementation after checking the locally
 ## MVP acceptance checklist
 
 - [ ] At 375x812 and 390x844, the localized identity title page fills the viewport below the 64px header without clipping, distortion, or horizontal scrolling; the editorial hero follows immediately after it.
+- [ ] The localized official-site label includes the fully written `Profesor / Professor Burhanuddin Muhtadi, M.A., Ph.D.`, remains on one line, and stays legible without causing horizontal overflow.
 - [ ] The identity folio anchor scrolls to the academic hero without placing its heading beneath the sticky header; its field summary is hidden at 720px and below.
-- [ ] The homepage keeps direct hero actions to Research and Publications; once reached, the thesis, lead, both actions, and complete 4:3 portrait fit within one mobile viewport without horizontal scrolling.
+- [ ] Once reached, the homepage academic name lockup, lead, profile action, and complete 4:3 portrait fit within one mobile viewport without horizontal scrolling.
 - [ ] At 720px and below, the homepage role strip is not rendered; current roles remain available on the Profile page and at wider breakpoints.
 - [ ] At 320x568 and 200% zoom, both the identity title page and homepage hero expand naturally without clipping copy, logo, actions, or portrait content.
 - [ ] The public header has no logo or name wordmark, and its six-link desktop navigation is centered independently of the right-side controls.
