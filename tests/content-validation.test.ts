@@ -31,6 +31,7 @@ import {
   switchLocalePath,
 } from "../src/lib/i18n";
 import { getAdminCopy } from "../src/data/admin";
+import { aboutProfile } from "../src/data/about";
 import {
   featuredBooks,
   getHomepagePublicationSelection,
@@ -394,6 +395,30 @@ test("public engagement labels use Kiprah in Indonesian and Outreach in English"
   assert.equal(en.navigation.find((item) => item.route === "outreach")?.label, "Outreach");
   assert.equal(en.home.outreach.title, "Outreach");
   assert.equal(en.outreachPage.title, "Outreach");
+});
+
+test("public navigation prioritizes Publications and About omits publication sections", () => {
+  const id = getDictionary("id");
+  const en = getDictionary("en");
+
+  assert.deepEqual(
+    id.navigation.map((item) => item.route),
+    ["home", "about", "publications", "research", "outreach", "contact"],
+  );
+  assert.deepEqual(
+    en.navigation.map((item) => item.route),
+    ["home", "about", "publications", "research", "outreach", "contact"],
+  );
+  assert.deepEqual(
+    id.about.contents.map((item) => item.href),
+    ["#biografi", "#peran", "#pendidikan", "#karier", "#penghargaan"],
+  );
+  assert.deepEqual(
+    en.about.contents.map((item) => item.href),
+    ["#biography", "#roles", "#education", "#career", "#honours"],
+  );
+  assert.equal(aboutProfile.id.career[0]?.title, "Guru Besar bidang Ilmu Politik");
+  assert.equal(aboutProfile.en.career[0]?.title, "Full Professor of Political Science");
 });
 
 test("admin navigation places agenda inside Kiprah and Outreach", () => {

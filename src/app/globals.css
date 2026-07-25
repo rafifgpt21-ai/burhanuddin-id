@@ -1609,8 +1609,7 @@ textarea {
 }
 
 .about-role-grid span,
-.about-timeline-year,
-.about-bibliography-group li > span {
+.about-timeline-year {
   color: var(--blue);
   font-size: 0.66rem;
   font-weight: 850;
@@ -1727,134 +1726,6 @@ textarea {
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.6;
-}
-
-.about-bibliography {
-  margin-top: clamp(4rem, 7vw, 6rem);
-  border-top: 4px solid var(--navy);
-  background: var(--paper);
-  padding: clamp(1.5rem, 4vw, 3.5rem);
-}
-
-.about-bibliography-group {
-  margin-top: 2.5rem;
-}
-
-.about-bibliography-group > header {
-  display: flex;
-  min-height: 58px;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid var(--navy);
-}
-
-.about-bibliography-group h4 {
-  margin: 0;
-  color: var(--navy);
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  font-weight: 650;
-}
-
-.about-bibliography-group > header span {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  background: var(--navy);
-  color: #fff;
-  font-family: var(--font-serif);
-  font-size: 1rem;
-}
-
-.about-bibliography-group ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.about-bibliography-group li {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 1rem;
-  border-bottom: 1px solid var(--line);
-  padding-block: 1rem;
-}
-
-.about-bibliography-group li p {
-  margin: 0;
-  color: var(--ink);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
-.about-publication-link {
-  margin-top: 2rem;
-}
-
-.about-sources {
-  margin-bottom: 1rem;
-  border-top-color: var(--blue);
-}
-
-.about-review-note {
-  margin: 0 0 1.5rem;
-  border-left: 4px solid var(--gold);
-  background: #fff8e9;
-  padding: 1rem 1.2rem;
-  color: #6c511f;
-  font-size: 0.76rem;
-}
-
-.about-sources ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-  list-style: none;
-}
-
-.about-sources li {
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.about-sources a {
-  display: flex;
-  min-height: 96px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.about-sources a:hover {
-  background: var(--blue-pale);
-}
-
-.about-sources a > span {
-  display: grid;
-}
-
-.about-sources strong {
-  color: var(--navy);
-  font-family: var(--font-serif);
-  font-size: 1rem;
-}
-
-.about-sources small {
-  color: var(--muted);
-  font-size: 0.62rem;
-  font-weight: 750;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.about-sources svg {
-  flex: 0 0 auto;
-  color: var(--blue);
 }
 
 .login-wrap {
@@ -3653,8 +3524,7 @@ body:has(.admin-workspace) .admin-workspace {
     border-left-width: 2px;
   }
 
-  .about-role-grid,
-  .about-sources ul {
+  .about-role-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3676,15 +3546,6 @@ body:has(.admin-workspace) .admin-workspace {
   .about-timeline li::before {
     top: 0.25rem;
     left: 0;
-  }
-
-  .about-bibliography {
-    margin-inline: -1rem;
-    padding: 1.5rem 1rem;
-  }
-
-  .about-bibliography-group li {
-    grid-template-columns: 48px minmax(0, 1fr);
   }
 
   .footer-grid {
@@ -3901,11 +3762,20 @@ body:has(.admin-workspace) .admin-workspace {
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(960px, calc(100% - clamp(3rem, 10vw, 9rem)));
-  justify-items: center;
+  width: min(1520px, calc(100% - clamp(2rem, 5vw, 6rem)));
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: center;
+  align-content: center;
   place-self: center;
-  padding-block: clamp(3rem, 8vh, 6.5rem);
-  text-align: center;
+  padding-block: clamp(2.5rem, 6vh, 5rem);
+  text-align: left;
+}
+
+.brand-intro-primary {
+  display: grid;
+  min-width: 0;
+  justify-items: start;
 }
 
 .brand-intro-label {
@@ -3921,9 +3791,10 @@ body:has(.admin-workspace) .admin-workspace {
 }
 
 .brand-intro-logo {
-  width: clamp(18rem, 52vw, 50rem);
+  width: clamp(18rem, 44vw, 43rem);
   max-width: 100%;
-  margin-block: clamp(1.75rem, 5vh, 3.5rem) clamp(1.25rem, 3vh, 2rem);
+  margin-block: clamp(1.5rem, 3.5vh, 2.75rem)
+    clamp(1.1rem, 2.5vh, 1.75rem);
 }
 
 .brand-intro-logo img {
@@ -3948,9 +3819,43 @@ body:has(.admin-workspace) .admin-workspace {
   display: block;
   width: 44px;
   height: 3px;
-  margin: 0 auto clamp(1rem, 2vh, 1.4rem);
+  margin: 0 0 clamp(1rem, 2vh, 1.4rem);
   background: var(--gold);
   content: "";
+}
+
+.brand-intro-quote {
+  position: relative;
+  max-width: 38rem;
+  margin: 0;
+  border-top: 1px solid rgba(21, 87, 160, 0.24);
+  border-bottom: 1px solid rgba(21, 87, 160, 0.24);
+  padding: clamp(1.75rem, 4vh, 2.5rem) 0 clamp(1.75rem, 4vh, 2.5rem)
+    clamp(3.5rem, 5vw, 5rem);
+  color: var(--navy);
+}
+
+.brand-intro-quote::before {
+  position: absolute;
+  top: clamp(1rem, 2.5vh, 1.5rem);
+  left: 0;
+  color: var(--gold);
+  content: "“";
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 6vw, 5.75rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 0.8;
+}
+
+.brand-intro-quote p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+  font-weight: 520;
+  letter-spacing: -0.018em;
+  line-height: 1.5;
+  text-wrap: pretty;
 }
 
 .brand-intro-folio {
@@ -5140,7 +5045,9 @@ body:has(.admin-workspace) .admin-workspace {
 
   .brand-intro-inner {
     width: calc(100% - 2.5rem);
-    padding-block: clamp(2rem, 7vh, 3.5rem);
+    grid-template-columns: 1fr;
+    gap: clamp(1.1rem, 3vh, 1.5rem);
+    padding-block: clamp(1.75rem, 5vh, 2.75rem);
   }
 
   .brand-intro-label {
@@ -5150,9 +5057,9 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .brand-intro-logo {
-    width: min(100%, 32rem);
-    margin-block: clamp(1.4rem, 4.5vh, 2.4rem)
-      clamp(1rem, 2.5vh, 1.5rem);
+    width: min(100%, 28rem);
+    margin-block: clamp(1.1rem, 3.5vh, 1.8rem)
+      clamp(0.9rem, 2vh, 1.25rem);
   }
 
   .brand-intro-tagline {
@@ -5165,6 +5072,21 @@ body:has(.admin-workspace) .admin-workspace {
     width: 36px;
     height: 2px;
     margin-bottom: clamp(0.8rem, 2vh, 1.1rem);
+  }
+
+  .brand-intro-quote {
+    max-width: none;
+    padding: 1.15rem 0 1.15rem 2.75rem;
+  }
+
+  .brand-intro-quote::before {
+    top: 0.75rem;
+    font-size: 3.5rem;
+  }
+
+  .brand-intro-quote p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .brand-intro-folio {
@@ -5932,39 +5854,6 @@ body:has(.admin-workspace) .admin-workspace {
     left: -2px;
     width: 13px;
     height: 13px;
-  }
-
-  .about-bibliography {
-    margin-inline: -1.25rem;
-    margin-top: 3.5rem;
-    padding: 1.5rem 1.25rem;
-  }
-
-  .about-bibliography-group {
-    margin-top: 2rem;
-  }
-
-  .about-bibliography-group h4 {
-    font-size: 1.25rem;
-  }
-
-  .about-bibliography-group li {
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 0.75rem;
-  }
-
-  .about-bibliography-group li p {
-    font-size: 0.95rem;
-    overflow-wrap: anywhere;
-  }
-
-  .about-sources ul {
-    grid-template-columns: 1fr;
-  }
-
-  .about-sources a {
-    min-height: 80px;
-    padding: 0.85rem;
   }
 
   .research-page-closing {

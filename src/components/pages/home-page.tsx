@@ -38,18 +38,23 @@ export async function HomePage({ locale }: { locale: Locale }) {
     <main id="konten-utama">
       <div className="brand-intro">
         <div className="brand-intro-inner">
-          <p className="brand-intro-label">{copy.brandIntro.label}</p>
-          <div className="brand-intro-logo">
-            <Image
-              src={brandLogoSource}
-              alt=""
-              width={2000}
-              height={1000}
-              preload
-              sizes="(max-width: 720px) calc(100vw - 40px), 52vw"
-            />
+          <div className="brand-intro-primary">
+            <p className="brand-intro-label">{copy.brandIntro.label}</p>
+            <div className="brand-intro-logo">
+              <Image
+                src={brandLogoSource}
+                alt=""
+                width={2000}
+                height={1000}
+                preload
+                sizes="(max-width: 720px) calc(100vw - 40px), 44vw"
+              />
+            </div>
+            <p className="brand-intro-tagline">{copy.brandIntro.tagline}</p>
           </div>
-          <p className="brand-intro-tagline">{copy.brandIntro.tagline}</p>
+          <blockquote className="brand-intro-quote" lang="id">
+            <p>{copy.brandIntro.quote}</p>
+          </blockquote>
         </div>
         <div className="brand-intro-folio shell">
           <p>{copy.brandIntro.fields}</p>

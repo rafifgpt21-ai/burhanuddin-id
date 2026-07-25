@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { EmptyState } from "@/components/empty-state";
-import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/icons";
+import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { PublicationList } from "@/components/publication-list";
 import { aboutProfile } from "@/data/about";
@@ -254,8 +254,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
           education: "pendidikan",
           career: "karier",
           honours: "penghargaan",
-          work: "karya",
-          sources: "sumber",
         }
       : {
           biography: "biography",
@@ -263,8 +261,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
           education: "education",
           career: "career",
           honours: "honours",
-          work: "work",
-          sources: "sources",
         };
   const structuredData = {
     "@context": "https://schema.org",
@@ -434,51 +430,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <AboutTimeline entries={profile.awards} />
             </section>
 
-            <section className="about-section" id={ids.work} aria-labelledby="works-title">
-              <div className="about-section-heading">
-                <p className="eyebrow">{copy.recentWorksTitle}</p>
-                <h2 id="works-title">{copy.recentWorksTitle}</h2>
-                <p>{copy.recentWorksIntro}</p>
-              </div>
-              <AboutTimeline entries={profile.recentWorks} />
-
-              <div className="about-bibliography">
-                <div className="about-section-heading">
-                  <p className="eyebrow">Wikipedia · 2002—2020</p>
-                  <h3>{copy.wikipediaWorksTitle}</h3>
-                  <p>{copy.wikipediaWorksIntro}</p>
-                </div>
-                {profile.bibliography.map((group) => (
-                  <section
-                    className="about-bibliography-group"
-                    aria-labelledby={`bibliography-${group.key}`}
-                    key={group.key}
-                  >
-                    <header>
-                      <h4 id={`bibliography-${group.key}`}>
-                        {copy.bibliographyLabels[group.key]}
-                      </h4>
-                      <span>{String(group.entries.length).padStart(2, "0")}</span>
-                    </header>
-                    <ol>
-                      {group.entries.map((entry) => (
-                        <li key={`${entry.year}-${entry.citation}`}>
-                          <span>{entry.year}</span>
-                          <p>{entry.citation}</p>
-                        </li>
-                      ))}
-                    </ol>
-                  </section>
-                ))}
-                <Link
-                  className="text-link about-publication-link"
-                  href={getRoutePath(locale, "publications")}
-                >
-                  {copy.publicationAction} <ArrowRightIcon />
-                </Link>
-              </div>
-            </section>
-
             <section className="about-section" aria-labelledby="talks-title">
               <div className="about-section-heading">
                 <p className="eyebrow">{copy.talksTitle}</p>
@@ -486,30 +437,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 <p>{copy.talksIntro}</p>
               </div>
               <AboutTimeline entries={profile.talks} />
-            </section>
-
-            <section
-              className="about-section about-sources"
-              id={ids.sources}
-              aria-labelledby="sources-title"
-            >
-              <div className="about-section-heading">
-                <p className="eyebrow">{copy.sourcesTitle}</p>
-                <h2 id="sources-title">{copy.sourcesTitle}</h2>
-              </div>
-              <ul>
-                {profile.links.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href} target="_blank" rel="noreferrer">
-                      <span>
-                        <strong>{link.label}</strong>
-                        <small>{copy.externalLinkLabel}</small>
-                      </span>
-                      <ArrowUpRightIcon />
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </section>
           </article>
         </div>

@@ -14,8 +14,8 @@ const id = {
   navigation: [
     { route: "home" as RouteKey, label: "Beranda" },
     { route: "about" as RouteKey, label: "Profil" },
-    { route: "research" as RouteKey, label: "Riset" },
     { route: "publications" as RouteKey, label: "Publikasi" },
+    { route: "research" as RouteKey, label: "Riset" },
     { route: "outreach" as RouteKey, label: "Kiprah" },
     { route: "contact" as RouteKey, label: "Kontak" },
   ],
@@ -45,6 +45,8 @@ const id = {
     brandIntro: {
       label: "Situs resmi Burhanuddin Muhtadi",
       tagline: "Mengawal Kekuasaan. Menjaga Kewarasan.",
+      quote:
+        "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
       fields: "Ilmu politik · demokrasi · opini publik",
       continueAction: "Lanjut ke profil akademik",
     },
@@ -258,11 +260,11 @@ const id = {
   about: {
     metadataTitle: "Profil",
     metadataDescription:
-      "Profil lengkap Prof. Burhanuddin Muhtadi: biografi, pendidikan, karier, penghargaan, karya ilmiah, dan bidang kajian.",
+      "Profil lengkap Prof. Burhanuddin Muhtadi: biografi, pendidikan, karier, penghargaan, dan bidang kajian.",
     eyebrow: "Ilmuwan politik Indonesia",
     title: "Burhanuddin Muhtadi",
     description:
-      "Biografi, perjalanan akademik, karier, penghargaan, dan jejak ilmiah—ditelusuri dari Wikipedia dan diperbarui dengan sumber resmi.",
+      "Biografi, perjalanan akademik, karier, dan penghargaan—ditelusuri dari Wikipedia dan diperbarui dengan sumber resmi.",
     index: "Dossier 1977—kini",
     indexLabel: "Ditinjau 23 Juli 2026",
     photoAlt: "Potret resmi Prof. Burhanuddin Muhtadi",
@@ -275,8 +277,6 @@ const id = {
       { href: "#pendidikan", label: "Pendidikan" },
       { href: "#karier", label: "Jejak karier" },
       { href: "#penghargaan", label: "Penghargaan" },
-      { href: "#karya", label: "Karya ilmiah" },
-      { href: "#sumber", label: "Sumber profil" },
     ],
     biographyTitle: "Biografi",
     rolesTitle: "Peran saat ini",
@@ -286,23 +286,9 @@ const id = {
       "Riwayat berikut mempertahankan pengalaman awal yang dicatat Wikipedia sekaligus menempatkan jabatan mutakhir dari CV Maret 2026 dan sumber institusi resmi.",
     awardsTitle: "Penghargaan & fellowship",
     researchTitle: "Bidang kajian",
-    recentWorksTitle: "Karya mutakhir",
-    recentWorksIntro:
-      "Tambahan penting setelah rentang karya di Wikipedia, berdasarkan CV Maret 2026.",
-    wikipediaWorksTitle: "Karya yang tercatat di Wikipedia",
-    wikipediaWorksIntro:
-      "Daftar ini mempertahankan karya buku, artikel jurnal, dan bab buku yang disebut dalam laman Wikipedia. Rekam bibliografi yang lebih mutakhir tersedia di indeks Publikasi.",
-    bibliographyLabels: {
-      books: "Buku",
-      journals: "Artikel jurnal",
-      chapters: "Bab buku",
-    },
-    publicationAction: "Buka indeks publikasi lengkap",
     talksTitle: "Forum akademik pilihan",
     talksIntro:
       "Beberapa undangan berbicara mutakhir yang membantu menggambarkan jangkauan kerja akademiknya.",
-    sourcesTitle: "Sumber & catatan editorial",
-    externalLinkLabel: "Buka profil",
   },
   admin: {
     metadataTitle: "Akses editor",
@@ -333,8 +319,8 @@ const en = {
   navigation: [
     { route: "home", label: "Home" },
     { route: "about", label: "About" },
-    { route: "research", label: "Research" },
     { route: "publications", label: "Publications" },
+    { route: "research", label: "Research" },
     { route: "outreach", label: "Outreach" },
     { route: "contact", label: "Contact" },
   ],
@@ -364,6 +350,8 @@ const en = {
     brandIntro: {
       label: "The official website of Burhanuddin Muhtadi",
       tagline: "Watching Power. Safeguarding Sanity",
+      quote:
+        "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
       fields: "Political science · democracy · public opinion",
       continueAction: "Continue to the academic profile",
     },
@@ -576,11 +564,11 @@ const en = {
   about: {
     metadataTitle: "About",
     metadataDescription:
-      "A complete profile of Prof. Burhanuddin Muhtadi: biography, education, career, honours, scholarly work, and research areas.",
+      "A complete profile of Prof. Burhanuddin Muhtadi: biography, education, career, honours, and research areas.",
     eyebrow: "Indonesian political scientist",
     title: "Burhanuddin Muhtadi",
     description:
-      "Biography, academic journey, career, honours, and scholarly record—traced from Wikipedia and updated with official sources.",
+      "Biography, academic journey, career, and honours—traced from Wikipedia and updated with official sources.",
     index: "Dossier 1977—present",
     indexLabel: "Reviewed 23 July 2026",
     photoAlt: "Official portrait of Prof. Burhanuddin Muhtadi",
@@ -593,8 +581,6 @@ const en = {
       { href: "#education", label: "Education" },
       { href: "#career", label: "Career" },
       { href: "#honours", label: "Honours" },
-      { href: "#work", label: "Scholarly work" },
-      { href: "#sources", label: "Profile sources" },
     ],
     biographyTitle: "Biography",
     rolesTitle: "Current roles",
@@ -604,23 +590,9 @@ const en = {
       "This record retains the early experience documented by Wikipedia and places it alongside current appointments from the March 2026 CV and official institutional sources.",
     awardsTitle: "Honours & fellowships",
     researchTitle: "Research areas",
-    recentWorksTitle: "Recent work",
-    recentWorksIntro:
-      "Important additions beyond Wikipedia’s publication range, based on the March 2026 CV.",
-    wikipediaWorksTitle: "Work listed on Wikipedia",
-    wikipediaWorksIntro:
-      "This list preserves the books, journal articles, and book chapters named on the Wikipedia page. The Publications index carries a more current bibliographic record.",
-    bibliographyLabels: {
-      books: "Books",
-      journals: "Journal articles",
-      chapters: "Book chapters",
-    },
-    publicationAction: "Open the complete publications index",
     talksTitle: "Selected academic forums",
     talksIntro:
       "Recent invited talks that help show the international reach of his academic work.",
-    sourcesTitle: "Sources & editorial note",
-    externalLinkLabel: "Open profile",
   },
   admin: {
     metadataTitle: "Editor access",

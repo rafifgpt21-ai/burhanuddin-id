@@ -313,7 +313,7 @@ const educationEn: TimelineEntry[] = [
 const careerId: TimelineEntry[] = [
   {
     year: "2023",
-    title: "Ditetapkan sebagai Guru Besar bidang Ilmu Politik",
+    title: "Guru Besar bidang Ilmu Politik",
     institution: "FISIP UIN Syarif Hidayatullah Jakarta",
     detail: "Penetapan melalui SK Mendikbudristek pada 25 Agustus 2023.",
   },
@@ -391,7 +391,7 @@ const careerId: TimelineEntry[] = [
 const careerEn: TimelineEntry[] = [
   {
     year: "2023",
-    title: "Appointed Full Professor of Political Science",
+    title: "Full Professor of Political Science",
     institution: "FISIP UIN Syarif Hidayatullah Jakarta",
     detail: "The ministerial appointment was dated 25 August 2023.",
   },

@@ -9,7 +9,7 @@
 - On 20 July 2026, the owner authorized the initial private admin workspace and publication seed pipeline. Login, server authorization, and editor forms may be implemented now, but database writes and uploads remain locked behind `DATABASE_READY` until the exposed MongoDB credential is rotated.
 - On 20 July 2026, the owner selected database-backed admin credentials and sessions. Credential hashes and revocable session records live in MongoDB; `.env` retains infrastructure connection values only.
 - On 23 July 2026, the owner expanded the private admin workspace to multiple named users. Login uses a unique username and password; `SUPER_ADMIN` alone manages other accounts, while every signed-in user may change only their own username and password after confirming the current password.
-- On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, honours, and works while time-sensitive appointments and post-2020 additions are reconciled against the March 2026 CV and official institutional sources.
+- On 23 July 2026, the owner authorized an expanded About page using the Indonesian Wikipedia biography as an attributed discovery source. The page retains Wikipedia's education, early career, and honours while time-sensitive appointments are reconciled against the March 2026 CV and official institutional sources.
 - On 23 July 2026, the owner simplified the homepage by removing the course-material collection card, the teaching-archive preview, and the writing/agenda empty-state section. Course materials remain available through the hero action and footer.
 - On 24 July 2026, the owner approved a total public-layout redesign that makes the academic and public-intellectual profile the homepage priority. The canonical public navigation now contains Home, About, Research, Publications, Outreach, and Contact. Course materials and writing remain available as secondary routes, while Agenda is presented inside Outreach.
 - On 24 July 2026, the owner simplified the public label for the engagement area to **Kiprah** in Indonesian and **Outreach** in English. Existing localized route segments remain unchanged for compatibility.
@@ -22,9 +22,11 @@
 - On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the thesis, lead, both actions, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
 - On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action, the Contact channel directory, and the shared footer profile list.
 - On 25 July 2026, the owner approved a complete publication-system redesign. All 81 CV records use reviewed structured bibliographic fields; raw citations remain internal audit evidence and never become public titles. The public index uses grouped horizontal dossier cards with a permanent 4:5 image or bibliographic-placeholder column, while publication media references `MediaAsset`.
-- On 25 July 2026, the owner approved a nearly full-viewport homepage identity section before the editorial hero. It uses the owner-supplied UploadThing `BM` logo, localized official-site copy, and the tagline `Mengawal Kekuasaan. Menjaga Kewarasan.` without search, quotation, or action controls.
+- On 25 July 2026, the owner approved a nearly full-viewport homepage identity section before the editorial hero. It uses the owner-supplied UploadThing `BM` logo, localized official-site copy, and the tagline `Mengawal Kekuasaan. Menjaga Kewarasan.` without search or action controls.
 - On 25 July 2026, the owner added a restrained folio rail to the identity section. Desktop shows the approved research-field summary and a localized anchor to the academic hero; mobile retains only the anchor so the logo remains dominant.
 - On 25 July 2026, the owner removed the logo and `Burhanuddin Muhtadi` wordmark from the public header and centered the six-link desktop navigation. Language and editor controls remain separate on the right; mobile retains the language switcher and menu without a brand mark.
+- On 25 July 2026, the owner removed publication and source-list sections from the About page because the canonical record belongs on Publications. The public navigation now places Publications before Research, and the 2023 career title begins directly with `Guru Besar bidang Ilmu Politik`.
+- On 25 July 2026, the owner left-aligned the homepage identity composition and added the approved Indonesian public-opinion quotation to the right of the logo and tagline. The quote moves below the identity block on narrow screens and remains in Indonesian on both locale variants until an English translation receives editorial approval.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -141,8 +143,8 @@ The top bar contains six public destinations:
 
 1. **Beranda / Home** (`/id`, `/en`)
 2. **Profil / About** (`/id/profil`, `/en/about`)
-3. **Riset / Research** (`/id/riset`, `/en/research`)
-4. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
+3. **Publikasi / Publications** (`/id/publikasi`, `/en/publications`)
+4. **Riset / Research** (`/id/riset`, `/en/research`)
 5. **Kiprah / Outreach** (`/id/outreach-dan-kiprah`, `/en/outreach-and-engagement`)
 6. **Kontak / Contact** (`/id/kontak`, `/en/contact`)
 
@@ -199,10 +201,11 @@ Do not add a separate global search page initially. A header search action may o
 The first viewport is a quiet identity title page rather than a portrait splash or generic credibility block. It leads directly into the existing academic thesis and current roles.
 
 1. **Identity title page**
-   - Nearly fills the viewport below the sticky header and centers three elements: a localized official-site label, the approved UploadThing `BM` logo, and a localized tagline.
+   - Nearly fills the viewport below the sticky header. The localized official-site label, approved UploadThing `BM` logo, and tagline form a left-aligned identity block; the quotation occupies a quieter column to its right.
    - Indonesian tagline: `Mengawal Kekuasaan. Menjaga Kewarasan.` English tagline: `Watching Power. Safeguarding Sanity`.
+   - The approved quotation appears in Indonesian on both locale variants until its English translation is editorially reviewed. At 720px and below it moves beneath the identity block.
    - A bottom folio rail shows `Ilmu politik · demokrasi · opini publik / Political science · democracy · public opinion` and a localized anchor to the academic hero. At 720px and below, omit the field summary and center the anchor.
-   - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, quotations, portraiture, or decorative motion.
+   - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, portraiture, or decorative motion.
 2. **Editorial hero**
    - Approved portrait on the left and a research thesis on the right at desktop widths; copy precedes the portrait on mobile.
    - Primary action: `Jelajahi Riset / Explore the research`.
@@ -269,9 +272,9 @@ The first viewport is a quiet identity title page rather than a portrait splash 
 ### About
 
 - Lead with an editorial biography and a compact fact index rather than pasting the full CV.
-- Present a comprehensive academic dossier: current roles, research interests, education from primary school through doctorate, early organisational and professional history, honours, selected invited talks, the works recorded by Indonesian Wikipedia, post-2020 CV additions, and external profiles.
+- Present a comprehensive academic dossier: current roles, research interests, education from primary school through doctorate, early organisational and professional history, honours, and selected invited talks.
 - Attribute Wikipedia-derived facts and distinguish historical roles from current appointments. Reconcile time-sensitive claims against the March 2026 CV and official UIN/ISEAS sources; do not silently present old roles as current.
-- Keep the long scholarly record scannable through a chronological spine, clear category counts, and a direct route to the canonical Publications index.
+- Keep publication records and publication-source links out of About; the canonical Publications index is their sole public collection.
 - Offer the public CV only after checking it for private contact details and owner approval.
 - State the CV/profile review date near time-sensitive appointments.
 
