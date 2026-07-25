@@ -36,14 +36,24 @@ async function syncPublishedPublications(
   covers: readonly SeededPublicationCover[],
 ) {
   return prisma.$transaction(async (transaction) => {
+    const coverAssetIds = new Map<string, string>();
     for (const cover of covers) {
-      await transaction.mediaAsset.upsert({
+      const publication = publicationSeed.find(
+        (record) => record.sourceFingerprint === cover.fingerprint,
+      );
+      const asset = await transaction.mediaAsset.upsert({
         where: { storageKey: cover.storageKey },
         update: {
           url: cover.url,
           fileName: cover.fileName,
           mimeType: cover.mimeType,
           size: cover.size,
+          altTextId: publication
+            ? `Sampul publikasi ${publication.title}`
+            : null,
+          altTextEn: publication
+            ? `Publication cover for ${publication.title}`
+            : null,
           rightsNote: cover.rightsNote,
         },
         create: {
@@ -52,16 +62,25 @@ async function syncPublishedPublications(
           fileName: cover.fileName,
           mimeType: cover.mimeType,
           size: cover.size,
+          altTextId: publication
+            ? `Sampul publikasi ${publication.title}`
+            : null,
+          altTextEn: publication
+            ? `Publication cover for ${publication.title}`
+            : null,
           rightsNote: cover.rightsNote,
         },
       });
+      coverAssetIds.set(cover.fingerprint, asset.id);
     }
 
     for (const publication of publicationSeed) {
+      const cardImageId =
+        coverAssetIds.get(publication.sourceFingerprint) ?? null;
       await transaction.publication.upsert({
         where: { sourceFingerprint: publication.sourceFingerprint },
-        update: publication,
-        create: publication,
+        update: { ...publication, cardImageId },
+        create: { ...publication, cardImageId },
       });
     }
 

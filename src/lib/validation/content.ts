@@ -122,10 +122,26 @@ export const agendaInputSchema = z
 export const publicationInputSchema = z
   .object({
     type: z.enum(["BOOK", "JOURNAL_ARTICLE", "BOOK_CHAPTER", "ADDITIONAL_RESEARCH_OUTPUT"]),
-    title: z.string().trim().min(3).max(500),
+    title: z
+      .string()
+      .trim()
+      .min(3)
+      .max(500)
+      .refine((value) => !/https?:\/\//i.test(value), {
+        message: "Judul tidak boleh memuat URL.",
+      }),
     authors: z.array(z.string().trim().min(1).max(180)).min(1).max(40),
+    editors: z.array(z.string().trim().min(1).max(180)).max(40).default([]),
     year: z.coerce.number().int().min(1900).max(2100),
+    dateLabel: optionalShortText(80),
+    containerTitle: optionalShortText(400),
     venue: z.string().trim().max(300).optional().or(z.literal("")),
+    publisher: optionalShortText(300),
+    publicationPlace: optionalShortText(180),
+    volume: optionalShortText(40),
+    issue: optionalShortText(40),
+    seriesNumber: optionalShortText(80),
+    pages: optionalShortText(80),
     doi: z.string().trim().max(180).optional().or(z.literal("")),
     externalUrl: optionalHttpsUrl,
     status: z.enum(["PUBLISHED", "FORTHCOMING", "PREPRINT", "ERRATUM", "REVIEW"]),
@@ -136,6 +152,27 @@ export const publicationInputSchema = z
     sourceNote: optionalShortText(600),
   })
   .superRefine((value, context) => {
+    if (value.doi && !/^10\.\d{4,9}\/\S+$/i.test(value.doi)) {
+      context.addIssue({
+        code: "custom",
+        path: ["doi"],
+        message: "DOI harus ditulis tanpa https://doi.org/ dan memakai format 10.xxxx/...",
+      });
+    }
+    if (value.type === "BOOK" && !value.publisher?.trim()) {
+      context.addIssue({
+        code: "custom",
+        path: ["publisher"],
+        message: "Penerbit wajib diisi untuk buku.",
+      });
+    }
+    if (value.type !== "BOOK" && !value.containerTitle?.trim()) {
+      context.addIssue({
+        code: "custom",
+        path: ["containerTitle"],
+        message: "Jurnal, seri, atau buku induk wajib diisi untuk karya non-buku.",
+      });
+    }
     if (value.coverImage && !value.coverRightsNote?.trim()) {
       context.addIssue({
         code: "custom",

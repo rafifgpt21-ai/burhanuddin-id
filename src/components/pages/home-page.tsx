@@ -161,7 +161,12 @@ export async function HomePage({ locale }: { locale: Locale }) {
           <div className="outreach-home-grid">
             <div className="outreach-agenda-preview">
               <p className="outreach-column-label">{copy.outreach.agendaLabel}</p>
-              <PublicAgendaList items={agenda} locale={locale} compact />
+              <PublicAgendaList
+                items={agenda}
+                locale={locale}
+                compact
+                showAdminShortcut
+              />
             </div>
             <div className="outreach-forum-preview">
               <p className="outreach-column-label">{copy.outreach.forumLabel}</p>

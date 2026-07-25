@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import sourceData from "../prisma/seed-data/publication-sources.json";
+import structuredPublicationData from "../prisma/seed-data/structured-publications.json";
 import { buildPublicationSeed } from "../prisma/seed-data/build-publications";
 import { publicationCoverSources } from "../prisma/seed-data/publication-covers";
 import {
@@ -34,6 +36,10 @@ import {
   getHomepagePublicationSelection,
 } from "../src/data/site";
 import { getDictionary } from "../src/data/translations";
+import {
+  publicationGroupKey,
+  publicationSearchText,
+} from "../src/lib/content/publication-display";
 
 test("publication source dataset is complete and unique", () => {
   assert.equal(sourceData.sourceCounts.cv, 81);
@@ -44,6 +50,43 @@ test("publication source dataset is complete and unique", () => {
   assert.equal(sourceData.sourceCounts.agenda, 0);
   assert.equal(sourceData.records.length, 176);
   assert.equal(new Set(sourceData.records.map((item) => item.fingerprint)).size, 176);
+});
+
+test("all 81 CV publications have unique structured bibliographic metadata", () => {
+  assert.equal(structuredPublicationData.sourceCount, 81);
+  assert.equal(structuredPublicationData.records.length, 81);
+  assert.equal(
+    new Set(
+      structuredPublicationData.records.map((record) => record.fingerprint),
+    ).size,
+    81,
+  );
+  assert.equal(
+    structuredPublicationData.records.every(
+      (record) =>
+        record.title.length >= 3 &&
+        !/https?:\/\//i.test(record.title) &&
+        record.authors.length > 0 &&
+        record.authors.includes("Burhanuddin Muhtadi"),
+    ),
+    true,
+  );
+});
+
+test("ISEAS 2026 citation is separated into title, contributors, container, and number", () => {
+  const publication = structuredPublicationData.records.find(
+    (record) =>
+      record.title ===
+      "Indonesian Public Support for Free and Nutritious Meals Stays Broad but Shallow",
+  );
+  assert.ok(publication);
+  assert.deepEqual(publication.authors, [
+    "Harry Dienes",
+    "Burhanuddin Muhtadi",
+  ]);
+  assert.equal(publication.containerTitle, "ISEAS Perspective");
+  assert.equal(publication.seriesNumber, "21");
+  assert.equal(publication.year, 2026);
 });
 
 test("material requires exactly one delivery target", () => {
@@ -91,12 +134,26 @@ test("agenda rejects an end time before its start time", () => {
 test("publication preserves author array order and requires HTTPS URLs", () => {
   const input = {
     type: "BOOK", title: "A Publication", authors: ["First Author", "Second Author"], year: 2026,
-    venue: "Publisher", doi: "", externalUrl: "https://example.com/publication", status: "PUBLISHED",
+    publisher: "Publisher", doi: "", externalUrl: "https://example.com/publication", status: "PUBLISHED",
     sourceName: "CV March 2026", sourceUrl: "", sourceNote: "Source wording retained for review.",
   } as const;
   const valid = publicationInputSchema.parse(input);
   assert.deepEqual(valid.authors, ["First Author", "Second Author"]);
   assert.equal(publicationInputSchema.safeParse({ ...input, externalUrl: "http://example.com" }).success, false);
+  assert.equal(
+    publicationInputSchema.safeParse({
+      ...input,
+      title: "A Publication https://example.com",
+    }).success,
+    false,
+  );
+  assert.equal(
+    publicationInputSchema.safeParse({
+      ...input,
+      doi: "https://doi.org/10.1000/example",
+    }).success,
+    false,
+  );
   assert.equal(
     publicationInputSchema.safeParse({
       ...input,
@@ -211,7 +268,7 @@ test("homepage mixes three latest covered books with three non-book works", () =
     selection.books.every(
       (publication) =>
         publication.typeKey === "book" &&
-        publication.image?.startsWith("https://m0xcz6d4a4.ufs.sh/f/"),
+        publication.image?.url.startsWith("https://m0xcz6d4a4.ufs.sh/f/"),
     ),
     true,
   );
@@ -233,6 +290,28 @@ test("homepage mixes three latest covered books with three non-book works", () =
     ),
     ["database-book-0", "database-book-1", "database-book-2"],
   );
+});
+
+test("publication search includes structured contributors, publisher, DOI, and grouped type", () => {
+  const publication = {
+    ...featuredBooks[0],
+    containerTitle: "Academic Series",
+    doi: "10.1000/structured",
+  };
+  const searchable = publicationSearchText(publication);
+  assert.match(searchable, /Maria Monica Wihardja/);
+  assert.match(searchable, /ISEAS/);
+  assert.match(searchable, /10\.1000\/structured/);
+  assert.equal(publicationGroupKey(publication), "book");
+});
+
+test("public publication loader never reads the internal raw citation", () => {
+  const loaderSource = readFileSync(
+    new URL("../src/lib/content/publications.ts", import.meta.url),
+    "utf8",
+  );
+  assert.doesNotMatch(loaderSource, /\brawCitation\b/);
+  assert.match(loaderSource, /title:\s*record\.title/);
 });
 
 test("only super admin can manage users while every editorial role can sign in", () => {

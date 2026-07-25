@@ -14,9 +14,12 @@
     "prisma:format": "prisma format",
     "prisma:generate": "prisma generate",
     "db:push": "prisma db push",
-    "seed:sources": "tsx scripts/build-publication-sources.ts",
+    "seed:sources": "tsx scripts/build-publication-sources.ts && tsx scripts/build-structured-publications.ts",
+    "seed:publications:structure": "tsx scripts/build-structured-publications.ts",
     "db:seed:check": "tsx prisma/seed.ts --check",
+    "db:migrate:publications:check": "tsx scripts/check-publication-migration.ts",
     "db:seed": "tsx prisma/seed.ts --write",
+    "db:sync:publication-covers": "tsx scripts/sync-publication-covers.ts",
     "db:seed:super-admin": "tsx prisma/seed-super-admin.ts"
   },
   "dependencies": {

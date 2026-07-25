@@ -34,12 +34,25 @@ mengubah username/role akun lain, atau mereset password akun lain.
 ## Dataset sumber dan seeding
 
 - `npm run seed:sources` membangun ulang dataset sumber dari bagian publikasi CV
-  Maret 2026 dan indeks audit di `source-research.md`.
+  Maret 2026 dan indeks audit di `source-research.md`, lalu memvalidasi pemetaan
+  bibliografis 81 record CV.
 - Dataset berada di `prisma/seed-data/publication-sources.json`. Hanya record
   kanonis dari sumber yang disetujui yang digunakan oleh seed publikasi.
+- Metadata publik yang telah dipisahkan berada di
+  `prisma/seed-data/structured-publications.json`; `rawCitation` tetap berasal
+  dari dataset sumber dan tidak digunakan sebagai judul publik.
+- `npm run seed:publications:structure` membangun ulang hanya dataset terstruktur
+  dan gagal bila fingerprint, judul, penulis, tipe, atau wadah bibliografis tidak
+  memenuhi kontrak.
 - Sesuai keputusan pemilik, materi kuliah dan agenda awal tetap kosong.
 - `npm run db:seed` meng-upsert super admin (bila variabel seed diberikan),
-  sitasi publikasi CV, metadata aset, dan cover buku yang telah disetujui.
+  metadata publikasi terstruktur, aset, dan cover buku yang telah disetujui.
+- `npm run db:sync:publication-covers` mengunggah atau menggunakan kembali cover
+  buku yang telah disetujui, lalu menghubungkannya ke publikasi kanonis tanpa
+  mengubah metadata sitasi atau akun pengguna.
+- `npm run db:migrate:publications:check` mencetak laporan migrasi statis tanpa
+  koneksi database. Tambahkan `-- --database` hanya setelah rotasi kredensial dan
+  backup untuk membandingkan record secara read-only; perintah ini tidak menulis.
 - `npm run db:seed:super-admin` hanya membuat atau memperbarui akun super admin.
   Berikan `SEED_SUPER_ADMIN_USERNAME`, `SEED_SUPER_ADMIN_PASSWORD`, dan opsional
   `SEED_SUPER_ADMIN_NAME` hanya pada proses seed;

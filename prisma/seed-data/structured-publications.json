@@ -1,0 +1,1576 @@
+{
+  "generatedFrom": "2026-07-24T09:36:41.549Z",
+  "sourceCount": 81,
+  "records": [
+    {
+      "fingerprint": "fd2966657852b8386d3922b772a2925e4fdb0f7429ae60674f3d351122b5037e",
+      "type": "BOOK",
+      "title": "The 2024 Indonesian Elections and the Future of Indonesian Politics",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Hui Yew-Foong"
+      ],
+      "editors": [],
+      "year": 2026,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "8c5b06208f55f3268b3965c24364abe17f3492a13e41b351e8658f1eb772caa3",
+      "type": "BOOK",
+      "title": "Disinformation and Election Propaganda: Impact on Voter Perceptions and Behaviours in Indonesia’s 2024 Presidential Election",
+      "authors": [
+        "Maria Monica Wihardja",
+        "Burhanuddin Muhtadi",
+        "Lee Sue-Ann"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "f66a2a4dec6e2b346781b6ad4870b7e057eea69a8ff8e2ad9a72f810734c6767",
+      "type": "BOOK",
+      "title": "The Indonesia National Survey Project 2022: Engaging with Developments in the Political, Economic and Social Spheres",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Hui Yew-Foong",
+        "Siwage Dharma Negara"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "0fef24315f97f6745ff40a2923029ec737c707854494670fda8741e22f88d61d",
+      "type": "BOOK",
+      "title": "The Indonesian Military Enjoys Strong Public Trust and Support: Reasons and Implications",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "896144badd5b73dcdeb52ddaeeb838b63846660e38ace0de027dfee9a09bfce0",
+      "type": "BOOK",
+      "title": "Kuasa Uang: Politik Uang dalam Pemilu Pasca-Orde Baru (The Power of Money: Vote Buying in Post-Suharto Elections)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "Penerbit Gramedia",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "070eb96f4a875430279cf81e0654ba461a54a984a9e8f71d683af98710846012",
+      "type": "BOOK",
+      "title": "Vote Buying in Indonesia: The Mechanics of Vote Buying in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "Palgrave Macmillan",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "95e7f3d16b4eae1906ba686874c665af3279a997ef041f7288c161e32649159c",
+      "type": "BOOK",
+      "title": "Populisme, Politik Identitas dan Dinamika Elektoral (Populism, Identity Politics and Electoral Dynamics)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "Intrans Publishing",
+      "publicationPlace": "Malang",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "3e99a3dc231eed4d3461db270c665d4385eefd1eff8978f6807fa9d0f320cd8c",
+      "type": "BOOK",
+      "title": "Perang Bintang 2014: Konstelasi dan Prediksi Pemilu dan Pilpres (“Star Wars:” Constellation and Prediction of the 2014 Election and Presidential Elections)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2013,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "Noura Books",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "bd8536bf765a672e6ec6666499a767e64c511c8a1a53ef5b98584d29aa84081a",
+      "type": "BOOK",
+      "title": "Dilema PKS: Suara dan Syariah (The PKS Dilemma: Between Elections and Sharia)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2012,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "Penerbit Gramedia",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "043b2c132f53f7e7a7084d9da2712d72054f041191a46cefe14e659797ee7d28",
+      "type": "BOOK",
+      "title": "Defisit Pelayanan Publik: Survei Persepsi Masyarakat terhadap Pelayanan Publik (The Deficit of Public Services: A Survey on Public Perception on Public Services)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2005,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "INCIS-Partnership Kemitraan",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "6a7f7e7d62b44d8ebd71e37e9062ca3ad59179dfe535e83e11df02d2b495c8bf",
+      "type": "BOOK",
+      "title": "Mencari Akar Kultural Civil Society di Indonesia (In Search of Cultural Roots of Civil Society in Indonesia)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2004,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "INCIS-CSSP USAID",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "55d80a234e2f9031f88fb86fab43f53b22ee4a87c26f38cc4539142229504475",
+      "type": "BOOK",
+      "title": "Civil Society dan Demokrasi: Survey tentang Partisipasi Sosial-Politik Warga Jakarta (Civil Society and Democracy: A Survey on Social-Political Participation of Jakarta Residents)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2003,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "INCIS-CSSP USAID",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "6092abf4842071364320f8268767e590e426af01b5cb63b37eae44b7669a327f",
+      "type": "BOOK",
+      "title": "Syariat Islam: Pandangan Muslim Liberal (Shari’a: A Liberal Muslim Perspective)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2003,
+      "dateLabel": null,
+      "containerTitle": null,
+      "publisher": "JIL-The Asia Foundation",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "3f5ba240a6480f1c4f0def2ee123739207f358cf5893eee7700b4dc4116852d4",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Indonesian Public Support for Free and Nutritious Meals Stays Broad but Shallow",
+      "authors": [
+        "Harry Dienes",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2026,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": "21",
+      "pages": null
+    },
+    {
+      "fingerprint": "33749e60b93ba9f37437539199464fd0aa19504ef0a60c145badd79ed97830b2",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Social Media and Religious Intolerance in Indonesia",
+      "authors": [
+        "Akhmad Rizal Shidiq",
+        "Burhanuddin Muhtadi",
+        "Arief Anshory Yusuf"
+      ],
+      "editors": [],
+      "year": 2026,
+      "dateLabel": null,
+      "containerTitle": "Studia Islamika",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "33",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "6899b521c8b6110d8194c47bc1ec437f4919da108dae7f973e280f424fb70aed",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Complacent Democrats? The Political Preferences of Gen Z in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Eve Warburton",
+        "Liam Gammon"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "Journal of East Asian Studies",
+      "publisher": "Cambridge University Press",
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "1-28"
+    },
+    {
+      "fingerprint": "9f4f68b36f8f42e49f60496523ebc5e9eaa665fed33e35ebaee6baeef4050e34",
+      "type": "JOURNAL_ARTICLE",
+      "title": "2024 Presidential Elections: Reviewing Jokowi's Influence on Prabowo's Landslide Victory",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "Southeast Asian Affairs",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "127-141"
+    },
+    {
+      "fingerprint": "447b3bda60cc5427062f203d796927e077cc078230b4a5596821279ab40b8a8e",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Collective Memory, Democratic Ambivalence, and Authoritarian Notions of Democracy: Explaining the Rise of Prabowo Subianto",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": "February",
+      "containerTitle": "Journal of Current Southeast Asian Affairs",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "25bab47b2737a0205cdef550c0609cbed974edbd424eeb528a135247d0113581",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Indonesian Public Perceptions of Chinese Indonesians Holding Different Public Offices",
+      "authors": [
+        "Wu Ling Chong",
+        "Burhanuddin Muhtadi",
+        "Kennedy Muslim"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "Asian Ethnicity",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "0dceb9dd01ad230d1c97a0f5b1f03cc0dba19907dc27ad0ce930bd8162da84a0",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Politics Over Prejudice? Explaining the Surprising Decline of Anti-Chinese Sentiment in Indonesia during the COVID-19 Pandemic",
+      "authors": [
+        "Dirk Tomsa",
+        "Burhanuddin Muhtadi",
+        "Charlotte Setijadi"
+      ],
+      "editors": [],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "Contemporary Southeast Asia",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "47",
+      "issue": "2",
+      "seriesNumber": null,
+      "pages": "224-249"
+    },
+    {
+      "fingerprint": "e57f61dd872582b128490c2b39e54a99f0d784c294f26994c9d163ca484814a6",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Resentment and Polarization in Indonesia",
+      "authors": [
+        "Seth Soderborg",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": "Journal of East Asian Studies",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "1–29"
+    },
+    {
+      "fingerprint": "39084c8922a557afbfea86dac992d1bf55d3c7e231cdb8996d042a0817a9e439",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Partisanship, Religion, and Social Class: Attitudes and Behaviors in the Early Stages of the Covid-19 Pandemic",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Seth Soderborg"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": "Studia Islamika",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "30",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": "1-38"
+    },
+    {
+      "fingerprint": "5c37fe68925c521836fccc770b56d4a9813d208c3066447cdf384ffd15607027",
+      "type": "JOURNAL_ARTICLE",
+      "title": "China’s Foreign Policies and Attitudes toward Chinese Diaspora: A Direct Link?",
+      "authors": [
+        "Nathanael Sumaktoyo",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": "International Journal of Public Opinion Research",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "34",
+      "issue": "4",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "60b67a1488b64c145cff0a281c73a27e0d69b23bd1713240a84403f901c4350e",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Who Gets Exposed to Political Misinformation in a Hybrid Media Environment? The 2019 Indonesian Presidential Election",
+      "authors": [
+        "Taberez Neyazi",
+        "Burhanuddin Muhtadi",
+        "Aaron Yi Kai Ng",
+        "Ozan Kuru"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "Social Media & Society",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "9d741b3622ca9742e20f753eb77f24c0622d2e55f7d2878adf3066ce9196d872",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Religious Pluralism in Indonesia: Threats and Opportunities for Democracy",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Chiara Formichi"
+      ],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "Contemporary Southeast Asia",
+      "publisher": "Cornell University Press",
+      "publicationPlace": null,
+      "volume": "44",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": "157-159"
+    },
+    {
+      "fingerprint": "9800ca0132a0ac7a5a35cdc3a2567647ba80313c614d0139b944abaf8da2b48f",
+      "type": "JOURNAL_ARTICLE",
+      "title": "The candidate’s dilemma: anti-corruptionism and money politics in Indonesian election campaigns",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "Asian Studies Review",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "47",
+      "issue": "4",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "0a5116fae64cbc10e2efe5ca46758b6cc352d1e876949a20d04ed19d22259073",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Political Trust, Economic Hardship and Partisanship: Explaining Leadership Approval in Indonesia during the COVID-19 Crisis",
+      "authors": [
+        "Taberez Neyazi",
+        "Burhanuddin Muhtadi",
+        "Sourabh B Paul"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": "July",
+      "containerTitle": "Asian Survey",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "fa3e1aea373918bcb7d192aa969810665cd8404b6a1a029336b6ffe412208858",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Buying Brokers: Electoral Handouts beyond Clientelism in a Weak-party State",
+      "authors": [
+        "Allen Hicken",
+        "Edward Aspinall",
+        "Meredith Weiss",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "World Politics",
+      "publisher": "Cambridge University Press",
+      "publicationPlace": null,
+      "volume": "74",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "4cbe9365a617108a86965c3e50679cbabba5fd34c530f3f0fa048dd9cbd6bcec",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Can Religion Save Corrupt Politicians? Evidence from Indonesia",
+      "authors": [
+        "Nathanael Sumaktoyo",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": "February",
+      "containerTitle": "International Journal of Public Opinion Research/IJPOR",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "7b567ba0ef561375ea5f4721f8e6604777f3cadc8d8af2faf7d27629a15e4643",
+      "type": "JOURNAL_ARTICLE",
+      "title": "INDONESIA: State and Society in Transition",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": null,
+      "containerTitle": "Pacific Affairs",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "735b75fcf3d884b943d092a4f1416243e60060bf850ec54c5e9833669569e980",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Why democrats abandon democracy: Evidence from four survey experiments",
+      "authors": [
+        "Diego Fossati",
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": "February",
+      "containerTitle": "Party Politics",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "1-13"
+    },
+    {
+      "fingerprint": "0758521a7b79ccc42ebb3b1e344c5c7c28c99d5900ffa1ced85e47ae61589e32",
+      "type": "JOURNAL_ARTICLE",
+      "title": "When does class matter? Unequal representation in Indonesian legislatures",
+      "authors": [
+        "Eve Warburton",
+        "Burhanuddin Muhtadi",
+        "Edward Aspinall",
+        "Diego Fossati"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": "March",
+      "containerTitle": "Third World Quarterly",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "1-25"
+    },
+    {
+      "fingerprint": "be7505ecc53260c55dec324c6fdead7d369ccc5f19367220b1890eb614497e5e",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Selective Belief: How Partisanship Drives Belief in Fake News",
+      "authors": [
+        "Taberez Neyazi",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": null,
+      "containerTitle": "International Journal of Communication",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "1286–1308"
+    },
+    {
+      "fingerprint": "d69d9381b4dca54f517bf266d19a80bb7c191353a483c900060aabfb6f715346",
+      "type": "JOURNAL_ARTICLE",
+      "title": "The Myth of Pluralism: Nahdlatul Ulama and the Politics of Religious Tolerance in Indonesia",
+      "authors": [
+        "Marcus Mietzner",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": "April",
+      "containerTitle": "Contemporary Southeast Asia: A Journal of International and Strategic Affairs",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "42",
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "58-84"
+    },
+    {
+      "fingerprint": "487dafb7a14ce82a18e2950e44679d243597faa8981a0abfc29cb2b1cacffc72",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Inequality and Democratic Support in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": "Pacific Affairs",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "93",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": "31-58"
+    },
+    {
+      "fingerprint": "3b584e246345786f81c0bb5c7576d90d16f29859eddf5abb4c16a12d103818e8",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Ideological representation in clientelistic democracies: The Indonesian case",
+      "authors": [
+        "Diego Fossati",
+        "Edward Aspinall",
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": "February",
+      "containerTitle": "Electoral Studies",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "63",
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "34305e28b31bee9e5b057c950886d4d68a4e7aa141e43139f4d09b2a516fe19d",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Policy, Partisanship, and Pay: Diverging COVID-19 Responses in Indonesia",
+      "authors": [
+        "Seth Soderborg",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": "SSRN",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "571df3e2cc1bbecc96f845968a31e65b612fffbda956c54b97fef675618aba6c",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Politik Uang dan New Normal dalam Pemilu Paska-Orde Baru (Vote Buying and New Normal in Post-Authoritarian Elections)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "Jurnal Antikorupsi INTEGRITAS",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "5",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": "55-74"
+    },
+    {
+      "fingerprint": "888b145df628b66f4a0c20aefe80a63d39ef45affad03626976b0e49cbc0f63d",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Elites, Masses and Democratic Decline in Indonesia",
+      "authors": [
+        "Edward Aspinall",
+        "Diego Fossati",
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "Democratization",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "60cae121ca41d7ace325c5597058ac150fc634df425a8cbe8337fe23d7e731e6",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Explaining the 2016 Islamist mobilisation in Indonesia: Religious intolerance, militant groups and the politics of accommodation",
+      "authors": [
+        "Marcus Mietzner",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2018,
+      "dateLabel": null,
+      "containerTitle": "Asian Studies Review",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "42",
+      "issue": "3",
+      "seriesNumber": null,
+      "pages": "479-497"
+    },
+    {
+      "fingerprint": "b68530092cdb14aaaff7235fd324f05b6ce2e262522aeef4f92489a7e985797a",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Politik Identitas dan Mitos Pemilih Rasional (Identity Politics and the Myth of Rational Voters)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2018,
+      "dateLabel": null,
+      "containerTitle": "Jurnal MAARIF",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "13",
+      "issue": "2",
+      "seriesNumber": null,
+      "pages": "68-86"
+    },
+    {
+      "fingerprint": "773bb662ee9680a10047703675cf860100b051937c34aa431f9f58be02e99948",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Entrepreneurs of Grievance: Drivers and effects of Indonesia’s Islamist mobilization",
+      "authors": [
+        "Marcus Mietzner",
+        "Burhanuddin Muhtadi",
+        "Rizka Halida"
+      ],
+      "editors": [],
+      "year": 2018,
+      "dateLabel": null,
+      "containerTitle": "Bijdragen tot de taal-, land- en volkenkunde/Journal of the Humanities and Social Sciences of Southeast Asia",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "174",
+      "issue": "2-3",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "72b5df47016f87bb3b565ef03965cd9fa50f0a5d9e45aff6afd49177a9ba894c",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Jokowi’s First Year: A Weak President Caught between Reform and Oligarchic Politics",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2015,
+      "dateLabel": null,
+      "containerTitle": "Bulletin of Indonesian Economic Studies",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "51",
+      "issue": "3",
+      "seriesNumber": null,
+      "pages": "349-368"
+    },
+    {
+      "fingerprint": "c03f2451722cf7ab4b1e82b282e169d0756259fe5f1f28d008010d25fe6b83b8",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Politik Uang dan Dinamika Elektoral di Indonesia: Sebuah Kajian Awal Interaksi antara Party ID dan Patron Klien (Vote Buying and Electoral Dynamics in Indonesia: A Preliminary Study of the Interaction between Party ID and Patron-Client)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2013,
+      "dateLabel": null,
+      "containerTitle": "Jurnal Penelitian Politik",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "10",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": "41-57"
+    },
+    {
+      "fingerprint": "e25c07b725877d319da1204fa5bb9ee85c1bbeb8ea82f36f431b42d13e438a6e",
+      "type": "JOURNAL_ARTICLE",
+      "title": "The Quest for Hizbut Tahrir Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2009,
+      "dateLabel": null,
+      "containerTitle": "Asian Journal of Social Science",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "37",
+      "issue": "4",
+      "seriesNumber": null,
+      "pages": "623-645"
+    },
+    {
+      "fingerprint": "8e33127db71c9638b98c163928dfc2203443ab7721f1b4a84087b1f978dc2df9",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Islamism and Women in Politics: Analysing Female Political Participation and Representation of Indonesia’s Prosperous Justice Party (PKS)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2009,
+      "dateLabel": null,
+      "containerTitle": "Jurnal Substansia",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "1",
+      "issue": "1",
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "7ad8cb75823f299143e60241be34065369f72b226b43ab0b319b0b95920ab2a3",
+      "type": "JOURNAL_ARTICLE",
+      "title": "The Conspiracy of Jews: The Quest for anti-Semitism in Media Dakwah",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2007,
+      "dateLabel": null,
+      "containerTitle": "Graduate Journal of Asia-Pacific Studies",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "5",
+      "issue": "2",
+      "seriesNumber": null,
+      "pages": "53-76"
+    },
+    {
+      "fingerprint": "1ff8120f1acfb42037826b5d56d7e63f4058df7e92c213d35bc6e3cd25c48a5c",
+      "type": "JOURNAL_ARTICLE",
+      "title": "Yudhoyono and Kalla: Two Distinctive Styles of Policy-Making in the Case of Fuel Subsidy Reduction in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2007,
+      "dateLabel": null,
+      "containerTitle": "Asian Journal of Social Policy",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": "3",
+      "issue": "2",
+      "seriesNumber": null,
+      "pages": "1-10"
+    },
+    {
+      "fingerprint": "04c29014c7963eafda4791e1220c0e47fadbe53b8231fd0231859287b8446673",
+      "type": "BOOK_CHAPTER",
+      "title": "Voting Patterns of the 2024 Indonesian Elections: An Overview",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Hui Yew-Foong"
+      ],
+      "editors": [
+        "Burhanuddin Muhtadi",
+        "Hui Yew-Foong"
+      ],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "The 2024 Indonesian Elections and the Future of Indonesian Politics",
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "95e6facc3dc0e3c6cf791df1222e859ed3b03fbdeae8c74a3b77641a5884e742",
+      "type": "BOOK_CHAPTER",
+      "title": "Vote-Buying Pattern in Concurrent Elections Era: Clientelism in Competitive Electoral Environments",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Elena Burgos Martinez",
+        "Rizal Shidiq",
+        "Irene Hadiprayitno"
+      ],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "Indonesia 2014-2024",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "db75933b0d77fe9257d200a702964234f562809e1419feaf436048dc8eca6c51",
+      "type": "BOOK_CHAPTER",
+      "title": "Selective Exposure, Selective Belief and Self-Reporting Bias in Indonesia’s 2024 Presidential Election",
+      "authors": [
+        "Maria Monica Wihardja",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Burhanuddin Muhtadi",
+        "Hui Yew-Foong"
+      ],
+      "year": 2025,
+      "dateLabel": null,
+      "containerTitle": "The 2024 Indonesian Elections and the Future of Indonesian Politics",
+      "publisher": "ISEAS – Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "550201da53e92ecad9459753e553350c09eefd50080472cad862c634902fa125",
+      "type": "BOOK_CHAPTER",
+      "title": "Kepercayaan Politik, Tekanan Ekonomi dan Sikap Partisan: Mendiskusikan Approval Presiden Pada Masa Krisis COVID-19",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Taberez A. Neyazi",
+        "Sourabh B. Paul"
+      ],
+      "editors": [
+        "Agung Firman Sampurna"
+      ],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "Scenario Planning, Dampak, dan Proyeksi di Bertbagai Bidang pada Masa dan Pasca Pandemi COVID-19",
+      "publisher": "BPK RI",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "a5c149d8db5068b4e506b4ceea4ca02ca8df628a5559a1e112d5a1d36ccca190",
+      "type": "BOOK_CHAPTER",
+      "title": "Representasi Ideologis dalam Demokrasi Klientelistik: Studi Kasus Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Diego Fossati",
+        "Edward Aspinall",
+        "Eve Warburton"
+      ],
+      "editors": [
+        "Amelia Fauzia",
+        "Sukron Kamil"
+      ],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "Agama dan Negara di Indonesia Kontemporer: Persepktif Teoretis, Sosial, Politik dan Ekonomi",
+      "publisher": "Social Trust Fund UIN Jakarta dan Fakultas Adab dan Humaniora UIN Jakarta",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "5467ed9baad80c6b2ecb754ee6509263a75809acc92505edfde67f302baff165",
+      "type": "BOOK_CHAPTER",
+      "title": "Pecundang elektoral, dukungan terhadap demokrasi, dan nostalgia otoriter",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Thomas Power",
+        "Eve Warburton"
+      ],
+      "year": 2021,
+      "dateLabel": null,
+      "containerTitle": "Demokrasi di Indonesia: Dari Stagnasi ke Regresi",
+      "publisher": "KPG (Kepustakaan Populer Gramedia), Public Virtue, & Kurawal Foundation",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "573ad0010a81f1dd34f42fa136c6691919fdbb02fcab308d9a3984d252115a05",
+      "type": "BOOK_CHAPTER",
+      "title": "Electoral Losers, Democratic Support and Authoritarian Nostalgia",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Thomas Power",
+        "Eve Warburton"
+      ],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": "Democracy in Indonesia: From Stagnation to Regression",
+      "publisher": "ISEAS-Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "141-165"
+    },
+    {
+      "fingerprint": "1b79f4b206ebd264587e2ee58bcd16680e6b5004ff99cfcc6bde917c25259ab7",
+      "type": "BOOK_CHAPTER",
+      "title": "Muslim Identity and Deprivation: Socio-Psychological Sources of Support for Islamist Radical Groups in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Rizka Halida"
+      ],
+      "editors": [
+        "Alexander R. Arifianto",
+        "Leornard Sebastian",
+        "Syafiq Hasyim"
+      ],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": "Islamic Conservatism in Indonesia: Islamic Groups and Identity Politics",
+      "publisher": "Routledge",
+      "publicationPlace": "London",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "9bc5134ce326f5285e4cc83780a1437676bb8e01567b641f2616933301e0bb77",
+      "type": "BOOK_CHAPTER",
+      "title": "Populisme, Polarisasi, dan Normalitas Baru dalam Politik Elektoral Kita (Populism, Polarization, and New Normal in Our Electoral Politics)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": null,
+      "containerTitle": "Bergerak Bergerak Berdampak",
+      "publisher": "Narasi TV",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "3ef9b5f9db0f1af9a116589a8b7a37f1239160f03de6b4923ef969e2882707f7",
+      "type": "BOOK_CHAPTER",
+      "title": "The Mobilization of Intolerance and its Trajectories: Indonesian Muslims’ Views of Religious Minorities and Ethnic Chinese",
+      "authors": [
+        "Marcus Mietzner",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Greg Fealy",
+        "Ronit Ricci"
+      ],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "Contentious Belonging: The Place of Minorities in Indonesia",
+      "publisher": "ISEAS Yusof Ishak Institute",
+      "publicationPlace": "Singapore",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "155-174"
+    },
+    {
+      "fingerprint": "1e23497ddc489c4003e1d9127795489a8d609a12d3fa36ad9ed3dab77a2bf4fc",
+      "type": "BOOK_CHAPTER",
+      "title": "Violent Extremism dalam Sudut Pandang Studi Agama (Violent Extremism from the Perspective of Religious Studies)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Philips J. Vermonte",
+        "Arya Fernandes"
+      ],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "Asking Sensitive Questions: Panduan Pelaksanaan Survei dengan Tema Tindakan Ekstrem Berbasis Agama dan Non-Agama (Guidelines for Conducting Surveys on Extremism Based on Religion and Non-Religion)",
+      "publisher": "CSIS",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "21-30"
+    },
+    {
+      "fingerprint": "41ea62510031d213a40e2c11154a4a294a408a3e202491b050f4165f2a65d2fb",
+      "type": "BOOK_CHAPTER",
+      "title": "Komoditas Demokrasi: Efek Sistem Pemilu terhadap Maraknya Jual Beli Suara (Democratic Commodities: The Effects of Electoral System on the Prevalence of Vote Buying Practices)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Mada Sukmajati",
+        "Aditya Perdana"
+      ],
+      "year": 2018,
+      "dateLabel": null,
+      "containerTitle": "Pembiayaan Pemilu di Indonesia",
+      "publisher": "Bawaslu",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "95-118"
+    },
+    {
+      "fingerprint": "1838eec7b01f91c2d1b1d2f23b6214833ead880ab10f3f747335881582f1dbcc",
+      "type": "BOOK_CHAPTER",
+      "title": "Divided Government: Tantangan Pemerintahan Jokowi- (Divided Government: The Challenges for Jokowi Government)",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Adam Kamil"
+      ],
+      "editors": [],
+      "year": 2015,
+      "dateLabel": null,
+      "containerTitle": "Proyeksi Ekonomi Indonesia 2015: Tantangan Kabinet Kerja Memenuhi Ekspektasi",
+      "publisher": "INDEF",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "542ecc60c4e8b7dc12142c56599b8dfb4978dde098a3de2d3b96139e63c65ff2",
+      "type": "BOOK_CHAPTER",
+      "title": "Resep Machiavelli dan Defisit Kepemimpinan Transformatif (The Machiavelli Recipe and the Deficit of Transformative Leadership)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2012,
+      "dateLabel": null,
+      "containerTitle": "Memperbaiki Mutu Demokrasi di Indonesia: Sebuah Perdebatan",
+      "publisher": "Paramadina",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": "141-150"
+    },
+    {
+      "fingerprint": "9ac9cf87b31518aa1f4208e432980616d6fad6aa894c3cbe28dfc3bc06abbfb9",
+      "type": "BOOK_CHAPTER",
+      "title": "Ke Cak Nur, Saya Mengaji (To Cak Nur, I Recite)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2008,
+      "dateLabel": null,
+      "containerTitle": "All You Need is Love: Cak Nur di Mata Kaum Muda",
+      "publisher": "Penerbit Paramadina",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "43a7ea9361f160e6ea274ba7227861da9a2a2a89296621b3c1a7149ce42b4d1b",
+      "type": "BOOK_CHAPTER",
+      "title": "The 1998 Student Uprising in Indonesia: A Social Movement Theory Approach",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Faried Saenong",
+        "Eko Nugroho"
+      ],
+      "year": 2007,
+      "dateLabel": null,
+      "containerTitle": "Enlightenment from Within",
+      "publisher": "Minaret",
+      "publicationPlace": "Canberra",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "74af43e08c23f4a4ec34c4524ef58618ff18e7f58709719f4341025aa1cfd851",
+      "type": "BOOK_CHAPTER",
+      "title": "Tantangan Pluralisme Keagamaan dan Sistem Pendidikan Agama (The Challenges of Religious Pluralism and the Religious Educational System)",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [
+        "Aryo Danusiri",
+        "Wasmi Alhaziri"
+      ],
+      "year": 2002,
+      "dateLabel": null,
+      "containerTitle": "Pendidikan Memang Multikultural: Beberapa Gagasan",
+      "publisher": "Yayasan Sains Estetika dan Teknologi (SET)",
+      "publicationPlace": "Jakarta",
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "7818137dbf715540b60dbf5b3dff95a023ea75eeb4302412561f5f4ecc3a1858",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Indonesia’s Regional Elections: Electoral Competition Limited by Cartel Politics",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2024,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": "2024/104",
+      "pages": null
+    },
+    {
+      "fingerprint": "45c1969f3530c565d6766350c4fb54dde9c74962fe142c40e51d1694cda7aba2",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Deepfakes and Selective Belief: How Partisanship Affects Voters’ Exposure and Susceptibility to Deepfake Content",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Maria Monica Wihardja"
+      ],
+      "editors": [],
+      "year": 2024,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": "2024/58",
+      "pages": null
+    },
+    {
+      "fingerprint": "d6547ce0d361d1cfd6e9d1fc1f3d6086ff64925ca8eb549d341ef11196a331f7",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Assessing Prabowo-Gibran’s Victory: An Exit-Poll Aftermath Analysis of the 2024 Presidential Election",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Kennedy Muslim"
+      ],
+      "editors": [],
+      "year": 2024,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": "2024/32",
+      "pages": null
+    },
+    {
+      "fingerprint": "5cff10283dee5eb2677c22199b0f8f474b7e266687bc7cd7171b398680207826",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "The Prabowo-Gibran Pairing: Wise or Foolish?",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Kennedy Muslim"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": "2023/95",
+      "pages": null
+    },
+    {
+      "fingerprint": "285751d6f79e40ad9a001b3fc24da5bb0cc7b8178bc17a4fb09369cfd74abdf1",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Jokowi’s High Approval Ratings Make Him Potential Kingmaker",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2023,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "d74136ba94f7693c66ebf12927adcbb4508ea69a37fa80ba8c08134b14bac621",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Analyzing Public Opinion on Moving Indonesia’s Capital: Demographic and Attitudinal Trends",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "989112849d033faebd3865586a2877cbc147a74a62d1ef11e90594c53d58cc41",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Counter-polarisation and political expediency",
+      "authors": [
+        "Greg Fealy",
+        "Sally White",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2022,
+      "dateLabel": "July",
+      "containerTitle": "New Mandala",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "0cc2ca464fee959bac42959e7899812cb093360888ab343e8e3a28088234d932",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Islamic Populism and Voting Trends in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Kennedy Muslim"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "b0b275f7e6347e5529eb21cedf342edd19d6072e8431f531d8cc06fa02c8ab8b",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "When is Staying Home Partisan? Policy Conflict and Precaution-Taking during a Pandemic",
+      "authors": [
+        "Seth Soderborg",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2021,
+      "dateLabel": null,
+      "containerTitle": "Harvard Scholar",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "44c4f88da998309da1e1df79d992bb16ce89b75c63b2e402dde27ca71cf237bb",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Populism, Islamism, and Democratic Decline in Indonesia",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": "August",
+      "containerTitle": "The Middle East Institute",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "4f8db02c140f15746dea7a905fbdab09793dd0e365254ae6b405c5c8b9e06590",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "How China’s foreign policy shapes prejudice against Chinese Indonesians",
+      "authors": [
+        "Nathanael Sumaktoyo",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2020,
+      "dateLabel": "October",
+      "containerTitle": "New Mandala",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "63a133c7167ec25f6d0fcf4a2309a9104070c2ab29b3b7e44213e5b48ebd86b1",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Politicising inequality in Indonesian elections",
+      "authors": [
+        "Eve Warburton",
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": "April",
+      "containerTitle": "Brookings (blog)",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "2a6e21ccdcc0671c323f36dda543a29157d501462c2bbe373fe6616a4f8cc58d",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Perceptions of Inequality in Indonesia: A Matter of Partisan Politics?",
+      "authors": [
+        "Burhanuddin Muhtadi",
+        "Eve Warburton",
+        "Aninda Dewayanti"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "ISEAS Perspective",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "2de8b724a9f49054fcd619a3b49938938174e0ce26e465dbd7b1157e222e90b5",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Follow the leader: personalities, policy and partisanship in Indonesia",
+      "authors": [
+        "Diego Fossati",
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2019,
+      "dateLabel": null,
+      "containerTitle": "New Mandala",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "9be4cb9edf5008adecc99d945e56b1ac09ab06168774a9d9545118c41c37b1a7",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Mapping the Indonesian political spectrum",
+      "authors": [
+        "Edward Aspinall",
+        "Diego Fossati",
+        "Burhanuddin Muhtadi",
+        "Eve Warburton"
+      ],
+      "editors": [],
+      "year": 2018,
+      "dateLabel": null,
+      "containerTitle": "New Mandala",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    },
+    {
+      "fingerprint": "aa50c70d2d16cbbbb3ca7263ccd03bc3d036d4d870de464e209a8b1501f4c0f3",
+      "type": "ADDITIONAL_RESEARCH_OUTPUT",
+      "title": "Money Politics and the Prisoner’s Dilemma",
+      "authors": [
+        "Burhanuddin Muhtadi"
+      ],
+      "editors": [],
+      "year": 2015,
+      "dateLabel": "November",
+      "containerTitle": "New Mandala",
+      "publisher": null,
+      "publicationPlace": null,
+      "volume": null,
+      "issue": null,
+      "seriesNumber": null,
+      "pages": null
+    }
+  ]
+}

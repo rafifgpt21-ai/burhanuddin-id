@@ -20,7 +20,8 @@
 - On 24 July 2026, the owner redesigned the homepage publication section to show the three most recent books with approved covers followed directly by three selected non-book works. Only the book group retains a visible label; the non-book group is identified by its card metadata without an extra heading or item count. Database records are preferred when three eligible covered books are available; the approved featured-book dataset is the fallback while database access is unavailable.
 - On 24 July 2026, the owner removed the `Needs Review` status and source-candidate queue from the product. The private editor works directly with canonical publication records; the static source extraction remains an internal, reproducible seed input and is never exposed as an application workflow.
 - On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the thesis, lead, both actions, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
-- On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action and the shared footer profile list.
+- On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action, the Contact channel directory, and the shared footer profile list.
+- On 25 July 2026, the owner approved a complete publication-system redesign. All 81 CV records use reviewed structured bibliographic fields; raw citations remain internal audit evidence and never become public titles. The public index uses grouped horizontal dossier cards with a permanent 4:5 image or bibliographic-placeholder column, while publication media references `MediaAsset`.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -253,6 +254,9 @@ Avoid a full-screen portrait splash or generic credibility metrics. The first vi
 - Each record can show the original publication title, authors in source order, year, venue/publisher, pages/volume when present, DOI or canonical URL, and publication status such as `forthcoming`.
 - Do not host copyrighted publication PDFs unless the owner confirms redistribution rights. External links are the default.
 - Selected publications may have cover art only when an approved cover asset is available.
+- Never render a raw citation as a title. Present authors, editors, publication container, publisher/place, volume, issue, series number, pages, DOI/domain, and status as separate labeled information.
+- Every index card reserves a 4:5 visual column. Use an approved linked media asset when available; otherwise show an editorial placeholder carrying only the already-visible type, year, and status.
+- Use a compact outbound action instead of printing a canonical URL as a long text row. At 360-720px the card remains a 104px/remaining-width composition with the action below; below 360px and at constrained zoom it may stack.
 
 ### About
 
@@ -307,11 +311,13 @@ The exact database syntax should be decided during implementation. The conceptua
 
 ### Publication
 
-- `id`, `type`, `title`, `authors[]`, `year`, `venue`, `publisher`
-- `volume`, `issue`, `pages`, `doi`, `externalUrl`, `status`
+- `id`, `type`, `title`, `authors[]`, `editors[]`, `year`, optional source-faithful `dateLabel`
+- `containerTitle`, `publisher`, `publicationPlace`, `volume`, `issue`, `seriesNumber`, `pages`
+- `doi` stored without its resolver prefix, `externalUrl`, `status`
 - `abstract` only when supplied or approved; do not invent one.
-- Optional `coverImage` uploaded through the private UploadThing route. Its asset metadata retains a mandatory rights/source note, and public cards use a typographic fallback when the field is absent.
+- Optional `cardImageId` relates to `MediaAsset`; its asset metadata retains a mandatory rights/source note and localized alt text. Legacy `coverImage` remains only during the additive migration.
 - `featured`, editorial `contentStatus`, `sourceName`, `sourceUrl`, `sourceCheckedAt`, `alternateUrls[]`, `sourceNote`, `createdAt`, `updatedAt`
+- `rawCitation` and `sourceFingerprint` remain internal audit/import fields and are excluded from the public view model.
 
 ### AgendaItem
 
@@ -374,6 +380,7 @@ The plan may proceed with placeholders in a development environment, but placeho
 - Body reading size: at least 16px, with generous line height.
 - Corners and shadows: restrained; use borders and whitespace before elevation.
 - Signature pattern: a research ledger with a blue spine, bibliographic annotations, and evidence-linked themes.
+- Publication signature: a navy bibliographic folio occupies the same 4:5 visual area as a real cover when no rights-cleared image exists, giving the collection a stable research-dossier rhythm without inventing artwork.
 
 Final colors are not approved until WCAG contrast checks pass in real components.
 
@@ -552,6 +559,8 @@ Pin exact package versions only during implementation after checking the locally
 - [ ] Every material action accurately reflects open/download/external availability.
 - [ ] Posts are readable and keyboard accessible on mobile and desktop.
 - [ ] Publications retain author order, year, venue, DOI/URL, and forthcoming status.
+- [ ] All 81 CV publication fingerprints have exactly one structured record, and no public publication heading contains its authors, venue, year, or URL.
+- [ ] Publication cards separate contributors and bibliographic details, reserve a 4:5 visual area, use a truthful placeholder without an image, and remain readable at 320px and 200% zoom.
 - [ ] Every published publication exposes a working HTTPS DOI, publisher, institutional-repository, or official project link; seed validation fails when any record lacks one.
 - [ ] Drafts, previews, admin pages, and secret values are never public or indexed.
 - [ ] No content from the wrong person in the reference project has leaked into production.

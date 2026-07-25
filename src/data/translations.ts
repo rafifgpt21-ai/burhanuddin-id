@@ -229,11 +229,11 @@ const id = {
       "Buku, artikel jurnal, bab buku, dan keluaran riset dengan judul asli, urutan penulis, tahun, serta tautan sumber.",
     index: "Koleksi 04",
     indexLabel: "Bibliografi CV Maret 2026",
-    noteTitle: "Sitasi sumber ditampilkan apa adanya.",
+    noteTitle: "Metadata bibliografis telah dipisahkan.",
     note:
-      "Daftar ini memuat sitasi dari CV Maret 2026 dan pidato pengukuhan dari sumber resmi. Pemecahan metadata terstruktur tetap ditinjau agar urutan penulis dan redaksi sumber tidak berubah.",
+      "Judul, penulis, wadah terbitan, detail volume/nomor, dan tautan ditampilkan terpisah. Sitasi asli tetap disimpan sebagai jejak audit internal.",
     searchLabel: "Cari publikasi",
-    searchPlaceholder: "Judul, penulis, venue, atau tahun",
+    searchPlaceholder: "Judul, penulis, jurnal, penerbit, DOI, atau tahun",
     typeLabel: "Jenis",
     allTypes: "Semua jenis",
     typeNames: {
@@ -541,11 +541,11 @@ const en = {
       "Books, journal articles, book chapters, and research outputs with original titles, author order, year, and source links.",
     index: "Collection 04",
     indexLabel: "March 2026 CV bibliography",
-    noteTitle: "Source citations are shown verbatim.",
+    noteTitle: "Bibliographic metadata is structured.",
     note:
-      "This list includes citations from the March 2026 CV and the inaugural address from an official source. Structured metadata remains under review to preserve author order and source wording.",
+      "Titles, contributors, publication containers, volume/issue details, and links are presented separately. Original citations remain available as an internal audit trail.",
     searchLabel: "Search publications",
-    searchPlaceholder: "Title, author, venue, or year",
+    searchPlaceholder: "Title, author, journal, publisher, DOI, or year",
     typeLabel: "Type",
     allTypes: "All types",
     typeNames: {

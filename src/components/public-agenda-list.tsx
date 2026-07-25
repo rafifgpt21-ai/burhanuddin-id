@@ -1,3 +1,4 @@
+import { AdminAgendaShortcut } from "@/components/admin-agenda-shortcut";
 import { ArrowUpRightIcon, CalendarIcon } from "@/components/icons";
 import {
   formatAgendaDate,
@@ -10,10 +11,12 @@ export function PublicAgendaList({
   items,
   locale,
   compact = false,
+  showAdminShortcut = false,
 }: {
   items: readonly PublicAgendaItem[];
   locale: Locale;
   compact?: boolean;
+  showAdminShortcut?: boolean;
 }) {
   const { upcoming, completed } = partitionAgenda(items);
   const emptyCopy =
@@ -36,6 +39,9 @@ export function PublicAgendaList({
         <div>
           <h3>{emptyCopy.title}</h3>
           <p>{emptyCopy.description}</p>
+          {showAdminShortcut ? (
+            <AdminAgendaShortcut locale={locale} />
+          ) : null}
         </div>
       </div>
     );
@@ -59,6 +65,7 @@ export function PublicAgendaList({
           completed
         />
       ) : null}
+      {showAdminShortcut ? <AdminAgendaShortcut locale={locale} /> : null}
     </div>
   );
 }

@@ -3,6 +3,10 @@ import Image from "next/image";
 import { ArrowUpRightIcon } from "@/components/icons";
 import type { Publication } from "@/data/site";
 import { getDictionary } from "@/data/translations";
+import {
+  formatContributors,
+  publicationImprint,
+} from "@/lib/content/publication-display";
 import type { Locale } from "@/lib/i18n";
 
 export function FeaturedPublicationGrid({
@@ -30,12 +34,12 @@ export function FeaturedPublicationGrid({
               <Image
                 alt={
                   locale === "id"
-                    ? `Sampul buku ${publication.title}`
-                    : `Book cover for ${publication.title}`
+                    ? publication.image.altId || `Sampul buku ${publication.title}`
+                    : publication.image.altEn || `Book cover for ${publication.title}`
                 }
                 fill
                 sizes="(max-width: 1024px) 100vw, 33vw"
-                src={publication.image}
+                src={publication.image.url}
               />
             </div>
           ) : null}
@@ -44,8 +48,8 @@ export function FeaturedPublicationGrid({
             <strong>{publication.year}</strong>
           </div>
           <h3>{publication.title}</h3>
-          <p>{publication.authors}</p>
-          <small>{publication.venue}</small>
+          <p>{formatContributors(publication.authors, locale)}</p>
+          <small>{publicationImprint(publication)}</small>
           {publication.href ? (
             <a
               href={publication.href}

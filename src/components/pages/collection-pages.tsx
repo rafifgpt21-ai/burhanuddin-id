@@ -8,6 +8,10 @@ import { PublicationList } from "@/components/publication-list";
 import { aboutProfile } from "@/data/about";
 import { portraitSource, researchAreas } from "@/data/site";
 import { getDictionary } from "@/data/translations";
+import {
+  publicationGroupKey,
+  publicationSearchText,
+} from "@/lib/content/publication-display";
 import { getPublishedPublications } from "@/lib/content/publications";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
@@ -159,11 +163,14 @@ export async function PublicationsPage({
   const publications = allPublications.filter((publication) => {
     const matchesQuery =
       !query ||
-      [publication.title, publication.authors, publication.venue, publication.year]
-        .join(" ")
+      publicationSearchText(publication)
         .toLocaleLowerCase(locale)
         .includes(query);
-    return (!type || publication.typeKey === type) && (!year || publication.year === year) && matchesQuery;
+    return (
+      (!type || publicationGroupKey(publication) === type) &&
+      (!year || publication.year === year) &&
+      matchesQuery
+    );
   });
   const years = [...new Set(allPublications.map((publication) => publication.year))];
 
@@ -196,11 +203,13 @@ export async function PublicationsPage({
               <label htmlFor="type">{copy.typeLabel}</label>
               <select id="type" name="type" defaultValue={type}>
                 <option value="">{copy.allTypes}</option>
-                {Object.entries(copy.typeNames).map(([value, label]) => (
-                  <option value={value} key={value}>
-                    {label}
-                  </option>
-                ))}
+                {Object.entries(copy.typeNames)
+                  .filter(([value]) => value !== "inaugural-address")
+                  .map(([value, label]) => (
+                    <option value={value} key={value}>
+                      {label}
+                    </option>
+                  ))}
               </select>
             </div>
             <div className="filter-field">
@@ -219,7 +228,7 @@ export async function PublicationsPage({
             </button>
           </form>
           {publications.length > 0 ? (
-            <PublicationList publications={publications} locale={locale} showFullLink />
+            <PublicationList publications={publications} locale={locale} />
           ) : (
             <div className="empty-state">
               <div>

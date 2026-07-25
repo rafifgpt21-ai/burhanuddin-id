@@ -151,11 +151,16 @@ model Publication {
   type              PublicationType
   title             String
   authors           String[]
+  editors           String[]          @default([])
   year              Int
+  dateLabel         String?
+  containerTitle    String?
   venue             String?
   publisher         String?
+  publicationPlace  String?
   volume            String?
   issue             String?
+  seriesNumber      String?
   pages             String?
   doi               String?
   externalUrl       String?
@@ -163,6 +168,8 @@ model Publication {
   contentStatus     ContentStatus     @default(DRAFT)
   abstract          String?
   featured          Boolean           @default(false)
+  cardImageId       String?           @db.ObjectId
+  cardImage         MediaAsset?       @relation("PublicationCardImage", fields: [cardImageId], references: [id])
   coverImage        String?
   sourceName        String
   sourceUrl         String?
@@ -178,17 +185,19 @@ model Publication {
   @@index([status])
   @@index([contentStatus])
   @@index([featured])
+  @@index([cardImageId])
 }
 
 model MediaAsset {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  storageKey String   @unique
-  url        String
-  fileName   String
-  mimeType   String
-  size       Int
-  altTextId  String?
-  altTextEn  String?
-  rightsNote String
-  createdAt  DateTime @default(now())
+  id               String        @id @default(auto()) @map("_id") @db.ObjectId
+  storageKey       String        @unique
+  url              String
+  fileName         String
+  mimeType         String
+  size             Int
+  altTextId        String?
+  altTextEn        String?
+  rightsNote       String
+  publicationCards Publication[] @relation("PublicationCardImage")
+  createdAt        DateTime      @default(now())
 }

@@ -1,3 +1,4 @@
+import { googleScholarProfile } from "@/data/site";
 import type { Locale } from "@/lib/i18n";
 
 export type ResearchCluster = {
@@ -132,6 +133,12 @@ export const contactChannels: Record<Locale, readonly ContactChannel[]> = {
       kind: "institution",
     },
     {
+      label: googleScholarProfile.label,
+      description: "Profil sitasi dan karya akademik.",
+      href: googleScholarProfile.href,
+      kind: "academic-profile",
+    },
+    {
       label: "ResearchGate",
       description: "Jejak publikasi dan keluaran riset.",
       href: "https://www.researchgate.net/profile/Burhanuddin-Muhtadi/research",
@@ -162,6 +169,12 @@ export const contactChannels: Record<Locale, readonly ContactChannel[]> = {
       description: "Official profile at the survey and policy-research institute.",
       href: "https://indikator.co.id/who-we-are-2/bm/",
       kind: "institution",
+    },
+    {
+      label: googleScholarProfile.label,
+      description: "Citation profile and scholarly work.",
+      href: googleScholarProfile.href,
+      kind: "academic-profile",
     },
     {
       label: "ResearchGate",

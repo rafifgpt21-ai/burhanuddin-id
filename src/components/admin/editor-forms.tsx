@@ -243,6 +243,43 @@ export function PublicationEditorForm({
 }) {
   const [state, action, pending] = useActionState(createPublicationAction, initialState);
   const [coverAsset, setCoverAsset] = useState<UploadedAsset | null>(null);
+  const [preview, setPreview] = useState({
+    type: "BOOK",
+    title: "",
+    authors: "",
+    year: "",
+    status: "PUBLISHED",
+    containerTitle: "",
+    publisher: "",
+    publicationPlace: "",
+    volume: "",
+    issue: "",
+    seriesNumber: "",
+    pages: "",
+  });
+  const typeNames: Record<string, string> = {
+    BOOK: "Buku",
+    JOURNAL_ARTICLE: "Artikel jurnal",
+    BOOK_CHAPTER: "Bab buku",
+    ADDITIONAL_RESEARCH_OUTPUT: "Output riset lain",
+  };
+  const updatePreview = (name: keyof typeof preview, value: string) =>
+    setPreview((current) => ({ ...current, [name]: value }));
+  const previewAuthors = preview.authors
+    .split("\n")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .join(", ");
+  const previewImprint =
+    preview.type === "BOOK"
+      ? [preview.publicationPlace, preview.publisher].filter(Boolean).join(": ")
+      : preview.containerTitle;
+  const previewDetails = [
+    preview.volume ? `Vol. ${preview.volume}` : "",
+    preview.issue ? `No. ${preview.issue}` : "",
+    preview.seriesNumber ? `Nomor ${preview.seriesNumber}` : "",
+    preview.pages ? `Hal. ${preview.pages}` : "",
+  ].filter(Boolean);
 
   return (
     <form action={action} className="editor-form">
@@ -264,47 +301,49 @@ export function PublicationEditorForm({
           <div className="editor-section-heading">
             <span>01</span>
             <div>
-              <h3 id="publication-main">Sitasi utama</h3>
-              <p>Pertahankan judul asli dan urutan penulis seperti pada sumber.</p>
+              <h3 id="publication-main">Karya</h3>
+              <p>Masukkan judul publikasi saja—tanpa penulis, tahun, jurnal, atau URL.</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
               Judul asli publikasi
-              <input autoFocus name="title" required />
-            </label>
-            <label className="editor-span-2">
-              Penulis
-              <textarea
-                name="authors"
-                placeholder={"Burhanuddin Muhtadi\nNama penulis berikutnya"}
+              <input
+                autoFocus
+                name="title"
+                onChange={(event) => updatePreview("title", event.target.value)}
                 required
-                rows={3}
               />
-              <small>Satu nama per baris, sesuai urutan publikasi.</small>
+              <small>Gunakan redaksi asli sumber; jangan tempel seluruh sitasi.</small>
             </label>
             <label>
               Tahun
-              <input min="1900" name="year" required type="number" />
+              <input
+                min="1900"
+                name="year"
+                onChange={(event) => updatePreview("year", event.target.value)}
+                required
+                type="number"
+              />
             </label>
             <label>
               Jenis publikasi
-              <select name="type">
+              <select
+                name="type"
+                onChange={(event) => updatePreview("type", event.target.value)}
+              >
                 <option value="BOOK">Buku</option>
                 <option value="JOURNAL_ARTICLE">Artikel jurnal</option>
                 <option value="BOOK_CHAPTER">Bab buku</option>
                 <option value="ADDITIONAL_RESEARCH_OUTPUT">Output riset lain</option>
               </select>
             </label>
-          </div>
-        </section>
-
-        <details className="editor-options">
-          <summary>Detail bibliografis <Optional /></summary>
-          <div className="editor-form-grid">
             <label>
               Status bibliografis
-              <select name="status">
+              <select
+                name="status"
+                onChange={(event) => updatePreview("status", event.target.value)}
+              >
                 <option value="PUBLISHED">Published</option>
                 <option value="FORTHCOMING">Forthcoming</option>
                 <option value="PREPRINT">Preprint</option>
@@ -313,23 +352,139 @@ export function PublicationEditorForm({
               </select>
             </label>
             <label>
-              Venue / jurnal <Optional />
-              <input name="venue" />
+              Keterangan tanggal <Optional />
+              <input name="dateLabel" placeholder="Contoh: Februari" />
+            </label>
+          </div>
+        </section>
+
+        <section className="editor-section" aria-labelledby="publication-contributors">
+          <div className="editor-section-heading">
+            <span>02</span>
+            <div>
+              <h3 id="publication-contributors">Kontributor</h3>
+              <p>Satu nama per baris, dalam urutan yang sama dengan sumber.</p>
+            </div>
+          </div>
+          <div className="editor-form-grid">
+            <label className="editor-span-2">
+              Penulis
+              <textarea
+                name="authors"
+                onChange={(event) => updatePreview("authors", event.target.value)}
+                placeholder={"Burhanuddin Muhtadi\nNama penulis berikutnya"}
+                required
+                rows={4}
+              />
+            </label>
+            {preview.type === "BOOK_CHAPTER" ? (
+              <label className="editor-span-2">
+                Editor buku induk <Optional />
+                <textarea
+                  name="editors"
+                  placeholder={"Nama editor pertama\nNama editor berikutnya"}
+                  rows={3}
+                />
+              </label>
+            ) : (
+              <input name="editors" type="hidden" value="" />
+            )}
+          </div>
+        </section>
+
+        <section className="editor-section" aria-labelledby="publication-bibliography">
+          <div className="editor-section-heading">
+            <span>03</span>
+            <div>
+              <h3 id="publication-bibliography">Detail terbitan</h3>
+              <p>Pisahkan jurnal, buku induk, penerbit, nomor, dan halaman.</p>
+            </div>
+          </div>
+          <div className="editor-form-grid">
+            {preview.type !== "BOOK" ? (
+              <label className="editor-span-2">
+                Jurnal, seri, atau buku induk
+                <input
+                  name="containerTitle"
+                  onChange={(event) =>
+                    updatePreview("containerTitle", event.target.value)
+                  }
+                  required
+                />
+              </label>
+            ) : (
+              <input name="containerTitle" type="hidden" value="" />
+            )}
+            <label>
+              Penerbit {preview.type === "BOOK" ? null : <Optional />}
+              <input
+                name="publisher"
+                onChange={(event) => updatePreview("publisher", event.target.value)}
+                required={preview.type === "BOOK"}
+              />
+            </label>
+            <label>
+              Tempat terbit <Optional />
+              <input
+                name="publicationPlace"
+                onChange={(event) =>
+                  updatePreview("publicationPlace", event.target.value)
+                }
+              />
+            </label>
+            <label>
+              Volume <Optional />
+              <input
+                name="volume"
+                onChange={(event) => updatePreview("volume", event.target.value)}
+              />
+            </label>
+            <label>
+              Issue <Optional />
+              <input
+                name="issue"
+                onChange={(event) => updatePreview("issue", event.target.value)}
+              />
+            </label>
+            <label>
+              Nomor seri <Optional />
+              <input
+                name="seriesNumber"
+                onChange={(event) =>
+                  updatePreview("seriesNumber", event.target.value)
+                }
+              />
+            </label>
+            <label>
+              Halaman <Optional />
+              <input
+                name="pages"
+                onChange={(event) => updatePreview("pages", event.target.value)}
+                placeholder="127-141"
+              />
             </label>
             <label>
               DOI <Optional />
-              <input name="doi" />
+              <input name="doi" placeholder="10.xxxx/..." />
+              <small>Tanpa awalan https://doi.org/.</small>
             </label>
             <label>
               URL kanonis <Optional />
               <input name="externalUrl" placeholder="https://" type="url" />
             </label>
           </div>
-        </details>
+        </section>
 
-        <details className="editor-options">
-          <summary>Gambar kartu <Optional /></summary>
+        <section className="editor-section" aria-labelledby="publication-source-media">
+          <div className="editor-section-heading">
+            <span>04</span>
+            <div>
+              <h3 id="publication-source-media">Sumber dan gambar</h3>
+              <p>Simpan jejak sumber dan hanya gunakan gambar dengan hak yang jelas.</p>
+            </div>
+          </div>
           <div className="publication-cover-editor">
+            <h4>Gambar publikasi <Optional /></h4>
             <div className="admin-upload-zone">
               {ready ? (
                 <UploadDropzone
@@ -355,7 +510,7 @@ export function PublicationEditorForm({
               <p role="status">
                 {coverAsset
                   ? `Gambar siap disimpan: ${coverAsset.fileName}`
-                  : "JPG, PNG, atau WebP maks. 4 MB. Kartu tetap tipografis jika dikosongkan."}
+                  : "JPG, PNG, atau WebP maks. 4 MB. Placeholder bibliografis tampil jika dikosongkan."}
               </p>
             </div>
             {coverAsset ? (
@@ -389,10 +544,6 @@ export function PublicationEditorForm({
               </div>
             ) : null}
           </div>
-        </details>
-
-        <details className="editor-options">
-          <summary>Jejak sumber <Optional /></summary>
           <div className="editor-form-grid">
             <label>
               Nama sumber <Optional />
@@ -407,7 +558,39 @@ export function PublicationEditorForm({
               <textarea name="sourceNote" rows={3} />
             </label>
           </div>
-        </details>
+        </section>
+
+        <section className="publication-admin-preview" aria-labelledby="publication-preview-title">
+          <div className="editor-section-heading">
+            <span aria-hidden="true">↗</span>
+            <div>
+              <h3 id="publication-preview-title">Pratinjau card</h3>
+              <p>Struktur ini mengikuti card pada indeks publikasi.</p>
+            </div>
+          </div>
+          <article>
+            <div className="publication-admin-preview-visual">
+              {coverAsset ? (
+                <Image alt="" fill sizes="120px" src={coverAsset.url} />
+              ) : (
+                <div aria-hidden="true">
+                  <span>{typeNames[preview.type]}</span>
+                  <strong>{preview.year || "20—"}</strong>
+                </div>
+              )}
+            </div>
+            <div>
+              <small>
+                {typeNames[preview.type]} · {preview.year || "Tahun"} ·{" "}
+                {preview.status}
+              </small>
+              <h4>{preview.title || "Judul publikasi"}</h4>
+              <p>{previewAuthors || "Urutan penulis"}</p>
+              {previewImprint ? <p>{previewImprint}</p> : null}
+              {previewDetails.length ? <p>{previewDetails.join(" · ")}</p> : null}
+            </div>
+          </article>
+        </section>
 
         <FormActions pending={pending} ready={ready} />
       </fieldset>

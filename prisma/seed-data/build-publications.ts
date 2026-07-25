@@ -2,6 +2,7 @@ import type { PublicationStatus, PublicationType } from "@prisma/client";
 
 import { extractDoi, extractFirstPublicationUrl } from "../../src/lib/content/publication-url";
 import { curatedPublicationLinks } from "./publication-links";
+import structuredData from "./structured-publications.json";
 
 type PublicationSourceRecord = {
   fingerprint: string;
@@ -16,6 +17,8 @@ type PublicationSourceRecord = {
   };
   note: string;
 };
+
+type StructuredPublication = (typeof structuredData.records)[number];
 
 const publicationTypes = new Set<PublicationType>([
   "BOOK",
@@ -55,6 +58,39 @@ export function buildPublicationSeed(
       record.sourceName === "CV March 2026" ||
       record.sourceName === "Professorial-address audit 19 July 2026",
   );
+  const cvRecords = canonicalRecords.filter(
+    (record) => record.sourceName === "CV March 2026",
+  );
+  const structuredByFingerprint = new Map(
+    structuredData.records.map((record) => [record.fingerprint, record]),
+  );
+  const missingStructuredRecords = cvRecords.filter(
+    (record) => !structuredByFingerprint.has(record.fingerprint),
+  );
+  const unknownStructuredRecords = structuredData.records.filter(
+    (record) =>
+      !cvRecords.some((source) => source.fingerprint === record.fingerprint),
+  );
+  if (
+    cvRecords.length !== 81 ||
+    structuredData.sourceCount !== 81 ||
+    missingStructuredRecords.length ||
+    unknownStructuredRecords.length
+  ) {
+    throw new Error(
+      [
+        `Dataset CV harus memuat tepat 81 record (sumber: ${cvRecords.length}, terstruktur: ${structuredData.sourceCount}).`,
+        missingStructuredRecords.length
+          ? `Fingerprint tanpa metadata: ${missingStructuredRecords.map((record) => record.fingerprint).join(", ")}.`
+          : "",
+        unknownStructuredRecords.length
+          ? `Fingerprint metadata tanpa sumber: ${unknownStructuredRecords.map((record) => record.fingerprint).join(", ")}.`
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" "),
+    );
+  }
   const canonicalFingerprints = new Set(
     canonicalRecords.map((record) => record.fingerprint),
   );
@@ -69,7 +105,7 @@ export function buildPublicationSeed(
   }
 
   const records = canonicalRecords.map((record) => {
-    const isAddress = record.sourceName.startsWith("Professorial-address");
+    const structured = structuredByFingerprint.get(record.fingerprint);
     const curated = curatedPublicationLinks[record.fingerprint];
     const extractedDoi = extractDoi(record.rawText);
     const doi = curated?.doi ?? extractedDoi;
@@ -94,12 +130,61 @@ export function buildPublicationSeed(
       ? `Tautan diverifikasi 20 Juli 2026 melalui ${curated.source}.`
       : "Tautan dinormalisasi dari sitasi sumber; DOI diprioritaskan sebagai URL kanonis.";
 
-    return {
-      type: asPublicationType(record.rawPayload.suggestedType),
+    const bibliographic: Omit<
+      StructuredPublication,
+      "fingerprint" | "type"
+    > = structured ?? {
       title: record.rawText,
-      rawCitation: record.rawText,
-      authors: isAddress ? ["Burhanuddin Muhtadi"] : [],
+      authors: ["Burhanuddin Muhtadi"],
+      editors: [],
       year,
+      dateLabel: "29 November 2023",
+      containerTitle: "FISIP UIN Syarif Hidayatullah Jakarta",
+      publisher: null,
+      publicationPlace: "Jakarta",
+      volume: null,
+      issue: null,
+      seriesNumber: null,
+      pages: null,
+    };
+    const type = asPublicationType(record.rawPayload.suggestedType);
+    if (
+      structured &&
+      (structured.type !== type ||
+        structured.year !== year ||
+        !structured.title ||
+        !structured.authors.length ||
+        /https?:\/\//i.test(structured.title))
+    ) {
+      throw new Error(
+        `Metadata bibliografis tidak konsisten dengan sumber: ${record.fingerprint}`,
+      );
+    }
+    if (
+      type !== "BOOK" &&
+      !bibliographic.containerTitle
+    ) {
+      throw new Error(
+        `Karya non-buku wajib memiliki wadah bibliografis: ${record.fingerprint}`,
+      );
+    }
+
+    return {
+      type,
+      title: bibliographic.title,
+      rawCitation: record.rawText,
+      authors: bibliographic.authors,
+      editors: bibliographic.editors,
+      year,
+      dateLabel: bibliographic.dateLabel,
+      containerTitle: bibliographic.containerTitle,
+      venue: bibliographic.containerTitle,
+      publisher: bibliographic.publisher,
+      publicationPlace: bibliographic.publicationPlace,
+      volume: bibliographic.volume,
+      issue: bibliographic.issue,
+      seriesNumber: bibliographic.seriesNumber,
+      pages: bibliographic.pages,
       doi: doi ?? null,
       externalUrl,
       status: asPublicationStatus(record.rawPayload.suggestedStatus),

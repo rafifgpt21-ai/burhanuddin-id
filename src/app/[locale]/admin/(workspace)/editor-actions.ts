@@ -151,7 +151,12 @@ export async function createPublicationAction(
   const parsed = publicationInputSchema.safeParse({
     type: text(formData, "type"), title: text(formData, "title"),
     authors: text(formData, "authors").split("\n").map((item) => item.trim()).filter(Boolean),
-    year: text(formData, "year"), venue: text(formData, "venue"), doi: text(formData, "doi"),
+    editors: text(formData, "editors").split("\n").map((item) => item.trim()).filter(Boolean),
+    year: text(formData, "year"), dateLabel: text(formData, "dateLabel"),
+    containerTitle: text(formData, "containerTitle"), publisher: text(formData, "publisher"),
+    publicationPlace: text(formData, "publicationPlace"), volume: text(formData, "volume"),
+    issue: text(formData, "issue"), seriesNumber: text(formData, "seriesNumber"),
+    pages: text(formData, "pages"), doi: text(formData, "doi"),
     externalUrl: text(formData, "externalUrl"), status: text(formData, "status"),
     coverImage: text(formData, "coverImage"),
     coverRightsNote: text(formData, "coverRightsNote"),
@@ -177,17 +182,21 @@ export async function createPublicationAction(
     return { message: "Metadata unggahan gambar publikasi tidak valid." };
   }
   await prisma.$transaction(async (database) => {
+    let cardImageId: string | null = null;
     if (coverStorageKey && parsed.data.coverImage) {
-      await database.mediaAsset.create({
+      const cardImage = await database.mediaAsset.create({
         data: {
           storageKey: coverStorageKey,
           url: parsed.data.coverImage,
           fileName: coverFileName,
           mimeType: coverMimeType,
           size: coverFileSize,
+          altTextId: `Gambar publikasi ${parsed.data.title}`,
+          altTextEn: `Publication image for ${parsed.data.title}`,
           rightsNote: parsed.data.coverRightsNote || "",
         },
       });
+      cardImageId = cardImage.id;
     }
 
     const publication = { ...parsed.data };
@@ -195,9 +204,19 @@ export async function createPublicationAction(
     await database.publication.create({
       data: {
         ...publication,
-        venue: publication.venue || null,
+        editors: publication.editors,
+        dateLabel: optional(publication.dateLabel || ""),
+        containerTitle: optional(publication.containerTitle || ""),
+        venue: optional(publication.containerTitle || ""),
+        publisher: optional(publication.publisher || ""),
+        publicationPlace: optional(publication.publicationPlace || ""),
+        volume: optional(publication.volume || ""),
+        issue: optional(publication.issue || ""),
+        seriesNumber: optional(publication.seriesNumber || ""),
+        pages: optional(publication.pages || ""),
         doi: publication.doi || null,
         externalUrl: publication.externalUrl || null,
+        cardImageId,
         coverImage: publication.coverImage || null,
         sourceUrl: publication.sourceUrl || null,
         sourceNote: publication.sourceNote || "",
