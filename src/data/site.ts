@@ -153,7 +153,13 @@ export function getHomepagePublicationSelection(
   };
 }
 
+export const googleScholarProfile = {
+  label: "Google Scholar",
+  href: "https://scholar.google.com/citations?user=6lIR9E4AAAAJ&hl=en",
+} as const;
+
 export const externalProfiles = [
+  googleScholarProfile,
   {
     label: "ResearchGate",
     href: "https://www.researchgate.net/profile/Burhanuddin-Muhtadi/research",

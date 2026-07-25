@@ -19,6 +19,8 @@
 - On 24 July 2026, the owner supplied twelve approved book-cover files and authorized their UploadThing upload and association with the matching canonical book records. The forthcoming 2026 book remains without a cover until an approved asset is supplied.
 - On 24 July 2026, the owner redesigned the homepage publication section to show the three most recent books with approved covers followed directly by three selected non-book works. Only the book group retains a visible label; the non-book group is identified by its card metadata without an extra heading or item count. Database records are preferred when three eligible covered books are available; the approved featured-book dataset is the fallback while database access is unavailable.
 - On 24 July 2026, the owner removed the `Needs Review` status and source-candidate queue from the product. The private editor works directly with canonical publication records; the static source extraction remains an internal, reproducible seed input and is never exposed as an application workflow.
+- On 25 July 2026, the owner approved a compact mobile-homepage pass. At 720px and below the thesis, lead, both actions, and portrait form a one-screen hero from 375x812 upward; the desktop role strip is omitted and the portrait expands to a larger 4:3 field. Research, publications, outreach, and the closing action use a denser homepage-only rhythm without shortening approved copy or changing data order.
+- On 25 July 2026, the owner supplied and approved Burhanuddin Muhtadi's Google Scholar profile URL. It appears as a secondary academic-profile link in the homepage closing action and the shared footer profile list.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -196,7 +198,7 @@ Avoid a full-screen portrait splash or generic credibility metrics. The first vi
    - Approved portrait on the left and a research thesis on the right at desktop widths; copy precedes the portrait on mobile.
    - Primary action: `Jelajahi Riset / Explore the research`.
    - Secondary action: `Lihat Publikasi / View publications`.
-   - Three current roles appear as source-backed text without affiliation logos.
+   - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
 2. **Research ledger**
    - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
    - A blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
@@ -358,7 +360,8 @@ The plan may proceed with placeholders in a development environment, but placeho
 - A blue-first contemporary academic dossier with the clarity of a research notebook, not a generic magazine or institutional brochure.
 - Content density should be moderate: easy to scan, but never waste the first viewport.
 - Desktop layouts use a wide editorial grid up to roughly 1520px for general content. The homepage hero and its primary collection rail expand nearly edge-to-edge with bounded gutters so the introduction and portrait make full use of wide screens. Tablet and mobile layouts collapse in reading order without losing actions or metadata.
-- At 720px and below, use 20-24px side gutters, approximately 56px public-section spacing, 40-50px page-hero titles, and stacked primary actions. The homepage thesis retains its approved wording at 44-52px, followed by a horizontal portrait crop. Profile, research ledger, collection filters, outreach, contact channels, and footer navigation must recompose for mobile instead of merely shrinking desktop columns.
+- At 720px and below, use 20-24px side gutters, approximately 44px homepage-section spacing, 40-50px dedicated page-hero titles, and compact accessible actions. The homepage thesis retains its approved wording at approximately 36-41px, followed by a larger 4:3 portrait field with its caption overlaid inside the image. From 360px upward its two 48px actions share one row; below 360px they stack. Profile, research ledger, collection filters, outreach, contact channels, and footer navigation must recompose for mobile instead of merely shrinking desktop columns.
+- From 375x812 upward, the 64px header and complete homepage hero fit within one viewport. The hero may expand naturally on shorter devices and at 200% zoom; content must never be clipped or made artificially small to satisfy the one-screen target.
 
 ### Design tokens to validate during implementation
 
@@ -540,7 +543,9 @@ Pin exact package versions only during implementation after checking the locally
 
 ## MVP acceptance checklist
 
-- [ ] The homepage keeps direct hero actions to Research and Publications, with the thesis, lead, both actions, and the beginning of the portrait visible at 390x844 without horizontal scrolling.
+- [ ] The homepage keeps direct hero actions to Research and Publications; at 375x812 and 390x844 the thesis, lead, both actions, and complete 4:3 portrait fit below the 64px header within one viewport without horizontal scrolling.
+- [ ] At 720px and below, the homepage role strip is not rendered; current roles remain available on the Profile page and at wider breakpoints.
+- [ ] At 320x568 and 200% zoom, the homepage hero expands naturally without clipping copy, actions, or portrait content.
 - [ ] At 840px and below, the public header presents only `BM`, `ID / EN`, and Menu; editor access remains available as a secondary menu item.
 - [ ] Materi Kuliah is available from the footer and remains easy to reach from relevant page content without appearing in the top bar.
 - [ ] Students can search and filter materials and share the resulting URL.

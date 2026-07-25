@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FeaturedPublicationGrid } from "@/components/featured-publication-grid";
-import { ArrowRightIcon } from "@/components/icons";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/icons";
 import { PublicAgendaList } from "@/components/public-agenda-list";
 import { ResearchLedger } from "@/components/research-ledger";
 import { SectionHeading } from "@/components/section-heading";
 import { aboutProfile } from "@/data/about";
 import {
   getHomepagePublicationSelection,
+  googleScholarProfile,
   portraitSource,
   roles,
 } from "@/data/site";
@@ -69,16 +70,21 @@ export async function HomePage({ locale }: { locale: Locale }) {
             </figcaption>
           </figure>
 
-          <div className="editorial-role-rail" aria-label={copy.rolesLabel}>
-            {roles[locale].map((role, index) => (
-              <div key={role}>
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <p>{role}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
+      <aside className="editorial-role-strip" aria-label={copy.rolesLabel}>
+        <div className="shell editorial-role-rail">
+          {roles[locale].map((role, index) => (
+            <div key={role}>
+              <span aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p>{role}</p>
+            </div>
+          ))}
+        </div>
+      </aside>
 
       <section className="section research-ledger-section">
         <div className="shell">
@@ -184,7 +190,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
         <div className="shell home-closing-grid">
           <p>{copy.closing.eyebrow}</p>
           <h2>{copy.closing.title}</h2>
-          <div>
+          <div className="home-closing-actions">
             <Link
               className="button button-on-dark"
               href={getRoutePath(locale, "contact")}
@@ -198,6 +204,15 @@ export async function HomePage({ locale }: { locale: Locale }) {
             >
               {copy.closing.profileAction}
             </Link>
+            <a
+              className="text-link text-link-on-dark"
+              href={googleScholarProfile.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {googleScholarProfile.label}
+              <ArrowUpRightIcon />
+            </a>
           </div>
         </div>
       </section>
