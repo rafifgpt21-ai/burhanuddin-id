@@ -43,7 +43,7 @@ const id = {
   home: {
     metadataTitle: "Beranda",
     brandIntro: {
-      label: "Situs resmi · Profesor Burhanuddin Muhtadi, M.A., Ph.D.",
+      label: "Situs resmi Profesor Burhanuddin Muhtadi",
       tagline: "Mengawal Kekuasaan. Menjaga Kewarasan.",
       quote:
         "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
@@ -54,9 +54,8 @@ const id = {
     index: "Indeks",
     indexRange: "01—04",
     indexTopic: "Politik Indonesia",
-    eyebrow: "Ilmuwan politik · pendidik · penulis",
     academicName: {
-      prefix: "Profesor",
+      prefix: "Prof.",
       name: "Burhanuddin Muhtadi",
       suffix: "M.A., Ph.D.",
     },
@@ -350,7 +349,7 @@ const en = {
   home: {
     metadataTitle: "Home",
     brandIntro: {
-      label: "Official website · Professor Burhanuddin Muhtadi, M.A., Ph.D.",
+      label: "The official website of Professor Burhanuddin Muhtadi",
       tagline: "Watching Power. Safeguarding Sanity",
       quote:
         "Survei opini publik itu ibarat cermin. Tugasnya memantulkan realitas apa adanya. Kalau gambaran di cermin terlihat kurang menyenangkan, jangan cerminnya yang dipecahkan, melainkan perbaikilah tampilannya.",
@@ -361,9 +360,8 @@ const en = {
     index: "Index",
     indexRange: "01—04",
     indexTopic: "Indonesian politics",
-    eyebrow: "Political scientist · educator · author",
     academicName: {
-      prefix: "Professor",
+      prefix: "Prof.",
       name: "Burhanuddin Muhtadi",
       suffix: "M.A., Ph.D.",
     },

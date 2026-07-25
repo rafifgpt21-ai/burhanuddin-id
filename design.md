@@ -27,12 +27,15 @@
 - On 25 July 2026, the owner removed the logo and `Burhanuddin Muhtadi` wordmark from the public header and centered the six-link desktop navigation. Language and editor controls remain separate on the right; mobile retains the language switcher and menu without a brand mark.
 - On 25 July 2026, the owner removed publication and source-list sections from the About page because the canonical record belongs on Publications. The public navigation now places Publications before Research, and the 2023 career title begins directly with `Guru Besar bidang Ilmu Politik`.
 - On 25 July 2026, the owner left-aligned the homepage identity composition and added the approved Indonesian public-opinion quotation to the right of the logo and tagline. The quote moves below the identity block on narrow screens and remains in Indonesian on both locale variants until an English translation receives editorial approval.
-- On 25 July 2026, the owner replaced the homepage editorial-hero thesis with an academic name lockup: `Profesor / Professor` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below.
+- On 25 July 2026, the owner replaced the homepage editorial-hero thesis with an academic name lockup: `Prof.` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below.
 - On 25 July 2026, the owner changed the About biography opening from oversized display copy into the first paragraph of the regular biography reading flow.
 - On 25 July 2026, the owner removed the dated dossier/review folio from the About page hero.
 - On 25 July 2026, the owner removed the Research and Publications buttons from the homepage editorial hero and replaced them with a single shortcut to the full Profile/About page.
-- On 25 July 2026, the owner required both the homepage official-site label and editorial-hero name lockup to spell out `Profesor / Professor` rather than abbreviating it as `Prof.`.
+- On 25 July 2026, the owner required the homepage official-site label to spell out `Profesor / Professor`, while the editorial-hero name lockup uses the shorter `Prof.` and omits the profession/role eyebrow above it.
 - On 25 July 2026, the owner removed the secondary hero folios from the About, Publications, Research, Outreach, and Contact pages.
+- On 26 July 2026, the owner restored the homepage identity section to its original nearly full-viewport scale after briefly reviewing a compact variant. The label, logo, tagline, quotation, spacing, and folio use the earlier larger composition on desktop and mobile.
+- On 26 July 2026, the owner removed `M.A., Ph.D.` and the middle-dot separator from the homepage official-site label. The labels read `Situs resmi Profesor Burhanuddin Muhtadi` and `The official website of Professor Burhanuddin Muhtadi`; academic degrees remain in the editorial-hero name lockup.
+- On 26 July 2026, the owner placed Selected Publications before the Research ledger on the homepage and exchanged their background treatments. Publications now use the white editorial surface, while Research uses the navy surface with contrast-adjusted text, rules, links, and ledger markers.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -204,23 +207,25 @@ Do not add a separate global search page initially. A header search action may o
 The first viewport is a quiet identity title page rather than a portrait splash or generic credibility block. It leads directly into the academic name lockup, profile summary, and current roles.
 
 1. **Identity title page**
-   - Nearly fills the viewport below the sticky header. The localized official-site label names `Profesor Burhanuddin Muhtadi, M.A., Ph.D.` / `Professor Burhanuddin Muhtadi, M.A., Ph.D.` in one clear line; it, the approved UploadThing `BM` logo, and tagline form a left-aligned identity block while the quotation occupies a quieter column to its right.
+   - Nearly fills the viewport below the sticky header. The localized official-site label reads `Situs resmi Profesor Burhanuddin Muhtadi` / `The official website of Professor Burhanuddin Muhtadi` in one clear line; it, the approved UploadThing `BM` logo, and tagline form a left-aligned identity block while the quotation occupies a quieter column to its right. Academic degrees remain in the following academic name lockup.
    - Indonesian tagline: `Mengawal Kekuasaan. Menjaga Kewarasan.` English tagline: `Watching Power. Safeguarding Sanity`.
    - The approved quotation appears in Indonesian on both locale variants until its English translation is editorially reviewed. At 720px and below it moves beneath the identity block.
    - A bottom folio rail shows `Ilmu politik · demokrasi · opini publik / Political science · democracy · public opinion` and a localized anchor to the academic hero. At 720px and below, omit the field summary and center the anchor.
    - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, portraiture, or decorative motion.
 2. **Editorial hero**
    - Approved portrait on the left and an academic name lockup on the right at desktop widths; copy precedes the portrait on mobile.
-   - The name lockup uses `Profesor / Professor` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below in smaller type.
+   - The name lockup uses `Prof.` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below in smaller type. It does not repeat a profession/role eyebrow above the academic title.
    - Sole action: `Lihat profil lengkap / View full profile`.
    - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
-3. **Research ledger**
-   - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
-   - A blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
-4. **Selected publications**
+3. **Selected publications**
    - Two static groups with no carousel: the three most recent books that have approved covers, followed directly by three selected non-book works. Do not show a visible `Karya non-buku / Non-book work` heading or `03` count above the second group.
    - Book covers lead the first group; non-book records remain typographic so the difference in publication format is explicit.
    - Cover art is omitted unless an approved, rights-cleared asset exists.
+   - Use the white editorial surface with blue and navy text treatments.
+4. **Research ledger**
+   - Four research clusters connect voting behaviour and vote buying, democratic decline and populism, political Islam, and electoral surveys/public opinion to related approved work.
+   - A bright-blue editorial spine is the signature structural device; it encodes the relationship between themes and evidence rather than serving as decoration.
+   - Use the navy surface with contrast-adjusted light text, rules, links, and ledger markers.
 5. **Kiprah / Outreach preview**
    - Verified agenda state and selected academic forums in a two-column layout.
    - Course materials appear as a quiet secondary link.
@@ -566,7 +571,7 @@ Pin exact package versions only during implementation after checking the locally
 ## MVP acceptance checklist
 
 - [ ] At 375x812 and 390x844, the localized identity title page fills the viewport below the 64px header without clipping, distortion, or horizontal scrolling; the editorial hero follows immediately after it.
-- [ ] The localized official-site label includes the fully written `Profesor / Professor Burhanuddin Muhtadi, M.A., Ph.D.`, remains on one line, and stays legible without causing horizontal overflow.
+- [ ] The localized official-site label reads `Situs resmi Profesor Burhanuddin Muhtadi` / `The official website of Professor Burhanuddin Muhtadi`, remains on one line, and stays legible without causing horizontal overflow.
 - [ ] The identity folio anchor scrolls to the academic hero without placing its heading beneath the sticky header; its field summary is hidden at 720px and below.
 - [ ] Once reached, the homepage academic name lockup, lead, profile action, and complete 4:3 portrait fit within one mobile viewport without horizontal scrolling.
 - [ ] At 720px and below, the homepage role strip is not rendered; current roles remain available on the Profile page and at wider breakpoints.

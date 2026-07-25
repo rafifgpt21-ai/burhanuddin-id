@@ -68,7 +68,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
       <section className="editorial-hero" id="profil-akademik">
         <div className="shell editorial-hero-grid">
           <div className="editorial-hero-copy">
-            <p className="eyebrow">{copy.eyebrow}</p>
             <h1 className="editorial-academic-name">
               <span className="editorial-academic-prefix">
                 {copy.academicName.prefix}
@@ -123,12 +122,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
         </div>
       </aside>
 
-      <section className="section research-ledger-section">
-        <div className="shell">
-          <ResearchLedger locale={locale} />
-        </div>
-      </section>
-
       <section className="section featured-publications-section">
         <div className="shell">
           <SectionHeading
@@ -176,6 +169,12 @@ export async function HomePage({ locale }: { locale: Locale }) {
               />
             </section>
           </div>
+        </div>
+      </section>
+
+      <section className="section research-ledger-section">
+        <div className="shell">
+          <ResearchLedger locale={locale} />
         </div>
       </section>
 
