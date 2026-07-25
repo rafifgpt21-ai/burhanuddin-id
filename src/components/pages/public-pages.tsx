@@ -15,7 +15,7 @@ export function ResearchPage({ locale }: { locale: Locale }) {
 
   return (
     <main id="konten-utama">
-      <PageHero {...copy} />
+      <PageHero {...copy} showIndex={false} />
       <section className="page-content research-page">
         <div className="shell">
           <ResearchLedger locale={locale} showIntroduction={false} />
@@ -42,7 +42,7 @@ export async function OutreachPage({ locale }: { locale: Locale }) {
 
   return (
     <main id="konten-utama">
-      <PageHero {...copy} />
+      <PageHero {...copy} showIndex={false} />
       <section className="page-content outreach-page">
         <div className="shell outreach-page-grid">
           <section id="agenda" className="outreach-agenda-section">
@@ -96,7 +96,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
   return (
     <main id="konten-utama">
-      <PageHero {...copy} />
+      <PageHero {...copy} showIndex={false} />
       <section className="page-content contact-page">
         <div className="shell contact-page-grid">
           <ContactChannelList locale={locale} />

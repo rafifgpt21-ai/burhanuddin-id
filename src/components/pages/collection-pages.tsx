@@ -176,7 +176,7 @@ export async function PublicationsPage({
 
   return (
     <main id="konten-utama">
-      <PageHero {...copy} />
+      <PageHero {...copy} showIndex={false} />
       <section className="page-content publication-page">
         <div className="shell">
           <div className="content-note">

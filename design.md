@@ -32,6 +32,7 @@
 - On 25 July 2026, the owner removed the dated dossier/review folio from the About page hero.
 - On 25 July 2026, the owner removed the Research and Publications buttons from the homepage editorial hero and replaced them with a single shortcut to the full Profile/About page.
 - On 25 July 2026, the owner required both the homepage official-site label and editorial-hero name lockup to spell out `Profesor / Professor` rather than abbreviating it as `Prof.`.
+- On 25 July 2026, the owner removed the secondary hero folios from the About, Publications, Research, Outreach, and Contact pages.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
