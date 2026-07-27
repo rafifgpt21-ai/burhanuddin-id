@@ -8,16 +8,24 @@ import { buildPublicationSeed } from "../prisma/seed-data/build-publications";
 import { publicationCoverSources } from "../prisma/seed-data/publication-covers";
 import {
   agendaInputSchema,
+  getPublishReadiness,
+  homepageInputSchema,
   materialInputSchema,
   postInputSchema,
   publicationInputSchema,
 } from "../src/lib/validation/content";
+import { canTransitionEditorialStatus } from "../src/lib/content/editorial-state";
+import { toJsonSnapshot } from "../src/lib/content/snapshots";
 import {
   extractDoi,
   extractFirstHttpsUrl,
   extractFirstPublicationUrl,
 } from "../src/lib/content/publication-url";
-import { canAccessAdmin, canManageUsers } from "../src/lib/auth/access";
+import {
+  canAccessAdmin,
+  canManageUsers,
+  canPermanentlyDelete,
+} from "../src/lib/auth/access";
 import {
   createAdminUserSchema,
   updateOwnAccountSchema,
@@ -120,6 +128,165 @@ test("post draft only requires Indonesian title and content", () => {
   });
 
   assert.equal(result.success, true);
+});
+
+test("post blocks allow safe editorial media and reject arbitrary video hosts", () => {
+  const base = {
+    titleId: "Catatan tentang demokrasi",
+    titleEn: "Notes on democracy",
+    slugId: "catatan-tentang-demokrasi",
+    slugEn: "notes-on-democracy",
+    excerptId: "Ringkasan tulisan yang telah ditinjau.",
+    excerptEn: "A reviewed summary of the article.",
+    topics: [],
+    pinned: false,
+    coverImage: "",
+    canonicalExternal: "",
+    status: "DRAFT",
+  } as const;
+  assert.equal(postInputSchema.safeParse({
+    ...base,
+    contentId: [{ type: "video", title: "Kuliah", url: "https://youtube.com/watch?v=abc" }],
+    contentEn: [{ type: "paragraph", text: "English article." }],
+  }).success, true);
+  assert.equal(postInputSchema.safeParse({
+    ...base,
+    contentId: [{ type: "video", title: "Unsafe", url: "https://example.com/embed" }],
+    contentEn: [],
+  }).success, false);
+});
+
+test("post publishing allows empty English fields", () => {
+  const issues = getPublishReadiness("POST", {
+    titleId: "Catatan tentang demokrasi",
+    titleEn: "",
+    slugId: "catatan-tentang-demokrasi",
+    slugEn: "",
+    excerptId: "Ringkasan Indonesia yang telah ditinjau.",
+    excerptEn: "",
+    contentId: [{ type: "paragraph", text: "Isi naskah utama." }],
+    contentEn: [],
+    topics: [],
+    pinned: false,
+    coverImage: "",
+    canonicalExternal: "",
+    status: "DRAFT",
+  });
+  assert.deepEqual(issues, []);
+});
+
+test("agenda and material publishing allow empty English fields", () => {
+  const agendaIssues = getPublishReadiness("AGENDA", {
+    titleId: "Agenda akademik",
+    titleEn: "",
+    slugId: "agenda-akademik",
+    slugEn: "",
+    descriptionId: "Deskripsi agenda Indonesia yang cukup panjang.",
+    descriptionEn: "",
+    startsAt: "2026-08-03T09:00:00+07:00",
+    endsAt: undefined,
+    locationLabelId: "Jakarta",
+    locationLabelEn: "",
+    externalUrl: "",
+    status: "DRAFT",
+  });
+  const materialIssues = getPublishReadiness("MATERIAL", {
+    titleId: "Materi ilmu politik",
+    titleEn: "",
+    slugId: "materi-ilmu-politik",
+    slugEn: "",
+    descriptionId: "Deskripsi materi Indonesia yang cukup panjang.",
+    descriptionEn: "",
+    courseId: "Ilmu Politik",
+    courseEn: "",
+    topicId: "Pemilu",
+    topicEn: "",
+    resourceType: "SLIDE",
+    semester: "",
+    academicYear: "",
+    tagsId: ["Pemilu"],
+    tagsEn: [],
+    assetId: "asset-id",
+    externalUrl: "",
+    downloadAllowed: true,
+    pinned: false,
+    status: "DRAFT",
+  });
+
+  assert.deepEqual(agendaIssues, []);
+  assert.deepEqual(materialIssues, []);
+});
+
+test("homepage English fields may all be empty", () => {
+  const id = {
+    officialLabel: "Situs resmi Profesor Burhanuddin Muhtadi",
+    tagline: "Mengawal kekuasaan dan menjaga kewarasan",
+    quote: "Kutipan Indonesia yang cukup panjang untuk kebutuhan validasi beranda.",
+    fields: "Politik Indonesia dan opini publik",
+    continueAction: "Lanjutkan",
+    academicPrefix: "Prof.",
+    academicName: "Burhanuddin Muhtadi",
+    academicSuffix: "M.A., Ph.D.",
+    lead: "Profil akademik Indonesia yang cukup panjang untuk kebutuhan validasi.",
+    profileAction: "Lihat profil",
+    portraitCaption: "Profesor Ilmu Politik",
+    roles: ["Profesor Ilmu Politik", "Direktur Eksekutif", "Pengajar"],
+    publicationEyebrow: "Publikasi",
+    publicationTitle: "Karya terpilih",
+    publicationDescription: "Pilihan karya akademik dan buku yang telah diterbitkan.",
+    publicationAction: "Semua publikasi",
+    booksLabel: "Buku terbaru",
+    outreachEyebrow: "Kiprah",
+    outreachTitle: "Kiprah publik",
+    outreachDescription: "Agenda dan forum akademik yang akan datang.",
+    outreachAction: "Lihat kiprah",
+    agendaLabel: "Agenda",
+    forumLabel: "Forum",
+    materialsAction: "Materi kuliah",
+    closingEyebrow: "Kontak",
+    closingTitle: "Terhubung",
+    contactAction: "Hubungi",
+    closingProfileAction: "Lihat profil",
+  };
+  const result = homepageInputSchema.safeParse({
+    id,
+    en: {},
+    logoUrl: "https://example.com/logo.png",
+    portraitUrl: "https://example.com/portrait.jpg",
+    portraitAltId: "Potret resmi Burhanuddin Muhtadi",
+    portraitAltEn: "",
+    mediaRightsNote: "Aset disetujui pemilik situs.",
+    research: ["money-politics", "democracy", "political-islam", "public-opinion"].map((key, index) => ({
+      key,
+      titleId: `Tema riset Indonesia ${index + 1}`,
+      titleEn: "",
+      descriptionId: "Deskripsi tema riset Indonesia yang cukup panjang untuk validasi.",
+      descriptionEn: "",
+      workYear: "2026",
+      workTitle: `Karya terkait ${index + 1}`,
+      workUrl: "",
+    })),
+    forums: [1, 2].map((index) => ({
+      year: "2026",
+      titleId: `Forum akademik ${index}`,
+      titleEn: "",
+      institutionId: "Institusi akademik",
+      institutionEn: "",
+    })),
+    scholar: { label: "Google Scholar", href: "https://scholar.google.com" },
+  });
+
+  assert.equal(result.success, true);
+});
+
+test("homepage payload requires four research themes and two forums", () => {
+  const schemaSource = readFileSync(
+    new URL("../src/lib/validation/content.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(schemaSource, /research:\s*z\.array\(homepageResearchSchema\)\.length\(4\)/);
+  assert.match(schemaSource, /\.length\(2\)/);
+  assert.equal(typeof homepageInputSchema.safeParse, "function");
 });
 
 test("agenda rejects an end time before its start time", () => {
@@ -257,7 +424,7 @@ test("approved book covers map once to canonical CV book records", () => {
   );
 });
 
-test("homepage mixes three latest covered books with three non-book works", () => {
+test("homepage supports ordered book curation with safe latest-book fallback", () => {
   const selection = getHomepagePublicationSelection();
 
   assert.deepEqual(
@@ -291,6 +458,18 @@ test("homepage mixes three latest covered books with three non-book works", () =
     ),
     ["database-book-0", "database-book-1", "database-book-2"],
   );
+
+  const editorialBookOrder = [2, 3, 1];
+  const selectedBooks = databaseBooks.map((publication, index) => ({
+    ...publication,
+    homepageOrder: editorialBookOrder[index],
+  }));
+  assert.deepEqual(
+    getHomepagePublicationSelection(selectedBooks).books.map(
+      (publication) => publication.id,
+    ),
+    ["database-book-2", "database-book-0", "database-book-1"],
+  );
 });
 
 test("publication search includes structured contributors, publisher, DOI, and grouped type", () => {
@@ -312,7 +491,11 @@ test("public publication loader never reads the internal raw citation", () => {
     "utf8",
   );
   assert.doesNotMatch(loaderSource, /\brawCitation\b/);
-  assert.match(loaderSource, /title:\s*record\.title/);
+  assert.match(loaderSource, /canonicalPublicationByFingerprint/);
+  assert.match(loaderSource, /title:\s*migrationValue\.title/);
+  assert.match(loaderSource, /approvedCoverRightsByFingerprint/);
+  assert.doesNotMatch(loaderSource, /authors:\s*\{\s*isEmpty:/);
+  assert.match(loaderSource, /\["published-publications-v3"\]/);
 });
 
 test("only super admin can manage users while every editorial role can sign in", () => {
@@ -322,6 +505,37 @@ test("only super admin can manage users while every editorial role can sign in",
   assert.equal(canManageUsers("SUPER_ADMIN"), true);
   assert.equal(canManageUsers("ADMIN"), false);
   assert.equal(canManageUsers("EDITOR"), false);
+  assert.equal(canPermanentlyDelete("SUPER_ADMIN"), true);
+  assert.equal(canPermanentlyDelete("ADMIN"), true);
+  assert.equal(canPermanentlyDelete("EDITOR"), false);
+});
+
+test("editorial state machine only permits approved transitions", () => {
+  assert.equal(canTransitionEditorialStatus("DRAFT", "publish"), true);
+  assert.equal(canTransitionEditorialStatus("PUBLISHED", "publish"), true);
+  assert.equal(canTransitionEditorialStatus("PUBLISHED", "unpublish"), true);
+  assert.equal(canTransitionEditorialStatus("ARCHIVED", "restore"), true);
+  assert.equal(canTransitionEditorialStatus("ARCHIVED", "publish"), false);
+  assert.equal(canTransitionEditorialStatus("DRAFT", "restore"), false);
+});
+
+test("agenda snapshots convert dates to JSON-safe ISO strings", () => {
+  const startsAt = new Date("2026-08-03T02:00:00.000Z");
+  assert.deepEqual(toJsonSnapshot({ startsAt }), {
+    startsAt: "2026-08-03T02:00:00.000Z",
+  });
+});
+
+test("editorial schema contains snapshots, revisions, redirects, and homepage selection", () => {
+  const schema = readFileSync(
+    new URL("../prisma/schema.prisma", import.meta.url),
+    "utf8",
+  );
+  assert.match(schema, /model HomepageContent/);
+  assert.match(schema, /model ContentRevision/);
+  assert.match(schema, /model SlugRedirect/);
+  assert.match(schema, /homepageOrder\s+Int\?/);
+  assert.match(schema, /publishedSnapshot\s+Json\?/);
 });
 
 test("new users require a normalized username and a confirmed strong password", () => {
@@ -424,6 +638,52 @@ test("public navigation prioritizes Publications and About omits publication sec
 test("admin navigation places agenda inside Kiprah and Outreach", () => {
   assert.equal(getAdminCopy("id").workspace.agenda, "Kiprah · Agenda");
   assert.equal(getAdminCopy("en").workspace.agenda, "Outreach · Agenda");
+});
+
+test("homepage admin uses a dedicated section map and automatic-source controls", () => {
+  const managerSource = readFileSync(
+    new URL(
+      "../src/components/admin/homepage-management.tsx",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  const editorSource = readFileSync(
+    new URL("../src/components/admin/homepage-editor.tsx", import.meta.url),
+    "utf8",
+  );
+  const selectionSource = readFileSync(
+    new URL(
+      "../src/components/admin/homepage-publication-selection.tsx",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  const actionSource = readFileSync(
+    new URL(
+      "../src/app/[locale]/admin/(workspace)/editor-actions.ts",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+
+  for (const anchor of [
+    "identitas",
+    "profil",
+    "publikasi",
+    "riset",
+    "kiprah",
+    "penutup",
+  ]) {
+    assert.match(managerSource, new RegExp(`anchor: "${anchor}"`));
+    assert.match(editorSource, new RegExp(`id="${anchor}"`));
+  }
+  assert.match(managerSource, /Konten yang tampil/);
+  assert.match(managerSource, /HomepagePublicationSelection/);
+  assert.match(selectionSource, /Tiga buku pilihan/);
+  assert.match(selectionSource, /setHomepageBooksAction/);
+  assert.match(actionSource, /updateTag\("content:publication"\)/);
+  assert.match(editorSource, /English · opsional/);
 });
 
 test("homepage section titles stay direct and descriptive", () => {

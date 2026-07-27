@@ -6,7 +6,13 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
 import type { Locale } from "@/lib/i18n";
 
-export function AdminAgendaShortcut({ locale }: { locale: Locale }) {
+export function AdminAgendaShortcut({
+  locale,
+  mode = "manage",
+}: {
+  locale: Locale;
+  mode?: "create" | "manage";
+}) {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -30,9 +36,19 @@ export function AdminAgendaShortcut({ locale }: { locale: Locale }) {
   return (
     <Link
       className="agenda-admin-shortcut"
-      href={`/${locale}/admin/agenda#editor`}
+      href={
+        mode === "create"
+          ? `/${locale}/admin/agenda/baru`
+          : `/${locale}/admin/agenda`
+      }
     >
-      {locale === "id" ? "Terbitkan agenda" : "Publish agenda"}
+      {mode === "create"
+        ? locale === "id"
+          ? "Buat agenda"
+          : "Create agenda"
+        : locale === "id"
+          ? "Kelola agenda"
+          : "Manage agenda"}
       <ArrowRightIcon />
     </Link>
   );

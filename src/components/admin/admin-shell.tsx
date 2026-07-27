@@ -23,6 +23,7 @@ export function AdminShell({
   const base = `/${locale}/admin`;
   const links: AdminNavigationItem[] = [
     { href: base, label: copy.dashboard, meta: copy.dashboardMeta },
+    { href: `${base}/beranda`, label: copy.homepage, meta: copy.homepageMeta },
     {
       href: `${base}/publikasi`,
       label: copy.publications,

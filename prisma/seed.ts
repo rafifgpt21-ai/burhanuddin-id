@@ -77,10 +77,71 @@ async function syncPublishedPublications(
     for (const publication of publicationSeed) {
       const cardImageId =
         coverAssetIds.get(publication.sourceFingerprint) ?? null;
+      const coverRightsNote =
+        covers.find((cover) => cover.fingerprint === publication.sourceFingerprint)
+          ?.rightsNote ?? "";
+      const publishedSnapshot = {
+        type: publication.type,
+        title: publication.title,
+        authors: publication.authors,
+        editors: publication.editors,
+        year: publication.year,
+        dateLabel: publication.dateLabel ?? "",
+        containerTitle: publication.containerTitle ?? "",
+        venue: publication.venue ?? "",
+        publisher: publication.publisher ?? "",
+        publicationPlace: publication.publicationPlace ?? "",
+        volume: publication.volume ?? "",
+        issue: publication.issue ?? "",
+        seriesNumber: publication.seriesNumber ?? "",
+        pages: publication.pages ?? "",
+        doi: publication.doi ?? "",
+        externalUrl: publication.externalUrl ?? "",
+        status: publication.status,
+        coverImage: publication.coverImage ?? "",
+        coverRightsNote,
+        sourceName: publication.sourceName,
+        sourceUrl: publication.sourceUrl ?? "",
+        sourceNote: publication.sourceNote,
+      };
       await transaction.publication.upsert({
         where: { sourceFingerprint: publication.sourceFingerprint },
-        update: { ...publication, cardImageId },
-        create: { ...publication, cardImageId },
+        update: {
+          ...publication,
+          cardImageId,
+          publishedSnapshot,
+          publishedVersion: 1,
+          hasUnpublishedChanges: false,
+          publishedAt: publication.sourceCheckedAt,
+        },
+        create: {
+          ...publication,
+          cardImageId,
+          publishedSnapshot,
+          publishedVersion: 1,
+          hasUnpublishedChanges: false,
+          publishedAt: publication.sourceCheckedAt,
+        },
+      });
+      const record = await transaction.publication.findUniqueOrThrow({
+        where: { sourceFingerprint: publication.sourceFingerprint },
+        select: { id: true },
+      });
+      await transaction.contentRevision.upsert({
+        where: {
+          kind_recordId_version: {
+            kind: "PUBLICATION",
+            recordId: record.id,
+            version: 1,
+          },
+        },
+        update: { snapshot: publishedSnapshot },
+        create: {
+          kind: "PUBLICATION",
+          recordId: record.id,
+          version: 1,
+          snapshot: publishedSnapshot,
+        },
       });
     }
 

@@ -24,7 +24,7 @@ async function main() {
   try {
     await prisma.$transaction(async (transaction) => {
       for (const cover of uploaded.covers) {
-        await transaction.mediaAsset.upsert({
+        const asset = await transaction.mediaAsset.upsert({
           where: { storageKey: cover.storageKey },
           update: {
             url: cover.url,
@@ -45,7 +45,7 @@ async function main() {
 
         const result = await transaction.publication.updateMany({
           where: { sourceFingerprint: cover.fingerprint },
-          data: { coverImage: cover.url },
+          data: { cardImageId: asset.id, coverImage: cover.url },
         });
         if (result.count !== 1) {
           throw new Error(

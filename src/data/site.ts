@@ -47,6 +47,7 @@ export const researchAreas: Record<Locale, readonly string[]> = {
 
 export type Publication = {
   id?: string;
+  homepageOrder?: number;
   typeKey: "book" | "journal" | "chapter" | "research" | "inaugural-address";
   type: string;
   year: string;
@@ -174,14 +175,46 @@ export function getHomepagePublicationSelection(
         publication.typeKey === "book" && Boolean(publication.image),
     )
     .slice(0, 3);
+  const selectedDatabaseBooks = publishedPublications
+    .filter(
+      (publication) =>
+        publication.typeKey === "book" &&
+        Boolean(publication.image) &&
+        typeof publication.homepageOrder === "number",
+    )
+    .sort(
+      (first, second) =>
+        (first.homepageOrder ?? 99) - (second.homepageOrder ?? 99),
+    )
+    .slice(0, 3);
   const nonBooks = selectedPublications
     .filter((publication) => publication.typeKey !== "book")
     .sort((first, second) => Number(second.year) - Number(first.year))
     .slice(0, 3);
 
+  const selectedDatabaseNonBooks = publishedPublications
+    .filter(
+      (publication) =>
+        publication.typeKey !== "book" &&
+        typeof publication.homepageOrder === "number",
+    )
+    .sort(
+      (first, second) =>
+        (first.homepageOrder ?? 99) - (second.homepageOrder ?? 99),
+    )
+    .slice(0, 3);
+
   return {
-    books: databaseBooks.length === 3 ? databaseBooks : featuredBooks,
-    nonBooks,
+    books:
+      selectedDatabaseBooks.length === 3
+        ? selectedDatabaseBooks
+        : databaseBooks.length === 3
+          ? databaseBooks
+          : featuredBooks,
+    nonBooks:
+      selectedDatabaseNonBooks.length === 3
+        ? selectedDatabaseNonBooks
+        : nonBooks,
   };
 }
 

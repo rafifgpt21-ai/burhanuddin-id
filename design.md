@@ -36,6 +36,12 @@
 - On 26 July 2026, the owner restored the homepage identity section to its original nearly full-viewport scale after briefly reviewing a compact variant. The label, logo, tagline, quotation, spacing, and folio use the earlier larger composition on desktop and mobile.
 - On 26 July 2026, the owner removed `M.A., Ph.D.` and the middle-dot separator from the homepage official-site label. The labels read `Situs resmi Profesor Burhanuddin Muhtadi` and `The official website of Professor Burhanuddin Muhtadi`; academic degrees remain in the editorial-hero name lockup.
 - On 26 July 2026, the owner placed Selected Publications before the Research ledger on the homepage and exchanged their background treatments. Publications now use the white editorial surface, while Research uses the navy surface with contrast-adjusted text, rules, links, and ledger markers.
+- On 27 July 2026, the owner approved a database-backed homepage editor and a complete editorial lifecycle for Homepage, Publications, Agenda, Writing, and Course Materials. Working drafts remain separate from published snapshots; each publication creates a restorable revision.
+- On 27 July 2026, the owner retained the current homepage composition without Writing or Course Material previews. The three latest eligible covered books remain automatic, three non-book works are editor-selected and ordered, and the nearest upcoming published agenda item is automatic.
+- On 27 July 2026, the owner selected explicit draft saves without autosave or scheduled publishing. `ADMIN` and `SUPER_ADMIN` may permanently delete archived manual records, while canonical seeded publications remain archive-only.
+- On 27 July 2026, the owner made every editor-authored English field optional. Indonesian remains the required canonical copy; English public routes fall back field-by-field to the approved Indonesian snapshot when a translation is empty. Supplied English translations still require editorial review and are never machine-generated at request time.
+- On 27 July 2026, the owner replaced the generic Homepage collection list with a dedicated homepage control center. It presents the public section order as an editorial map, separates manual and automatic sources, keeps English fields collapsed and optional, and manages the three selected non-book publications from the same workspace.
+- On 27 July 2026, the owner changed the homepage book group from the three latest eligible books to three explicitly selected and ordered published books. Only books with rights-cleared covers are eligible; the latest three eligible books remain a safe fallback until all three editorial slots are filled.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -136,7 +142,7 @@ All dates, titles, author order, DOI values, and `forthcoming` labels should be 
 - No student accounts, comments, likes, messaging, or social feed.
 - No public registration or public account directory. User management remains private and restricted to `SUPER_ADMIN`.
 - No event registration, ticketing, attendance tracking, calendar synchronization, or venue-discovery system. The MVP agenda is a lightweight editor-managed public listing only; no agenda entry may be published until real event data is supplied and reviewed.
-- No machine-generated translation at request time and no automatic translation publishing. Indonesian and English UI/content variants are editor-reviewed. Bibliographic titles remain in their original published language unless the publication itself supplies an official translated title.
+- No machine-generated translation at request time and no automatic translation publishing. Indonesian authored content is canonical. English authored fields are optional; when supplied they require editorial review, and when empty the English route displays the approved Indonesian field. Bibliographic titles remain in their original published language unless the publication itself supplies an official translated title.
 - No heavy animation library or custom smooth-scrolling behavior.
 - No custom DRM or pseudo-secure PDF viewer. Use normal browser viewing/download rules and honest access controls.
 - No automatic scraping of ResearchGate, Academia.edu, publishers, or Google Scholar.
@@ -218,7 +224,7 @@ The first viewport is a quiet identity title page rather than a portrait splash 
    - Sole action: `Lihat profil lengkap / View full profile`.
    - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
 3. **Selected publications**
-   - Two static groups with no carousel: the three most recent books that have approved covers, followed directly by three selected non-book works. Do not show a visible `Karya non-buku / Non-book work` heading or `03` count above the second group.
+   - Two static groups with no carousel: three selected and ordered published books with approved covers, followed directly by three selected non-book works. Until all three book slots are filled, use the three most recent eligible books as a safe fallback. Do not show a visible `Karya non-buku / Non-book work` heading or `03` count above the second group.
    - Book covers lead the first group; non-book records remain typographic so the difference in publication format is explicit.
    - Cover art is omitted unless an approved, rights-cleared asset exists.
    - Use the white editorial surface with blue and navy text treatments.
@@ -293,7 +299,7 @@ The first viewport is a quiet identity title page rather than a portrait splash 
 - Separate `Publikasi`, `Agenda`, `Tulisan`, and `Materi` collections, with a shared quick-start chooser on the dashboard. The workspace labels Agenda as part of Kiprah / Outreach and explains that About, Research, and Contact remain outside the current form-based editor.
 - Dashboard counts come from the database only when it is explicitly ready; a locked or unavailable database is shown as unavailable rather than as a false zero count.
 - Workspace navigation exposes the current page with `aria-current` and includes a direct return to the localized public site.
-- Draft creation asks only for the minimum viable content first. Slugs are generated automatically; translations and secondary metadata remain optional while drafting and must pass publication-readiness validation before going public.
+- Draft creation asks only for the minimum viable Indonesian content first. Slugs are generated automatically; every English field and secondary metadata remain optional through publication.
 - Explicit Draft, Published, and Archived states.
 - Preview before publish; confirmation before destructive deletion.
 - Slugs generated from titles but editable with collision validation.
@@ -301,6 +307,11 @@ The first viewport is a quiet identity title page rather than a portrait splash 
 - `SUPER_ADMIN` can create `ADMIN` or `EDITOR` accounts and reset another user's username, role, or password. These mutations re-check authorization on the server.
 - Every signed-in user can change only their own username and password after confirming the current password; self-service never accepts a role or target-user ID.
 - User management is never public and does not expose password values or hashes.
+- Add a `Beranda / Homepage` collection for the identity title page, hero, current roles, four research themes, two selected academic forums, collection labels, media, and closing actions. It changes content, not the approved public composition.
+- Every editorial collection provides searchable/filterable/paginated lists, dedicated create/edit routes, explicit save, preview, publish/unpublish, archive/restore, duplicate, and status-aware bulk archive/restore.
+- Saving changes to a published record updates its working draft and marks `hasUnpublishedChanges`; unauthenticated readers continue to receive the last published snapshot until an editor publishes again.
+- Preview is authenticated, no-index/no-store, clearly labelled, and expires after 15 minutes. Permanent deletion requires an archived record and `ADMIN` or `SUPER_ADMIN`; `EDITOR` cannot hard-delete.
+- Writing uses an allowlisted block editor for paragraphs, headings, quotes, links, uploaded images/files, and YouTube/Vimeo links. Arbitrary HTML and iframe input remain prohibited.
 
 ## Content model
 
@@ -317,12 +328,12 @@ The exact database syntax should be decided during implementation. The conceptua
 - `id`, localized `title`, `slug`, `excerpt`, and `content`, plus `coverImage`, `topics[]`
 - `status` (`DRAFT`, `PUBLISHED`, `ARCHIVED`)
 - `publishedAt`, `createdAt`, `updatedAt`
-- Optional canonical external source. Indonesian and English variants share one content identity, status, source note, and canonical relationship; both language variants require editorial review before publication.
+- Optional canonical external source. Indonesian and English variants share one content identity, status, source note, and canonical relationship. Indonesian is required; English fields are optional and fall back to Indonesian when empty.
 
 ### StudyMaterial
 
 - `id`, `title`, `slug`, `description`
-- Localize visitor-facing title and description in Indonesian and English while keeping one shared material identity, file target, rights decision, and source metadata.
+- Optionally localize visitor-facing title and description in English while keeping Indonesian as the required canonical copy and one shared material identity, file target, rights decision, and source metadata.
 - `course`, `topic`, `resourceType`
 - `semester`, `academicYear`, `tags[]`
 - Exactly one primary delivery target: uploaded asset or external URL.
@@ -342,7 +353,7 @@ The exact database syntax should be decided during implementation. The conceptua
 ### AgendaItem
 
 - `id`, `title`, `slug`, `description`
-- Localize visitor-facing title and description in Indonesian and English while sharing dates, location, status, and source URL.
+- Optionally localize visitor-facing title and description in English while sharing dates, location, status, and source URL; empty English fields fall back to Indonesian.
 - `startsAt`, optional `endsAt`, optional `locationLabel`, optional `externalUrl`
 - `status` (`DRAFT`, `PUBLISHED`, `ARCHIVED`), `publishedAt`, `createdAt`, `updatedAt`
 
@@ -350,6 +361,13 @@ The exact database syntax should be decided during implementation. The conceptua
 
 - `id`, `storageKey`, `url`, `fileName`, `mimeType`, `size`, `altText`, `rightsNote`, `createdAt`
 - Store provider keys so assets can be replaced or audited; do not rely only on opaque public URLs.
+
+### Editorial snapshots
+
+- Each managed record retains its structured fields as the working draft plus `publishedSnapshot`, `draftVersion`, `publishedVersion`, `hasUnpublishedChanges`, `lastEditedById`, and publication timestamps.
+- `ContentRevision` stores the validated snapshot, content kind, stable record ID, version, publishing editor, and time for each publication event.
+- `SlugRedirect` preserves old localized Writing and Course Material slugs after a published slug changes.
+- `HomepageContent` is a singleton bilingual payload with the same draft/published lifecycle. Approved static homepage content remains the bootstrap fallback until its first valid published snapshot exists.
 
 ## Content gaps to resolve before launch
 
@@ -587,6 +605,35 @@ Pin exact package versions only during implementation after checking the locally
 - [ ] Publication cards separate contributors and bibliographic details, reserve a 4:5 visual area, use a truthful placeholder without an image, and remain readable at 320px and 200% zoom.
 - [ ] Every published publication exposes a working HTTPS DOI, publisher, institutional-repository, or official project link; seed validation fails when any record lacks one.
 - [ ] Drafts, previews, admin pages, and secret values are never public or indexed.
+- [ ] Beranda, Publikasi, Agenda, Tulisan, dan Materi menyediakan daftar,
+  pencarian/filter URL, create/edit terpisah, preview privat 15 menit,
+  publish/unpublish, archive/restore, duplicate, dan riwayat revisi yang dapat
+  dipulihkan sebagai draft.
+- [ ] Menyimpan perubahan pada record terbit tidak mengubah halaman publik;
+  `publishedSnapshot` baru hanya aktif setelah tindakan **Terbitkan perubahan**
+  lolos validasi kesiapan terbit.
+- [ ] Seluruh field authored-content berbahasa Inggris bersifat opsional pada
+  Beranda, Tulisan, Agenda, Materi, dan media. Rute English memakai nilai
+  Indonesia dari snapshot yang sama untuk setiap field terjemahan yang kosong.
+- [ ] Beranda mempertahankan komposisi yang disetujui: tepat tiga buku terbit
+  dengan cover berizin serta tiga publikasi non-buku dipilih dan diurutkan
+  editor, dan agenda terbit terdekat yang belum selesai; Tulisan dan Materi
+  tidak ditambahkan ke beranda.
+- [ ] Admin Beranda memakai pusat pengelolaan khusus, bukan daftar koleksi
+  generik: status publik/draft, urutan enam bagian, sumber manual/otomatis,
+  shortcut edit per bagian, preview, riwayat versi, serta pemilihan tiga buku
+  dan tiga karya non-buku dapat dipahami dari satu halaman.
+- [ ] Slug terbit lama untuk Tulisan dan Materi tetap menuju record yang benar,
+  sementara slug aktif dan redirect lama tidak dapat bertabrakan.
+- [ ] Record hanya dapat dihapus permanen setelah berstatus `ARCHIVED`, hanya
+  oleh `ADMIN`/`SUPER_ADMIN`; publikasi kanonis tetap archive-only dan aset yang
+  masih direferensikan tidak dapat dihapus.
+- [ ] Semua editor menampilkan status tersimpan, peringatan perubahan belum
+  disimpan, ringkasan error yang dapat diakses, action bar tetap, dan kontrol
+  keyboard/touch minimal 44px.
+- [ ] Mutasi editorial merevalidasi cache index, detail, dan beranda hanya untuk
+  koleksi/locale yang terdampak; draft dan preview tidak pernah masuk cache
+  publik.
 - [ ] No content from the wrong person in the reference project has leaked into production.
 - [ ] Owner approves biography, roles, portrait, contact links, and publication import.
 - [ ] Accessibility, security, performance, backup, and rollback checks pass.

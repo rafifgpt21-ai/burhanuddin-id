@@ -1,8 +1,10 @@
 import "server-only";
+import { unstable_cache } from "next/cache";
 
 import { prisma } from "@/lib/prisma";
 import type { Locale } from "@/lib/i18n";
 import type { PublicAgendaItem } from "@/lib/content/agenda-utils";
+import { agendaInputSchema } from "@/lib/validation/content";
 
 let agendaDatabaseUnavailable = false;
 
@@ -16,29 +18,32 @@ export async function getPublishedAgenda(
     return [];
   }
 
-  const records = await prisma.agendaItem.findMany({
+  const records = await unstable_cache(() => prisma.agendaItem.findMany({
       where: { status: "PUBLISHED" },
-      orderBy: { startsAt: "asc" },
-    })
-    .catch(() => {
+    }), ["published-agenda"], { tags: ["content:agenda"] })().catch(() => {
       agendaDatabaseUnavailable = true;
       return [];
     });
 
-  return records.map((record) => ({
-    id: record.id,
-    title:
-      locale === "en" && record.titleEn ? record.titleEn : record.titleId,
-    description:
-      locale === "en" && record.descriptionEn
-        ? record.descriptionEn
-        : record.descriptionId,
-    startsAt: record.startsAt,
-    endsAt: record.endsAt ?? undefined,
-    location:
-      locale === "en" && record.locationLabelEn
-        ? record.locationLabelEn
-        : record.locationLabelId ?? undefined,
-    externalUrl: record.externalUrl ?? undefined,
-  }));
+  return records.flatMap((record) => {
+    const parsed = agendaInputSchema.safeParse(record.publishedSnapshot ?? {
+      titleId: record.titleId, titleEn: record.titleEn ?? "",
+      slugId: record.slugId, slugEn: record.slugEn ?? "",
+      descriptionId: record.descriptionId, descriptionEn: record.descriptionEn ?? "",
+      startsAt: record.startsAt, endsAt: record.endsAt ?? undefined,
+      locationLabelId: record.locationLabelId ?? "", locationLabelEn: record.locationLabelEn ?? "",
+      externalUrl: record.externalUrl ?? "", status: record.status,
+    });
+    if (!parsed.success) return [];
+    const value = parsed.data;
+    return [{
+      id: record.id,
+      title: locale === "en" ? value.titleEn || value.titleId : value.titleId,
+      description: locale === "en" ? value.descriptionEn || value.descriptionId : value.descriptionId,
+      startsAt: value.startsAt,
+      endsAt: value.endsAt,
+      location: locale === "en" ? value.locationLabelEn || value.locationLabelId || undefined : value.locationLabelId || undefined,
+      externalUrl: value.externalUrl || undefined,
+    }];
+  }).sort((first, second) => first.startsAt.getTime() - second.startsAt.getTime());
 }

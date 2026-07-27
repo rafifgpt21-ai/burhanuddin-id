@@ -2,17 +2,21 @@ import Link from "next/link";
 
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/icons";
 import { researchClusters } from "@/data/public";
+import type { ResearchCluster } from "@/data/public";
 import { getDictionary } from "@/data/translations";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 export function ResearchLedger({
   locale,
   showIntroduction = true,
+  clusters,
 }: {
   locale: Locale;
   showIntroduction?: boolean;
+  clusters?: readonly ResearchCluster[];
 }) {
   const copy = getDictionary(locale).researchPage;
+  const visibleClusters = clusters ?? researchClusters[locale];
 
   return (
     <div className="research-ledger-layout">
@@ -29,7 +33,7 @@ export function ResearchLedger({
       ) : null}
 
       <ol className="research-ledger">
-        {researchClusters[locale].map((cluster, index) => (
+        {visibleClusters.map((cluster, index) => (
           <li key={cluster.key}>
             <span className="ledger-marker" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}

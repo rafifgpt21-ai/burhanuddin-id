@@ -13,6 +13,10 @@ import {
   publicationSearchText,
 } from "@/lib/content/publication-display";
 import { getPublishedPublications } from "@/lib/content/publications";
+import {
+  getPublishedMaterials,
+  getPublishedPosts,
+} from "@/lib/content/collections";
 import { getRoutePath, type Locale } from "@/lib/i18n";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -21,7 +25,7 @@ function searchValue(value: string | string[] | undefined) {
   return typeof value === "string" ? value : "";
 }
 
-export function MaterialsPage({
+export async function MaterialsPage({
   locale,
   filters,
 }: {
@@ -29,7 +33,42 @@ export function MaterialsPage({
   filters: SearchParams;
 }) {
   const copy = getDictionary(locale).materials;
-  const typeValues = ["slide", "reading", "syllabus", "assignment", "dataset", "video"];
+  const allMaterials = await getPublishedMaterials(locale);
+  const query = searchValue(filters.q).trim().toLocaleLowerCase(locale);
+  const course = searchValue(filters.course);
+  const type = searchValue(filters.type).toUpperCase();
+  const period = searchValue(filters.period);
+  const materials = allMaterials.filter((material) => {
+    const searchable = [
+      material.title,
+      material.description,
+      material.course,
+      material.topic,
+      material.tags.join(" "),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLocaleLowerCase(locale);
+    return (
+      (!query || searchable.includes(query)) &&
+      (!course || material.course === course) &&
+      (!type || material.resourceType === type) &&
+      (!period ||
+        material.academicYear === period ||
+        material.semester === period)
+    );
+  });
+  const courses = [...new Set(allMaterials.map((material) => material.course))];
+  const periods = [
+    ...new Set(
+      allMaterials.flatMap((material) =>
+        [material.academicYear, material.semester].filter(
+          (value): value is string => Boolean(value),
+        ),
+      ),
+    ),
+  ];
+  const typeValues = ["slide", "reading", "syllabus", "assignment", "dataset", "video", "link", "other"];
 
   return (
     <main id="konten-utama">
@@ -56,6 +95,7 @@ export function MaterialsPage({
               <label htmlFor="course">{copy.courseLabel}</label>
               <select id="course" name="course" defaultValue={searchValue(filters.course)}>
                 <option value="">{copy.allCourses}</option>
+                {courses.map((option) => <option value={option} key={option}>{option}</option>)}
               </select>
             </div>
             <div className="filter-field">
@@ -73,20 +113,41 @@ export function MaterialsPage({
               <label htmlFor="period">{copy.periodLabel}</label>
               <select id="period" name="period" defaultValue={searchValue(filters.period)}>
                 <option value="">{copy.allPeriods}</option>
+                {periods.map((option) => <option value={option} key={option}>{option}</option>)}
               </select>
             </div>
             <button className="filter-submit" type="submit">
               {copy.apply}
             </button>
           </form>
-          <EmptyState title={copy.emptyTitle} description={copy.emptyDescription} />
+          {materials.length ? (
+            <div className="public-content-list material-card-list">
+              {materials.map((material) => (
+                <article key={material.id}>
+                  <div className="content-list-meta">
+                    <span>{material.resourceType.replaceAll("_", " ")}</span>
+                    {material.academicYear ? <span>{material.academicYear}</span> : null}
+                  </div>
+                  <h2>
+                    <Link href={`${getRoutePath(locale, "materials")}/${material.slug}`}>
+                      {material.title}
+                    </Link>
+                  </h2>
+                  <p>{material.description}</p>
+                  <small>{material.course}{material.topic ? ` · ${material.topic}` : ""}</small>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <EmptyState title={copy.emptyTitle} description={copy.emptyDescription} />
+          )}
         </div>
       </section>
     </main>
   );
 }
 
-export function PostsPage({
+export async function PostsPage({
   locale,
   filters,
 }: {
@@ -94,6 +155,16 @@ export function PostsPage({
   filters: SearchParams;
 }) {
   const copy = getDictionary(locale).posts;
+  const allPosts = await getPublishedPosts(locale);
+  const query = searchValue(filters.q).trim().toLocaleLowerCase(locale);
+  const topic = searchValue(filters.topic);
+  const posts = allPosts.filter((post) => {
+    const searchable = [post.title, post.excerpt, post.topics.join(" ")]
+      .join(" ")
+      .toLocaleLowerCase(locale);
+    return (!query || searchable.includes(query)) && (!topic || post.topics.includes(topic));
+  });
+  const topics = [...new Set(allPosts.flatMap((post) => post.topics))];
 
   return (
     <main id="konten-utama">
@@ -115,13 +186,40 @@ export function PostsPage({
               <label htmlFor="topic">{copy.topicLabel}</label>
               <select id="topic" name="topic" defaultValue={searchValue(filters.topic)}>
                 <option value="">{copy.allTopics}</option>
+                {topics.map((option) => <option value={option} key={option}>{option}</option>)}
               </select>
             </div>
             <button className="filter-submit" type="submit">
               {copy.apply}
             </button>
           </form>
-          <EmptyState title={copy.emptyTitle} description={copy.emptyDescription} />
+          {posts.length ? (
+            <div className="public-content-list post-card-list">
+              {posts.map((post) => (
+                <article key={post.id}>
+                  <div className="content-list-meta">
+                    {post.pinned ? <span>{locale === "id" ? "Pilihan" : "Featured"}</span> : null}
+                    {post.publishedAt ? (
+                      <time dateTime={post.publishedAt.toISOString()}>
+                        {new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
+                          dateStyle: "medium",
+                        }).format(post.publishedAt)}
+                      </time>
+                    ) : null}
+                  </div>
+                  <h2>
+                    <Link href={`${getRoutePath(locale, "posts")}/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </h2>
+                  {post.excerpt ? <p>{post.excerpt}</p> : null}
+                  <small>{post.topics.join(" · ")}</small>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <EmptyState title={copy.emptyTitle} description={copy.emptyDescription} />
+          )}
         </div>
       </section>
     </main>

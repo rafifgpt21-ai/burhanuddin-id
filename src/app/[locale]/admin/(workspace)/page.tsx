@@ -130,25 +130,25 @@ export default async function AdminDashboard({
     {
       key: "publications" as const,
       href: `${base}/publikasi`,
-      editorHref: `${base}/publikasi#editor`,
+      editorHref: `${base}/publikasi/baru`,
       copy: pageCopy.collections.publications,
     },
     {
       key: "agenda" as const,
       href: `${base}/agenda`,
-      editorHref: `${base}/agenda#editor`,
+      editorHref: `${base}/agenda/baru`,
       copy: pageCopy.collections.agenda,
     },
     {
       key: "posts" as const,
       href: `${base}/tulisan`,
-      editorHref: `${base}/tulisan#editor`,
+      editorHref: `${base}/tulisan/baru`,
       copy: pageCopy.collections.posts,
     },
     {
       key: "materials" as const,
       href: `${base}/materi`,
-      editorHref: `${base}/materi#editor`,
+      editorHref: `${base}/materi/baru`,
       copy: pageCopy.collections.materials,
     },
   ];
@@ -194,6 +194,24 @@ export default async function AdminDashboard({
           ))}
         </nav>
       </section>
+
+      {counts ? (
+        <section className="admin-recent-work" aria-labelledby="recent-work-title">
+          <div>
+            <p className="eyebrow">Perlu dilanjutkan</p>
+            <h2 id="recent-work-title">Draft dan perubahan belum terbit</h2>
+            <p>{counts.status.draft} draft · {counts.status.published} terbit · {counts.status.archived} arsip dalam aktivitas terbaru.</p>
+          </div>
+          <div className="admin-recent-list">
+            {counts.recent.length ? counts.recent.map((item) => (
+              <Link href={`${base}/${item.kind}/${item.id}`} key={`${item.kind}-${item.id}`}>
+                <span>{item.kind}</span><strong>{item.title}</strong>
+                <small>{item.pending ? "Perubahan belum terbit" : "Draft"}</small>
+              </Link>
+            )) : <p>Tidak ada draft yang menunggu.</p>}
+          </div>
+        </section>
+      ) : null}
 
       <section className="admin-scope-note" aria-labelledby="admin-scope-title">
         <div>

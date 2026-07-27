@@ -31,6 +31,30 @@ masuk ke ruang editorial dan mengubah username/password miliknya sendiri. Hanya
 `SUPER_ADMIN` yang dapat membuka menu **Pengguna**, membuat akun `ADMIN`/`EDITOR`,
 mengubah username/role akun lain, atau mereset password akun lain.
 
+## Workflow editorial
+
+- **Beranda**, Publikasi, Agenda, Tulisan, dan Materi memiliki daftar privat,
+  filter status, rute create/edit, preview 15 menit, draft, publish/unpublish,
+  archive/restore, duplicate, dan revision restore.
+- Field terstruktur adalah working draft. Situs publik membaca
+  `publishedSnapshot`, sehingga penyimpanan draft pada record terbit tidak
+  mengubah halaman publik sampai **Terbitkan perubahan** dijalankan.
+- Penerbitan memerlukan konten Indonesia yang lengkap. Seluruh field English
+  bersifat opsional dan rute English memakai fallback Indonesia per field.
+  Tulisan hanya menerima blok allowlist; Materi wajib memiliki tepat satu target
+  dan keputusan hak penggunaan; Publikasi wajib memiliki sumber keluar HTTPS.
+- `ADMIN` dan `SUPER_ADMIN` dapat menghapus permanen record manual yang sudah
+  diarsipkan. `EDITOR` hanya dapat mengarsipkan/memulihkan, sedangkan publikasi
+  kanonis dengan fingerprint sumber tidak pernah dapat dihapus permanen.
+- Beranda otomatis mengambil tiga buku terbaru dengan cover berizin dan satu
+  agenda mendatang terdekat. Tiga karya non-buku dipilih serta diurutkan dari
+  koleksi Publikasi.
+
+Saat mengaktifkan persistence untuk pertama kali: putar kredensial, buat backup,
+verifikasi target database, jalankan `npm run db:push`, lalu `npm run db:seed`.
+Seed publikasi mengisi snapshot/revisi awal secara idempoten dan tidak menghapus
+record manual. Jangan menjalankan langkah ini terhadap kredensial lama.
+
 ## Dataset sumber dan seeding
 
 - `npm run seed:sources` membangun ulang dataset sumber dari bagian publikasi CV
@@ -67,8 +91,10 @@ mengubah username/role akun lain, atau mereset password akun lain.
   tidak meminta atau menyimpan lokasi presisi.
 - Switcher `ID / EN` menyimpan pilihan selama satu tahun dan mempertahankan query
   filter saat berpindah ke route bahasa yang setara.
-- Salinan UI berada di `src/data/translations.ts`. Konten editor disimpan sebagai
-  pasangan `Id`/`En` dalam skema Prisma dan harus ditinjau pemilik sebelum terbit.
+- Salinan UI berada di `src/data/translations.ts`. Konten Indonesia adalah
+  sumber kanonis; seluruh field `En` editor bersifat opsional. Terjemahan yang
+  diisi harus ditinjau pemilik, sedangkan field kosong tampil memakai fallback
+  Indonesia pada rute English.
 - Judul publikasi bibliografis tetap memakai bahasa terbit aslinya.
 
 ## Perintah

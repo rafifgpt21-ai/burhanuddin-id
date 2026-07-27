@@ -29,11 +29,43 @@ const optionalPublicationImageUrl = z
   .optional();
 const optionalShortText = (maximum: number) =>
   z.string().trim().max(maximum).optional().or(z.literal(""));
+const optionalShortTextWithDefault = (maximum: number) =>
+  optionalShortText(maximum).default("");
 
-const postBlockSchema = z.object({
-  type: z.literal("paragraph"),
-  text: z.string().trim().min(1).max(12_000),
-});
+const blockText = z.string().trim().min(1).max(12_000);
+const postBlockSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("paragraph"), text: blockText }),
+  z.object({
+    type: z.literal("heading"),
+    level: z.union([z.literal(2), z.literal(3)]),
+    text: z.string().trim().min(1).max(240),
+  }),
+  z.object({ type: z.literal("quote"), text: blockText, citation: optionalShortText(240) }),
+  z.object({
+    type: z.literal("link"),
+    label: z.string().trim().min(1).max(180),
+    url: httpsUrl,
+  }),
+  z.object({
+    type: z.literal("image"),
+    url: httpsUrl,
+    alt: z.string().trim().min(3).max(240),
+    rightsNote: z.string().trim().min(3).max(400),
+  }),
+  z.object({
+    type: z.literal("file"),
+    label: z.string().trim().min(1).max(180),
+    url: httpsUrl,
+  }),
+  z.object({
+    type: z.literal("video"),
+    url: httpsUrl.refine((value) => {
+      const hostname = new URL(value).hostname.replace(/^www\./, "");
+      return ["youtube.com", "youtu.be", "vimeo.com"].includes(hostname);
+    }, "Video hanya boleh berasal dari YouTube atau Vimeo."),
+    title: z.string().trim().min(1).max(180),
+  }),
+]);
 
 export const postInputSchema = z.object({
   titleId: z.string().trim().min(3).max(180),
@@ -45,6 +77,7 @@ export const postInputSchema = z.object({
   contentId: z.array(postBlockSchema).min(1).max(120),
   contentEn: z.array(postBlockSchema).max(120).optional(),
   topics: z.array(z.string().trim().min(1).max(48)).max(12),
+  pinned: z.boolean().default(false),
   coverImage: optionalHttpsUrl,
   canonicalExternal: optionalHttpsUrl,
   status: z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]),
@@ -75,7 +108,7 @@ export const materialInputSchema = z
     semester: optionalShortText(40),
     academicYear: z.union([z.literal(""), z.string().trim().regex(academicYearPattern)]).optional(),
     tagsId: z.array(z.string().trim().min(1).max(48)).max(12),
-    tagsEn: z.array(z.string().trim().min(1).max(48)).max(12),
+    tagsEn: z.array(z.string().trim().min(1).max(48)).max(12).default([]),
     assetId: z.string().trim().min(1).optional().or(z.literal("")),
     externalUrl: optionalHttpsUrl,
     downloadAllowed: z.boolean(),
@@ -182,7 +215,156 @@ export const publicationInputSchema = z
     }
   });
 
+const homepageLinkSchema = z.object({
+  label: z.string().trim().min(1).max(100),
+  href: httpsUrl.or(z.string().trim().regex(/^\/[a-z0-9/_#-]*$/i)),
+});
+
+const homepageLocaleSchema = z.object({
+  officialLabel: z.string().trim().min(3).max(120),
+  tagline: z.string().trim().min(3).max(160),
+  quote: z.string().trim().min(20).max(800),
+  fields: z.string().trim().min(3).max(160),
+  continueAction: z.string().trim().min(2).max(80),
+  academicPrefix: z.string().trim().min(1).max(30),
+  academicName: z.string().trim().min(3).max(120),
+  academicSuffix: z.string().trim().min(1).max(60),
+  lead: z.string().trim().min(20).max(800),
+  profileAction: z.string().trim().min(2).max(80),
+  portraitCaption: z.string().trim().min(3).max(180),
+  roles: z.array(z.string().trim().min(3).max(240)).length(3),
+  publicationEyebrow: z.string().trim().min(2).max(80),
+  publicationTitle: z.string().trim().min(2).max(100),
+  publicationDescription: z.string().trim().min(10).max(400),
+  publicationAction: z.string().trim().min(2).max(80),
+  booksLabel: z.string().trim().min(2).max(80),
+  outreachEyebrow: z.string().trim().min(2).max(80),
+  outreachTitle: z.string().trim().min(2).max(100),
+  outreachDescription: z.string().trim().min(10).max(400),
+  outreachAction: z.string().trim().min(2).max(80),
+  agendaLabel: z.string().trim().min(2).max(80),
+  forumLabel: z.string().trim().min(2).max(80),
+  materialsAction: z.string().trim().min(2).max(80),
+  closingEyebrow: z.string().trim().min(2).max(100),
+  closingTitle: z.string().trim().min(2).max(100),
+  contactAction: z.string().trim().min(2).max(80),
+  closingProfileAction: z.string().trim().min(2).max(80),
+});
+
+const homepageEnglishLocaleSchema = z.object({
+  officialLabel: optionalShortTextWithDefault(120),
+  tagline: optionalShortTextWithDefault(160),
+  quote: optionalShortTextWithDefault(800),
+  fields: optionalShortTextWithDefault(160),
+  continueAction: optionalShortTextWithDefault(80),
+  academicPrefix: optionalShortTextWithDefault(30),
+  academicName: optionalShortTextWithDefault(120),
+  academicSuffix: optionalShortTextWithDefault(60),
+  lead: optionalShortTextWithDefault(800),
+  profileAction: optionalShortTextWithDefault(80),
+  portraitCaption: optionalShortTextWithDefault(180),
+  roles: z
+    .array(z.string().trim().max(240))
+    .max(3)
+    .transform((items) => items.filter(Boolean))
+    .default([]),
+  publicationEyebrow: optionalShortTextWithDefault(80),
+  publicationTitle: optionalShortTextWithDefault(100),
+  publicationDescription: optionalShortTextWithDefault(400),
+  publicationAction: optionalShortTextWithDefault(80),
+  booksLabel: optionalShortTextWithDefault(80),
+  outreachEyebrow: optionalShortTextWithDefault(80),
+  outreachTitle: optionalShortTextWithDefault(100),
+  outreachDescription: optionalShortTextWithDefault(400),
+  outreachAction: optionalShortTextWithDefault(80),
+  agendaLabel: optionalShortTextWithDefault(80),
+  forumLabel: optionalShortTextWithDefault(80),
+  materialsAction: optionalShortTextWithDefault(80),
+  closingEyebrow: optionalShortTextWithDefault(100),
+  closingTitle: optionalShortTextWithDefault(100),
+  contactAction: optionalShortTextWithDefault(80),
+  closingProfileAction: optionalShortTextWithDefault(80),
+});
+
+const homepageResearchSchema = z.object({
+  key: z.enum(["money-politics", "democracy", "political-islam", "public-opinion"]),
+  titleId: z.string().trim().min(3).max(180),
+  titleEn: optionalShortTextWithDefault(180),
+  descriptionId: z.string().trim().min(20).max(600),
+  descriptionEn: optionalShortTextWithDefault(600),
+  workYear: z.string().trim().min(4).max(20),
+  workTitle: z.string().trim().min(3).max(400),
+  workUrl: optionalHttpsUrl,
+});
+
+export const homepageInputSchema = z.object({
+  id: homepageLocaleSchema,
+  en: homepageEnglishLocaleSchema
+    .optional()
+    .transform((value) => value ?? homepageEnglishLocaleSchema.parse({})),
+  logoUrl: httpsUrl,
+  portraitUrl: httpsUrl,
+  portraitAltId: z.string().trim().min(3).max(240),
+  portraitAltEn: optionalShortTextWithDefault(240),
+  mediaRightsNote: z.string().trim().min(3).max(500),
+  research: z.array(homepageResearchSchema).length(4),
+  forums: z
+    .array(
+      z.object({
+        year: z.string().trim().min(4).max(20),
+        titleId: z.string().trim().min(3).max(300),
+        titleEn: optionalShortTextWithDefault(300),
+        institutionId: z.string().trim().min(2).max(240),
+        institutionEn: optionalShortTextWithDefault(240),
+      }),
+    )
+    .length(2),
+  scholar: homepageLinkSchema,
+});
+
+export function getPublishReadiness(
+  kind: "POST" | "AGENDA" | "MATERIAL" | "PUBLICATION" | "HOMEPAGE",
+  input: unknown,
+) {
+  const issues: string[] = [];
+
+  if (kind === "HOMEPAGE") {
+    const result = homepageInputSchema.safeParse(input);
+    return result.success ? issues : result.error.issues.map((issue) => issue.message);
+  }
+
+  if (kind === "POST") {
+    const result = postInputSchema.safeParse(input);
+    if (!result.success) return result.error.issues.map((issue) => issue.message);
+    if (!result.data.excerptId) {
+      issues.push("Ringkasan Indonesia wajib sebelum tulisan diterbitkan.");
+    }
+  }
+
+  if (kind === "AGENDA") {
+    const result = agendaInputSchema.safeParse(input);
+    if (!result.success) return result.error.issues.map((issue) => issue.message);
+  }
+
+  if (kind === "MATERIAL") {
+    const result = materialInputSchema.safeParse(input);
+    if (!result.success) return result.error.issues.map((issue) => issue.message);
+  }
+
+  if (kind === "PUBLICATION") {
+    const result = publicationInputSchema.safeParse(input);
+    if (!result.success) return result.error.issues.map((issue) => issue.message);
+    if (!result.data.doi && !result.data.externalUrl && !result.data.sourceUrl) {
+      issues.push("Publikasi wajib memiliki DOI atau tautan sumber HTTPS.");
+    }
+  }
+
+  return issues;
+}
+
 export type PostInput = z.infer<typeof postInputSchema>;
 export type MaterialInput = z.infer<typeof materialInputSchema>;
 export type AgendaInput = z.infer<typeof agendaInputSchema>;
 export type PublicationInput = z.infer<typeof publicationInputSchema>;
+export type PostBlock = z.infer<typeof postBlockSchema>;
+export type HomepageInput = z.infer<typeof homepageInputSchema>;

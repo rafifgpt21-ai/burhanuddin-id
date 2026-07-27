@@ -19,8 +19,21 @@ export function PublicAgendaList({
   showAdminShortcut?: boolean;
 }) {
   const { upcoming, completed } = partitionAgenda(items);
-  const emptyCopy =
-    locale === "id"
+  const hasPublishedItems = items.length > 0;
+  const hasNoUpcomingItems = compact && upcoming.length === 0;
+  const emptyCopy = hasPublishedItems
+    ? locale === "id"
+      ? {
+          title: "Belum ada agenda mendatang.",
+          description:
+            "Agenda yang telah selesai tetap tersedia di halaman Kiprah.",
+        }
+      : {
+          title: "No upcoming agenda.",
+          description:
+            "Completed events remain available on the Outreach page.",
+        }
+    : locale === "id"
       ? {
           title: "Belum ada agenda yang diterbitkan.",
           description:
@@ -32,7 +45,7 @@ export function PublicAgendaList({
             "Events will appear after their date, time, and supporting information have been verified.",
         };
 
-  if (items.length === 0) {
+  if (!hasPublishedItems || hasNoUpcomingItems) {
     return (
       <div className="agenda-empty">
         <CalendarIcon />
@@ -40,7 +53,10 @@ export function PublicAgendaList({
           <h3>{emptyCopy.title}</h3>
           <p>{emptyCopy.description}</p>
           {showAdminShortcut ? (
-            <AdminAgendaShortcut locale={locale} />
+            <AdminAgendaShortcut
+              locale={locale}
+              mode={hasPublishedItems ? "manage" : "create"}
+            />
           ) : null}
         </div>
       </div>

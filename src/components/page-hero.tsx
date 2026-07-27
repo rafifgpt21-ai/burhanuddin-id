@@ -9,8 +9,8 @@ export function PageHero({
   eyebrow: string;
   title: string;
   description: string;
-  index: string;
-  indexLabel: string;
+  index?: string;
+  indexLabel?: string;
   showIndex?: boolean;
 }) {
   return (
@@ -23,7 +23,7 @@ export function PageHero({
           <h1>{title}</h1>
           <p className="page-hero-copy">{description}</p>
         </div>
-        {showIndex ? (
+        {showIndex && index && indexLabel ? (
           <div className="page-index" aria-hidden="true">
             <span>{index}</span>
             <strong>{indexLabel}</strong>

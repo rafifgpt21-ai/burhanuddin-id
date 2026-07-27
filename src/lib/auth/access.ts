@@ -13,3 +13,7 @@ export function canAccessAdmin(role: string) {
 export function canManageUsers(role: string) {
   return role === "SUPER_ADMIN";
 }
+
+export function canPermanentlyDelete(role: string) {
+  return role === "SUPER_ADMIN" || role === "ADMIN";
+}
