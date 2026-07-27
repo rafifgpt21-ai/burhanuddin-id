@@ -4,10 +4,12 @@ import { useActionState } from "react";
 
 import {
   createUserAction,
+  revokeManagedUserSessionsAction,
   updateManagedUserAction,
   updateOwnAccountAction,
   type UserActionState,
 } from "@/app/[locale]/admin/(workspace)/user-actions";
+import { getAdminQolCopy, adminText } from "@/data/admin-qol";
 import type { Locale } from "@/lib/i18n";
 
 const initialState: UserActionState = {};
@@ -43,7 +45,7 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
       <FormMessage state={state} />
       <div className="user-form-grid">
         <label>
-          Nama tampilan
+          {adminText(locale, "Nama tampilan", "Display name")}
           <input
             aria-describedby={state.errors?.name ? "create-name-error" : undefined}
             aria-invalid={Boolean(state.errors?.name)}
@@ -54,7 +56,7 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
           <FieldError errors={state.errors} field="name" id="create-name-error" />
         </label>
         <label>
-          Username
+          {adminText(locale, "Username", "Username")}
           <input
             aria-describedby={state.errors?.username ? "create-username-error" : "create-username-help"}
             aria-invalid={Boolean(state.errors?.username)}
@@ -63,11 +65,11 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
             name="username"
             required
           />
-          <small id="create-username-help">3–32 karakter; huruf kecil, angka, titik, _ atau -.</small>
+          <small id="create-username-help">{adminText(locale, "3–32 karakter; huruf kecil, angka, titik, _ atau -.", "3–32 characters; lowercase letters, numbers, periods, _ or -.")}</small>
           <FieldError errors={state.errors} field="username" id="create-username-error" />
         </label>
         <label>
-          Role
+          {adminText(locale, "Role", "Role")}
           <select name="role" defaultValue="ADMIN">
             <option value="ADMIN">Admin</option>
             <option value="EDITOR">Editor</option>
@@ -75,7 +77,7 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
         </label>
         <span aria-hidden="true" />
         <label>
-          Password
+          {adminText(locale, "Password", "Password")}
           <input
             aria-describedby={state.errors?.password ? "create-password-error" : "create-password-help"}
             aria-invalid={Boolean(state.errors?.password)}
@@ -84,11 +86,11 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
             required
             type="password"
           />
-          <small id="create-password-help">Minimal 12 karakter.</small>
+          <small id="create-password-help">{adminText(locale, "Minimal 12 karakter.", "At least 12 characters.")}</small>
           <FieldError errors={state.errors} field="password" id="create-password-error" />
         </label>
         <label>
-          Ulangi password
+          {adminText(locale, "Ulangi password", "Confirm password")}
           <input
             aria-describedby={state.errors?.passwordConfirmation ? "create-confirm-error" : undefined}
             aria-invalid={Boolean(state.errors?.passwordConfirmation)}
@@ -101,7 +103,7 @@ export function CreateUserForm({ locale }: { locale: Locale }) {
         </label>
       </div>
       <button className="button button-primary" disabled={pending} type="submit">
-        {pending ? "Menambahkan…" : "Tambah pengguna"}
+        {pending ? adminText(locale, "Menambahkan…", "Adding…") : adminText(locale, "Tambah pengguna", "Add user")}
       </button>
     </form>
   );
@@ -112,6 +114,7 @@ export type ManagedUser = {
   name: string;
   username: string;
   role: "ADMIN" | "EDITOR";
+  activeSessions: number;
   updatedAt: string;
 };
 
@@ -124,6 +127,7 @@ export function ManagedUserForm({
 }) {
   const [state, action, pending] = useActionState(updateManagedUserAction, initialState);
   const prefix = `user-${user.id}`;
+  const copy = getAdminQolCopy(locale);
 
   return (
     <form action={action} className="managed-user-form" noValidate>
@@ -131,12 +135,13 @@ export function ManagedUserForm({
       <input name="userId" type="hidden" value={user.id} />
       <div className="managed-user-meta">
         <span className={`role-stamp role-${user.role.toLowerCase()}`}>{user.role}</span>
-        <small>Terakhir diperbarui {user.updatedAt}</small>
+        <small>{user.activeSessions} {copy.users.activeSessions} · {user.updatedAt}</small>
+        <p>{user.role === "ADMIN" ? copy.users.roleAdmin : copy.users.roleEditor}</p>
       </div>
       <FormMessage state={state} />
       <div className="user-form-grid">
         <label>
-          Nama tampilan
+          {adminText(locale, "Nama tampilan", "Display name")}
           <input
             aria-describedby={state.errors?.name ? `${prefix}-name-error` : undefined}
             aria-invalid={Boolean(state.errors?.name)}
@@ -147,7 +152,7 @@ export function ManagedUserForm({
           <FieldError errors={state.errors} field="name" id={`${prefix}-name-error`} />
         </label>
         <label>
-          Username
+          {adminText(locale, "Username", "Username")}
           <input
             aria-describedby={state.errors?.username ? `${prefix}-username-error` : undefined}
             aria-invalid={Boolean(state.errors?.username)}
@@ -159,7 +164,7 @@ export function ManagedUserForm({
           <FieldError errors={state.errors} field="username" id={`${prefix}-username-error`} />
         </label>
         <label>
-          Role
+          {adminText(locale, "Role", "Role")}
           <select defaultValue={user.role} name="role">
             <option value="ADMIN">Admin</option>
             <option value="EDITOR">Editor</option>
@@ -167,7 +172,7 @@ export function ManagedUserForm({
         </label>
         <span aria-hidden="true" />
         <label>
-          Password baru <small>Kosongkan jika tidak diubah.</small>
+          {adminText(locale, "Password baru", "New password")} <small>{adminText(locale, "Kosongkan jika tidak diubah.", "Leave blank to keep it unchanged.")}</small>
           <input
             aria-describedby={state.errors?.newPassword ? `${prefix}-password-error` : undefined}
             aria-invalid={Boolean(state.errors?.newPassword)}
@@ -178,7 +183,7 @@ export function ManagedUserForm({
           <FieldError errors={state.errors} field="newPassword" id={`${prefix}-password-error`} />
         </label>
         <label>
-          Ulangi password baru
+          {adminText(locale, "Ulangi password baru", "Confirm new password")}
           <input
             aria-describedby={state.errors?.passwordConfirmation ? `${prefix}-confirm-error` : undefined}
             aria-invalid={Boolean(state.errors?.passwordConfirmation)}
@@ -189,9 +194,22 @@ export function ManagedUserForm({
           <FieldError errors={state.errors} field="passwordConfirmation" id={`${prefix}-confirm-error`} />
         </label>
       </div>
-      <button className="button button-secondary" disabled={pending} type="submit">
-        {pending ? "Menyimpan…" : "Simpan perubahan"}
-      </button>
+      <div className="managed-user-actions">
+        <button className="button button-secondary" disabled={pending} type="submit">
+          {pending ? adminText(locale, "Menyimpan…", "Saving…") : adminText(locale, "Simpan perubahan", "Save changes")}
+        </button>
+        <button
+          className="button button-danger"
+          disabled={!user.activeSessions || pending}
+          formAction={revokeManagedUserSessionsAction}
+          onClick={(event) => {
+            if (!window.confirm(copy.users.revokeConfirm)) event.preventDefault();
+          }}
+          type="submit"
+        >
+          {copy.users.revoke}
+        </button>
+      </div>
     </form>
   );
 }
@@ -210,7 +228,7 @@ export function AccountForm({
       <input name="locale" type="hidden" value={locale} />
       <FormMessage state={state} />
       <label>
-        Username
+        {adminText(locale, "Username", "Username")}
         <input
           aria-describedby={state.errors?.username ? "account-username-error" : "account-username-help"}
           aria-invalid={Boolean(state.errors?.username)}
@@ -220,11 +238,11 @@ export function AccountForm({
           name="username"
           required
         />
-        <small id="account-username-help">Username baru digunakan pada login berikutnya.</small>
+        <small id="account-username-help">{adminText(locale, "Username baru digunakan pada login berikutnya.", "The new username will be used at the next sign-in.")}</small>
         <FieldError errors={state.errors} field="username" id="account-username-error" />
       </label>
       <label>
-        Password saat ini
+        {adminText(locale, "Password saat ini", "Current password")}
         <input
           aria-describedby={state.errors?.currentPassword ? "account-current-error" : undefined}
           aria-invalid={Boolean(state.errors?.currentPassword)}
@@ -237,7 +255,7 @@ export function AccountForm({
       </label>
       <div className="user-form-grid">
         <label>
-          Password baru <small>Kosongkan jika hanya mengganti username.</small>
+          {adminText(locale, "Password baru", "New password")} <small>{adminText(locale, "Kosongkan jika hanya mengganti username.", "Leave blank when changing only the username.")}</small>
           <input
             aria-describedby={state.errors?.newPassword ? "account-password-error" : undefined}
             aria-invalid={Boolean(state.errors?.newPassword)}
@@ -248,7 +266,7 @@ export function AccountForm({
           <FieldError errors={state.errors} field="newPassword" id="account-password-error" />
         </label>
         <label>
-          Ulangi password baru
+          {adminText(locale, "Ulangi password baru", "Confirm new password")}
           <input
             aria-describedby={state.errors?.passwordConfirmation ? "account-confirm-error" : undefined}
             aria-invalid={Boolean(state.errors?.passwordConfirmation)}
@@ -260,7 +278,7 @@ export function AccountForm({
         </label>
       </div>
       <button className="button button-primary" disabled={pending} type="submit">
-        {pending ? "Menyimpan…" : "Simpan akun saya"}
+        {pending ? adminText(locale, "Menyimpan…", "Saving…") : adminText(locale, "Simpan akun saya", "Save my account")}
       </button>
     </form>
   );

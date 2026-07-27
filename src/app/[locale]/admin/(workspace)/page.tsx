@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { readAdminSession } from "@/lib/auth/session";
 import { getAdminCollectionCounts } from "@/lib/content/admin-counts";
 import { getDatabaseReadiness } from "@/lib/content/database-readiness";
 import { getRoutePath, hasLocale, type Locale } from "@/lib/i18n";
@@ -123,7 +124,8 @@ export default async function AdminDashboard({
   const { locale: value } = await params;
   const locale: Locale = hasLocale(value) ? value : "id";
   const databaseReady = getDatabaseReadiness();
-  const counts = await getAdminCollectionCounts();
+  const session = await readAdminSession();
+  const counts = await getAdminCollectionCounts(session?.id);
   const pageCopy = copy[locale];
   const base = `/${locale}/admin`;
   const collections = [
@@ -196,19 +198,52 @@ export default async function AdminDashboard({
       </section>
 
       {counts ? (
-        <section className="admin-recent-work" aria-labelledby="recent-work-title">
-          <div>
-            <p className="eyebrow">Perlu dilanjutkan</p>
-            <h2 id="recent-work-title">Draft dan perubahan belum terbit</h2>
-            <p>{counts.status.draft} draft · {counts.status.published} terbit · {counts.status.archived} arsip dalam aktivitas terbaru.</p>
-          </div>
-          <div className="admin-recent-list">
-            {counts.recent.length ? counts.recent.map((item) => (
-              <Link href={`${base}/${item.kind}/${item.id}`} key={`${item.kind}-${item.id}`}>
-                <span>{item.kind}</span><strong>{item.title}</strong>
-                <small>{item.pending ? "Perubahan belum terbit" : "Draft"}</small>
-              </Link>
-            )) : <p>Tidak ada draft yang menunggu.</p>}
+        <section className="admin-work-queues" aria-labelledby="team-work-title">
+          <header>
+            <div>
+              <p className="eyebrow">{locale === "id" ? "Antrean editorial" : "Editorial queue"}</p>
+              <h2 id="team-work-title">{locale === "id" ? "Pekerjaan saya dan tim" : "My work and team activity"}</h2>
+            </div>
+            <p>
+              {counts.status.pending} {locale === "id" ? "perubahan belum terbit" : "unpublished changes"} ·{" "}
+              {counts.status.draft} {locale === "id" ? "draft" : "drafts"} ·{" "}
+              {counts.status.published} {locale === "id" ? "terbit" : "published"}
+            </p>
+          </header>
+          <div className="admin-queue-grid">
+            {[
+              {
+                title: locale === "id" ? "Perubahan belum terbit" : "Unpublished changes",
+                items: counts.attention,
+                empty: locale === "id" ? "Tidak ada perubahan yang menunggu." : "No changes are waiting.",
+              },
+              {
+                title: locale === "id" ? "Draft saya" : "My drafts",
+                items: counts.mine,
+                empty: locale === "id" ? "Anda belum memiliki draft aktif." : "You have no active drafts.",
+              },
+            ].map((queue) => (
+              <section key={queue.title}>
+                <h3>{queue.title}</h3>
+                {queue.items.length ? (
+                  <div className="admin-recent-list">
+                    {queue.items.map((item) => (
+                      <Link href={`${base}/${item.kind}/${item.id}`} key={`${queue.title}-${item.kind}-${item.id}`}>
+                        <span>{item.kind}</span>
+                        <strong>{item.title}</strong>
+                        <small>
+                          {item.lastEditorName ?? (locale === "id" ? "Editor tidak diketahui" : "Unknown editor")} ·{" "}
+                          {new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
+                            dateStyle: "medium",
+                            timeStyle: "short",
+                          }).format(item.updatedAt)}
+                        </small>
+                      </Link>
+                    ))}
+                  </div>
+                ) : <p className="admin-queue-empty">{queue.empty}</p>}
+              </section>
+            ))}
           </div>
         </section>
       ) : null}

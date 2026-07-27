@@ -26,8 +26,15 @@ import { toJsonSnapshot } from "@/lib/content/snapshots";
 export type EditorActionState = {
   ok?: boolean;
   message?: string;
+  fieldErrors?: Record<string, string[] | undefined>;
   recordId?: string;
   savedAt?: string;
+  draftVersion?: number;
+  conflict?: {
+    draftVersion: number;
+    editorName: string;
+    updatedAt: string;
+  };
 };
 
 async function canWrite() {
@@ -41,6 +48,33 @@ function text(formData: FormData, name: string) {
 
 function optional(value: string) {
   return value.trim() || null;
+}
+
+function actionFieldErrors(error: {
+  flatten: () => { fieldErrors: Record<string, string[] | undefined> };
+}) {
+  return error.flatten().fieldErrors;
+}
+
+async function conflictState(record: {
+  draftVersion: number;
+  lastEditedById?: string | null;
+  updatedAt: Date;
+}): Promise<EditorActionState> {
+  const editor = record.lastEditedById
+    ? await prisma.adminUser.findUnique({
+        where: { id: record.lastEditedById },
+        select: { name: true, username: true },
+      })
+    : null;
+  return {
+    message: "Draft telah berubah di tempat lain.",
+    conflict: {
+      draftVersion: record.draftVersion,
+      editorName: editor?.name || (editor ? `@${editor.username}` : "Editor lain"),
+      updatedAt: record.updatedAt.toISOString(),
+    },
+  };
 }
 
 function isObjectId(value: string) {
@@ -116,8 +150,11 @@ export async function createPostAction(
     canonicalExternal: text(formData, "canonicalExternal"),
     status: "DRAFT",
   });
-  if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa kembali isi tulisan." };
-  await prisma.post.create({
+  if (!parsed.success) return {
+    message: parsed.error.issues[0]?.message || "Periksa kembali isi tulisan.",
+    fieldErrors: actionFieldErrors(parsed.error),
+  };
+  const record = await prisma.post.create({
     data: {
       ...parsed.data,
       titleEn: optional(parsed.data.titleEn || ""),
@@ -130,7 +167,7 @@ export async function createPostAction(
     },
   });
   revalidatePath(text(formData, "returnPath"));
-  return { ok: true, message: "Draft tulisan tersimpan." };
+  return { ok: true, message: "Draft tulisan tersimpan.", recordId: record.id, draftVersion: record.draftVersion };
 }
 
 export async function createAgendaAction(
@@ -155,8 +192,11 @@ export async function createAgendaAction(
     locationLabelId: text(formData, "locationLabelId"), locationLabelEn: text(formData, "locationLabelEn"),
     externalUrl: text(formData, "externalUrl"), status: "DRAFT",
   });
-  if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa kembali data agenda." };
-  await prisma.agendaItem.create({
+  if (!parsed.success) return {
+    message: parsed.error.issues[0]?.message || "Periksa kembali data agenda.",
+    fieldErrors: actionFieldErrors(parsed.error),
+  };
+  const record = await prisma.agendaItem.create({
     data: {
       ...parsed.data,
       titleEn: optional(parsed.data.titleEn || ""),
@@ -168,7 +208,7 @@ export async function createAgendaAction(
     },
   });
   revalidatePath(text(formData, "returnPath"));
-  return { ok: true, message: "Draft agenda tersimpan." };
+  return { ok: true, message: "Draft agenda tersimpan.", recordId: record.id, draftVersion: record.draftVersion };
 }
 
 export async function createPublicationAction(
@@ -191,7 +231,10 @@ export async function createPublicationAction(
     sourceName: text(formData, "sourceName") || "Input manual", sourceUrl: text(formData, "sourceUrl"),
     sourceNote: text(formData, "sourceNote"),
   });
-  if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa kembali metadata publikasi." };
+  if (!parsed.success) return {
+    message: parsed.error.issues[0]?.message || "Periksa kembali metadata publikasi.",
+    fieldErrors: actionFieldErrors(parsed.error),
+  };
   const coverStorageKey = text(formData, "coverStorageKey");
   const coverMimeType = text(formData, "coverMimeType");
   const coverFileName = text(formData, "coverFileName");
@@ -209,7 +252,7 @@ export async function createPublicationAction(
   ) {
     return { message: "Metadata unggahan gambar publikasi tidak valid." };
   }
-  await prisma.$transaction(async (database) => {
+  const record = await prisma.$transaction(async (database) => {
     let cardImageId: string | null = null;
     if (coverStorageKey && parsed.data.coverImage) {
       const cardImage = await database.mediaAsset.create({
@@ -229,7 +272,7 @@ export async function createPublicationAction(
 
     const publication = { ...parsed.data };
     delete publication.coverRightsNote;
-    await database.publication.create({
+    return database.publication.create({
       data: {
         ...publication,
         editors: publication.editors,
@@ -255,7 +298,7 @@ export async function createPublicationAction(
     });
   });
   revalidatePath(text(formData, "returnPath"));
-  return { ok: true, message: "Draft publikasi tersimpan." };
+  return { ok: true, message: "Draft publikasi tersimpan.", recordId: record.id, draftVersion: record.draftVersion };
 }
 
 export async function createMaterialAction(
@@ -290,8 +333,11 @@ export async function createMaterialAction(
     academicYear: text(formData, "academicYear"), tagsId: [], tagsEn: [], assetId: uploadedKey,
     externalUrl, downloadAllowed: formData.get("downloadAllowed") === "on", pinned: false, status: "DRAFT",
   });
-  if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa kembali metadata materi." };
-  await prisma.$transaction(async (database) => {
+  if (!parsed.success) return {
+    message: parsed.error.issues[0]?.message || "Periksa kembali metadata materi.",
+    fieldErrors: actionFieldErrors(parsed.error),
+  };
+  const record = await prisma.$transaction(async (database) => {
     let assetId: string | null = null;
     if (uploadedKey) {
       const asset = await database.mediaAsset.create({
@@ -304,7 +350,7 @@ export async function createMaterialAction(
       });
       assetId = asset.id;
     }
-    await database.studyMaterial.create({
+    return database.studyMaterial.create({
       data: {
         ...parsed.data,
         titleEn: optional(parsed.data.titleEn || ""),
@@ -321,7 +367,7 @@ export async function createMaterialAction(
     });
   });
   revalidatePath(text(formData, "returnPath"));
-  return { ok: true, message: "Draft materi tersimpan." };
+  return { ok: true, message: "Draft materi tersimpan.", recordId: record.id, draftVersion: record.draftVersion };
 }
 
 type PersistedKind = Exclude<EditorialKind, "homepage">;
@@ -345,6 +391,25 @@ function collectionPath(locale: string, kind: EditorialKind) {
     publication: "publikasi",
   }[kind];
   return `/${locale}/admin/${segment}`;
+}
+
+function safeAdminReturnTo(
+  formData: FormData,
+  locale: string,
+  kind: EditorialKind,
+) {
+  const candidate = text(formData, "returnTo");
+  const base = collectionPath(locale, kind);
+  return (candidate === base || candidate.startsWith(`${base}?`)) &&
+    !candidate.startsWith("//")
+    ? candidate
+    : base;
+}
+
+function withFeedback(path: string, key: string, message: string) {
+  const url = new URL(path, "https://admin.local");
+  url.searchParams.set(key, message);
+  return `${url.pathname}?${url.searchParams.toString()}${url.hash}`;
 }
 
 function redirectEditorialError(
@@ -629,7 +694,7 @@ export async function editorialTransitionAction(
   }
 
   await revalidateEditorial(locale, kind);
-  redirect(collectionPath(locale, kind));
+  redirect(safeAdminReturnTo(formData, locale, kind));
 }
 
 export async function deleteEditorialAction(
@@ -694,35 +759,46 @@ export async function bulkEditorialAction(formData: FormData) {
       ? { in: [ContentStatus.DRAFT, ContentStatus.PUBLISHED] }
       : ContentStatus.ARCHIVED;
   const data = { status, lastEditedById: session.id };
+  let affected = 0;
   if (kind === "post") {
-    await prisma.post.updateMany({
+    affected = (await prisma.post.updateMany({
       where: { id: { in: ids }, status: allowedCurrent },
       data,
-    });
+    })).count;
   }
   if (kind === "agenda") {
-    await prisma.agendaItem.updateMany({
+    affected = (await prisma.agendaItem.updateMany({
       where: { id: { in: ids }, status: allowedCurrent },
       data,
-    });
+    })).count;
   }
   if (kind === "material") {
-    await prisma.studyMaterial.updateMany({
+    affected = (await prisma.studyMaterial.updateMany({
       where: { id: { in: ids }, status: allowedCurrent },
       data,
-    });
+    })).count;
   }
   if (kind === "publication") {
-    await prisma.publication.updateMany({
+    affected = (await prisma.publication.updateMany({
       where: {
         id: { in: ids },
         homepageOrder: null,
         contentStatus: allowedCurrent,
       },
       data: { contentStatus: status, lastEditedById: session.id },
-    });
+    })).count;
   }
-  await revalidateEditorial(text(formData, "locale"), kind);
+  const locale = text(formData, "locale") === "en" ? "en" : "id";
+  await revalidateEditorial(locale, kind);
+  const skipped = ids.length - affected;
+  const message = locale === "id"
+    ? `${affected} record diperbarui${skipped ? `; ${skipped} dilewati karena status atau perlindungan beranda.` : "."}`
+    : `${affected} records updated${skipped ? `; ${skipped} skipped because of status or homepage protection.` : "."}`;
+  redirect(withFeedback(
+    safeAdminReturnTo(formData, locale, kind),
+    "editorialNotice",
+    message,
+  ));
 }
 
 function jsonField(formData: FormData, name: string) {
@@ -745,13 +821,23 @@ export async function saveEditorialRecordAction(
   const id = text(formData, "id");
   const current = await currentSnapshot(kind, id);
   if (!current) return { message: "Record tidak ditemukan." };
+  const expectedDraftVersion = Number(text(formData, "expectedDraftVersion"));
+  if (
+    !Number.isInteger(expectedDraftVersion) ||
+    expectedDraftVersion !== current.record.draftVersion
+  ) {
+    return conflictState(current.record);
+  }
   const changed = current.status === "PUBLISHED";
 
   if (kind === "homepage") {
     const parsed = homepageInputSchema.safeParse(jsonField(formData, "payload"));
-    if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa isi beranda." };
-    await prisma.homepageContent.update({
-      where: { id },
+    if (!parsed.success) return {
+      message: parsed.error.issues[0]?.message || "Periksa isi beranda.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
+    const result = await prisma.homepageContent.updateMany({
+      where: { id, draftVersion: expectedDraftVersion },
       data: {
         payload: parsed.data as Prisma.InputJsonValue,
         draftVersion: { increment: 1 },
@@ -759,6 +845,9 @@ export async function saveEditorialRecordAction(
         lastEditedById: session.id,
       },
     });
+    if (!result.count) return conflictState(
+      (await prisma.homepageContent.findUnique({ where: { id } })) ?? current.record,
+    );
   }
 
   if (kind === "post") {
@@ -777,7 +866,10 @@ export async function saveEditorialRecordAction(
       canonicalExternal: text(formData, "canonicalExternal"),
       status: current.status,
     });
-    if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa isi tulisan." };
+    if (!parsed.success) return {
+      message: parsed.error.issues[0]?.message || "Periksa isi tulisan.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
     const collision = await prisma.post.findFirst({
       where: {
         id: { not: id },
@@ -788,7 +880,7 @@ export async function saveEditorialRecordAction(
       },
       select: { id: true },
     });
-    if (collision) return { message: "Slug sudah digunakan tulisan lain." };
+    if (collision) return { message: "Slug sudah digunakan tulisan lain.", fieldErrors: { slugId: ["Slug sudah digunakan tulisan lain."] } };
     const redirectCollision = await prisma.slugRedirect.findFirst({
       where: {
         kind: "POST",
@@ -800,7 +892,26 @@ export async function saveEditorialRecordAction(
       },
       select: { id: true },
     });
-    if (redirectCollision) return { message: "Slug merupakan alamat lama tulisan lain." };
+    if (redirectCollision) return { message: "Slug merupakan alamat lama tulisan lain.", fieldErrors: { slugId: ["Slug merupakan alamat lama tulisan lain."] } };
+    const result = await prisma.post.updateMany({
+      where: { id, draftVersion: expectedDraftVersion },
+      data: {
+        ...parsed.data,
+        titleEn: optional(parsed.data.titleEn || ""),
+        slugEn: optional(parsed.data.slugEn || ""),
+        excerptId: optional(parsed.data.excerptId || ""),
+        excerptEn: optional(parsed.data.excerptEn || ""),
+        contentEn: parsed.data.contentEn?.length ? parsed.data.contentEn : undefined,
+        coverImage: optional(parsed.data.coverImage || ""),
+        canonicalExternal: optional(parsed.data.canonicalExternal || ""),
+        draftVersion: { increment: 1 },
+        hasUnpublishedChanges: changed,
+        lastEditedById: session.id,
+      },
+    });
+    if (!result.count) return conflictState(
+      (await prisma.post.findUnique({ where: { id } })) ?? current.record,
+    );
     const previous = postInputSchema.safeParse(current.record.publishedSnapshot);
     if (previous.success) {
       for (const [routeLocale, oldSlug, newSlug] of [
@@ -816,22 +927,6 @@ export async function saveEditorialRecordAction(
         }
       }
     }
-    await prisma.post.update({
-      where: { id },
-      data: {
-        ...parsed.data,
-        titleEn: optional(parsed.data.titleEn || ""),
-        slugEn: optional(parsed.data.slugEn || ""),
-        excerptId: optional(parsed.data.excerptId || ""),
-        excerptEn: optional(parsed.data.excerptEn || ""),
-        contentEn: parsed.data.contentEn?.length ? parsed.data.contentEn : undefined,
-        coverImage: optional(parsed.data.coverImage || ""),
-        canonicalExternal: optional(parsed.data.canonicalExternal || ""),
-        draftVersion: { increment: 1 },
-        hasUnpublishedChanges: changed,
-        lastEditedById: session.id,
-      },
-    });
   }
 
   if (kind === "agenda") {
@@ -843,7 +938,10 @@ export async function saveEditorialRecordAction(
       locationLabelId: text(formData, "locationLabelId"), locationLabelEn: text(formData, "locationLabelEn"),
       externalUrl: text(formData, "externalUrl"), status: current.status,
     });
-    if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa agenda." };
+    if (!parsed.success) return {
+      message: parsed.error.issues[0]?.message || "Periksa agenda.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
     const collision = await prisma.agendaItem.findFirst({
       where: {
         id: { not: id },
@@ -854,9 +952,9 @@ export async function saveEditorialRecordAction(
       },
       select: { id: true },
     });
-    if (collision) return { message: "Slug sudah digunakan agenda lain." };
-    await prisma.agendaItem.update({
-      where: { id },
+    if (collision) return { message: "Slug sudah digunakan agenda lain.", fieldErrors: { slugId: ["Slug sudah digunakan agenda lain."] } };
+    const result = await prisma.agendaItem.updateMany({
+      where: { id, draftVersion: expectedDraftVersion },
       data: {
         ...parsed.data,
         titleEn: optional(parsed.data.titleEn || ""),
@@ -870,6 +968,9 @@ export async function saveEditorialRecordAction(
         lastEditedById: session.id,
       },
     });
+    if (!result.count) return conflictState(
+      (await prisma.agendaItem.findUnique({ where: { id } })) ?? current.record,
+    );
   }
 
   if (kind === "material") {
@@ -879,7 +980,10 @@ export async function saveEditorialRecordAction(
     const replacementRights = text(formData, "rightsNote").trim();
     if (replacementKey) {
       if (!replacementRights || !Number.isFinite(replacementSize) || replacementSize <= 0) {
-        return { message: "Metadata dan catatan hak berkas pengganti wajib diisi." };
+        return {
+          message: "Metadata dan catatan hak berkas pengganti wajib diisi.",
+          fieldErrors: { rightsNote: ["Catatan hak berkas pengganti wajib diisi."] },
+        };
       }
     }
     const parsed = materialInputSchema.safeParse({
@@ -896,7 +1000,10 @@ export async function saveEditorialRecordAction(
       downloadAllowed: formData.get("downloadAllowed") === "on",
       pinned: formData.get("pinned") === "on", status: current.status,
     });
-    if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa materi." };
+    if (!parsed.success) return {
+      message: parsed.error.issues[0]?.message || "Periksa materi.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
     const collision = await prisma.studyMaterial.findFirst({
       where: {
         id: { not: id },
@@ -907,7 +1014,7 @@ export async function saveEditorialRecordAction(
       },
       select: { id: true },
     });
-    if (collision) return { message: "Slug sudah digunakan materi lain." };
+    if (collision) return { message: "Slug sudah digunakan materi lain.", fieldErrors: { slugId: ["Slug sudah digunakan materi lain."] } };
     const redirectCollision = await prisma.slugRedirect.findFirst({
       where: {
         kind: "MATERIAL",
@@ -919,7 +1026,51 @@ export async function saveEditorialRecordAction(
       },
       select: { id: true },
     });
-    if (redirectCollision) return { message: "Slug merupakan alamat lama materi lain." };
+    if (redirectCollision) return { message: "Slug merupakan alamat lama materi lain.", fieldErrors: { slugId: ["Slug merupakan alamat lama materi lain."] } };
+    try {
+      await prisma.$transaction(async (database) => {
+        if (replacementKey) {
+          const asset = await database.mediaAsset.create({
+            data: {
+              storageKey: replacementKey,
+              url: text(formData, "assetUrl"),
+              fileName: text(formData, "fileName"),
+              mimeType: text(formData, "mimeType"),
+              size: replacementSize,
+              rightsNote: replacementRights,
+            },
+          });
+          replacementAssetId = asset.id;
+        }
+        const result = await database.studyMaterial.updateMany({
+          where: { id, draftVersion: expectedDraftVersion },
+          data: {
+            ...parsed.data,
+            titleEn: optional(parsed.data.titleEn || ""),
+            slugEn: optional(parsed.data.slugEn || ""),
+            descriptionEn: optional(parsed.data.descriptionEn || ""),
+            courseEn: optional(parsed.data.courseEn || ""),
+            topicId: optional(parsed.data.topicId || ""),
+            topicEn: optional(parsed.data.topicEn || ""),
+            semester: optional(parsed.data.semester || ""),
+            academicYear: optional(parsed.data.academicYear || ""),
+            assetId: replacementAssetId || null,
+            externalUrl: parsed.data.externalUrl || null,
+            draftVersion: { increment: 1 },
+            hasUnpublishedChanges: changed,
+            lastEditedById: session.id,
+          },
+        });
+        if (!result.count) throw new Error("STALE_DRAFT");
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message === "STALE_DRAFT") {
+        return conflictState(
+          (await prisma.studyMaterial.findUnique({ where: { id } })) ?? current.record,
+        );
+      }
+      throw error;
+    }
     const previous = materialInputSchema.safeParse(current.record.publishedSnapshot);
     if (previous.success) {
       for (const [routeLocale, oldSlug, newSlug] of [
@@ -935,38 +1086,6 @@ export async function saveEditorialRecordAction(
         }
       }
     }
-    if (replacementKey) {
-      const asset = await prisma.mediaAsset.create({
-        data: {
-          storageKey: replacementKey,
-          url: text(formData, "assetUrl"),
-          fileName: text(formData, "fileName"),
-          mimeType: text(formData, "mimeType"),
-          size: replacementSize,
-          rightsNote: replacementRights,
-        },
-      });
-      replacementAssetId = asset.id;
-    }
-    await prisma.studyMaterial.update({
-      where: { id },
-      data: {
-        ...parsed.data,
-        titleEn: optional(parsed.data.titleEn || ""),
-        slugEn: optional(parsed.data.slugEn || ""),
-        descriptionEn: optional(parsed.data.descriptionEn || ""),
-        courseEn: optional(parsed.data.courseEn || ""),
-        topicId: optional(parsed.data.topicId || ""),
-        topicEn: optional(parsed.data.topicEn || ""),
-        semester: optional(parsed.data.semester || ""),
-        academicYear: optional(parsed.data.academicYear || ""),
-        assetId: replacementAssetId || null,
-        externalUrl: parsed.data.externalUrl || null,
-        draftVersion: { increment: 1 },
-        hasUnpublishedChanges: changed,
-        lastEditedById: session.id,
-      },
-    });
   }
 
   if (kind === "publication") {
@@ -984,30 +1103,86 @@ export async function saveEditorialRecordAction(
       sourceName: text(formData, "sourceName"), sourceUrl: text(formData, "sourceUrl"),
       sourceNote: text(formData, "sourceNote"),
     });
-    if (!parsed.success) return { message: parsed.error.issues[0]?.message || "Periksa publikasi." };
+    if (!parsed.success) return {
+      message: parsed.error.issues[0]?.message || "Periksa publikasi.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
+    const coverStorageKey = text(formData, "coverStorageKey");
+    const coverFileName = text(formData, "coverFileName");
+    const coverMimeType = text(formData, "coverMimeType");
+    const coverFileSize = Number(text(formData, "coverFileSize"));
+    if (
+      coverStorageKey &&
+      (
+        !parsed.data.coverRightsNote ||
+        !coverFileName ||
+        !coverMimeType.startsWith("image/") ||
+        !Number.isFinite(coverFileSize) ||
+        coverFileSize <= 0 ||
+        coverFileSize > 4 * 1024 * 1024
+      )
+    ) {
+      return {
+        message: "Metadata dan catatan hak gambar pengganti wajib diisi.",
+        fieldErrors: { coverRightsNote: ["Catatan hak penggunaan gambar wajib diisi."] },
+      };
+    }
     const value = { ...parsed.data };
     delete value.coverRightsNote;
-    await prisma.publication.update({
-      where: { id },
-      data: {
-        ...value,
-        dateLabel: optional(value.dateLabel || ""),
-        containerTitle: optional(value.containerTitle || ""),
-        venue: optional(value.containerTitle || ""),
-        publisher: optional(value.publisher || ""),
-        publicationPlace: optional(value.publicationPlace || ""),
-        volume: optional(value.volume || ""),
-        issue: optional(value.issue || ""),
-        seriesNumber: optional(value.seriesNumber || ""),
-        pages: optional(value.pages || ""),
-        doi: value.doi || null, externalUrl: value.externalUrl || null,
-        sourceUrl: value.sourceUrl || null,
-        coverImage: value.coverImage || null,
-        draftVersion: { increment: 1 },
-        hasUnpublishedChanges: changed,
-        lastEditedById: session.id,
-      },
+    const result = await prisma.$transaction(async (database) => {
+      let cardImageId: string | undefined;
+      if (coverStorageKey) {
+        const cardImage = await database.mediaAsset.create({
+          data: {
+            storageKey: coverStorageKey,
+            url: parsed.data.coverImage || "",
+            fileName: coverFileName,
+            mimeType: coverMimeType,
+            size: coverFileSize,
+            altTextId: `Gambar publikasi ${parsed.data.title}`,
+            altTextEn: `Publication image for ${parsed.data.title}`,
+            rightsNote: parsed.data.coverRightsNote || "",
+          },
+        });
+        cardImageId = cardImage.id;
+      }
+      const updated = await database.publication.updateMany({
+        where: { id, draftVersion: expectedDraftVersion },
+        data: {
+          ...value,
+          dateLabel: optional(value.dateLabel || ""),
+          containerTitle: optional(value.containerTitle || ""),
+          venue: optional(value.containerTitle || ""),
+          publisher: optional(value.publisher || ""),
+          publicationPlace: optional(value.publicationPlace || ""),
+          volume: optional(value.volume || ""),
+          issue: optional(value.issue || ""),
+          seriesNumber: optional(value.seriesNumber || ""),
+          pages: optional(value.pages || ""),
+          doi: value.doi || null,
+          externalUrl: value.externalUrl || null,
+          sourceUrl: value.sourceUrl || null,
+          coverImage: value.coverImage || null,
+          ...(cardImageId ? { cardImageId } : {}),
+          draftVersion: { increment: 1 },
+          hasUnpublishedChanges: changed,
+          lastEditedById: session.id,
+        },
+      });
+      if (!updated.count) throw new Error("STALE_DRAFT");
+      return updated;
+    }).catch(async (error) => {
+      if (error instanceof Error && error.message === "STALE_DRAFT") {
+        return null;
+      }
+      throw error;
     });
+    if (!result) return conflictState(
+      (await prisma.publication.findUnique({ where: { id } })) ?? current.record,
+    );
+    if (!result.count) return conflictState(
+      (await prisma.publication.findUnique({ where: { id } })) ?? current.record,
+    );
   }
 
   await revalidateEditorial(text(formData, "locale"), kind);
@@ -1015,6 +1190,7 @@ export async function saveEditorialRecordAction(
     ok: true,
     message: "Perubahan draft tersimpan.",
     savedAt: new Date().toISOString(),
+    draftVersion: expectedDraftVersion + 1,
   };
 }
 
@@ -1028,7 +1204,10 @@ export async function upsertHomepageAction(
   }
   const parsed = homepageInputSchema.safeParse(jsonField(formData, "payload"));
   if (!parsed.success) {
-    return { message: parsed.error.issues[0]?.message || "Periksa isi beranda." };
+    return {
+      message: parsed.error.issues[0]?.message || "Periksa isi beranda.",
+      fieldErrors: actionFieldErrors(parsed.error),
+    };
   }
   const record = await prisma.homepageContent.upsert({
     where: { key: "main" },
@@ -1050,6 +1229,7 @@ export async function upsertHomepageAction(
     message: `Draft beranda tersimpan (${record.id}).`,
     recordId: record.id,
     savedAt: new Date().toISOString(),
+    draftVersion: record.draftVersion,
   };
 }
 

@@ -5,6 +5,7 @@ import {
   setHomepagePublicationsAction,
 } from "@/app/[locale]/admin/(workspace)/editor-actions";
 import { BookIcon } from "@/components/icons";
+import { adminText } from "@/data/admin-qol";
 import { prisma } from "@/lib/prisma";
 import type { Locale } from "@/lib/i18n";
 
@@ -21,6 +22,7 @@ export async function HomepagePublicationSelection({
   locale: Locale;
 }) {
   if (process.env.DATABASE_READY !== "true") return null;
+  const t = (id: string, en: string) => adminText(locale, id, en);
 
   const [books, nonBooks] = await Promise.all([
     prisma.publication.findMany({
@@ -46,33 +48,35 @@ export async function HomepagePublicationSelection({
     >
       <header>
         <div>
-          <p className="eyebrow">Pilihan editorial</p>
-          <h2 id="homepage-curation-title">Kurasi publikasi beranda</h2>
+          <p className="eyebrow">{t("Pilihan editorial", "Editorial selection")}</p>
+          <h2 id="homepage-curation-title">{t("Kurasi publikasi beranda", "Homepage publication curation")}</h2>
           <p>
-            Susun tiga buku dan tiga karya non-buku. Nomor slot mengikuti urutan
-            tampil dari kiri ke kanan.
+            {t(
+              "Susun tiga buku dan tiga karya non-buku. Nomor slot mengikuti urutan tampil dari kiri ke kanan.",
+              "Arrange three books and three non-book works. Slot numbers follow their left-to-right display order.",
+            )}
           </p>
         </div>
-        <Link href={`/${locale}/admin/publikasi`}>Buka koleksi publikasi</Link>
+        <Link href={`/${locale}/admin/publikasi`}>{t("Buka koleksi publikasi", "Open publication collection")}</Link>
       </header>
       <div className="homepage-curation-grid">
         <PublicationSelectionForm
           action={setHomepageBooksAction}
-          emptyCopy="Belum ada buku terbit dengan cover berizin."
-          eyebrow="Rak buku"
-          help="Hanya buku terbit dengan cover berizin yang dapat dipilih."
+          emptyCopy={t("Belum ada buku terbit dengan cover berizin.", "There are no published books with an approved cover.")}
+          eyebrow={t("Rak buku", "Bookshelf")}
+          help={t("Hanya buku terbit dengan cover berizin yang dapat dipilih.", "Only published books with an approved cover can be selected.")}
           locale={locale}
           records={books}
-          title="Tiga buku pilihan"
+          title={t("Tiga buku pilihan", "Three featured books")}
         />
         <PublicationSelectionForm
           action={setHomepagePublicationsAction}
-          emptyCopy="Belum ada karya non-buku yang sedang terbit."
-          eyebrow="Karya ilmiah"
-          help="Artikel, bab buku, dan keluaran riset yang sedang terbit."
+          emptyCopy={t("Belum ada karya non-buku yang sedang terbit.", "There are no published non-book works.")}
+          eyebrow={t("Karya ilmiah", "Scholarly works")}
+          help={t("Artikel, bab buku, dan keluaran riset yang sedang terbit.", "Published articles, book chapters, and research outputs.")}
           locale={locale}
           records={nonBooks}
-          title="Tiga karya non-buku"
+          title={t("Tiga karya non-buku", "Three non-book works")}
         />
       </div>
     </section>
@@ -96,6 +100,7 @@ function PublicationSelectionForm({
   records: SelectionRecord[];
   title: string;
 }) {
+  const t = (id: string, en: string) => adminText(locale, id, en);
   const selected = records
     .filter((record) => record.homepageOrder)
     .sort((a, b) => (a.homepageOrder ?? 99) - (b.homepageOrder ?? 99));
@@ -115,7 +120,7 @@ function PublicationSelectionForm({
         <span
           className={`selection-readiness ${selected.length === 3 ? "is-ready" : ""}`}
         >
-          {selected.length}/3 slot terisi
+          {selected.length}/3 {t("slot terisi", "slots filled")}
         </span>
       </div>
 
@@ -127,14 +132,14 @@ function PublicationSelectionForm({
               <label key={name}>
                 <span>
                   <strong>{String(index + 1).padStart(2, "0")}</strong>
-                  Slot {index + 1}
+                  {t("Slot", "Slot")} {index + 1}
                 </span>
                 <select
                   defaultValue={selected[index]?.id ?? ""}
                   name={name}
                   required
                 >
-                  <option value="">Pilih publikasi</option>
+                  <option value="">{t("Pilih publikasi", "Select a publication")}</option>
                   {records.map((record) => (
                     <option key={record.id} value={record.id}>
                       {record.year} · {record.title}
@@ -146,10 +151,10 @@ function PublicationSelectionForm({
           </fieldset>
           <div className="homepage-selection-actions">
             <small>
-              Ketiga pilihan harus berbeda dan tetap berstatus terbit.
+              {t("Ketiga pilihan harus berbeda dan tetap berstatus terbit.", "All three selections must be different and remain published.")}
             </small>
             <button className="button button-primary" type="submit">
-              Simpan pilihan
+              {t("Simpan pilihan", "Save selection")}
             </button>
           </div>
         </>
@@ -157,7 +162,7 @@ function PublicationSelectionForm({
         <div className="homepage-selection-empty">
           <p>{emptyCopy}</p>
           <Link href={`/${locale}/admin/publikasi`}>
-            Kelola publikasi
+            {t("Kelola publikasi", "Manage publications")}
           </Link>
         </div>
       )}

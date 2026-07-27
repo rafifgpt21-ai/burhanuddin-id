@@ -2,16 +2,19 @@
 
 export function PreviewLink({
   className,
+  disabled = false,
   href,
   label = "Preview",
 }: {
   className?: string;
+  disabled?: boolean;
   href: string;
   label?: string;
 }) {
   return (
     <button
       className={className}
+      disabled={disabled}
       type="button"
       onClick={() => {
         const separator = href.includes("?") ? "&" : "?";

@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 import { HomepageEditor } from "@/components/admin/homepage-editor";
-import { restoreRevisionAction } from "@/app/[locale]/admin/(workspace)/editor-actions";
+import { RevisionRestoreForm } from "@/components/admin/revision-restore-form";
+import { readAdminSession } from "@/lib/auth/session";
 import { getDatabaseReadiness } from "@/lib/content/database-readiness";
 import { prisma } from "@/lib/prisma";
 import { homepageInputSchema } from "@/lib/validation/content";
@@ -16,13 +17,14 @@ export default async function HomepageEditPage({
   const { locale: value, id } = await params;
   const locale = hasLocale(value) ? value : "id";
   if (!getDatabaseReadiness()) notFound();
-  const [record, revisions] = await Promise.all([
+  const [record, revisions, session] = await Promise.all([
     prisma.homepageContent.findUnique({ where: { id } }),
     prisma.contentRevision.findMany({
       where: { kind: "HOMEPAGE", recordId: id },
       orderBy: { version: "desc" },
       take: 10,
     }),
+    readAdminSession(),
   ]);
   const parsed = homepageInputSchema.safeParse(record?.payload);
   if (!record || !parsed.success) notFound();
@@ -48,11 +50,13 @@ export default async function HomepageEditPage({
       </header>
       <HomepageEditor
         initial={parsed.data}
+        draftVersion={record.draftVersion}
         locale={locale}
         ready
         recordId={record.id}
         status={record.status}
         updatedAt={record.updatedAt}
+        userId={session?.id ?? ""}
       />
       {revisions.length ? (
         <section className="revision-panel">
@@ -66,15 +70,13 @@ export default async function HomepageEditPage({
           </div>
           <div>
             {revisions.map((revision) => (
-              <form action={restoreRevisionAction} key={revision.id}>
-                <input name="kind" type="hidden" value="homepage" />
-                <input name="id" type="hidden" value={record.id} />
-                <input name="locale" type="hidden" value={locale} />
-                <input
-                  name="version"
-                  type="hidden"
-                  value={revision.version}
-                />
+              <RevisionRestoreForm
+                id={record.id}
+                kind="homepage"
+                locale={locale}
+                key={revision.id}
+                version={revision.version}
+              >
                 <span>Versi {revision.version}</span>
                 <time>
                   {new Intl.DateTimeFormat(
@@ -82,8 +84,7 @@ export default async function HomepageEditPage({
                     { dateStyle: "medium", timeStyle: "short" },
                   ).format(revision.createdAt)}
                 </time>
-                <button type="submit">Pulihkan sebagai draft</button>
-              </form>
+              </RevisionRestoreForm>
             ))}
           </div>
         </section>

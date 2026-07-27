@@ -1,5 +1,6 @@
 import { EditorialCollection } from "@/components/admin/editorial-collection";
 import { getRoutePath, hasLocale } from "@/lib/i18n";
+import { parseEditorialFilters } from "@/lib/content/admin-records";
 
 export default async function AdminMaterials({
   params,
@@ -18,13 +19,7 @@ export default async function AdminMaterials({
       title={locale === "id" ? "Materi kuliah" : "Course materials"}
       description={locale === "id" ? "Kelola berkas, metadata kelas, dan hak distribusi; terjemahan Inggris opsional." : "Manage files, course metadata, and distribution rights; English translations are optional."}
       publicHref={getRoutePath(locale, "materials")}
-      filters={{
-        editorialError: filters.editorialError,
-        q: filters.q,
-        status: filters.status as "DRAFT" | "PUBLISHED" | "ARCHIVED" | undefined,
-        sort: filters.sort as "updated-desc" | "updated-asc" | undefined,
-        page: Number(filters.page) || 1,
-      }}
+      filters={parseEditorialFilters(filters)}
     />
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 
 import {
   editorialTransitionAction,
@@ -8,7 +8,9 @@ import {
   upsertHomepageAction,
   type EditorActionState,
 } from "@/app/[locale]/admin/(workspace)/editor-actions";
+import { useEditorRecovery } from "@/components/admin/editor-recovery";
 import { PreviewLink } from "@/components/admin/preview-link";
+import { getAdminQolCopy } from "@/data/admin-qol";
 import type { HomepageInput } from "@/lib/validation/content";
 
 const initialState: EditorActionState = {};
@@ -87,27 +89,51 @@ const allEnglishFields = [
 
 export function HomepageEditor({
   initial,
+  draftVersion: initialDraftVersion = 1,
   locale,
   recordId,
   ready,
   status,
   updatedAt,
+  userId,
 }: {
   initial: HomepageInput;
+  draftVersion?: number;
   locale: "id" | "en";
   recordId?: string;
   ready: boolean;
   status?: "DRAFT" | "PUBLISHED" | "ARCHIVED";
   updatedAt?: Date;
+  userId: string;
 }) {
   const [value, setValue] = useState(initial);
   const [dirty, setDirty] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [draftVersion, setDraftVersion] = useState(initialDraftVersion);
+  const [formNode, setFormNode] = useState<HTMLFormElement | null>(null);
   const actionHandler = recordId
     ? saveEditorialRecordAction
     : upsertHomepageAction;
   const [state, action, pending] = useActionState(actionHandler, initialState);
   const effectiveRecordId = recordId ?? state.recordId;
+  const copy = getAdminQolCopy(locale);
+  const { clear: clearRecovery, notice: recoveryNotice } = useEditorRecovery({
+    baseDraftVersion: draftVersion,
+    form: formNode,
+    kind: "homepage",
+    locale,
+    recordId: effectiveRecordId ?? "new:homepage",
+    serverUpdatedAt: updatedAt?.getTime() ?? 0,
+    userId,
+    onRestore: (stored) => {
+      if (typeof stored.fields.payload !== "string") return;
+      try {
+        setValue(JSON.parse(stored.fields.payload) as HomepageInput);
+        setDirty(true);
+      } catch {
+        // Ignore incompatible local recoveries; the user can discard them.
+      }
+    },
+  });
 
   useEffect(() => {
     const warn = (event: BeforeUnloadEvent) => {
@@ -123,7 +149,7 @@ export function HomepageEditor({
       ? window.setTimeout(() => setDirty(false), 0)
       : undefined;
     if (state.message && !state.ok) {
-      formRef.current
+      formNode
         ?.querySelector<
           HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
         >(
@@ -134,7 +160,15 @@ export function HomepageEditor({
     return () => {
       if (savedStateTimer) window.clearTimeout(savedStateTimer);
     };
-  }, [state]);
+  }, [formNode, state]);
+  useEffect(() => {
+    if (!state.ok) return;
+    const timer = window.setTimeout(() => {
+      if (state.draftVersion) setDraftVersion(state.draftVersion);
+      void clearRecovery();
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [clearRecovery, state.draftVersion, state.ok]);
 
   const updateLocale = (
     language: HomepageLocale,
@@ -221,14 +255,24 @@ export function HomepageEditor({
       action={action}
       className="editor-form homepage-editor"
       onChange={() => setDirty(true)}
-      ref={formRef}
+      onKeyDown={(event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
+          event.preventDefault();
+          event.currentTarget.requestSubmit();
+        }
+      }}
+      ref={setFormNode}
     >
       <input name="kind" type="hidden" value="homepage" />
       <input name="locale" type="hidden" value={locale} />
       {effectiveRecordId ? (
         <input name="id" type="hidden" value={effectiveRecordId} />
       ) : null}
+      {effectiveRecordId ? (
+        <input name="expectedDraftVersion" type="hidden" value={draftVersion} />
+      ) : null}
       <input name="payload" type="hidden" value={JSON.stringify(value)} />
+      {recoveryNotice}
 
       {state.message ? (
         <p
@@ -238,9 +282,27 @@ export function HomepageEditor({
           {state.message}
         </p>
       ) : null}
+      {state.conflict ? (
+        <section className="editor-conflict-notice" role="alert">
+          <div>
+            <strong>{copy.editor.conflictTitle}</strong>
+            <p>{copy.editor.conflictBody}</p>
+            <small>
+              {state.conflict.editorName} ·{" "}
+              {new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
+                dateStyle: "medium",
+                timeStyle: "short",
+              }).format(new Date(state.conflict.updatedAt))}
+            </small>
+          </div>
+          <button className="button button-secondary" onClick={() => window.location.reload()} type="button">
+            {copy.editor.reloadLatest}
+          </button>
+        </section>
+      ) : null}
       {dirty ? (
         <p className="unsaved-indicator" role="status">
-          Ada perubahan yang belum disimpan.
+          {copy.editor.unsaved}
         </p>
       ) : null}
 
@@ -672,6 +734,7 @@ export function HomepageEditor({
           {effectiveRecordId ? (
             <PreviewLink
               className="button button-secondary"
+              disabled={dirty || pending}
               href={`/${locale}/admin/preview/homepage/${effectiveRecordId}`}
               label="Preview"
             />

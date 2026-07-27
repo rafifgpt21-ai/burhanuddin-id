@@ -1,5 +1,6 @@
 import { EditorialCollection } from "@/components/admin/editorial-collection";
 import { getRoutePath, hasLocale } from "@/lib/i18n";
+import { parseEditorialFilters } from "@/lib/content/admin-records";
 
 export default async function AdminAgenda({
   params,
@@ -18,13 +19,7 @@ export default async function AdminAgenda({
       title="Agenda"
       description={locale === "id" ? "Kelola kegiatan dan status; seluruh terjemahan Inggris bersifat opsional." : "Manage events and their lifecycle; English translations are optional."}
       publicHref={`${getRoutePath(locale, "outreach")}#agenda`}
-      filters={{
-        editorialError: filters.editorialError,
-        q: filters.q,
-        status: filters.status as "DRAFT" | "PUBLISHED" | "ARCHIVED" | undefined,
-        sort: filters.sort as "updated-desc" | "updated-asc" | undefined,
-        page: Number(filters.page) || 1,
-      }}
+      filters={parseEditorialFilters(filters)}
     />
   );
 }

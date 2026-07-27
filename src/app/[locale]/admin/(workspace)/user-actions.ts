@@ -153,6 +153,20 @@ export async function updateManagedUserAction(
   };
 }
 
+export async function revokeManagedUserSessionsAction(formData: FormData) {
+  const session = await readAdminSession();
+  if (!session || !canManageUsers(session.role)) return;
+  const userId = text(formData, "userId");
+  if (!/^[a-f0-9]{24}$/i.test(userId) || userId === session.id) return;
+  const target = await prisma.adminUser.findUnique({
+    where: { id: userId },
+    select: { role: true },
+  });
+  if (!target || target.role === "SUPER_ADMIN") return;
+  await prisma.adminSession.deleteMany({ where: { adminUserId: userId } });
+  revalidatePath(`/${localeFrom(formData)}/admin/users`);
+}
+
 export async function updateOwnAccountAction(
   _state: UserActionState,
   formData: FormData,

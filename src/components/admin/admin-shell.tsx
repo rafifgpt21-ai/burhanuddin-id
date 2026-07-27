@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { logoutAction } from "@/app/[locale]/admin/actions";
+import { AdminCommandSearch } from "@/components/admin/admin-command-search";
+import { AdminLogout } from "@/components/admin/admin-logout";
 import {
   AdminNavigation,
   type AdminNavigationItem,
@@ -49,13 +50,15 @@ export function AdminShell({
           </div>
         </div>
         <div className="admin-header-actions">
+          <AdminCommandSearch locale={locale} />
           <Link className="admin-public-link" href={getRoutePath(locale, "home")}>
             {copy.publicSite}
           </Link>
-          <form action={logoutAction}>
-            <input name="locale" type="hidden" value={locale} />
-            <button className="admin-logout" type="submit">{copy.logout}</button>
-          </form>
+          <AdminLogout
+            label={copy.logout}
+            locale={locale}
+            userId={session.id}
+          />
         </div>
       </header>
       <div className="admin-workspace-grid">

@@ -1,5 +1,6 @@
 import { EditorialCollection } from "@/components/admin/editorial-collection";
 import { getRoutePath, hasLocale } from "@/lib/i18n";
+import { parseEditorialFilters } from "@/lib/content/admin-records";
 
 export default async function AdminPosts({
   params,
@@ -18,13 +19,7 @@ export default async function AdminPosts({
       title={locale === "id" ? "Tulisan" : "Writing"}
       description={locale === "id" ? "Tulis dan kelola esai; seluruh terjemahan Inggris bersifat opsional." : "Write and manage essays; English translations are optional."}
       publicHref={getRoutePath(locale, "posts")}
-      filters={{
-        editorialError: filters.editorialError,
-        q: filters.q,
-        status: filters.status as "DRAFT" | "PUBLISHED" | "ARCHIVED" | undefined,
-        sort: filters.sort as "updated-desc" | "updated-asc" | undefined,
-        page: Number(filters.page) || 1,
-      }}
+      filters={parseEditorialFilters(filters)}
     />
   );
 }

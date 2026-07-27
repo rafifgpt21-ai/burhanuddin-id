@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { HomepageEditor } from "@/components/admin/homepage-editor";
+import { readAdminSession } from "@/lib/auth/session";
 import { getHomepageFallback } from "@/lib/content/homepage";
 import { getDatabaseReadiness } from "@/lib/content/database-readiness";
 import { prisma } from "@/lib/prisma";
@@ -15,9 +16,12 @@ export default async function HomepageDraftPage({
   const { locale: value } = await params;
   const locale = hasLocale(value) ? value : "id";
   const ready = getDatabaseReadiness();
-  const record = ready
-    ? await prisma.homepageContent.findUnique({ where: { key: "main" } })
-    : null;
+  const [record, session] = await Promise.all([
+    ready
+      ? prisma.homepageContent.findUnique({ where: { key: "main" } })
+      : Promise.resolve(null),
+    readAdminSession(),
+  ]);
   const parsed = homepageInputSchema.safeParse(record?.payload);
   const initial = parsed.success ? parsed.data : getHomepageFallback();
 
@@ -40,11 +44,13 @@ export default async function HomepageDraftPage({
       </header>
       <HomepageEditor
         initial={initial}
+        draftVersion={record?.draftVersion}
         locale={locale}
         ready={ready}
         recordId={record?.id}
         status={record?.status}
         updatedAt={record?.updatedAt}
+        userId={session?.id ?? ""}
       />
     </>
   );

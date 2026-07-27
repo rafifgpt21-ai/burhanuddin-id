@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HomepagePublicationSelection } from "@/components/admin/homepage-publication-selection";
 import { PreviewLink } from "@/components/admin/preview-link";
 import { ArrowRightIcon, CalendarIcon } from "@/components/icons";
+import { adminText } from "@/data/admin-qol";
 import { getDatabaseReadiness } from "@/lib/content/database-readiness";
 import { getHomepageFallback } from "@/lib/content/homepage";
 import { prisma } from "@/lib/prisma";
@@ -14,12 +15,6 @@ type HomepageFeedback = {
   selectionError?: string;
   selectionSaved?: string;
 };
-
-const statusCopy = {
-  DRAFT: "Draft",
-  PUBLISHED: "Terbit",
-  ARCHIVED: "Arsip",
-} as const;
 
 function formatDate(value: Date, locale: Locale) {
   return new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
@@ -38,21 +33,25 @@ export async function HomepageManagement({
 }) {
   const ready = getDatabaseReadiness();
   const publicHref = `/${locale}`;
+  const t = (id: string, en: string) => adminText(locale, id, en);
 
   if (!ready) {
     return (
       <>
         <HomepageHeading
           editHref={`/${locale}/admin/beranda/baru`}
+          locale={locale}
           publicHref={publicHref}
         />
         <section className="admin-notice">
           <span aria-hidden="true">!</span>
           <div>
-            <h2>Penyimpanan masih terkunci</h2>
+            <h2>{t("Penyimpanan masih terkunci", "Storage remains locked")}</h2>
             <p>
-              Pengelolaan beranda aktif setelah kredensial database dirotasi dan
-              DATABASE_READY diaktifkan.
+              {t(
+                "Pengelolaan beranda aktif setelah kredensial database dirotasi dan DATABASE_READY diaktifkan.",
+                "Homepage management becomes available after the database credentials are rotated and DATABASE_READY is enabled.",
+              )}
             </p>
           </div>
         </section>
@@ -119,60 +118,69 @@ export async function HomepageManagement({
     ? `/${locale}/admin/beranda/${record.id}`
     : `/${locale}/admin/beranda/baru`;
   const isPublished = record?.status === "PUBLISHED";
-  const status = record ? statusCopy[record.status] : "Belum dibuat";
+  const status = record
+    ? record.status === "DRAFT"
+      ? t("Draft", "Draft")
+      : record.status === "PUBLISHED"
+        ? t("Terbit", "Published")
+        : t("Arsip", "Archived")
+    : t("Belum dibuat", "Not created");
   const publicSource = isPublished
-    ? "Snapshot beranda yang diterbitkan"
-    : "Konten bawaan situs";
+    ? t("Snapshot beranda yang diterbitkan", "Published homepage snapshot")
+    : t("Konten bawaan situs", "Default site content");
 
   const sections = [
     {
       number: "01",
-      title: "Identitas situs",
+      title: t("Identitas situs", "Site identity"),
       summary: content.id.officialLabel,
       detail: content.id.tagline,
-      source: "Manual",
+      source: t("Manual", "Manual"),
       anchor: "identitas",
     },
     {
       number: "02",
-      title: "Profil akademik",
+      title: t("Profil akademik", "Academic profile"),
       summary: `${content.id.academicPrefix} ${content.id.academicName}`,
-      detail: "Nama, lead, tiga jabatan, potret, dan aksi profil.",
-      source: "Manual",
+      detail: t("Nama, lead, tiga jabatan, potret, dan aksi profil.", "Name, lead, three positions, portrait, and profile action."),
+      source: t("Manual", "Manual"),
       anchor: "profil",
     },
     {
       number: "03",
-      title: "Publikasi pilihan",
+      title: t("Publikasi pilihan", "Featured publications"),
       summary: content.id.publicationTitle,
-      detail: `${displayedBooks.length}/3 buku tampil · ${selectedPublications.length}/3 karya non-buku dipilih`,
-      source: "Kurasi",
+      detail: t(
+        `${displayedBooks.length}/3 buku tampil · ${selectedPublications.length}/3 karya non-buku dipilih`,
+        `${displayedBooks.length}/3 books shown · ${selectedPublications.length}/3 non-book works selected`,
+      ),
+      source: t("Kurasi", "Curated"),
       anchor: "publikasi",
     },
     {
       number: "04",
-      title: "Peta riset",
-      summary: `${content.research.length} tema riset`,
+      title: t("Peta riset", "Research map"),
+      summary: t(`${content.research.length} tema riset`, `${content.research.length} research themes`),
       detail: content.research.map((item) => item.titleId).join(" · "),
-      source: "Manual",
+      source: t("Manual", "Manual"),
       anchor: "riset",
     },
     {
       number: "05",
-      title: "Kiprah",
+      title: t("Kiprah", "Outreach"),
       summary: content.id.outreachTitle,
       detail: nextAgenda
-        ? `Agenda berikutnya: ${nextAgenda.titleId}`
-        : "Belum ada agenda mendatang · dua forum dikelola manual",
-      source: "Campuran",
+        ? t(`Agenda berikutnya: ${nextAgenda.titleId}`, `Next agenda: ${nextAgenda.titleId}`)
+        : t("Belum ada agenda mendatang · dua forum dikelola manual", "No upcoming agenda · two forums are managed manually"),
+      source: t("Campuran", "Mixed"),
       anchor: "kiprah",
     },
     {
       number: "06",
-      title: "Penutup",
+      title: t("Penutup", "Closing"),
       summary: content.id.closingTitle,
-      detail: "Aksi kontak, profil, dan Google Scholar.",
-      source: "Manual",
+      detail: t("Aksi kontak, profil, dan Google Scholar.", "Contact, profile, and Google Scholar actions."),
+      source: t("Manual", "Manual"),
       anchor: "penutup",
     },
   ];
@@ -181,14 +189,15 @@ export async function HomepageManagement({
     <>
       <HomepageHeading
         editHref={editHref}
+        locale={locale}
         publicHref={publicHref}
       />
 
       {feedback.editorialError || feedback.selectionError ? (
         <div className="admin-feedback is-error" role="alert">
           <div>
-            <strong>Perubahan belum diterapkan</strong>
-            <Link href={`/${locale}/admin/beranda`}>Tutup pesan</Link>
+            <strong>{t("Perubahan belum diterapkan", "Changes were not applied")}</strong>
+            <Link href={`/${locale}/admin/beranda`}>{t("Tutup pesan", "Dismiss message")}</Link>
           </div>
           <p>{feedback.editorialError || feedback.selectionError}</p>
         </div>
@@ -196,13 +205,13 @@ export async function HomepageManagement({
       {feedback.selectionSaved ? (
         <div className="admin-feedback is-success" role="status">
           <div>
-            <strong>Pilihan tersimpan</strong>
-            <Link href={`/${locale}/admin/beranda`}>Tutup pesan</Link>
+            <strong>{t("Pilihan tersimpan", "Selection saved")}</strong>
+            <Link href={`/${locale}/admin/beranda`}>{t("Tutup pesan", "Dismiss message")}</Link>
           </div>
           <p>
             {feedback.selectionSaved === "books"
-              ? "Urutan tiga buku di beranda sudah diperbarui."
-              : "Urutan tiga karya non-buku di beranda sudah diperbarui."}
+              ? t("Urutan tiga buku di beranda sudah diperbarui.", "The order of the three homepage books has been updated.")
+              : t("Urutan tiga karya non-buku di beranda sudah diperbarui.", "The order of the three non-book works has been updated.")}
           </p>
         </div>
       ) : null}
@@ -216,41 +225,41 @@ export async function HomepageManagement({
               {status}
             </span>
             {record?.hasUnpublishedChanges ? (
-              <span className="change-pill">Perubahan belum terbit</span>
+              <span className="change-pill">{t("Perubahan belum terbit", "Unpublished changes")}</span>
             ) : null}
           </div>
-          <p className="eyebrow">Yang dilihat pengunjung sekarang</p>
+          <p className="eyebrow">{t("Yang dilihat pengunjung sekarang", "What visitors see now")}</p>
           <h2>{publicSource}</h2>
           <p>
             {record
-              ? `Draft terakhir disimpan ${formatDate(record.updatedAt, locale)}.`
-              : "Buat draft pertama untuk mulai mengganti konten bawaan."}
+              ? t(`Draft terakhir disimpan ${formatDate(record.updatedAt, locale)}.`, `Draft last saved ${formatDate(record.updatedAt, locale)}.`)
+              : t("Buat draft pertama untuk mulai mengganti konten bawaan.", "Create the first draft to replace the default content.")}
           </p>
         </div>
         <dl className="homepage-command-facts">
           <div>
-            <dt>Versi draft</dt>
+            <dt>{t("Versi draft", "Draft version")}</dt>
             <dd>{record?.draftVersion ?? "—"}</dd>
           </div>
           <div>
-            <dt>Versi publik</dt>
+            <dt>{t("Versi publik", "Public version")}</dt>
             <dd>{record?.publishedVersion ?? "—"}</dd>
           </div>
           <div>
-            <dt>Riwayat terbit</dt>
+            <dt>{t("Riwayat terbit", "Publication history")}</dt>
             <dd>{revisionCount}</dd>
           </div>
         </dl>
         <div className="homepage-command-actions">
           <Link className="button button-primary" href={editHref}>
-            {record ? "Sunting konten" : "Buat draft beranda"}
+            {record ? t("Sunting konten", "Edit content") : t("Buat draft beranda", "Create homepage draft")}
             <ArrowRightIcon />
           </Link>
           {record ? (
             <PreviewLink
               className="button button-secondary"
               href={`/${locale}/admin/preview/homepage/${record.id}`}
-              label="Preview draft"
+              label={t("Preview draft", "Preview draft")}
             />
           ) : null}
         </div>
@@ -260,10 +269,10 @@ export async function HomepageManagement({
         <section className="homepage-map" aria-labelledby="homepage-map-title">
           <header>
             <div>
-              <p className="eyebrow">Urutan halaman publik</p>
-              <h2 id="homepage-map-title">Peta beranda</h2>
+              <p className="eyebrow">{t("Urutan halaman publik", "Public page order")}</p>
+              <h2 id="homepage-map-title">{t("Peta beranda", "Homepage map")}</h2>
             </div>
-            <span>6 bagian</span>
+            <span>{t("6 bagian", "6 sections")}</span>
           </header>
           <ol>
             {sections.map((section) => (
@@ -278,10 +287,10 @@ export async function HomepageManagement({
                   <p>{section.detail}</p>
                 </div>
                 <Link
-                  aria-label={`Sunting ${section.title}`}
+                  aria-label={t(`Sunting ${section.title}`, `Edit ${section.title}`)}
                   href={`${editHref}#${section.anchor}`}
                 >
-                  Sunting
+                  {t("Sunting", "Edit")}
                   <ArrowRightIcon />
                 </Link>
               </li>
@@ -291,11 +300,13 @@ export async function HomepageManagement({
 
         <aside className="homepage-automation" aria-labelledby="automation-title">
           <header>
-            <p className="eyebrow">Terhubung ke koleksi</p>
-            <h2 id="automation-title">Konten yang tampil</h2>
+            <p className="eyebrow">{t("Terhubung ke koleksi", "Connected to collections")}</p>
+            <h2 id="automation-title">{t("Konten yang tampil", "Displayed content")}</h2>
             <p>
-              Hanya record yang sedang terbit yang dapat digunakan oleh
-              beranda.
+              {t(
+                "Hanya record yang sedang terbit yang dapat digunakan oleh beranda.",
+                "Only currently published records can be used on the homepage.",
+              )}
             </p>
           </header>
           <section>
@@ -303,11 +314,11 @@ export async function HomepageManagement({
               03
             </span>
             <div>
-              <h3>Buku yang tampil</h3>
+              <h3>{t("Buku yang tampil", "Displayed books")}</h3>
               <p>
                 {booksUseFallback
-                  ? "Pilihan belum lengkap; beranda sementara memakai buku terbaru."
-                  : "Mengikuti tiga pilihan editorial dan urutannya."}
+                  ? t("Pilihan belum lengkap; beranda sementara memakai buku terbaru.", "The selection is incomplete; the homepage temporarily uses the latest books.")
+                  : t("Mengikuti tiga pilihan editorial dan urutannya.", "Uses the three editorial selections and their order.")}
               </p>
               <ol>
                 {displayedBooks.map((book) => (
@@ -319,7 +330,7 @@ export async function HomepageManagement({
               </ol>
               {booksUseFallback ? (
                 <small className="automation-warning">
-                  Pilih tiga buku di bagian Kurasi publikasi.
+                  {t("Pilih tiga buku di bagian Kurasi publikasi.", "Select three books in Publication curation.")}
                 </small>
               ) : null}
             </div>
@@ -329,7 +340,7 @@ export async function HomepageManagement({
               <CalendarIcon />
             </span>
             <div>
-              <h3>Agenda terdekat</h3>
+              <h3>{t("Agenda terdekat", "Next agenda")}</h3>
               {nextAgenda ? (
                 <>
                   <p>{nextAgenda.titleId}</p>
@@ -337,11 +348,13 @@ export async function HomepageManagement({
                 </>
               ) : (
                 <p>
-                  Belum ada agenda mendatang. Agenda selesai tetap berada di
-                  halaman Kiprah.
+                  {t(
+                    "Belum ada agenda mendatang. Agenda selesai tetap berada di halaman Kiprah.",
+                    "There is no upcoming agenda. Past agenda items remain on the Outreach page.",
+                  )}
                 </p>
               )}
-              <Link href={`/${locale}/admin/agenda`}>Kelola agenda</Link>
+              <Link href={`/${locale}/admin/agenda`}>{t("Kelola agenda", "Manage agenda")}</Link>
             </div>
           </section>
         </aside>
@@ -356,19 +369,24 @@ export async function HomepageManagement({
 
 function HomepageHeading({
   editHref,
+  locale,
   publicHref,
 }: {
   editHref: string;
+  locale: Locale;
   publicHref: string;
 }) {
+  const t = (id: string, en: string) => adminText(locale, id, en);
   return (
     <header className="admin-page-heading homepage-admin-heading">
       <div>
-        <p className="eyebrow">Kontrol halaman utama</p>
-        <h1>Beranda</h1>
+        <p className="eyebrow">{t("Kontrol halaman utama", "Homepage control")}</p>
+        <h1>{t("Beranda", "Homepage")}</h1>
         <p>
-          Atur isi, pahami sumber otomatis, preview draft, lalu terbitkan saat
-          siap.
+          {t(
+            "Atur isi, pahami sumber otomatis, preview draft, lalu terbitkan saat siap.",
+            "Edit content, understand automated sources, preview the draft, and publish when ready.",
+          )}
         </p>
       </div>
       <div className="admin-page-actions">
@@ -378,10 +396,10 @@ function HomepageHeading({
           rel="noreferrer"
           target="_blank"
         >
-          Lihat beranda
+          {t("Lihat beranda", "View homepage")}
         </Link>
         <Link className="button button-primary" href={editHref}>
-          Kelola konten
+          {t("Kelola konten", "Manage content")}
         </Link>
       </div>
     </header>

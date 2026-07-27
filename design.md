@@ -42,6 +42,7 @@
 - On 27 July 2026, the owner made every editor-authored English field optional. Indonesian remains the required canonical copy; English public routes fall back field-by-field to the approved Indonesian snapshot when a translation is empty. Supplied English translations still require editorial review and are never machine-generated at request time.
 - On 27 July 2026, the owner replaced the generic Homepage collection list with a dedicated homepage control center. It presents the public section order as an editorial map, separates manual and automatic sources, keeps English fields collapsed and optional, and manages the three selected non-book publications from the same workspace.
 - On 27 July 2026, the owner changed the homepage book group from the three latest eligible books to three explicitly selected and ordered published books. Only books with rights-cleared covers are eligible; the latest three eligible books remain a safe fallback until all three editorial slots are filled.
+- On 27 July 2026, the owner approved an editorial quality-of-life pass for the private workspace. It adds bilingual admin copy, global content search, accurate work queues, persistent collection filters, field-level validation, publishing-readiness rails, draft/public comparison, richer revision context, explicit optimistic concurrency, and 24-hour device-local draft recovery while retaining explicit server saves.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
@@ -309,7 +310,10 @@ The first viewport is a quiet identity title page rather than a portrait splash 
 - User management is never public and does not expose password values or hashes.
 - Add a `Beranda / Homepage` collection for the identity title page, hero, current roles, four research themes, two selected academic forums, collection labels, media, and closing actions. It changes content, not the approved public composition.
 - Every editorial collection provides searchable/filterable/paginated lists, dedicated create/edit routes, explicit save, preview, publish/unpublish, archive/restore, duplicate, and status-aware bulk archive/restore.
+- Admin search spans Homepage, Publications, Agenda, Writing, and Course Materials, requires an authenticated session, and remains private/no-store. Collection filters retain search, status, unpublished-change, last-editor, sort, and pagination state in the URL.
 - Saving changes to a published record updates its working draft and marks `hasUnpublishedChanges`; unauthenticated readers continue to receive the last published snapshot until an editor publishes again.
+- Every explicit save carries the record's current `draftVersion`. A stale save is rejected without overwriting the newer draft, identifies the latest editor when available, and leaves the submitting editor's device-local recovery intact.
+- Unsaved form values may be recovered from a user- and record-scoped IndexedDB entry for up to 24 hours. Local recovery is never a server draft or public version and is cleared after successful persistence, explicit discard, logout, or expiry.
 - Preview is authenticated, no-index/no-store, clearly labelled, and expires after 15 minutes. Permanent deletion requires an archived record and `ADMIN` or `SUPER_ADMIN`; `EDITOR` cannot hard-delete.
 - Writing uses an allowlisted block editor for paragraphs, headings, quotes, links, uploaded images/files, and YouTube/Vimeo links. Arbitrary HTML and iframe input remain prohibited.
 
@@ -631,6 +635,15 @@ Pin exact package versions only during implementation after checking the locally
 - [ ] Semua editor menampilkan status tersimpan, peringatan perubahan belum
   disimpan, ringkasan error yang dapat diakses, action bar tetap, dan kontrol
   keyboard/touch minimal 44px.
+- [ ] `/id/admin` dan `/en/admin` memakai copy antarmuka yang konsisten; pencarian
+  global, daftar koleksi, editor, revisi, akun, serta pengguna tetap dapat
+  digunakan dengan keyboard dan pada lebar 320px.
+- [ ] Save dengan `draftVersion` lama ditolak tanpa overwrite; input lokal tetap
+  tersedia, editor terbaru dan waktunya ditampilkan, dan reload tidak terjadi
+  tanpa tindakan pengguna.
+- [ ] Cadangan IndexedDB ditawarkan hanya ketika lebih baru daripada draft server,
+  kedaluwarsa setelah 24 jam, dan terhapus setelah save/create/publish berhasil,
+  discard, atau logout.
 - [ ] Mutasi editorial merevalidasi cache index, detail, dan beranda hanya untuk
   koleksi/locale yang terdampak; draft dan preview tidak pernah masuk cache
   publik.

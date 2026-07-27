@@ -1,5 +1,6 @@
 import { EditorialCollection } from "@/components/admin/editorial-collection";
 import { HomepagePublicationSelection } from "@/components/admin/homepage-publication-selection";
+import { parseEditorialFilters } from "@/lib/content/admin-records";
 import { getRoutePath, hasLocale } from "@/lib/i18n";
 
 export default async function AdminPublications({
@@ -20,13 +21,7 @@ export default async function AdminPublications({
       title={locale === "id" ? "Publikasi" : "Publications"}
       description={locale === "id" ? "Kelola bibliografi tanpa mengubah urutan penulis atau wording sumber kanonis." : "Manage source-faithful bibliographic records."}
       publicHref={getRoutePath(locale, "publications")}
-      filters={{
-        editorialError: filters.editorialError,
-        q: filters.q,
-        status: filters.status as "DRAFT" | "PUBLISHED" | "ARCHIVED" | undefined,
-        sort: filters.sort as "updated-desc" | "updated-asc" | undefined,
-        page: Number(filters.page) || 1,
-      }}
+      filters={parseEditorialFilters(filters)}
     />
     <HomepagePublicationSelection locale={locale} />
     </>

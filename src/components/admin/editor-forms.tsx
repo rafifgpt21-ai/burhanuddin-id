@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useActionState, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useActionState, useEffect, useState } from "react";
 
 import {
   createAgendaAction,
@@ -10,7 +11,10 @@ import {
   createPublicationAction,
   type EditorActionState,
 } from "@/app/[locale]/admin/(workspace)/editor-actions";
+import { useEditorRecovery } from "@/components/admin/editor-recovery";
+import { adminText } from "@/data/admin-qol";
 import { UploadDropzone } from "@/lib/uploadthing";
+import type { Locale } from "@/lib/i18n";
 
 const initialState: EditorActionState = {};
 
@@ -35,8 +39,80 @@ function FormStatus({ state }: { state: EditorActionState }) {
   );
 }
 
+function NewDraftRecovery({
+  form,
+  kind,
+  locale,
+  returnPath,
+  state,
+  userId,
+}: {
+  form: HTMLFormElement | null;
+  kind: string;
+  locale: Locale;
+  returnPath: string;
+  state: EditorActionState;
+  userId: string;
+}) {
+  const router = useRouter();
+  const { clear, notice } = useEditorRecovery({
+    baseDraftVersion: 0,
+    form,
+    kind,
+    locale,
+    recordId: `new:${returnPath.split("?")[0]}`,
+    serverUpdatedAt: 0,
+    userId,
+  });
+  useEffect(() => {
+    if (!state.ok || !state.recordId) return;
+    void clear().then(() => {
+      const base = returnPath.split("?")[0];
+      router.replace(
+        `${base}/${state.recordId}?created=1&returnTo=${encodeURIComponent(returnPath)}`,
+      );
+    });
+  }, [clear, returnPath, router, state.ok, state.recordId]);
+  return notice;
+}
+
+function NewFormErrorSummary({
+  locale,
+  state,
+}: {
+  locale: Locale;
+  state: EditorActionState;
+}) {
+  const errors = Object.entries(state.fieldErrors ?? {}).flatMap(
+    ([field, messages]) => (messages ?? []).map((message) => ({ field, message })),
+  );
+  if (!errors.length) return null;
+  return (
+    <section className="editor-error-summary" role="alert">
+      <strong>{adminText(locale, "Periksa kembali bagian berikut", "Review the following fields")}</strong>
+      <ul>
+        {errors.map((error, index) => (
+          <li key={`${error.field}-${index}`}>
+            <button
+              onClick={() => document.querySelector<HTMLElement>(`[name="${CSS.escape(error.field)}"]`)?.focus()}
+              type="button"
+            >
+              {error.message}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 function Optional() {
-  return <span className="field-optional">Opsional</span>;
+  const { locale } = useParams<{ locale: string }>();
+  return (
+    <span className="field-optional">
+      {adminText(locale === "en" ? "en" : "id", "Opsional", "Optional")}
+    </span>
+  );
 }
 
 function FormActions({
@@ -46,58 +122,69 @@ function FormActions({
   pending: boolean;
   ready: boolean;
 }) {
+  const { locale } = useParams<{ locale: string }>();
+  const activeLocale = locale === "en" ? "en" : "id";
   return (
     <div className="editor-action-bar">
       <p>
-        <strong>Draft privat</strong>
-        Belum terlihat di situs publik.
+        <strong>{adminText(activeLocale, "Draft privat", "Private draft")}</strong>
+        {adminText(activeLocale, "Belum terlihat di situs publik.", "Not visible on the public site.")}
       </p>
       <button
         className="button button-primary"
         disabled={!ready || pending}
         type="submit"
       >
-        {pending ? "Menyimpan…" : "Simpan draft"}
+        {pending
+          ? adminText(activeLocale, "Menyimpan…", "Saving…")
+          : adminText(activeLocale, "Simpan draft", "Save draft")}
       </button>
     </div>
   );
 }
 
 export function PostEditorForm({
+  locale,
   ready,
   returnPath,
+  userId,
 }: {
+  locale: Locale;
   ready: boolean;
   returnPath: string;
+  userId: string;
 }) {
   const [state, action, pending] = useActionState(createPostAction, initialState);
+  const [formNode, setFormNode] = useState<HTMLFormElement | null>(null);
 
   return (
-    <form action={action} className="editor-form">
+    <form action={action} className="editor-form" ref={setFormNode}>
       <input name="returnPath" type="hidden" value={returnPath} />
       <FormStatus state={state} />
+      <NewFormErrorSummary locale={locale} state={state} />
+      <NewDraftRecovery form={formNode} kind="post" locale={locale} returnPath={returnPath} state={state} userId={userId} />
       <fieldset disabled={pending}>
-        <legend className="sr-only">Tulisan baru</legend>
+        <legend className="sr-only">{adminText(locale, "Tulisan baru", "New writing")}</legend>
 
         <section className="editor-section" aria-labelledby="post-main">
           <div className="editor-section-heading">
             <span>01</span>
             <div>
-              <h3 id="post-main">Naskah utama</h3>
-              <p>Judul dan isi sudah cukup untuk membuat draft. Slug dibuat otomatis.</p>
+              <h3 id="post-main">{adminText(locale, "Naskah utama", "Main article")}</h3>
+              <p>{adminText(locale, "Judul dan isi sudah cukup untuk membuat draft. Slug dibuat otomatis.", "A title and article are enough to create a draft. The slug is generated automatically.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Judul
-              <input autoFocus name="titleId" placeholder="Judul tulisan" required />
+              {adminText(locale, "Judul Indonesia", "Indonesian title")}
+              <input autoFocus name="titleId" placeholder={adminText(locale, "Judul tulisan", "Writing title")} required />
             </label>
             <label className="editor-span-2">
-              Isi tulisan
+              {adminText(locale, "Naskah Indonesia", "Indonesian article")}
               <textarea
                 className="editor-body"
                 name="contentId"
-                placeholder="Mulai menulis. Pisahkan paragraf dengan satu baris kosong."
+                placeholder={adminText(locale, "Mulai menulis. Pisahkan paragraf dengan satu baris kosong.", "Start writing. Separate paragraphs with a blank line.")}
                 required
                 rows={14}
               />
@@ -106,30 +193,30 @@ export function PostEditorForm({
         </section>
 
         <details className="editor-options">
-          <summary>Ringkasan & pengelompokan <Optional /></summary>
+          <summary>{adminText(locale, "Ringkasan & pengelompokan", "Summary & grouping")} <Optional /></summary>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Ringkasan singkat <Optional />
+              {adminText(locale, "Ringkasan singkat", "Short summary")} <Optional />
               <textarea name="excerptId" rows={3} />
             </label>
             <label className="editor-span-2">
-              Topik <Optional />
+              {adminText(locale, "Topik", "Topics")} <Optional />
               <input name="topics" placeholder="Pemilu, demokrasi, opini publik" />
-              <small>Pisahkan topik dengan koma.</small>
+              <small>{adminText(locale, "Pisahkan topik dengan koma.", "Separate topics with commas.")}</small>
             </label>
             <label>
-              Gambar sampul <Optional />
+              {adminText(locale, "Gambar sampul", "Cover image")} <Optional />
               <input name="coverImage" placeholder="https://" type="url" />
             </label>
             <label>
-              Sumber kanonis <Optional />
+              {adminText(locale, "Sumber kanonis", "Canonical source")} <Optional />
               <input name="canonicalExternal" placeholder="https://" type="url" />
             </label>
           </div>
         </details>
 
         <details className="editor-options">
-          <summary>Versi Inggris <Optional /></summary>
+          <summary>{adminText(locale, "Versi English", "English version")} <Optional /></summary>
           <div className="editor-form-grid">
             <label className="editor-span-2">
               English title <Optional />
@@ -153,65 +240,72 @@ export function PostEditorForm({
 }
 
 export function AgendaEditorForm({
+  locale,
   ready,
   returnPath,
+  userId,
 }: {
+  locale: Locale;
   ready: boolean;
   returnPath: string;
+  userId: string;
 }) {
   const [state, action, pending] = useActionState(createAgendaAction, initialState);
+  const [formNode, setFormNode] = useState<HTMLFormElement | null>(null);
 
   return (
-    <form action={action} className="editor-form">
+    <form action={action} className="editor-form" ref={setFormNode}>
       <input name="returnPath" type="hidden" value={returnPath} />
       <FormStatus state={state} />
+      <NewFormErrorSummary locale={locale} state={state} />
+      <NewDraftRecovery form={formNode} kind="agenda" locale={locale} returnPath={returnPath} state={state} userId={userId} />
       <fieldset disabled={pending}>
-        <legend className="sr-only">Agenda baru</legend>
+        <legend className="sr-only">{adminText(locale, "Agenda baru", "New agenda item")}</legend>
 
         <section className="editor-section" aria-labelledby="agenda-main">
           <div className="editor-section-heading">
             <span>01</span>
             <div>
-              <h3 id="agenda-main">Informasi acara</h3>
-              <p>Isi informasi yang perlu diketahui pengunjung. Waktu ditampilkan dalam WIB.</p>
+              <h3 id="agenda-main">{adminText(locale, "Informasi acara", "Event information")}</h3>
+              <p>{adminText(locale, "Isi informasi yang perlu diketahui pengunjung. Waktu ditampilkan dalam WIB.", "Add the information visitors need. Times are displayed in WIB.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Judul agenda
+              {adminText(locale, "Judul agenda Indonesia", "Indonesian agenda title")}
               <input autoFocus name="titleId" required />
             </label>
             <label className="editor-span-2">
-              Deskripsi singkat
+              {adminText(locale, "Deskripsi singkat Indonesia", "Short Indonesian description")}
               <textarea name="descriptionId" required rows={3} />
             </label>
             <label>
-              Mulai (WIB)
+              {adminText(locale, "Mulai (WIB)", "Starts (WIB)")}
               <input name="startsAt" required type="datetime-local" />
             </label>
             <label>
-              Selesai (WIB) <Optional />
+              {adminText(locale, "Selesai (WIB)", "Ends (WIB)")} <Optional />
               <input name="endsAt" type="datetime-local" />
             </label>
           </div>
         </section>
 
         <details className="editor-options">
-          <summary>Lokasi & tautan <Optional /></summary>
+          <summary>{adminText(locale, "Lokasi & tautan", "Location & link")} <Optional /></summary>
           <div className="editor-form-grid">
             <label>
-              Lokasi <Optional />
+              {adminText(locale, "Lokasi Indonesia", "Indonesian location")} <Optional />
               <input name="locationLabelId" />
             </label>
             <label>
-              Tautan sumber / registrasi <Optional />
+              {adminText(locale, "Tautan sumber / registrasi", "Source / registration link")} <Optional />
               <input name="externalUrl" placeholder="https://" type="url" />
             </label>
           </div>
         </details>
 
         <details className="editor-options">
-          <summary>Versi Inggris <Optional /></summary>
+          <summary>{adminText(locale, "Versi English", "English version")} <Optional /></summary>
           <div className="editor-form-grid">
             <label>
               English title <Optional />
@@ -235,13 +329,18 @@ export function AgendaEditorForm({
 }
 
 export function PublicationEditorForm({
+  locale,
   ready,
   returnPath,
+  userId,
 }: {
+  locale: Locale;
   ready: boolean;
   returnPath: string;
+  userId: string;
 }) {
   const [state, action, pending] = useActionState(createPublicationAction, initialState);
+  const [formNode, setFormNode] = useState<HTMLFormElement | null>(null);
   const [coverAsset, setCoverAsset] = useState<UploadedAsset | null>(null);
   const [preview, setPreview] = useState({
     type: "BOOK",
@@ -282,7 +381,7 @@ export function PublicationEditorForm({
   ].filter(Boolean);
 
   return (
-    <form action={action} className="editor-form">
+    <form action={action} className="editor-form" ref={setFormNode}>
       <input name="returnPath" type="hidden" value={returnPath} />
       {coverAsset ? (
         <>
@@ -294,30 +393,32 @@ export function PublicationEditorForm({
         </>
       ) : null}
       <FormStatus state={state} />
+      <NewFormErrorSummary locale={locale} state={state} />
+      <NewDraftRecovery form={formNode} kind="publication" locale={locale} returnPath={returnPath} state={state} userId={userId} />
       <fieldset disabled={pending}>
-        <legend className="sr-only">Publikasi baru</legend>
+        <legend className="sr-only">{adminText(locale, "Publikasi baru", "New publication")}</legend>
 
         <section className="editor-section" aria-labelledby="publication-main">
           <div className="editor-section-heading">
             <span>01</span>
             <div>
-              <h3 id="publication-main">Karya</h3>
-              <p>Masukkan judul publikasi saja—tanpa penulis, tahun, jurnal, atau URL.</p>
+              <h3 id="publication-main">{adminText(locale, "Karya", "Work")}</h3>
+              <p>{adminText(locale, "Masukkan judul publikasi saja—tanpa penulis, tahun, jurnal, atau URL.", "Enter the publication title only—without authors, year, journal, or URL.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Judul asli publikasi
+              {adminText(locale, "Judul asli publikasi", "Original publication title")}
               <input
                 autoFocus
                 name="title"
                 onChange={(event) => updatePreview("title", event.target.value)}
                 required
               />
-              <small>Gunakan redaksi asli sumber; jangan tempel seluruh sitasi.</small>
+              <small>{adminText(locale, "Gunakan redaksi asli sumber; jangan tempel seluruh sitasi.", "Preserve the source wording; do not paste the full citation.")}</small>
             </label>
             <label>
-              Tahun
+              {adminText(locale, "Tahun", "Year")}
               <input
                 min="1900"
                 name="year"
@@ -327,19 +428,19 @@ export function PublicationEditorForm({
               />
             </label>
             <label>
-              Jenis publikasi
+              {adminText(locale, "Jenis publikasi", "Publication type")}
               <select
                 name="type"
                 onChange={(event) => updatePreview("type", event.target.value)}
               >
-                <option value="BOOK">Buku</option>
-                <option value="JOURNAL_ARTICLE">Artikel jurnal</option>
-                <option value="BOOK_CHAPTER">Bab buku</option>
-                <option value="ADDITIONAL_RESEARCH_OUTPUT">Output riset lain</option>
+                <option value="BOOK">{adminText(locale, "Buku", "Book")}</option>
+                <option value="JOURNAL_ARTICLE">{adminText(locale, "Artikel jurnal", "Journal article")}</option>
+                <option value="BOOK_CHAPTER">{adminText(locale, "Bab buku", "Book chapter")}</option>
+                <option value="ADDITIONAL_RESEARCH_OUTPUT">{adminText(locale, "Output riset lain", "Other research output")}</option>
               </select>
             </label>
             <label>
-              Status bibliografis
+              {adminText(locale, "Status bibliografis", "Bibliographic status")}
               <select
                 name="status"
                 onChange={(event) => updatePreview("status", event.target.value)}
@@ -352,7 +453,7 @@ export function PublicationEditorForm({
               </select>
             </label>
             <label>
-              Keterangan tanggal <Optional />
+              {adminText(locale, "Keterangan tanggal", "Date label")} <Optional />
               <input name="dateLabel" placeholder="Contoh: Februari" />
             </label>
           </div>
@@ -362,13 +463,13 @@ export function PublicationEditorForm({
           <div className="editor-section-heading">
             <span>02</span>
             <div>
-              <h3 id="publication-contributors">Kontributor</h3>
-              <p>Satu nama per baris, dalam urutan yang sama dengan sumber.</p>
+              <h3 id="publication-contributors">{adminText(locale, "Kontributor", "Contributors")}</h3>
+              <p>{adminText(locale, "Satu nama per baris, dalam urutan yang sama dengan sumber.", "Use one name per line, preserving the source order.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Penulis
+              {adminText(locale, "Penulis", "Authors")}
               <textarea
                 name="authors"
                 onChange={(event) => updatePreview("authors", event.target.value)}
@@ -379,7 +480,7 @@ export function PublicationEditorForm({
             </label>
             {preview.type === "BOOK_CHAPTER" ? (
               <label className="editor-span-2">
-                Editor buku induk <Optional />
+                {adminText(locale, "Editor buku induk", "Parent book editors")} <Optional />
                 <textarea
                   name="editors"
                   placeholder={"Nama editor pertama\nNama editor berikutnya"}
@@ -396,14 +497,14 @@ export function PublicationEditorForm({
           <div className="editor-section-heading">
             <span>03</span>
             <div>
-              <h3 id="publication-bibliography">Detail terbitan</h3>
-              <p>Pisahkan jurnal, buku induk, penerbit, nomor, dan halaman.</p>
+              <h3 id="publication-bibliography">{adminText(locale, "Detail terbitan", "Publication details")}</h3>
+              <p>{adminText(locale, "Pisahkan jurnal, buku induk, penerbit, nomor, dan halaman.", "Keep the journal or parent book, publisher, issue, and pages in separate fields.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             {preview.type !== "BOOK" ? (
               <label className="editor-span-2">
-                Jurnal, seri, atau buku induk
+                {adminText(locale, "Jurnal, seri, atau buku induk", "Journal, series, or parent book")}
                 <input
                   name="containerTitle"
                   onChange={(event) =>
@@ -416,7 +517,7 @@ export function PublicationEditorForm({
               <input name="containerTitle" type="hidden" value="" />
             )}
             <label>
-              Penerbit {preview.type === "BOOK" ? null : <Optional />}
+              {adminText(locale, "Penerbit", "Publisher")} {preview.type === "BOOK" ? null : <Optional />}
               <input
                 name="publisher"
                 onChange={(event) => updatePreview("publisher", event.target.value)}
@@ -424,7 +525,7 @@ export function PublicationEditorForm({
               />
             </label>
             <label>
-              Tempat terbit <Optional />
+              {adminText(locale, "Tempat terbit", "Publication place")} <Optional />
               <input
                 name="publicationPlace"
                 onChange={(event) =>
@@ -447,7 +548,7 @@ export function PublicationEditorForm({
               />
             </label>
             <label>
-              Nomor seri <Optional />
+              {adminText(locale, "Nomor seri", "Series number")} <Optional />
               <input
                 name="seriesNumber"
                 onChange={(event) =>
@@ -456,7 +557,7 @@ export function PublicationEditorForm({
               />
             </label>
             <label>
-              Halaman <Optional />
+              {adminText(locale, "Halaman", "Pages")} <Optional />
               <input
                 name="pages"
                 onChange={(event) => updatePreview("pages", event.target.value)}
@@ -466,10 +567,10 @@ export function PublicationEditorForm({
             <label>
               DOI <Optional />
               <input name="doi" placeholder="10.xxxx/..." />
-              <small>Tanpa awalan https://doi.org/.</small>
+              <small>{adminText(locale, "Tanpa awalan https://doi.org/.", "Without the https://doi.org/ prefix.")}</small>
             </label>
             <label>
-              URL kanonis <Optional />
+              {adminText(locale, "URL kanonis", "Canonical URL")} <Optional />
               <input name="externalUrl" placeholder="https://" type="url" />
             </label>
           </div>
@@ -479,12 +580,12 @@ export function PublicationEditorForm({
           <div className="editor-section-heading">
             <span>04</span>
             <div>
-              <h3 id="publication-source-media">Sumber dan gambar</h3>
-              <p>Simpan jejak sumber dan hanya gunakan gambar dengan hak yang jelas.</p>
+              <h3 id="publication-source-media">{adminText(locale, "Sumber dan gambar", "Source and image")}</h3>
+              <p>{adminText(locale, "Simpan jejak sumber dan hanya gunakan gambar dengan hak yang jelas.", "Preserve source provenance and only use images with clear rights.")}</p>
             </div>
           </div>
           <div className="publication-cover-editor">
-            <h4>Gambar publikasi <Optional /></h4>
+            <h4>{adminText(locale, "Gambar publikasi", "Publication image")} <Optional /></h4>
             <div className="admin-upload-zone">
               {ready ? (
                 <UploadDropzone
@@ -504,13 +605,13 @@ export function PublicationEditorForm({
                 />
               ) : (
                 <div className="admin-upload-disabled">
-                  Upload aktif setelah database siap.
+                  {adminText(locale, "Upload aktif setelah database siap.", "Uploads become available when the database is ready.")}
                 </div>
               )}
               <p role="status">
                 {coverAsset
-                  ? `Gambar siap disimpan: ${coverAsset.fileName}`
-                  : "JPG, PNG, atau WebP maks. 4 MB. Placeholder bibliografis tampil jika dikosongkan."}
+                  ? adminText(locale, `Gambar siap disimpan: ${coverAsset.fileName}`, `Image ready to save: ${coverAsset.fileName}`)
+                  : adminText(locale, "JPG, PNG, atau WebP maks. 4 MB. Placeholder bibliografis tampil jika dikosongkan.", "JPG, PNG, or WebP up to 4 MB. A bibliographic placeholder is used when left empty.")}
               </p>
             </div>
             {coverAsset ? (
@@ -524,14 +625,14 @@ export function PublicationEditorForm({
                   />
                 </div>
                 <label>
-                  Catatan hak penggunaan
+                  {adminText(locale, "Catatan hak penggunaan", "Usage rights note")}
                   <input
                     name="coverRightsNote"
                     placeholder="Contoh: sampul resmi, disetujui untuk tampilan situs"
                     required
                   />
                   <small>
-                    Jelaskan sumber dan izin penggunaan gambar sebelum draft disimpan.
+                    {adminText(locale, "Jelaskan sumber dan izin penggunaan gambar sebelum draft disimpan.", "Describe the image source and permission before saving the draft.")}
                   </small>
                 </label>
                 <button
@@ -539,22 +640,22 @@ export function PublicationEditorForm({
                   onClick={() => setCoverAsset(null)}
                   type="button"
                 >
-                  Hapus dari draft
+                  {adminText(locale, "Hapus dari draft", "Remove from draft")}
                 </button>
               </div>
             ) : null}
           </div>
           <div className="editor-form-grid">
             <label>
-              Nama sumber <Optional />
+              {adminText(locale, "Nama sumber", "Source name")} <Optional />
               <input name="sourceName" placeholder="Input manual" />
             </label>
             <label>
-              URL sumber <Optional />
+              {adminText(locale, "URL sumber", "Source URL")} <Optional />
               <input name="sourceUrl" placeholder="https://" type="url" />
             </label>
             <label className="editor-span-2">
-              Catatan sumber <Optional />
+              {adminText(locale, "Catatan sumber", "Source note")} <Optional />
               <textarea name="sourceNote" rows={3} />
             </label>
           </div>
@@ -564,8 +665,8 @@ export function PublicationEditorForm({
           <div className="editor-section-heading">
             <span aria-hidden="true">↗</span>
             <div>
-              <h3 id="publication-preview-title">Pratinjau card</h3>
-              <p>Struktur ini mengikuti card pada indeks publikasi.</p>
+              <h3 id="publication-preview-title">{adminText(locale, "Pratinjau kartu", "Card preview")}</h3>
+              <p>{adminText(locale, "Struktur ini mengikuti kartu pada indeks publikasi.", "This structure matches the publication index card.")}</p>
             </div>
           </div>
           <article>
@@ -581,11 +682,11 @@ export function PublicationEditorForm({
             </div>
             <div>
               <small>
-                {typeNames[preview.type]} · {preview.year || "Tahun"} ·{" "}
+                {typeNames[preview.type]} · {preview.year || adminText(locale, "Tahun", "Year")} ·{" "}
                 {preview.status}
               </small>
-              <h4>{preview.title || "Judul publikasi"}</h4>
-              <p>{previewAuthors || "Urutan penulis"}</p>
+              <h4>{preview.title || adminText(locale, "Judul publikasi", "Publication title")}</h4>
+              <p>{previewAuthors || adminText(locale, "Urutan penulis", "Author order")}</p>
               {previewImprint ? <p>{previewImprint}</p> : null}
               {previewDetails.length ? <p>{previewDetails.join(" · ")}</p> : null}
             </div>
@@ -599,18 +700,23 @@ export function PublicationEditorForm({
 }
 
 export function MaterialEditorForm({
+  locale,
   ready,
   returnPath,
+  userId,
 }: {
+  locale: Locale;
   ready: boolean;
   returnPath: string;
+  userId: string;
 }) {
   const [state, action, pending] = useActionState(createMaterialAction, initialState);
+  const [formNode, setFormNode] = useState<HTMLFormElement | null>(null);
   const [asset, setAsset] = useState<UploadedAsset | null>(null);
   const [delivery, setDelivery] = useState<"upload" | "link">("upload");
 
   return (
-    <form action={action} className="editor-form">
+    <form action={action} className="editor-form" ref={setFormNode}>
       <input name="returnPath" type="hidden" value={returnPath} />
       {delivery === "upload" && asset ? (
         <>
@@ -622,41 +728,43 @@ export function MaterialEditorForm({
         </>
       ) : null}
       <FormStatus state={state} />
+      <NewFormErrorSummary locale={locale} state={state} />
+      <NewDraftRecovery form={formNode} kind="material" locale={locale} returnPath={returnPath} state={state} userId={userId} />
       <fieldset disabled={pending}>
-        <legend className="sr-only">Materi baru</legend>
+        <legend className="sr-only">{adminText(locale, "Materi baru", "New material")}</legend>
 
         <section className="editor-section" aria-labelledby="material-main">
           <div className="editor-section-heading">
             <span>01</span>
             <div>
-              <h3 id="material-main">Identitas materi</h3>
-              <p>Gunakan judul yang mudah dikenali mahasiswa. Slug dibuat otomatis.</p>
+              <h3 id="material-main">{adminText(locale, "Identitas materi", "Material identity")}</h3>
+              <p>{adminText(locale, "Gunakan judul yang mudah dikenali mahasiswa. Slug dibuat otomatis.", "Use a title students can recognize easily. The slug is generated automatically.")}</p>
             </div>
           </div>
           <div className="editor-form-grid">
             <label className="editor-span-2">
-              Judul materi
+              {adminText(locale, "Judul materi Indonesia", "Indonesian material title")}
               <input autoFocus name="titleId" required />
             </label>
             <label className="editor-span-2">
-              Deskripsi singkat
+              {adminText(locale, "Deskripsi singkat Indonesia", "Short Indonesian description")}
               <textarea name="descriptionId" required rows={3} />
             </label>
             <label>
-              Mata kuliah
+              {adminText(locale, "Mata kuliah", "Course")}
               <input name="courseId" required />
             </label>
             <label>
-              Jenis materi
+              {adminText(locale, "Jenis materi", "Material type")}
               <select name="resourceType">
                 <option value="SLIDE">Slide</option>
-                <option value="READING">Bacaan</option>
-                <option value="SYLLABUS">Silabus</option>
-                <option value="ASSIGNMENT">Tugas</option>
+                <option value="READING">{adminText(locale, "Bacaan", "Reading")}</option>
+                <option value="SYLLABUS">{adminText(locale, "Silabus", "Syllabus")}</option>
+                <option value="ASSIGNMENT">{adminText(locale, "Tugas", "Assignment")}</option>
                 <option value="DATASET">Dataset</option>
                 <option value="VIDEO">Video</option>
-                <option value="LINK">Tautan</option>
-                <option value="OTHER">Lainnya</option>
+                <option value="LINK">{adminText(locale, "Tautan", "Link")}</option>
+                <option value="OTHER">{adminText(locale, "Lainnya", "Other")}</option>
               </select>
             </label>
           </div>
@@ -666,11 +774,11 @@ export function MaterialEditorForm({
           <div className="editor-section-heading">
             <span>02</span>
             <div>
-              <h3 id="material-delivery">Cara membuka materi</h3>
-              <p>Pilih satu tujuan agar tombol publik selalu dapat digunakan.</p>
+              <h3 id="material-delivery">{adminText(locale, "Cara membuka materi", "Material delivery")}</h3>
+              <p>{adminText(locale, "Pilih satu tujuan agar tombol publik selalu dapat digunakan.", "Choose one destination so the public action always works.")}</p>
             </div>
           </div>
-          <div className="delivery-choice" role="radiogroup" aria-label="Cara membuka materi">
+          <div className="delivery-choice" role="radiogroup" aria-label={adminText(locale, "Cara membuka materi", "Material delivery")}>
             <label className={delivery === "upload" ? "is-selected" : ""}>
               <input
                 checked={delivery === "upload"}
@@ -679,7 +787,7 @@ export function MaterialEditorForm({
                 type="radio"
                 value="upload"
               />
-              <span><strong>Unggah berkas</strong><small>PDF atau gambar</small></span>
+              <span><strong>{adminText(locale, "Unggah berkas", "Upload file")}</strong><small>{adminText(locale, "PDF atau gambar", "PDF or image")}</small></span>
             </label>
             <label className={delivery === "link" ? "is-selected" : ""}>
               <input
@@ -689,7 +797,7 @@ export function MaterialEditorForm({
                 type="radio"
                 value="link"
               />
-              <span><strong>Tautan eksternal</strong><small>Video, laman, atau dokumen luar</small></span>
+              <span><strong>{adminText(locale, "Tautan eksternal", "External link")}</strong><small>{adminText(locale, "Video, laman, atau dokumen luar", "Video, webpage, or external document")}</small></span>
             </label>
           </div>
 
@@ -712,17 +820,17 @@ export function MaterialEditorForm({
                   onUploadError={() => setAsset(null)}
                 />
               ) : (
-                <div className="admin-upload-disabled">Upload aktif setelah database siap.</div>
+                <div className="admin-upload-disabled">{adminText(locale, "Upload aktif setelah database siap.", "Uploads become available when the database is ready.")}</div>
               )}
               <p role="status">
                 {asset
-                  ? `Siap disimpan: ${asset.fileName}`
-                  : "PDF maks. 16 MB atau gambar maks. 4 MB."}
+                  ? adminText(locale, `Siap disimpan: ${asset.fileName}`, `Ready to save: ${asset.fileName}`)
+                  : adminText(locale, "PDF maks. 16 MB atau gambar maks. 4 MB.", "PDF up to 16 MB or image up to 4 MB.")}
               </p>
             </div>
           ) : (
             <label className="delivery-url">
-              Alamat materi
+              {adminText(locale, "Alamat materi", "Material URL")}
               <input name="externalUrl" placeholder="https://" required type="url" />
             </label>
           )}
@@ -730,17 +838,17 @@ export function MaterialEditorForm({
           <label className="editor-check">
             <input name="downloadAllowed" type="checkbox" />
             <span>
-              <strong>Izinkan unduhan</strong>
-              <small>Aktifkan hanya jika hak distribusi berkas sudah jelas.</small>
+              <strong>{adminText(locale, "Izinkan unduhan", "Allow download")}</strong>
+              <small>{adminText(locale, "Aktifkan hanya jika hak distribusi berkas sudah jelas.", "Enable only when file distribution rights are clear.")}</small>
             </span>
           </label>
         </section>
 
         <details className="editor-options">
-          <summary>Metadata kelas <Optional /></summary>
+          <summary>{adminText(locale, "Metadata kelas", "Class metadata")} <Optional /></summary>
           <div className="editor-form-grid">
             <label>
-              Topik <Optional />
+              {adminText(locale, "Topik", "Topic")} <Optional />
               <input name="topicId" />
             </label>
             <label>
@@ -748,18 +856,18 @@ export function MaterialEditorForm({
               <input name="semester" placeholder="Ganjil" />
             </label>
             <label>
-              Tahun akademik <Optional />
+              {adminText(locale, "Tahun akademik", "Academic year")} <Optional />
               <input name="academicYear" placeholder="2026/2027" />
             </label>
             <label>
-              Catatan hak penggunaan <Optional />
+              {adminText(locale, "Catatan hak penggunaan", "Usage rights note")} <Optional />
               <input name="rightsNote" />
             </label>
           </div>
         </details>
 
         <details className="editor-options">
-          <summary>Versi Inggris <Optional /></summary>
+          <summary>{adminText(locale, "Versi English", "English version")} <Optional /></summary>
           <div className="editor-form-grid">
             <label>
               English title <Optional />

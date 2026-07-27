@@ -39,6 +39,14 @@ import {
   switchLocalePath,
 } from "../src/lib/i18n";
 import { getAdminCopy } from "../src/data/admin";
+import { adminQolCopy } from "../src/data/admin-qol";
+import {
+  DRAFT_RECOVERY_SCHEMA_VERSION,
+  DRAFT_RECOVERY_TTL,
+  recoveryKey,
+} from "../src/lib/admin/draft-recovery";
+import { diffEditorialSnapshots } from "../src/lib/content/editorial-diff";
+import { parseEditorialFilters } from "../src/lib/content/editorial-filters";
 import { aboutProfile } from "../src/data/about";
 import {
   featuredBooks,
@@ -736,4 +744,83 @@ test("agenda partitions upcoming and completed records and formats WIB", () => {
     "past-earlier",
   ]);
   assert.match(formatAgendaDate(items[0].startsAt, "id"), /10\.00/);
+});
+
+test("admin QOL dictionaries keep the same typed interface in both locales", () => {
+  assert.deepEqual(
+    Object.keys(adminQolCopy.id.common).sort(),
+    Object.keys(adminQolCopy.en.common).sort(),
+  );
+  assert.deepEqual(
+    Object.keys(adminQolCopy.id.editor).sort(),
+    Object.keys(adminQolCopy.en.editor).sort(),
+  );
+  assert.deepEqual(
+    Object.keys(adminQolCopy.id.search).sort(),
+    Object.keys(adminQolCopy.en.search).sort(),
+  );
+});
+
+test("editorial filters normalize invalid values and preserve valid workflow filters", () => {
+  assert.deepEqual(
+    parseEditorialFilters({
+      q: "  demokrasi  ",
+      status: "PUBLISHED",
+      changed: "true",
+      editor: "507f1f77bcf86cd799439011",
+      sort: "title",
+      page: "3",
+    }),
+    {
+      editorialError: undefined,
+      editorialNotice: undefined,
+      q: "demokrasi",
+      status: "PUBLISHED",
+      changed: true,
+      editor: "507f1f77bcf86cd799439011",
+      sort: "title",
+      page: 3,
+    },
+  );
+  const invalid = parseEditorialFilters({
+    status: "DELETED",
+    changed: "sometimes",
+    editor: "../../admin",
+    sort: "random",
+    page: "-2",
+  });
+  assert.equal(invalid.status, undefined);
+  assert.equal(invalid.changed, undefined);
+  assert.equal(invalid.editor, undefined);
+  assert.equal(invalid.sort, undefined);
+  assert.equal(invalid.page, 1);
+});
+
+test("local draft recovery uses user-scoped keys and a 24-hour expiry contract", () => {
+  assert.equal(
+    recoveryKey("user-1", "post", "record-2"),
+    "user-1:post:record-2",
+  );
+  assert.equal(DRAFT_RECOVERY_SCHEMA_VERSION, 1);
+  assert.equal(DRAFT_RECOVERY_TTL, 86_400_000);
+});
+
+test("editorial snapshot diff summarizes fields and block content without raw JSON", () => {
+  const result = diffEditorialSnapshots(
+    {
+      titleId: "Judul lama",
+      contentId: [{ type: "paragraph", text: "Paragraf lama" }],
+    },
+    {
+      titleId: "Judul baru",
+      contentId: [
+        { type: "paragraph", text: "Paragraf lama" },
+        { type: "quote", text: "Kutipan baru" },
+      ],
+    },
+  );
+  assert.equal(result.length, 2);
+  assert.equal(result[0]?.field, "contentId");
+  assert.match(result[0]?.after ?? "", /2 blok/);
+  assert.equal(result[1]?.field, "titleId");
 });
