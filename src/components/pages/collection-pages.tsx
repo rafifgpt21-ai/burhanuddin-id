@@ -399,7 +399,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <PageHero {...copy} showIndex={false} />
+      <PageHero {...copy} description="" showIndex={false} />
 
       <section className="page-content about-dossier">
         <div className="shell about-grid">
