@@ -5237,7 +5237,7 @@ body:has(.admin-workspace) .admin-workspace {
 }
 
 .brand-intro-logo {
-  width: clamp(18rem, 44vw, 43rem);
+  width: clamp(16rem, 36vw, 36rem);
   max-width: 100%;
   margin-block: clamp(1.5rem, 3.5vh, 2.75rem)
     clamp(1.1rem, 2.5vh, 1.75rem);
@@ -7168,7 +7168,7 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .brand-intro-logo {
-    width: min(100%, 28rem);
+    width: min(86%, 23rem);
     margin-block: clamp(1.1rem, 3.5vh, 1.8rem)
       clamp(0.9rem, 2vh, 1.25rem);
   }
