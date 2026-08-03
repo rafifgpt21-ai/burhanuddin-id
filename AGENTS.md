@@ -102,6 +102,15 @@ The site supports Indonesian and English through canonical locale-prefixed route
 - Design loading, empty, error, unauthorized, unavailable-file, and zero-result states alongside the success state.
 - Preserve filter state in URLs.
 
+## Hallmark design workflow
+
+- The repository-local Hallmark skill lives at `.agents/skills/hallmark/SKILL.md`. Use it for new pages, substantial visual redesigns, UI audits, and design-DNA studies from screenshots or URLs.
+- `hallmark audit` is read-only unless the user separately asks to implement its findings. `hallmark study` must diagnose the reference before any rebuild, following the skill's source and ownership safeguards.
+- `design.md`, the source-of-truth hierarchy, the Burhanuddin Muhtadi identity boundary, accessibility requirements, and the user's latest instructions override Hallmark defaults.
+- Treat narrow visual adjustments to an existing element as component-scope work. Make in-place edits within the established design system; do not rotate the page macrostructure, replace routes or copy, create Hallmark project-memory files, or export a new token system unless the user explicitly requests a comprehensive Hallmark redesign.
+- Before Hallmark-driven implementation, name the files expected to change. Never delete production files or remove multiple existing components without explicit user approval.
+- Verify Hallmark-driven UI changes at 320px, 375px, 414px, 768px, and a representative desktop width, in addition to the repository's accessibility and visual QA requirements.
+
 ## Accessibility
 
 Target WCAG 2.2 AA.

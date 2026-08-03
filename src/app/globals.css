@@ -7109,6 +7109,20 @@ body:has(.admin-workspace) .admin-workspace {
   .site-header .mobile-menu summary {
     padding-inline: 0.8rem;
   }
+
+  .site-header .language-options a,
+  .site-header .language-options strong {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .site-header .mobile-menu-panel a {
+    min-height: 48px;
+  }
+
+  .footer-links a {
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -7127,7 +7141,7 @@ body:has(.admin-workspace) .admin-workspace {
 
   .site-header .language-options a,
   .site-header .language-options strong {
-    min-width: 32px;
+    min-width: 44px;
     min-height: 44px;
   }
 
@@ -7738,8 +7752,23 @@ body:has(.admin-workspace) .admin-workspace {
   .content-note {
     flex-direction: column;
     margin-bottom: 1.5rem;
+    border-top: 2px solid var(--gold);
+    border-left: 0;
     padding: 0.9rem 1rem;
     line-height: 1.6;
+  }
+
+  .ledger-work a,
+  .ledger-work > div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    padding-top: 0.75rem;
+    padding-left: 0;
+  }
+
+  .research-ledger-section .ledger-work a,
+  .research-ledger-section .ledger-work > div {
+    border-top-color: rgba(255, 255, 255, 0.24);
   }
 
   .empty-state {
@@ -7811,7 +7840,7 @@ body:has(.admin-workspace) .admin-workspace {
   }
 
   .about-aside {
-    margin-top: 3.5rem;
+    margin-top: 0;
   }
 
   .about-photo {
