@@ -91,6 +91,9 @@ export async function HomePage({ locale }: { locale: Locale }) {
       <section className="editorial-hero" id="profil-akademik">
         <div className="shell editorial-hero-grid">
           <div className="editorial-hero-copy">
+            <p className="editorial-hero-motto" lang="id">
+              Mengabdi untuk Negeri
+            </p>
             <h1 className="editorial-academic-name">
               <span className="editorial-academic-prefix">
                 {content.academicPrefix}
