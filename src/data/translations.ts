@@ -57,7 +57,7 @@ const id = {
     academicName: {
       prefix: "Prof.",
       name: "Burhanuddin Muhtadi",
-      suffix: "M.A., Ph.D.",
+      suffix: "S.Th.I., M.A., Ph.D.",
     },
     lead:
       "Sebagai Profesor Ilmu Politik, ia menghubungkan riset empiris tentang pemilu, politik uang, dan opini publik dengan perdebatan demokrasi Indonesia.",
@@ -261,14 +261,14 @@ const id = {
   about: {
     metadataTitle: "Profil",
     metadataDescription:
-      "Profil lengkap Prof. Burhanuddin Muhtadi: biografi, pendidikan, karier, penghargaan, dan bidang kajian.",
+      "Profil lengkap Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.: biografi, pendidikan, karier, penghargaan, dan bidang kajian.",
     eyebrow: "Ilmuwan politik Indonesia",
     title: "Burhanuddin Muhtadi",
     description:
       "Biografi, perjalanan akademik, karier, dan penghargaan—ditelusuri dari Wikipedia dan diperbarui dengan sumber resmi.",
     index: "Dossier 1977—kini",
     indexLabel: "Ditinjau 23 Juli 2026",
-    photoAlt: "Potret resmi Prof. Burhanuddin Muhtadi",
+    photoAlt: "Potret resmi Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.",
     photoCaption:
       "Foto disediakan pemilik situs. Keterangan kredit akhir perlu dikonfirmasi sebelum peluncuran publik.",
     contentsLabel: "Jelajahi profil",
@@ -363,7 +363,7 @@ const en = {
     academicName: {
       prefix: "Prof.",
       name: "Burhanuddin Muhtadi",
-      suffix: "M.A., Ph.D.",
+      suffix: "S.Th.I., M.A., Ph.D.",
     },
     lead:
       "As a Professor of Political Science, he connects empirical research on elections, vote buying, and public opinion with debates on Indonesian democracy.",
@@ -566,14 +566,14 @@ const en = {
   about: {
     metadataTitle: "About",
     metadataDescription:
-      "A complete profile of Prof. Burhanuddin Muhtadi: biography, education, career, honours, and research areas.",
+      "A complete profile of Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.: biography, education, career, honours, and research areas.",
     eyebrow: "Indonesian political scientist",
     title: "Burhanuddin Muhtadi",
     description:
       "Biography, academic journey, career, and honours—traced from Wikipedia and updated with official sources.",
     index: "Dossier 1977—present",
     indexLabel: "Reviewed 23 July 2026",
-    photoAlt: "Official portrait of Prof. Burhanuddin Muhtadi",
+    photoAlt: "Official portrait of Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.",
     photoCaption:
       "Photo supplied by the site owner. Final credit wording must be confirmed before public launch.",
     contentsLabel: "Explore the profile",

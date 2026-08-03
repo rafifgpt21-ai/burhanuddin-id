@@ -234,7 +234,7 @@ test("homepage English fields may all be empty", () => {
     continueAction: "Lanjutkan",
     academicPrefix: "Prof.",
     academicName: "Burhanuddin Muhtadi",
-    academicSuffix: "M.A., Ph.D.",
+    academicSuffix: "S.Th.I., M.A., Ph.D.",
     lead: "Profil akademik Indonesia yang cukup panjang untuk kebutuhan validasi.",
     profileAction: "Lihat profil",
     portraitCaption: "Profesor Ilmu Politik",

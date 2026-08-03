@@ -365,7 +365,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
     "@type": "Person",
     name: "Burhanuddin Muhtadi",
     honorificPrefix: "Prof.",
-    honorificSuffix: "M.A., Ph.D.",
+    honorificSuffix: "S.Th.I., M.A., Ph.D.",
     birthDate: "1977-12-15",
     birthPlace: {
       "@type": "Place",
@@ -417,7 +417,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
                   BM
                 </span>
               </div>
-              <figcaption className="about-caption">{copy.photoCaption}</figcaption>
             </figure>
 
             <dl className="about-facts">

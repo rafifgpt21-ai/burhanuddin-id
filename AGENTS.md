@@ -6,7 +6,7 @@ These instructions apply to the entire repository. Read `design.md` before plann
 
 ## Project purpose
 
-This repository will contain the official academic website for **Prof. Burhanuddin Muhtadi, M.A., Ph.D.** Its primary product goals are:
+This repository will contain the official academic website for **Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.** Its primary product goals are:
 
 1. Make study materials easy for students to find and open.
 2. Let the lecturer/editor publish simple posts without developer help.

@@ -43,12 +43,13 @@
 - On 27 July 2026, the owner replaced the generic Homepage collection list with a dedicated homepage control center. It presents the public section order as an editorial map, separates manual and automatic sources, keeps English fields collapsed and optional, and manages the three selected non-book publications from the same workspace.
 - On 27 July 2026, the owner changed the homepage book group from the three latest eligible books to three explicitly selected and ordered published books. Only books with rights-cleared covers are eligible; the latest three eligible books remain a safe fallback until all three editorial slots are filled.
 - On 27 July 2026, the owner approved an editorial quality-of-life pass for the private workspace. It adds bilingual admin copy, global content search, accurate work queues, persistent collection filters, field-level validation, publishing-readiness rails, draft/public comparison, richer revision context, explicit optimistic concurrency, and 24-hour device-local draft recovery while retaining explicit server saves.
+- On 3 August 2026, the owner confirmed the complete academic title as `Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.`. Public elements that present the academic title use this complete form, including the homepage name lockup.
 - On 20 July 2026, the owner required every public publication record to have an outbound source. The seed upserts the canonical CV set without deleting manually authored records, prefers DOI URLs, then publisher or institutional-repository records, and uses an official project page for forthcoming work without a dedicated landing page.
 - The approved foundation is Next.js App Router, TypeScript, Tailwind CSS, MongoDB through Prisma, and UploadThing for uploads.
 - Prisma is pinned to the latest MongoDB-compatible 6.19 release until Prisma 7 adds MongoDB support.
 - UploadThing routes remain closed until private admin authentication and server authorization are implemented.
 - Prepared from the contents of `.material` and a selective review of `.reference-project/brh-co-id-master`.
-- The website subject is **Prof. Burhanuddin Muhtadi, M.A., Ph.D.**
+- The website subject is **Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.**
 - The reference project is for a different person, Budi Rahman Hakim. It is a UX and architecture reference only; none of its biography, research themes, books, quotations, images, or branding may be reused as Burhanuddin Muhtadi content.
 
 ## Product summary
@@ -221,7 +222,7 @@ The first viewport is a quiet identity title page rather than a portrait splash 
    - Use the cool-paper, navy, blue-rule, and restrained-gold design system. The folio anchor is the only action; do not add search, portraiture, or decorative motion.
 2. **Editorial hero**
    - Approved portrait on the left and an academic name lockup on the right at desktop widths; copy precedes the portrait on mobile.
-   - The name lockup uses `Prof.` above, `Burhanuddin Muhtadi` as the primary display line, and `M.A., Ph.D.` below in smaller type. It does not repeat a profession/role eyebrow above the academic title.
+   - The name lockup uses `Prof.` above, `Burhanuddin Muhtadi` as the primary display line, and `S.Th.I., M.A., Ph.D.` below in smaller type. It does not repeat a profession/role eyebrow above the academic title.
    - Sole action: `Lihat profil lengkap / View full profile`.
    - Three current roles appear as source-backed text without affiliation logos on tablet and desktop. At 720px and below the role strip is omitted; the same information remains available on the full Profile page.
 3. **Selected publications**

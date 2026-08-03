@@ -60,8 +60,8 @@ export function getHomepageFallback(): HomepageInput {
     en: localePayload("en"),
     logoUrl: brandLogoSource,
     portraitUrl: portraitSource,
-    portraitAltId: "Potret resmi Prof. Burhanuddin Muhtadi",
-    portraitAltEn: "Official portrait of Prof. Burhanuddin Muhtadi",
+    portraitAltId: "Potret resmi Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.",
+    portraitAltEn: "Official portrait of Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D.",
     mediaRightsNote:
       "Logo dan potret disediakan serta disetujui oleh pemilik situs.",
     research: researchClusters.id.map((cluster, index) => ({

@@ -693,7 +693,7 @@ export const aboutProfile: Record<
 > = {
   id: {
     lead:
-      "Prof. Burhanuddin Muhtadi, M.A., Ph.D. adalah ilmuwan politik Indonesia yang memadukan riset akademik, pengajaran, dan pembacaan opini publik.",
+      "Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D. adalah ilmuwan politik Indonesia yang memadukan riset akademik, pengajaran, dan pembacaan opini publik.",
     biography: [
       "Lahir di Rembang, Jawa Tengah, pada 15 Desember 1977, ia mulai akrab dengan dunia tulis-menulis sejak sekolah dasar. Setelah menyelesaikan pendidikan menengah di Rembang dan Surakarta, ia pindah ke Jakarta pada 1996 untuk menempuh studi di IAIN Syarif Hidayatullah, yang kemudian menjadi UIN.",
       "Artikel media pertamanya, “Keterbukaan Pasca Insiden 27 Juli”, terbit di Harian Terbit. Sepanjang 1996–2004, ratusan artikelnya dalam bahasa Indonesia dan Inggris dimuat media lokal maupun nasional. Jalur kepenulisan itu berkembang menjadi kerja ilmiah mengenai pemilu, perilaku memilih, politik uang, demokrasi, opini publik, politik Islam, polarisasi, dan misinformasi.",
@@ -720,7 +720,7 @@ export const aboutProfile: Record<
   },
   en: {
     lead:
-      "Prof. Burhanuddin Muhtadi, M.A., Ph.D. is an Indonesian political scientist whose work connects academic research, teaching, and the interpretation of public opinion.",
+      "Prof. Burhanuddin Muhtadi, S.Th.I., M.A., Ph.D. is an Indonesian political scientist whose work connects academic research, teaching, and the interpretation of public opinion.",
     biography: [
       "Born in Rembang, Central Java, on 15 December 1977, he became interested in writing while still at primary school. After secondary education in Rembang and Surakarta, he moved to Jakarta in 1996 to study at IAIN Syarif Hidayatullah, now UIN.",
       "His first media article, “Keterbukaan Pasca Insiden 27 Juli”, was published by Harian Terbit. Between 1996 and 2004, hundreds of his Indonesian- and English-language articles appeared in local and national media. That writing practice developed into research on elections, voting behaviour, vote buying, democracy, public opinion, political Islam, polarisation, and misinformation.",
