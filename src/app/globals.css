@@ -5227,7 +5227,7 @@ body:has(.admin-workspace) .admin-workspace {
 }
 
 .brand-intro-logo {
-  width: clamp(16rem, 36vw, 36rem);
+  width: clamp(15rem, 29vw, 29rem);
   max-width: 100%;
   margin-block: clamp(1.5rem, 3.5vh, 2.75rem)
     clamp(1.1rem, 2.5vh, 1.75rem);
